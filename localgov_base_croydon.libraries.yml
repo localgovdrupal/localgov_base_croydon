@@ -1,0 +1,4 @@
+global:
+  css:
+    base:
+      css/base/variables.css: {}
