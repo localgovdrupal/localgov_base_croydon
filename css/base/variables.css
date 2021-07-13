@@ -1,4 +1,4 @@
-/* 
+/*
   @file This is our file to create the variables that will be used across the theme.
 
   To override these in your sub-theme, just create a new variables.css file and
@@ -10,8 +10,7 @@
   --width-large: 60rem;
   --width-medium: 48rem;
   --width-small: 30rem;
-  --width-container: var(--width-extra-large); 
-  --width-logo: 10rem;
+  --width-container: var(--width-extra-large);
   --spacing-smallest: 0.25rem;
   --spacing-smaller: 0.5rem;
   --spacing-small: 0.75rem;
@@ -25,28 +24,34 @@
   --vertical-rhythm-spacing: calc(var(--line-height) * 1rem);
 
   /* Colours */
-  /* 
+  /*
     Colours Defined
     In this section, we define the colours available in our theme.
     We should not refer to these directly in our CSS however. Instead,
     we use the names at our "Colours Applied" section.
   */
   --color-accent: #880088;
-  --color-green: #048a04;
-  --color-red: #e4251b;
-  --color-orange: #ed7522;
-  --color-yellow: #ffdd00;
-  --color-blue: #297bbb;
-  /* 
+  --color-green: #77bb55;
+  --color-red: #ae1100;
+  --color-orange: #ff5500;
+  --color-yellow: #ffbb00;
+  --color-blue: #0059a4;
+  --color-teal: #006263;
+  --color-indigo: #540055;
+  --color-violet: #F0E6ec;
+  --color-pink: #AD52AD;
+  --color-gray: #DBDFE3;
+
+  /*
     Grey Scale
-    In this section, we define our greys; let's not have 50 shades 
+    In this section, we define our greys; let's not have 50 shades
   */
   --color-white: #ffffff;
-  --color-grey-light: #f3f2f1;
+  --color-grey-light: #ededed;
   --color-grey-medium: #b1b4b6;
   --color-grey-dark: #505a5f;
-  --color-black: #0b0c0c;
-  /* 
+  --color-black: #121212;
+  /*
     Colours Applied
     In this section, we "apply" our colours.
   */
@@ -55,34 +60,44 @@
   --color-danger: var(--color-red);
   --color-warning: var(--color-orange);
   --color-link: var(--color-accent);
+  --color-link-focus: var(--color-black);
   --color-focus: var(--color-yellow);
 
   /* Fonts */
-  /* 
+  /*
     We choose basic fonts that most people have in browser cache from visiting other websites.
     This will help with page speed, rather than calling fonts from Google Fonts or somewhere.
   */
   --font-primary: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   --font-secondary: 'Fiendstar W01 Bold', 'Source Sans Pro', Arial, Helvetica, sans-serif;
-  /* 
+  /*
     Font sizes based on vertical rhythm of:
     - Font size: 16px;
     - Scale factor: 1.303
     - Details: https://www.gridlover.net/try
   */
+
   --font-size: 1rem;
-  --font-size-smallest: calc(var(--font-size) * .3);
-  --font-size-smaller: calc(var(--font-size) * .5);
-  --font-size-small: calc(var(--font-size) * .75);
-  --font-size-medium: calc(var(--font-size) * 1);
-  --font-size-large: calc(var(--font-size) * 1.3125);
-  --font-size-larger: calc(var(--font-size) * 1.6875);
-  --font-size-largest: calc(var(--font-size) * 2.875);
+  --font-size-smallest: calc(var(--font-size) * .875);
+  --font-size-smaller: calc(var(--font-size) * .9375);
+  --font-size-small: calc(var(--font-size) * 1.063);
+  --font-size-medium: calc(var(--font-size) * 1.125);
+  --font-size-large: calc(var(--font-size) * 1.1875);
+  --font-size-larger: calc(var(--font-size) * 1.25);
+  --font-size-largest: calc(var(--font-size) * 1.375);
+
+  --font-size-h1: calc(var(--font-size) * 2.375);
+  --font-size-h2: calc(var(--font-size) * 2);
+  --font-size-h3: calc(var(--font-size) * 1.625);
+  --font-size-h4: calc(var(--font-size) * 1.5);
+  --font-size-h5: var(--font-size-largest);
+  --font-size-h6: var(--font-size-larger);
 
   /* Borders */
   --border-width: 1px;
   --border-width-large: 5px;
   --border-color: var(--color-grey-light);
+  --border-color-dark: var(--color-grey-dark);
   --border-color-alert: var(--color-black);
   --border-style: solid;
   --border-radius: var(--spacing-smallest);
@@ -91,12 +106,9 @@
 
   /* Animation */
   --transition-time: 0.3s;
-
-  /* Content */
-  --breadcrumbs-divider: "»";
 }
 
-/* 
+/*
   Applying Variables
 
   By taking this approach of setting variables above, and then applying them here
@@ -105,11 +117,20 @@
   override the defined variables above instead).
 */
 :root {
-  --color-section-bg: var(--color-accent);
 
+  /* Breadcrumbs */
+  --breadcrumbs-background-color: var(--color-white);
+  --breadcrumbs-border: var(--border);
+  --breadcrumbs-divider: "›";
+  --breadcrumbs-font-size: var(--font-size-smaller);
+  --breadcrumbs-padding-vertical: var(--spacing-small);
+  --breadcrumbs-padding-horizontal: 0;
+  --breadcrumbs-link-color: var(--color-accent);
+  --breadcrumbs-spacing-bottom: 3rem;
+  
   /* Header Items */
   --section-spacing-vertical-header: var(--spacing);
-  --color-section-header-bg: var(--color-section-bg);
+  --color-section-header-bg: var(--color-accent);
   --header-link-color: var(--color-white);
   --header-services-button-border: var(--border);
   --header-services-button-border-color: var(--color-white);
@@ -117,6 +138,7 @@
   --header-services-button-bg-color: transparent;
   --header-services-button-bg-color-hover: var(--color-accent);
   --header-services-button-color-hover: var(--color-white);
+  --header-logo-width: 10rem;
 
   /* Secondary Menu */
   --secondary-menu-bg-color: var(--color-white);
@@ -127,13 +149,17 @@
   --secondary-menu-column-count: 3;
 
   /* Footer Items */
-  --color-section-pre-footer-bg: var(--color-grey-dark);
+  --color-section-pre-footer-bg: var(--color-black);
   --color-section-footer-bg: var(--color-white);
-  --color-section-post-footer-bg: var(--color-white);
+  --color-section-post-footer-bg: var(--color-light-grey);
   --section-spacing-vertical-pre-footer: var(--spacing-largest);
   --section-spacing-vertical-footer: var(--spacing);
   --section-spacing-vertical-post-footer: var(--spacing);
-  --section-spacing-vertical-breadcrumbs: var(--vertical-rhythm-spacing);
+
+  /* Page Title */
+  --page-title-border: var(--border);
+  --page-title-width: 100%;
+  --page-title-lede-font-size: var(--font-size-h3);
 
   /* Input Elements */
   --input-padding-vertical: var(--spacing);
@@ -147,7 +173,7 @@
   --input-bg-color: var(--color-white);
   --input-bg-color-hover: var(--color-grey-light);
   --input-border-radius: 0;
-  
+
   /* Button Elements (and button-styled links) */
   --button-padding-vertical: var(--spacing);
   --button-padding-horizontal: var(--spacing);
@@ -158,6 +184,8 @@
   --button-border-color: var(--color-accent);
   --button-bg-color: var(--color-accent);
   --button-bg-color-hover: var(--color-white);
+  --button-font-family: var(--font-primary);
+  --button-border-radius: 0;
 
   /* Sidebar Items */
   --sidebar-exposed-form-bg-color: var(--color-grey-light);
@@ -266,4 +294,16 @@
   --banner-content-bg-color: var(--color-accent);
   --banner-content-text-color: var(--color-white);
   --banner-title-size: var(--font-size-larger);
+
+  /* Teaser View Mode */
+  --teaser-image-with: 33%;
+  --teaser-featured-content-padding: var(--spacing-larger);
+  --teaser-featured-height: 100%;
+  --teaser-featured-border: var(--border);
+  --teaser-featured-border-color: var(--border-color-dark);
+
+
+  /* News */
+  --newsroom-featured-bottom-space: var(--spacing-largest);
+  --news-category-spacing: var(--spacing);
 }

@@ -2,3 +2,16 @@ global:
   css:
     base:
       css/base/variables.css: {}
+  js:
+    js/feedback.js: {}
+
+alert:
+  css:
+    theme: 
+      css/components/alert.css: {}
+
+footer:
+  css:
+    theme:
+      css/components/footer.css: {}
+
