@@ -1,0 +1,20 @@
+{
+    "name": "Croydon Council",
+    "short_name": "Croydon Council",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "android-chrome-192x192.png?v=rMqRMOG9oX",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "android-chrome-512x512.png?v=rMqRMOG9oX",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#880088",
+    "background_color": "#880088",
+    "display": "standalone"
+}

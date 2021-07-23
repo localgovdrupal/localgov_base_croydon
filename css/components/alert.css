@@ -1,38 +1,54 @@
-.localgov-alert-banner {
-  outline: 6px solid lime;
+/**
+* @file
+* This file is an override of alert.scss in localgov_base.
+*/
+.localgov-alert-banner .localgov-alert-banner__inner {
+  padding: 1rem;
+  margin: 0;
 }
 
-/* base styling */
-
-h1, h2, h3, h4, h5, h6, .heading {
-  line-height: 3.5rem;
-  padding-right: 1.5rem;
+.localgov-alert-banner .localgov-alert-banner__inner p {
+  margin: 0;
 }
 
-a:hover,
-a:focus {
-  color: var(--color-link-focus);
-  background-color: var(--color-focus);
+.localgov-alert-banner .localgov-alert-banner__inner a:hover,
+.localgov-alert-banner .localgov-alert-banner__inner a:focus {
+  background: var(--color-focus-invert);
+  color: var(--color-link-focus-invert);
 }
 
-
-
-@media screen and (min-width: 62rem) {
-  h1 {
-    font-size: calc(var(--font-size) * 2.875);
-  }
-
-  h2 {
-    font-size: calc(var(--font-size) * 2.125);
-  }
-
-  h3 {
-    font-size: calc(var(--font-size) * 1.75);
-  }
-
-  p,
-  ul,
-  ol {
-    font-size: calc(var(--font-size) * 1.1875);
-  }
+.localgov-alert-banner h2 {
+  font-size: var(--font-size);
+  line-height: 1rem;
 }
+
+.localgov-alert-banner .localgov-alert-banner__title,
+.localgov-alert-banner .localgov-alert-banner__body,
+.localgov-alert-banner .localgov-alert-banner--content-link {
+  font-size: var(--font-size-small);
+  position: relative;
+  display: inline-block;
+}
+
+.localgov-alert-banner__dismiss button {
+  border: none;
+}
+
+.localgov-alert-banner .localgov-alert-banner__title {
+  padding-left: 40px;
+  padding-right: 10px;
+}
+
+.localgov-alert-banner .localgov-alert-banner__title:before {
+position: absolute;
+            left: 0;
+            font-size: var(--font-size-h2);
+            font-family: 'Font Awesome 5 Pro';
+            font-weight: bold; 
+            content: '\f06a';
+            margin: 0;
+            padding: 0;
+
+            top: -11px;
+          }
+

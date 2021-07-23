@@ -6,6 +6,9 @@ base theme: "localgov_base"
 libraries:
   - localgov_base_croydon/global
   - localgov_base_croydon/alert
+  - localgov_base_croydon/base
+  - localgov_base_croydon/footer
+  - localgov_base_croydon/header
 
 regions:
   tabs: "Tabs"

@@ -1,0 +1,234 @@
+.paragraph--type--localgov-contact {
+  background: $gray;
+  border-left: 0.3125rem solid $primary;
+
+  @include rem(margin-top, 20);
+  @include rem(padding, 20);
+
+  h3 {
+    color: $primary;
+  }
+
+  .contact-opentimes {
+    #field--localgov_contact_office_hours {
+      > div {
+        &:first-child {
+          font-size: $h6-font-size;
+          font-weight: $font-bold;
+        }
+      }
+    }
+
+    .office-hours {
+      @include rem(margin-top, 10);
+
+      &__item {
+        @include rem(margin-bottom, 10);
+
+        span {
+          display: block;
+          width: 100%;
+        }
+
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .contact-phone {
+    a {
+      color: $blue;
+      font-weight: $font-bold;
+    }
+
+    > div {
+      &:before {
+        font-family: $font-family-icons;
+        font-weight: $fa-font-weight;
+        font-size: $font-size-med;
+        display: inline-block;
+        text-align: left;
+
+        @include rem(min-width, 28);
+      }
+    }
+
+    #field--localgov_contact_email {
+      &:before {
+        content: $fa-envelope;
+      }
+    }
+
+    #field--localgov_contact_phone {
+      &:before {
+        content: $fa-phone;
+      }
+    }
+
+    #field--localgov_contact_mobile {
+      &:before {
+        content: $fa-mobile;
+      }
+    }
+
+    #field--localgov_contact_out_of_hours {
+      &:before {
+        content: $fa-moon;
+      }
+    }
+
+    #field--localgov_contact_minicom {
+      &:before {
+        content: $fa-keyboard;
+      }
+    }
+  }
+
+  .contact-social {
+    > div {
+      display: inline-block;
+      width: 100%;
+
+      @include media-breakpoint-up(md) {
+        width: auto;
+      }
+
+      a {
+        color: $blue;
+
+        @include rem(margin-right, 10);
+
+        &:before {
+          color: $carbon;
+          font-weight: $fa-font-weight;
+          font-size: $font-size-med;
+          display: inline-block;
+          text-align: left;
+
+          @include rem(margin-right, 10);
+        }
+
+        &.external-link {
+          &:after {
+            display: none; // remove generic external link icon
+          }
+        }
+      }
+
+      &.contact-facebook {
+        a {
+          &:before {
+            font-family: $font-family-brands;
+            content: $fa-facebook;
+          }
+        }
+      }
+
+      &.contact-twitter {
+        a {
+          &:before {
+            font-family: $font-family-brands;
+            content: $fa-twitter;
+          }
+        }
+      }
+
+      &.contact-instagram {
+        a {
+          &:before {
+            font-family: $font-family-brands;
+            content: $fa-instagram;
+          }
+        }
+      }
+
+      &.contact-othersocial {
+        a {
+          &:before {
+            font-family: $font-family-icons;
+            content: $fa-share;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-urls {
+    border-bottom: 0.0625rem solid $gray-mid;
+
+    @include rem(padding-bottom, 20);
+    @include rem(margin-bottom, 20);
+
+    > div {
+      display: inline-block;
+    }
+
+    a {
+      color: $blue;
+      font-weight: $font-bold !important;
+
+      &:before {
+        font-family: $font-family-icons;
+        font-weight: $fa-font-weight;
+        font-size: $font-size-ex-ex-sm;
+        content: $fa-chevron-right;
+        color: $primary;
+        display: inline-block; // inline-block prevents icon from wrapping to newline and removes erroneous underline
+
+        @include rem(padding-right, 5);
+      }
+
+      &.external-link {
+        &:after {
+          display: none; // remove generic external link icon
+        }
+      }
+    }
+
+    #field--localgov_contact_other_url {
+      @include rem(margin-left, 20);
+    }
+  }
+
+  .geolocation-map-wrapper {
+    width: 100%;
+
+    @include rem(margin-top, 20);
+  }
+
+  .contact-address {
+    width: 100%;
+    background: $white;
+
+    @include rem(padding, 20);
+
+    > div {
+      &:before {
+        font-family: $font-family-icons;
+        content: $fa-map-marker;
+        font-weight: $fa-font-weight;
+        font-size: $font-size-ex-lg;
+      }
+    }
+
+    p {
+      position: relative;
+      padding-right: 0;
+      margin-bottom: 0;
+
+      @include rem(padding-left, 25);
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-family: $font-family-icons;
+        content: $fa-map-marker;
+        font-weight: $fa-font-weight;
+        font-size: $font-size-ex-lg;
+      }
+    }
+  }
+}

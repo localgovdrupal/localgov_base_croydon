@@ -1,0 +1,14 @@
+.pull-quote {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+
+  &.bg-purple-tint {
+    border-left: 0.3125rem solid $primary;
+  }
+
+  &.bg-light {
+    border-left: 0.3125rem solid $primary;
+  }
+}

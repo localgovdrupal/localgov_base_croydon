@@ -1,17 +1,28 @@
 global:
   css:
     base:
-      css/base/variables.css: {}
+      css/base/variables.css: {weight:200}
   js:
     js/feedback.js: {}
+
+base:
+  css:
+    theme: 
+      css/components/base.css: {weight:200}
+      assets/css/lib/main.css: {weight:200}
+
+header:
+  css:
+    theme: 
+      css/components/header.css: {weight:200}
 
 alert:
   css:
     theme: 
-      css/components/alert.css: {}
+      css/components/alert.css: {weight:200}
 
 footer:
   css:
     theme:
-      css/components/footer.css: {}
+      css/components/footer.css: {weight:200}
 

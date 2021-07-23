@@ -1,0 +1,51 @@
+{
+  "name": "localgov_base_croydon",
+  "version": "1.0.0",
+  "description": "NPM scripts for the localgov_base theme.",
+  "main": "index.js",
+  "scripts": {
+    "start": "stylelint \"**/*.css\" --fix",
+    "build": "NODE_ENV=production gulp dev",
+    "dev": "NODE_ENV=development gulp dev"
+  },
+  "author": "Mark Conroy",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "4.3.1",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.0"
+  },
+  "devDependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0",
+    "browser-sync": "^2.26.13",
+    "cssnano": "^4.1.10",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-changed": "^3.2.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulp-version-append": "^0.2.0",
+    "npm-install-all": "^1.1.21",
+    "postcss-reporter": "^6.0.1",
+    "postcss-scss": "^2.1.1",
+    "ruby": "^0.6.1",
+    "sass-loader": "^8.0.2"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}

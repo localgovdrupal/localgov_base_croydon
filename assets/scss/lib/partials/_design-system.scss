@@ -1,0 +1,381 @@
+/**
+ * DESIGN SYSTEM SPECIFIC STYLES
+ *
+ * There are two menus:
+ * - Primary: Responsive menu.
+ * - Secondary: Vertical menu appearing in the sidebar.
+ *
+ * @see block--system-menu-block--design-system.html.twig
+ * @see menu--design-system.html.twig
+ */
+
+
+//Space under breadcrumbs
+.node--design_system_page #block-breadcrumbs div:first-child {
+  margin-bottom: 1.25rem !important;
+}
+
+//Alpha, beta, live tags
+.ds-status {
+  font-size: 1.0625rem;
+}
+
+.ds-status span {
+  color: $white;
+}
+
+// Container for boxed off examples in the content
+
+// Pattern examples boxed off
+.pattern-example {
+  border: 0.0625rem solid $yellow;
+}
+
+// Prism code snippets wrapper
+.prism-wrapper {
+  display: -ms-grid;
+  display: grid;
+  max-width: 100%;
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+// Prism code snippets remove margins above and below
+pre[class*="language-"] {
+  margin: 0;
+  border-radius: 0;
+}
+
+// Prevent design system menu styles overriding links in menu demos (simple menu etc)
+main .sidebar a {
+  color: $primary !important;
+  text-decoration: underline !important;
+  pointer-events: auto !important;
+  padding: 0 !important;
+}
+
+/**
+ * Default display rule for Primary menu:
+ * - Has active trail?  Hide **top** level items not in the active trail.
+ * - Has active trail?  Hide the **link text** of the top level item in the active trail.
+ * - Has no active trail?  Display all top level items.  The menu template does
+ *   not render any child items in this case anyway.
+ *
+ * Display rules for wider display:
+ * - Only display the top level menu items.  Hide their children.
+ * - Hide the hamburger menu.
+ */
+.design-system-menu--primary > .navbar-nav.has-active-trail > .nav-item.is-not-active-trail,
+.design-system-menu--primary > .navbar-nav.has-active-trail > .nav-item.is-active-trail > .nav-link {
+  display: none;
+
+  @include media-breakpoint-up(md) {
+    display: unset;
+  }
+}
+
+.design-system-menu--primary > .navbar-nav > .nav-item > ul {
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+.design-system-menu--primary > .navbar-controls {
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+/**
+ * The secondary menu does not display top level menu items not in the active
+ * trail.  It also does not display the hamburger.
+ */
+.design-system-menu--secondary > .navbar-nav > .nav-item.is-not-active-trail,
+.design-system-menu--secondary > .navbar-controls {
+  display: none;
+}
+
+// Uncollapse.  This is not a responsive menu. 
+.design-system-menu--secondary > .navbar-nav {
+  display: unset;
+}
+
+//DESIGN SYSTEM PRIMARY NAVIGATION TOP
+
+//Design system primary menu container
+.design-system-menu--primary {
+  padding-top: 0;
+  padding-bottom: 3rem;
+  width: 100%;
+}
+
+//Design system primary menu ul
+.design-system-menu--primary ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  background: $gray-tint;
+}
+
+//Design system primary  - Nav links
+.design-system-menu--primary .nav-item .nav-link {
+  font-family: "Fiendstar W01 Bold", "Source Sans Pro", Arial, Helvetica, sans-serif;
+  white-space: nowrap;
+  color: $primary;
+  font-size: 1.1875rem;
+  font-weight: 400;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+}
+
+//Design system primary  - Nav links hover
+.design-system-menu--primary .nav-item .nav-link:hover {
+  color: $primary;
+  text-decoration: underline;
+  outline: none !important;
+  background: none !important;
+}
+
+//Design system primary  - Nav links active
+.design-system-menu--primary .nav-item.is-active-trail > .nav-link {
+  background: none;
+  outline: none;
+  border-bottom: 0.1875rem solid $primary;
+  color: $primary;
+}
+
+//DESIGN SYSTEM SECONDARY NAVIGATION (SIDEBAR)
+
+//Design system secondary menu container (sidebar)
+.design-system-menu--secondary {
+  padding: 0 !important;
+}
+
+//Design system secondary  - Sub menu main title
+.sidebar .ds-sidebar-heading {
+  font-size: 1.625rem;
+  background: none;
+  outline: 0;
+  font-weight: 700;
+  text-decoration: none;
+  color: $secondary;
+}
+
+//DESIGN SYSTEM MENU
+
+//Out of the box drupal class for active page
+.node--design_system_page .sidebar .is-active {
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  pointer-events: none !important;
+  color: $primary;
+  background: $gray-tint;
+  outline: 0;
+  border-left: 0.1875rem solid $primary;
+  margin: 0.3125rem 0 0.625rem 0;
+  padding: 0.5rem 0.5rem 0.5rem 0.625rem;
+}
+//Menu sections title
+.node--design_system_page .sidebar ul li span {
+  display: block;
+  font-size: 1.25rem !important;
+  margin: 1.875rem 0 0.9375rem 0;
+  font-family: $font-family-secondary;
+  font-weight: 700;
+  line-height: 1.1;
+  color: $secondary !important;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+//Remove default list styles
+.node--design_system_page .sidebar h3 {
+  margin-bottom: 1.5rem;
+}
+
+//Remove default list styles
+.node--design_system_page .sidebar ul li {
+  list-style-type: none;
+}
+
+//Remove default list padding
+.node--design_system_page .sidebar ul {
+  padding: 0;
+}
+
+//Child pages
+.node--design_system_page .sidebar ul ul li a {
+  pointer-events: auto;
+  font-weight: 400;
+  color: $primary;
+  text-decoration: none;
+  font-size: 1.063rem;
+  padding: 0;
+  margin-bottom: 0.25rem;
+}
+
+//Child pages
+.node--design_system_page .sidebar ul ul li a:hover {
+  text-decoration: underline;
+  color: $primary;
+  background: none;
+}
+
+//Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  //DESIGN SYSTEM PRIMARY NAVIGATION TOP
+
+  //Design system primary  - Nav links
+  .design-system-menu--primary .nav-item .nav-link {
+    font-size: 1.125rem;
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  //DESIGN SYSTEM PRIMARY NAVIGATION TOP
+
+  //Design system mobile menu  - Mobile menu wrapper
+  .navbar-controls {
+    display: flex;
+    position: relative;
+    background: $primary;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+
+  //Design system mobile menu  - Toggler
+  .navbar-controls .navbar-toggler {
+    margin-left: auto;
+    color: #ffffff;
+    border-color: #ffffff;
+    width: 75px;
+    white-space: nowrap;
+    height: 35px;
+    border: none;
+    padding: 0.25rem 0;
+    text-align: right;
+  }
+
+  //Design system mobile menu  - Reset burger menu icon
+  .navbar-controls .navbar-toggler-icon {
+    float: right;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    background-image: none !important;
+  }
+
+  //Design system mobile menu  - Change burger menu icon to caret
+  .navbar-controls .navbar-toggler-icon::before {
+    font-family: $font-family-icons;
+    font-weight: 900;
+    content: "\f0d7";
+  }
+
+  //Design system mobile menu  - Collapsed caret icon
+  .navbar-controls .navbar-toggler .navbar-toggler-icon {
+    transform-origin: 50% 50%;
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    -webkit-transition: -webkit-transform 150ms ease;
+    transition: -webkit-transform 150ms ease;
+    transition: transform 150ms ease;
+    transition: transform 150ms ease, -webkit-transform 150ms ease;
+  }
+
+  //Design system mobile menu  - Expanded caret icon
+  .navbar-controls .navbar-toggler.collapsed .navbar-toggler-icon {
+    transform-origin: 50% 50%;
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+    -webkit-transition: -webkit-transform 150ms ease;
+    transition: -webkit-transform 150ms ease;
+    transition: transform 150ms ease;
+    transition: transform 150ms ease, -webkit-transform 150ms ease;
+  }
+
+  //Design system mobile menu  - Toggler 'menu' label
+  .navbar-controls .navbar-toggler::before {
+    display: inline-block;
+    content: "Menu";
+    font-size: 1rem;
+    text-decoration: underline;
+    margin-right: 0;
+  }
+
+  //Design system mobile menu  - Mobile menu headling text
+  .navbar-controls .navbar-brand {
+    font-family: $font-family-secondary;
+    display: flex;
+    align-self: center;
+    color: #ffffff;
+    pointer-events: auto;
+    font-size: 1.375rem;
+    text-decoration: underline;
+    white-space: normal;
+    line-height: 1.4rem;
+  }
+
+  //Design system mobile menu  - Container
+  #design-system {
+    border: 0.625rem solid $primary;
+    border-top: none;
+    padding-bottom: 0.625rem;
+  }
+
+  //Design system mobile menu  - Make nested menu fill container
+  #design-system li {
+    width: 100%;
+  }
+
+  //White background on design and content guidelines mobile menu
+  .design-system-menu--primary ul {
+    background: $white;
+  }
+
+  //Design system mobile menu  - Border bottom on active pages
+  .design-system-menu--primary .nav-item.is-active-trail > .nav-link {
+    border-left: 0.1875rem solid $primary;
+    border-bottom: none;
+    padding-left: 0.5rem;
+  }
+
+  //Design system mobile menu  - Fix horizontal spacing
+  .design-system-menu--primary .nav-item .nav-link {
+    white-space: normal;
+    padding: 0.5rem 0;
+    margin: 0 0.625rem;
+    font-size: 1.0625rem;
+  }
+
+  //Design system mobile menu  - Sub menu titles
+  #design-system ul li span {
+    font-family: $font-family-secondary;
+    font-size: 1.1875rem;
+    font-weight: 700;
+    color: $secondary;
+    text-decoration: none;
+    pointer-events: none;
+    margin-top: 0.625rem;
+    border-bottom: none;
+    border-left: none;
+    padding-left: 0;
+  }
+
+  //Alpha, beta, live tags
+  .ds-status {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  //Design system primary  - Mobile menu text
+  .navbar-controls .navbar-brand {
+    font-size: 1.125rem;
+  }
+}

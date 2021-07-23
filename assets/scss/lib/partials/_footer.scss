@@ -1,0 +1,26 @@
+/**
+* @file
+* This file is an override of _footer.scss in localgov_theme.
+*/
+footer {
+  .iconlist { // mods for covid visiting info added to footer address
+    li {
+      i {
+        @include rem(margin-right, 12);
+
+        &.fa-map-marker-alt {
+          font-size: $font-size-ex-med;
+
+          @include rem(width, 16);
+        }
+
+        &.fa-exclamation-circle {
+          color: $yellow;
+          font-size: $font-size-base;
+
+          @include rem(width, 16);
+        }
+      }
+    }
+  }
+}

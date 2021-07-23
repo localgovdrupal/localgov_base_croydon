@@ -1,0 +1,34 @@
+/**
+ * @file
+ * This file is an override of _tables.scss in localgov_theme.
+ */
+
+.table thead th,
+table thead th {
+  color: $carbon;
+  background-color: $white;
+  border-top: 0;
+  font-size: 1.25rem;
+  vertical-align: bottom;
+
+  @include borderdirection(bottom, 1, solid, $dark);
+}
+
+/* Table captions */
+caption {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  color: $carbon;
+  text-align: left;
+  caption-side: bottom;
+}
+
+/* Multiple table bodys */
+.table tbody + tbody,
+table tbody + tbody {
+  border-top: 0;
+}
+
+.table tr {
+  @include borderdirection(bottom, 1, solid, $dark);
+}

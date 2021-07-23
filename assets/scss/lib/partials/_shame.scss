@@ -1,0 +1,143 @@
+/**
+ * @file
+ * This file is an override of _shame.scss in localgov_theme.
+ */
+
+// Shame file - home for hacks, rule breakers and overrides for BS
+
+// Apply BS '.table' class to all tables. This is here because
+// we cant yet guarantee a table added as content will have a class
+// of '.table'
+
+table {
+  @extend .table;
+}
+
+// The BS '.img-fluid' class alone doesnt set an image to go oversized when responding
+.img-fluid {
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    max-width: 100%;
+  }
+}
+
+// temp styling related to soft launch
+.beta-notice-sm,
+.notice {
+  display: none;
+}
+
+// remove gap between multi-line news headers background blocks on hover
+.news-list {
+  h4 {
+    line-height: 1.9rem;
+  }
+}
+
+// remove left hand border on google search results causing content to indent on hover
+.gsc-webResult.gsc-result {
+  border: none !important;
+
+  &:hover,
+  &:focus {
+    border: none !important;
+  }
+}
+
+// important:: fix form.io overriding this specific pseudo in the footer
+.fa-youtube-square:before {
+  content: $fa-youtube-square !important;
+}
+
+// iframe and video class to be dealt with later on
+iframe {
+  &.video {
+    width: 100%;
+    height: 21.875rem; // 350px
+    border: 0;
+    margin: 2rem 0; // or equivalent bs spacer class
+  }
+}
+
+// This is a wrapper that appears on the service status page and needs to be 100% but may be used elsewhere
+.views-element-container {
+  width: 100%;
+}
+
+// Remove animations from collapsing events
+.collapsing {
+  -webkit-transition: none;
+  transition: none;
+  display: none;
+}
+
+//override formio hijack of fa and fas styling
+.fa,
+.fas {
+  font-family: $font-family-icons !important;
+  font-weight: 900 !important;
+}
+
+// fix issue in admin view where the cookie notice sits over the admin nav
+
+.sliding-popup-bottom,
+.sliding-popup-top {
+  z-index: unset;
+}
+
+// drop email addresses and over length layout links to a new line if screen reduces
+
+main a[href^="mailto:"],
+.layout a {
+  word-break: break-word;
+}
+
+// line up search icon on directories search button
+.views-exposed-form button:after {
+  @include rem(top, 11);
+}
+
+// .btn remove rounded corners tmp until fix goes into base
+.btn {
+  border-radius: 0;
+}
+
+// need to add these into buttons.scss in localgov theme
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none; // bs override
+}
+
+// temp remove related links sidebar on step by step overview - remove this when a perm solution is found
+.node--localgov_step_by_step_overview {
+  .sidebar {
+    display: none;
+  }
+}
+
+// needs to be factored back into localgov theme - links.scss - the breakpoint was changed from sm to md
+main.col-md-8 a {
+  font-weight: $font-normal !important; // remove bold for main copy links
+}
+
+// axe accessibility audit flags bs visually-hidden elements as having a bad contrast ratio - setting opacity to zero seems to throw this off
+.visually-hidden {
+  opacity: 0;
+
+  &.focusable {
+    &:focus {
+      opacity: 1; // fix issue with skip to main link inheriting opacity 0
+    }
+  }
+}
+
+// The top position of the cookie banner is being set incorrectly by JS in IE11 - this overrides the setting. Cause needs addressing.
+.sliding-popup-top[style] {
+  top: 0 !important;
+}
+
+// temp fix for subsites misaligned text - to be removed next time we merge with LGD
+.node--type-localgov-subsites-page .layout--onecol__flexible .layout__region--content.row {
+  margin-left: 0;
+}

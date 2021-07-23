@@ -1,0 +1,420 @@
+.path-frontpage {
+  main {
+    > section {
+      margin-bottom: 0;
+    }
+  }
+
+  .layout--onecol {
+    .row {
+      margin: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .box-links-listing--boxes {
+    width: 100%;
+    margin: 0;
+
+    .box-links-listing__list {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: auto;
+      align-content: space-around;
+      padding: 0;
+      margin: 0 !important;
+
+      &-item {
+        position: relative;
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+
+        h3 { // clear off defaults
+          margin: 0;
+          padding: 0;
+        }
+
+        @include rem(margin-bottom, 15);
+        @include rem(margin-left, 0);
+        @include rem(margin-right, 0);
+
+        @include media-breakpoint-up(sm) {
+          position: relative;
+          width: calc(25% - 0.46875rem);
+          max-width: calc(25% - 0.46875rem);
+          flex: 0 0 auto;
+
+          @include rem(margin-bottom, 20);
+        }
+
+        @include media-breakpoint-up(md) {
+          position: relative;
+          width: calc(25% - 0.9375rem);
+          max-width: calc(25% - 0.9375rem);
+          flex: 0 0 auto;
+
+          @include rem(margin-bottom, 20);
+        }
+
+        .box-link {
+          height: 100%;
+          margin-bottom: 0;
+          border: 0;
+
+          a {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100%;
+            background: $gray-tint;
+            border-bottom: 0.3rem solid color(accent);
+            width: auto;
+            text-decoration: none;
+            box-shadow: none;
+            word-break: break-word;
+
+            @include rem(padding, 16);
+            @include rem(min-height, 6);
+            @include rem(line-height, 26);
+
+            @include media-breakpoint-up(sm) {
+              @include rem(min-height, 100);
+              @include rem(padding, 8, 16);
+            }
+
+            @include media-breakpoint-up(md) {
+              font-size: $font-size-ex-ex-lg;
+
+              @include rem(padding, 16);
+            }
+
+            &:hover,
+            &:focus {
+              background: $primary;
+              border-bottom: 0.3rem solid $focus;
+              color: $white;
+            }
+
+            span {
+              margin-top: 0;
+              padding-left: 0;
+
+              &:before {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .social-media-subscription-panel__text {
+    font-size: $font-size-ex-med;
+  }
+
+  .services--list-block {
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+      word-break: break-word;
+    }
+
+    h2 {
+      a {
+        color: $carbon;
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+          color: $carbon;
+          text-decoration: none;
+        }
+      }
+    }
+
+    ul {
+      li {
+        display: block;
+        width: auto;
+        padding: 0 0 0 1rem;
+        position: relative;
+
+        @include rem(margin-bottom, 8);
+
+        &:not(:last-child):after { // remove list commas
+          content: '';
+        }
+
+        &:before {
+          content: $fa-chevron-right;
+          position: absolute;
+          left: 0;
+          top: 0.125rem;
+          font-family: $font-family-icons;
+          font-weight: $fa-font-weight;
+          color: $tertiary;
+          font-size: $font-size-ex-ex-sm;
+
+          @include rem(margin-right, 5);
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+        a {
+          color: $purple;
+          text-decoration: underline;
+          font-weight: normal;
+
+          &:hover,
+          &:focus {
+            color: $carbon;
+          }
+        }
+      }
+    }
+  }
+
+  .news-list {
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: .0625rem solid $gray;
+
+    @include rem(margin-bottom, 40);
+    @include rem(padding-bottom, 20);
+
+    h3,
+    p {
+      width: auto;
+      display: block;
+
+      a {
+        display: inline;
+      }
+    }
+
+    div > a {
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+
+      @include rem(margin-bottom, 16);
+
+      @include media-breakpoint-up(sm) {
+        width: 30%;
+        float: right;
+
+        @include rem(margin-left, 16);
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+
+        @include rem(min-width, 90);
+      }
+    }
+
+    time {
+      font-size: $font-size-sm;
+      margin-bottom: 0;
+    }
+
+    a {
+      word-break: break-word;
+      color: $carbon;
+      display: block;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: $carbon;
+      }
+    }
+  }
+
+  .paragraph--type--page-section {
+    .layout--twocol {
+      .layout__region--first {
+        @include rem(padding-right, 15);
+      }
+
+      .layout__region--second {
+        @include rem(padding-left, 15);
+      }
+
+      .layout__region--bottom {
+        .box-link {
+          a {
+            width: auto;
+            font-size: $font-size-ex-ex-lg;
+            text-decoration: underline !important;
+
+            &:hover,
+            &:focus {
+              text-decoration: underline;
+            }
+
+            span {
+              margin-top: 0;
+
+              &:before {
+                top: 0.3rem;
+                font-size: 1.05rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .paragraph--type--localgov-subscribe-panel {
+    @include rem(margin, 20, 0);
+    @include rem(padding, 32, 0);
+
+    .form-checkboxes {
+      label {
+        font-family: $font-family-base;
+
+        a {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  .services--feature-block {
+    padding: 0;
+    text-align: left;
+
+    @include rem(margin-top, 15);
+    @include rem(margin-left, 15);
+
+    .services--feature-icon {
+      width: inherit;
+      height: inherit;
+      font-size: $h2-font-size;
+    }
+  }
+
+  .featured-subsite__title {
+    @include rem(margin, 20, 0, 0, 0);
+
+    a {
+      word-break: break-word;
+      line-height: 2rem;
+      color: $carbon;
+    }
+  }
+
+  .featured-subsite__summary {
+    font-size: $font-size-ex-med;
+
+    @include media-breakpoint-up(sm) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  .email-subscription-panel__form {
+    .form-inline {
+      label {
+        display: block; // reset default display to fix layout issue in IE11
+      }
+    }
+
+    form {
+      margin-bottom: 0;
+    }
+
+    label {
+      width: 100%;
+      font-size: $font-size-ex-lg;
+      justify-content: left;
+
+      @include media-breakpoint-up(md) {
+        font-size: $h4-font-size;
+      }
+    }
+
+    input {
+      @include media-breakpoint-up(sm) {
+        margin-bottom: 0;
+      }
+    }
+
+    .btn {
+      margin: 0;
+      height: calc(2.875rem + 0.125rem);
+    }
+
+    .form-checkboxes {
+      label {
+        a {
+          word-break: initial; // stop privacy link wrapping
+        }
+      }
+    }
+  }
+
+  .social-media-subscription-panel__title {
+    h2 {
+      margin-top: 1.5rem;
+      border-top: 0.06rem solid $gray;
+      padding-top: 1.5rem;
+
+      @include media-breakpoint-up(md) {
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0;
+      }
+    }
+  }
+
+  .social-media-subscription-panel__links {
+    @include rem(padding-left, 15);
+    @include rem(padding-right, 15);
+
+    a {
+      &:hover {
+        background: none; // resets to remove
+        box-shadow: none; // default hover action
+      }
+
+      &:after {
+        display: none; // remove external link icon
+      }
+
+      .services--feature-icon {
+        width: auto;
+        font-size: 2.5rem;
+
+        @include rem(padding-right, 16);
+        @include rem(margin-top, 16);
+      }
+    }
+  }
+}
+
+.node--localgov_subsites_overview {
+  .jumbotron {
+    &.home-1 {
+      background-color: $primary;
+
+      .form-control {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+}

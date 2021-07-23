@@ -1,0 +1,118 @@
+.socials {
+  list-style-type: none;
+  margin: 1.5rem 0 0 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+
+    @include rem(margin-right, 10);
+
+    a {
+      display: block;
+      text-decoration: none;
+      padding: 0;
+      line-height: 0.9;
+      font-weight: $font-bold !important; // needs important due to override on main affecting some icons
+
+      i {
+        display: block;
+        line-height: 0.9;
+        padding: 0;
+
+        @include rem(font-size, 35);
+      }
+
+      &:hover,
+      &:focus {
+        background: transparent;
+        color: $white !important;
+        box-shadow: 0 0 0 0.2rem $yellow;
+
+        @include rem(border-radius, 3);
+      }
+    }
+  }
+
+  &-colour {
+    .fa-twitter-square {
+      color: $twitter;
+    }
+
+    .fa-facebook-square {
+      color: $facebook;
+    }
+
+    .fa-flickr {
+      color: $flickr;
+    }
+
+    .fa-youtube-square {
+      color: $youtube;
+    }
+  }
+}
+
+.services--feature-block {
+  a {
+    .services--feature-title { // hide the default title
+      opacity: 0; // set opacity here because axe accessibility audit didnt like display none or visibility-hidden
+      line-height: 0;
+      margin: 0;
+    }
+
+    &.external-link {
+      &:after {
+        display: none; // hide the external link icon
+      }
+    }
+  }
+}
+
+.services--feature-icon {
+  &.fa-twitter {
+    color: $twitter;
+
+    &-square {
+      color: $twitter;
+    }
+  }
+
+  &.fa-facebook {
+    color: $facebook;
+
+    &-square {
+      color: $facebook;
+    }
+  }
+
+  &.fa-instagram {
+    color: $instagram;
+
+    &-square {
+      color: $instagram;
+    }
+  }
+
+  &.fa-flickr {
+    color: $flickr;
+
+    &-square {
+      color: $flickr;
+    }
+  }
+
+  &.fa-youtube {
+    color: $youtube;
+
+    &-square {
+      color: $youtube;
+    }
+  }
+
+  &:hover {
+    &:before {
+      filter: brightness(120%);
+    }
+  }
+}

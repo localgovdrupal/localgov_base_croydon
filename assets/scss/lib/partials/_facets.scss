@@ -1,0 +1,68 @@
+/**
+ * @file
+ * This file is an override of _facets.scss in localgov_theme.
+ */
+
+.facet-filter-checkboxes {
+  li {
+    border: 0;
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: 0.06rem;
+      background: $hr-color;
+      top: 100%;
+      width: 96%;
+      left: 79%;
+      transform: translateX(-80%);
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  label {
+    margin-left: 0;
+
+    &:before {
+      margin-left: 0.5rem;
+      border: .063rem solid $checkbox-outline;
+    }
+  }
+}
+
+.facets-widget-checkbox {
+  background-color: $pink-tint;
+}
+
+.facet-filter-checkboxes input[type=checkbox]:checked ~ label:before {
+  border: 0.063rem solid $success;
+  color: $success;
+
+  @include rem(width, 18);
+  @include rem(height, 18);
+}
+
+//gds resets
+.facets-widget-checkbox .facet-item label,
+.form-item.form-type-checkbox label {
+  padding: initial;
+}
+
+.facets-widget-checkbox .facet-item label::after,
+.form-item.form-type-checkbox label::after {
+  display: none; // removes gds tick pseudo
+}
+
+.facets-widget-checkbox .facet-item label::before,
+.form-item.form-type-checkbox label::before {
+  border: .063rem solid $checkbox-outline;
+
+  @include rem(top, 10);
+  @include rem(width, 18);
+  @include rem(height, 18);
+}

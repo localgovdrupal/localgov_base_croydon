@@ -1,0 +1,570 @@
+// FormIO identifier wrapper
+.formio-form-wrapper {
+  width: 100%;
+}
+
+// Labels 
+// FormIO labels margin fix 
+.formio-form-wrapper label {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#formio {
+  > h2 {
+    font-size: $h2-font-size !important;
+
+    @include media-breakpoint-up(lg) {
+      font-size: $font-size-base * 2.125 !important;
+    }
+  }
+}
+
+
+// FormIO labels margin fix 
+.formio-form-wrapper .form-group > label {
+  margin-top: 0;
+  padding-top: calc(0.5rem + 1px);
+  padding-bottom: calc(0.5rem + 1px);
+}
+
+// FormIO checkbox and radio labels margin fix
+.formio-form-wrapper .form-group label span {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+//CARDS
+//Remove the white background from card body
+.formio-form-wrapper {
+  .card-body {
+    padding: 1rem;
+    margin: 1rem 0;
+    background: none;
+    border: 0;
+  }
+  .card,
+  .border {
+    border: 0 !important; // remove grey outline around formio forms
+  }
+}
+
+// Remove conflicting margin bottom in theme from form controls
+.formio-form-wrapper .form-control {
+  margin-bottom: 0;
+}
+
+// Warning alerts - back end only
+.formio-form-wrapper .alert-warning {
+  color: $warning;
+  background-color: $warning;
+  border-color: $warning;
+  padding-left: 1rem !important;
+}
+
+// FILE UPLOAD
+// Remove list style
+.formio-form-wrapper .formio-component-file .list-group {
+  list-style: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Uploaded file name
+.formio-form-wrapper .formio-component-file .fileName {
+  padding-top: 1rem;
+  font-size: 1.125rem;
+  color: $success;
+}
+
+// Uploaded file delete icon
+.formio-form-wrapper .formio-component-file .fileName i {
+  color: $danger;
+  font-size: 1.375rem;
+  padding-left: 0.5rem;
+}
+
+// Fix wrapping problem
+.formio-form-wrapper .formio-component-file .list-group-header .row {
+  flex-wrap: unset;
+}
+
+// Hide the empty column to left of filename
+.formio-form-wrapper .formio-component-file .list-group-header .col-md-1 {
+  display: none;
+}
+
+// Adjust the file size column to make up for hidden column
+.formio-form-wrapper .formio-component-file .list-group-header .col-md-2 {
+  text-align: right;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+// FORMIO BUTTON STYLES
+
+// Remove borders
+.formio-form-wrapper .btn {
+  border: 0;
+}
+
+// Submit button
+.formio-form-wrapper .btn-wizard-nav-submit,
+.formio-form-wrapper .btn-wizard-nav-next {
+  background: $green;
+  color: $secondary;
+}
+
+// Submit butto hover and focus
+.formio-form-wrapper .btn-wizard-nav-submit:hover,
+.formio-form-wrapper .btn-wizard-nav-submit:focus,
+.formio-form-wrapper .btn-wizard-nav-next:hover,
+.formio-form-wrapper .btn-wizard-nav-next:focus {
+  background: $teal !important;
+  color: $white;
+}
+
+// FORMIO VALIDATION
+
+// Hide asterisks
+.formio-form-wrapper .field-required:after {
+  display: none;
+}
+
+//Remove background colour from boxed alerts
+.formio-form-wrapper .formio-form-wrapper .alert,
+.formio-form-wrapper .alert-danger,
+.formio-form-wrapper .alert-success,
+.formio-form-wrapper .alert-warning {
+    background: none !important;
+}
+
+// Error wrapper adjust styling
+.formio-form-wrapper .formio-error-wrapper {
+  color: $secondary;
+  background-color: $white;
+  border: none;
+  padding: 0;
+}
+
+// Make sure elements in the error wrappers maintain their original colour
+.formio-form-wrapper .formio-error-wrapper label,
+.formio-form-wrapper .formio-error-wrapper legend {
+  color: $secondary;
+}
+
+// The validation message
+.formio-form-wrapper .formio-errors .error {
+  border-left: 4px solid $danger;
+  padding: 0.5rem 1rem;
+  color: $danger !important;
+  font-size: 1.1875rem;
+}
+
+// Hide the alert icon indside the inputs
+.formio-form-wrapper .was-validated .form-control:invalid,
+.formio-form-wrapper .form-control.is-invalid {
+  background: none !important;
+}
+
+// FORMIO HIDE CANCEL BUTTON
+
+// Hide Cancel button li container
+.formio-form-wrapper .list-inline-item:first-child {
+  display: none;
+}
+// Hide Cancel button
+.formio-form-wrapper .btn-wizard-nav-cancel {
+  display: none;
+}
+
+// FormIO form steps buttons min width
+.formio-form-wrapper .list-inline-item .btn {
+  min-width: 135px;
+}
+
+// CARDS
+
+// FIELDSETS
+// Reset text size of label in fieldset
+.formio-form-wrapper fieldset legend {
+  font-size: 1.5rem;
+}
+
+// FIELD DESCRIPTIONS AND PLACEHOLDERS
+
+// Field description and placeholder size
+.formio-form-wrapper .form-text {
+  display: block;
+  font-size: 1.125rem;
+  color: $gray-dark !important;
+  margin-top: 1rem;
+}
+
+// Text muted colour
+.formio-form-wrapper .text-muted {
+  color: $gray-dark !important;
+}
+
+.form-radio {
+  margin-top: 1rem;
+}
+
+// DROP SELECT
+
+// Hide close button inside drop select
+.formio-form-wrapper .dropdown .choices__button {
+  display: none !important;
+}
+
+// Hide search field inside drop select
+.formio-form-wrapper .choices[data-type*="select-one"] .choices__input {
+  display: none !important;
+}
+
+// Re-enable rounded corners on frop select only
+.formio-form-wrapper .form-control.dropdown {
+  border-radius: 0.3125rem;
+}
+
+// Drop select placeholder opacity fix
+.formio-form-wrapper .choices__placeholder {
+  opacity: 1 !important;
+  color: $gray-dark;
+}
+
+// Drop select focus
+.formio-form-wrapper .form-control.dropdown:focus {
+  outline: 3px solid $yellow;
+}
+
+// SHORT TEXT FIELDS
+
+// Custom class added to container in Form IO to set input width
+.formio-form-wrapper .max-220 input {
+  max-width: 220px;
+  margin-right: 0;
+}
+
+// Custom class added to container in Form IO to set input width
+.formio-form-wrapper .max-160 input {
+  max-width: 160px;
+  margin-right: 0;
+}
+
+// Custom class added to container in Form IO to set input width
+.formio-form-wrapper .max-80 input {
+  max-width: 70px;
+  margin-right: 0;
+}
+
+// CUSTOM ACCESSIBLE CHECKBOXES
+
+// Checkbox wrapper
+.formio-form-wrapper .checkbox-group .form-check {
+  padding-left: 0;
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+
+// Hide the default checkbox
+.formio-form-wrapper .checkbox-group .form-check input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+// The span after the checkbox
+.formio-form-wrapper .checkbox-group .form-check span {
+  position: relative;
+  padding-left: 45px;
+}
+
+// Insert fake checkbox
+.formio-form-wrapper .checkbox-group .form-check span::before,
+.formio-form-wrapper .checkbox-group .form-check span::after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+}
+
+// Outer box of the fake checkbox
+.formio-form-wrapper .checkbox-group .form-check span::before {
+  height: 35px;
+  width: 35px;
+  border: 1px solid $secondary;
+  background: $white;
+  left: 0px;
+}
+
+// Checkmark of the fake checkbox
+.formio-form-wrapper .checkbox-group .form-check span::after {
+  position: absolute;
+  height: 11px;
+  width: 22px;
+  border-left: 4px solid $success;
+  border-bottom: 4px solid $success;
+  transform: rotate(-45deg);
+  left: 7px;
+  top: 9px;
+}
+
+// Hide the checkmark by default
+.formio-form-wrapper .checkbox-group .form-check input[type="checkbox"] + span::after {
+  content: none;
+}
+// Unhide on the checked state
+.formio-form-wrapper .checkbox-group .form-check input[type="checkbox"]:checked + span::after {
+  content: "";
+}
+// Adding focus styles on the outer-box of the fake checkbox
+.formio-form-wrapper .checkbox-group .form-check input[type="checkbox"]:focus + span::before {
+  outline: 3px solid $yellow;
+}
+
+// CUSTOM ACCESSIBLE RADIOS
+
+// Checkbox Wrapper
+.formio-form-wrapper .radio-group .form-check {
+  padding-left: 0;
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+
+// Hide the radio button
+.formio-form-wrapper .radio-group .form-check input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+// The span after the radio button
+.formio-form-wrapper .radio-group .form-check span {
+  position: relative;
+  padding-left: 45px;
+}
+// Insert fake radio button
+.formio-form-wrapper .radio-group .form-check span::before,
+.radio-group .form-check span::after {
+  position: absolute;
+  content: "";
+  display: inline-block;
+}
+// Outer box of the fake radio button
+.formio-form-wrapper .radio-group .form-check span::before {
+  height: 35px;
+  width: 35px;
+  border: 1px solid $secondary;
+  background: $white;
+  border-radius: 50%;
+  left: 0px;
+}
+// Radiomark of the fake radio button
+.formio-form-wrapper .radio-group .form-check span::after {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  background: $success;
+  border-radius: 50%;
+  left: 10px;
+  top: 10px;
+}
+// Hide the radiomark by default
+.formio-form-wrapper .radio-group .form-check input[type="radio"] + span::after {
+  content: none;
+}
+// Unhide radiomark on the checked state
+.formio-form-wrapper .radio-group .form-check input[type="radio"]:checked + span::after {
+  content: "";
+}
+// Adding focus styles on the outer-box of the fake radio
+.formio-form-wrapper .radio-group .form-check input[type="radio"]:focus + span::before {
+  outline: 3px solid $yellow;
+}
+
+// PAGINATION - FORMIO STEPS 
+
+// The wrapper for the pagination progress bar
+.formio-form-wrapper nav {
+  width: 100% !important;
+  height: auto;
+  margin: 0 0 3rem 0;
+  position: relative;
+}
+// The UL container for the pagination progress bar
+.formio-form-wrapper .pagination {
+  height: 90px;
+  display: flex;
+  flex-wrap: nowrap;
+  border-bottom: 2px solid $gray;
+  padding: 0;
+  margin: 0;
+}
+// The dot end cap at the left of the pagination progress bar
+.formio-form-wrapper .pagination:before {
+  position: absolute;
+  content: " ";
+  background: $gray;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  bottom: -4px;
+  left: -1px;
+}
+// The dot end cap at the right of the pagination progress bar
+.formio-form-wrapper .pagination:after {
+  position: absolute;
+  content: " ";
+  background: $gray;
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  bottom: -4px;
+  right: -1px;
+}
+// The list item in the pagination progress bar
+.formio-form-wrapper .page-item {
+  line-height: 1.4rem;
+  max-width: 33%;
+  list-style: none;
+  position: relative;
+  float: left;
+  display: inline-flex;
+  margin: 0 1rem;
+  padding: 0 0 1.8rem 0;
+  text-align: center;
+}
+// The DEFAULT dot underneath the list items in the pagination progress bar
+.formio-form-wrapper .page-item:after {
+  background: $white;
+  content: " ";
+  border: 2px solid $gray;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  margin-left: -0.75rem;
+}
+
+// The ACTIVE dot underneath the list items in the pagination progress bar
+.formio-form-wrapper .page-item.active:after {
+  background: $primary;
+  border: 2px solid $primary;
+}
+
+// The DEFAULT list items in the pagination progress bar
+.formio-form-wrapper .page-link {
+  color: $secondary;
+  text-decoration: none;
+  pointer-events: none;
+  display: flex;
+  align-self: flex-end;
+  border: 0;
+  padding: 0;
+  background: none !important;
+}
+
+// The ACTIVE list item in the pagination progress bar
+.formio-form-wrapper .page-item.active span {
+  font-weight: 700;
+  text-decoration: none;
+  color: $primary;
+}
+
+// Space under content components
+.formio-component-content {
+  margin-bottom: 2.5rem;
+}
+
+// SHORT DROP SELECTS
+
+// Custom class added to container in Form IO to set input width
+.formio-form-wrapper .max-80 .formio-choices.form-group {
+  max-width: 80px;
+  margin-right: 0;
+}
+
+// Custom class added to container in Form IO to set input width
+.formio-form-wrapper .max-160 .formio-choices.form-group {
+  max-width: 160px;
+  margin-right: 0;
+}
+
+// Custom class added to container in Form IO to set input width
+.formio-form-wrapper .max-220 .formio-choices.form-group {
+  max-width: 220px;
+  margin-right: 0;
+}
+
+// PREFIXES AND SUFFIXES
+
+// Style prefixes
+.formio-form-wrapper .input-group-prepend .input-group-text {
+  border: 0 !important;
+  background-color: $white !important;
+  font-size: 1.25rem;
+}
+
+// Style suffixes
+.formio-form-wrapper .input-group-append .input-group-text {
+  border: 0 !important;
+  background-color: $white !important;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 992px) {
+  // Wrapper for the pagination progress bar adjust margins
+  .formio-form-wrapper .formio-form-wrapper nav {
+    margin: 0 0 3rem 1rem !important;
+  }
+  // UL container for the pagination progress bar, border on left, height auto, extra padding top and bottom
+  .formio-form-wrapper .pagination {
+    height: auto;
+    flex-wrap: wrap;
+    border-bottom: none;
+    border-left: 2px solid $gray;
+    padding: 0 0 1rem 0;
+  }
+
+  // LI for the pagination progress stacked and height auto
+  .formio-form-wrapper .page-item {
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    float: left;
+    display: flex;
+    margin: 0 0 0 1.5rem;
+    padding: 0 0 1rem 0;
+    text-align: left;
+  }
+  // Reposition the caps on the progress bar to top and bottom
+  .formio-form-wrapper .pagination:before {
+    display: none;
+  }
+  // The dot end cap at the bottom of the pagination progress bar
+  .formio-form-wrapper .pagination:after {
+    bottom: -4px;
+    left: -4px;
+  }
+  // The DEFAULT dot to the left of the list items in the pagination progress bar
+  .formio-form-wrapper .page-item:after {
+    background: $white;
+    content: " ";
+    border: 2px solid $gray;
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    margin-left: -2.2rem;
+    bottom: initial;
+  }
+}
+
+// Remove left padding from navigation btn container 
+.formio-form-wrapper {
+  .list-inline {
+    padding-left: 0;
+  }
+}

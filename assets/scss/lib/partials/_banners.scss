@@ -1,0 +1,101 @@
+.node--localgov_subsites_overview {
+  .jumbotron {
+    &.banner-full {
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.banner-full-tint {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.banner-full {
+  margin-bottom: 0;
+
+  @include rem(height, 280);
+
+  h1 {
+    color: $white;
+  }
+
+  .btn {
+    font-size: 1.375rem;
+
+    @include rem(max-width, 48);
+
+    span {
+      @include rem(height, 30);
+      @include rem(line-height, 30);
+
+      &:before {
+        @include rem(margin-left, -3);
+      }
+    }
+  }
+
+  .form-control {
+    border: 0 !important;
+    font-size: 1.1875rem;
+  }
+
+  img {
+    display: flex;
+    width: 15%;
+    height: auto;
+
+    @include rem(min-width, 90);
+    @include rem(max-width, 150);
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .banner-full {
+    h1 {
+      font-size: 3.375rem;
+    }
+
+    .form-control {
+      font-size: 1.375rem;
+
+      @include rem(height, 55);
+    }
+
+    .btn {
+      font-size: 1.375rem;
+
+      @include rem(max-width, 200);
+
+      span {
+        @include rem(height, 37);
+        @include rem(line-height, 37);
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .banner-full {
+    height: 35vh;
+
+    @include rem(min-height, 300);
+
+    .btn {
+      font-size: 1.5rem;
+    }
+
+    .form-control {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 120rem) { // custom breakpoint
+  .banner-full {
+    height: 40vh;
+
+    @include rem(min-height, 400);
+  }
+}
