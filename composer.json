@@ -1,0 +1,7 @@
+{
+    "name": "localgovdrupal/localgov_base_croydon",
+    "description": "Feature rich base theme for the LocalGov Drupal Croydon site.",
+    "type": "drupal-theme",
+    "homepage": "https://github.com/localgovdrupal/localgov_base_croydon",
+    "license": "GPL-2.0-or-later"
+}
