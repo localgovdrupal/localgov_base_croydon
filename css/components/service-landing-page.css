@@ -1,0 +1,8 @@
+.service-landing-page__service-icon svg {
+  fill: var(--color-green);
+  height: 1rem;
+}
+
+.service-landing-page__service .lgd-icon {
+  margin-top: 0.4rem;
+}

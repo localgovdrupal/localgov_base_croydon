@@ -3,8 +3,9 @@
 * This file is an override of alert.scss in localgov_base.
 */
 .localgov-alert-banner .localgov-alert-banner__inner {
-  padding: 1rem;
+  padding: 1rem 0;
   margin: 0;
+  align-items: center;
 }
 
 .localgov-alert-banner .localgov-alert-banner__inner p {
@@ -40,15 +41,13 @@
 }
 
 .localgov-alert-banner .localgov-alert-banner__title:before {
-position: absolute;
-            left: 0;
-            font-size: var(--font-size-h2);
-            font-family: 'Font Awesome 5 Pro';
-            font-weight: bold; 
-            content: '\f06a';
-            margin: 0;
-            padding: 0;
-
-            top: -11px;
-          }
+  position: absolute;
+  left: 0;
+  font-size: var(--font-size-h2);
+  font-family: 'Font Awesome 5 Pro';
+  content: '\f06a';
+  margin: 0;
+  padding: 0;
+  top: 2px;
+}
 

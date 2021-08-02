@@ -1,0 +1,28 @@
+.service-cta-block__link {
+	font-size:var(--ctalink-font-size);
+	font-weight: 700;
+}
+
+.service-cta-block__link .service-cta-block__link-icon svg {
+	width:;
+}
+
+.service-cta-block__link--cta-action {
+  color: var(--ctalink-action-color);
+  background-color: var(--ctalink-action-bgcolor);
+}
+
+.service-cta-block__link--cta-action:hover,
+.service-cta-block__link--cta-action:focus {
+  color: var(--ctalink-action-color-focus);
+  background-color: var(--ctalink-action-bgcolor-focus);
+}
+
+.service-cta-block__link--cta-action .service-cta-block__link-icon svg path {
+  fill: var(--ctalink-action-svg);
+}
+
+.service-cta-block__link--cta-action:hover .service-cta-block__link-icon svg path,
+.service-cta-block__link--cta-action:focus .service-cta-block__link-icon svg path {
+  fill: var(--ctalink-action-svg-focus);
+}

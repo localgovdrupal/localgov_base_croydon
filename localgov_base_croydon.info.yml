@@ -9,6 +9,10 @@ libraries:
   - localgov_base_croydon/base
   - localgov_base_croydon/footer
   - localgov_base_croydon/header
+  - localgov_base_croydon/homepage
+  - localgov_base_croydon/service-cta-block
+  - localgov_base_croydon/service-landing-page
+  - localgov_base_croydon/teaser
 
 regions:
   tabs: "Tabs"

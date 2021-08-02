@@ -1,3 +1,46 @@
-.lgd-region--search {
-	outline: 2px solid lime;
+/* -- Services button -- */
+
+.lgd-header .lgd-header__toggles {
+  margin-left: 0;
+}
+/* -- Search -- */
+
+.lgd-header .lgd-region--search {
+  display: inline-flex;
+}
+
+/* -- Menu -- */
+
+.lgd-header .lgd-region--primary-menu {
+  display: inline-flex;
+}
+
+.lgd-header .navigation--main .menu--main .menu-item {
+ font-family: var(--font-secondary);
+ font-size: var(--font-size-large);
+}
+/* -- Sub menu -- */
+
+.lgd-header .navigation--sub-menu h2 {
+  margin: 0;
+  line-height: 2rem;
+  padding-bottom: 1.25rem;
+}
+
+.lgd-header .navigation--sub-menu .menu--sub-menu {
+  padding-left:0;
+}
+
+.lgd-header .navigation--sub-menu .menu--sub-menu .menu-item {
+  list-style-type: none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: var(--secondary-menu-font-size);
+  font-weight: 700;
+}
+
+.lgd-header .navigation--sub-menu .menu--sub-menu .menu-item a {
+  text-decoration: none;
+  line-height: 1.75rem;
 }
