@@ -1,0 +1,107 @@
+//Feedback
+.feedback-trigger-page {
+  color: $white;
+
+  a {
+    color: $white;
+
+    &:hover,
+    &:focus {
+      color: $carbon;
+    }
+  }
+
+  p {
+    margin-bottom: 0.2rem;
+  }
+
+  .fa,
+  .fas {
+    padding-right: .5rem;
+  }
+}
+
+// Remove the formio progress bar
+.formio-form-wrapper {
+  nav {
+    display: none;
+  }
+}
+
+// Fixed feedback bar container
+.feedback-trigger-fixed {
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: $white;
+
+  a { // Fixed feedback - link
+    color: $white;
+
+    &:focus,
+    &:hover { // Fixed feedback - link hover and focus
+      color: $carbon;
+    }
+  }
+}
+
+// Feedback bar above footer - form container
+.feedback-form-page {
+  color: $carbon;
+
+  // Main text sizes
+  p,
+  ul,
+  ol {
+    font-size: $font-size-base * 1.125;
+  }
+
+  @include media-breakpoint-up(md) {
+    p,
+    ul,
+    ol {
+      font-size: $font-size-lg;
+    }
+  }
+
+  .alert { // Hide all feedback form alerts
+    display: none;
+  }
+
+  .alert-success { // Always show alert success
+    display: block;
+  }
+
+  .form-group.alert { // Show only the feedback form alerts on form groups, and remove the border and padding
+    display: block;
+    border: none;
+    padding: 0;
+  }
+
+  .form-group.alert:before { // Hide the icon inside the alert
+    display: none;
+  }
+
+  .form-group.alert label { // Change the label inside an alert back to secondary
+    color: $carbon;
+  }
+
+  .help-block {  // Red line to the left of the validation error message
+    border-left: 0.25rem solid $danger;
+    padding: 0.5rem 1rem;
+    color: $danger !important;
+    font-size: 1.1875rem;
+  }
+}
+
+#block-feedbackform {
+  &.bg-primary {
+    background-color: $white !important;
+  }
+
+  .feedback-trigger-page {
+    background-color: $primary;
+  }
+}

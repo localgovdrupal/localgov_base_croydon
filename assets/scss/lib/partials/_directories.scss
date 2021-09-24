@@ -1,0 +1,157 @@
+/**
+* @file
+* This file is an override of _directories.scss in localgov_theme.
+*/
+.directory-contact {
+  font-size: $font-size-lg;
+
+  a {
+    font-size: $font-size-lg;
+    word-break: break-all;
+  }
+
+  > div {
+    display: flex;
+
+    @include rem(margin-bottom, 10);
+
+    > span {
+      font-size: $font-size-lg;
+
+      @include rem(padding-top, 8);
+      @include rem(margin-right, 10);
+    }
+  }
+}
+
+.view-localgov-directory-channel {
+  .leaflet-container {
+    margin-bottom: 2rem;
+  }
+
+  .link-block {
+    border-bottom: 0.0625rem solid $gray;
+
+    @include rem(margin-bottom, 20);
+
+    .fa { // hide unwanted chevron
+      display: none !important;
+    }
+  }
+}
+
+.contact-urls {
+  flex-flow: column wrap;
+
+
+  a {
+    position: relative;
+    align-self: flex-start;
+
+    @include rem(margin-left, 30);
+
+    &:before {
+      position: absolute;
+      font-size: $font-size-lg;
+      font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
+      font-family: $font-family-icons;
+      content: $fa-link;
+      margin: 0;
+      padding: 0;
+      color: $carbon;
+
+      @include rem(left, -30);
+    }
+
+    &.contact-facebook {
+      &:before {
+        font-family: $font-family-brands;
+        content: $fa-facebook;
+      }
+    }
+
+    &.contact-twitter {
+      &:before {
+        font-family: $font-family-brands;
+        content: $fa-twitter;
+      }
+    }
+
+    &.contact-youtube {
+      &:before {
+        font-family: $font-family-brands;
+        content: $fa-youtube-square;
+      }
+    }
+
+    &.contact-instagram {
+      &:before {
+        font-family: $font-family-brands;
+        content: $fa-instagram;
+      }
+    }
+
+    &.contact-website {
+      &:before {
+        font-family: $font-family-icons;
+        content: $fa-link;
+      }
+    }
+
+    &:nth-child(n+3) {
+      @include rem(margin-top, 10);
+    }
+  }
+}
+
+.contact-address {
+  p {
+    position: relative;
+    align-self: flex-start;
+
+    @include rem(margin-left, 30);
+
+    &.address {
+      &:before {
+        position: absolute;
+        font-size: $font-size-lg;
+        font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
+        font-family: $font-family-icons;
+        content: $fa-map-marker;
+        margin: 0;
+        padding: 0;
+        color: $carbon;
+
+        @include rem(left, -30);
+      }
+    }
+  }
+}
+
+.views-exposed-form {
+  margin-bottom: 1rem;
+}
+
+// override the settings for the open street map links at the bottom of the maps
+.leaflet-control-container {
+  a {
+    @include rem(font-size, 11);
+
+    &.external-link:after {
+      display: none;
+    }
+  }
+}
+
+// GDS styling overrides
+.block-localgov-directories {
+  .form-optional-text { // remove optional text
+    display: none;
+  }
+
+  div {
+    .form-actions {
+      padding-left: initial; // gds sets this to 2em
+    }
+  }
+}

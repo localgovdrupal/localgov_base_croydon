@@ -1,0 +1,23 @@
+/**
+ * @file
+ * Styling for WYSIWYG added components.
+ */
+
+.inset-text {
+  display: inline-block;
+  padding: 1rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.inset-text.purple-tint {
+  border-left: 0.3125rem solid $primary;
+  background-color: $purple-tint;
+}
+
+.contact-details {
+  display: inline-block;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  border-left: 0.125rem solid $magenta;
+}

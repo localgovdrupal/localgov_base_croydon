@@ -1,0 +1,228 @@
+//GENERAL STYLES AND PAGE LAYOUT
+
+//Set font and remove border from outermost container
+.gsc-control-cse,
+.gsc-control-cse .gsc-table-result {
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif !important;
+  border: 0 !important;
+}
+
+//Outer wrapper - Makes tabs full width
+#google-cse-results {
+  width: 100%;
+}
+
+//Results content / promotion content 70% width and margin bottom
+.gsc-expansionArea,
+.gsc-promotion {
+  width: 70%;
+  margin-bottom: 2rem !important;
+}
+
+//RESULT LAYOUT STYLES
+
+//Make promoted result match position of standard results
+.gs-promotion-text-cell {
+  margin: 0 !important;
+}
+
+//Add padding below each result
+.gsc-result {
+  padding: 0 0 2rem 0 !important;
+  margin: 0 !important;
+}
+
+// remove left border on results which caused content to indent on hover 
+.gsc-result,
+.gsc-result:hover,
+.gsc-result:focus {
+  border: none !important;
+}
+
+//NUMBER OF MATCHING RESULTS INFO TEXT
+
+//Matching results information - container
+.gsc-above-wrapper-area {
+  display: none; //Hiding this because Google only displays the first 100 results (10 pages)r
+}
+
+//Results info - number of matches (hidden by above class)
+.gsc-result-info {
+  color: #444444 !important;
+  font-size: 1rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+//RESULT ELEMENT STYLES
+
+//Non visited link title / Non visited promotion title
+.gs-title {
+  display: inline-block;
+  font-size: 1.5rem !important;
+  color: #880088 !important;
+  margin: 0 !important;
+}
+
+//Non visited link title - The matching keyword
+a.gs-title:link b {
+  font-size: 1.5rem !important;
+  color: #121212 !important;
+}
+
+//Visited link title 
+a.gs-title:visited {
+  color: #444444 !important;
+}
+
+//Visited link title - The matching keyword )
+a.gs-title:visited b {
+  color: #121212 !important;
+}
+
+//Non visited link - Matching keyword
+a.gs-title:link b {
+  color: #121212 !important;
+  background: #ffbb00 !important;
+  padding: 0.1rem 0.3rem !important;
+}
+
+//URL
+a.gs-visibleUrl,
+.gs-visibleUrl,
+.gs-visibleUrl-long {
+  color: #0059a4 !important;
+  font-size: 1rem !important;
+  margin: 0 0 0.5rem 0 !important;
+  padding: 0 !important;
+}
+
+//File format container
+.gs-fileFormat {
+  margin: 0 0 0.4rem 0 !important;
+}
+
+//File format label
+span.gs-fileFormat {
+  font-size: 1rem !important;
+  color: #444444 !important;
+  font-weight: 700 !important;
+}
+
+//File format type
+span.gs-fileFormatType {
+  font-size: 1rem !important;
+  display: inline-block !important;
+  color: #444444 !important;
+}
+
+//Description
+.gs-snippet {
+  color: #121212 !important;
+  font-size: 1.125rem !important;
+  margin: 0 0 0.1rem 0 !important;
+}
+
+//TOP OF PAGE BUTTON NAVIGATION
+
+//Button navigation container
+.gsc-refinementsArea {
+  background-color: #ffffff !important;
+  margin: -3px 0 2rem 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+}
+
+//Button navigation font settings, line height, horizontal padding
+.gsc-refinementHeader {
+  text-transform: lowercase; //Makes lowercase
+  font-size: 1.063rem !important;
+  font-weight: normal !important;
+  line-height: 2.5rem !important;
+  padding: 0 0.75rem !important;
+}
+//Make first letter of buttons uppercase
+.gsc-refinementHeader::first-letter {
+  text-transform: uppercase;
+}
+
+//Remove button navigation gradient
+.gsc-refinementsGradient {
+  background: none !important;
+}
+
+//Inactive button
+.gsc-refinementhInactive {
+  color: #880088 !important;
+  border: none !important;
+  background-color: #eee5ee !important;
+  margin: 0 0.5rem 0.5rem 0 !important;
+  white-space: nowrap !important;
+}
+
+//Active button
+.gsc-tabhActive,
+.gsc-refinementhActive {
+  color: #ffffff !important;
+  border: none !important;
+  background-color: #880088 !important;
+  margin: 0 0.5rem 0.5rem 0 !important;
+  white-space: nowrap !important;
+}
+
+//BOTTOM OF PAGE PAGINATION
+
+//Pagination container
+.gsc-cursor-box {
+  padding: 0 !important;
+}
+
+//Pagination number boxes
+.gsc-cursor-page {
+  border: none !important;
+  background-color: #eee5ee !important;
+  color: #880088 !important;
+  text-decoration: none !important;
+  font-size: 1rem !important;
+  margin-right: 0.5rem !important;
+  display: inline-block !important;
+  text-align: center !important;
+  width: 2rem !important;
+  line-height: 2rem !important;
+}
+
+//Pagination current page
+.gsc-cursor-current-page {
+  border: none !important;
+  background-color: #880088 !important;
+  color: #ffffff !important;
+}
+
+//GOOGLE CTAS
+
+//Hide find more on Google logos and buttons (all styles)
+.gcsc-find-more-on-google-root,
+.gcsc-branding,
+.gcsc-find-more-on-google,
+.gcsc-find-more-on-google-branding,
+.gcsc-more-maybe-branding-root {
+  display: none !important;
+}
+
+//BELOW 768
+
+@media (max-width: 768px) {
+  //Make results content / promotion content 100% width on mobile
+  .gsc-expansionArea,
+  .gsc-promotion {
+    width: 100%;
+  }
+}
+
+// remove 
+
+.gs-per-result-labels {
+  display: none; 
+}

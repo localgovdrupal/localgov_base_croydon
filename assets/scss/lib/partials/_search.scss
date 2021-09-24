@@ -1,0 +1,80 @@
+/**
+ * @file
+ * This file is an override of _search.scss in localgov_theme.
+ */
+
+// Search icon button
+.icon-search {
+  width: auto;
+  height: $input-button-height;
+  background: $indigo;
+  color: $white;
+  font-size: $btn-font-size-sm;
+
+  &:hover {
+    background: $tertiary !important;
+
+    .fa {
+      color: $navbar-dark-toggler-border-color;
+    }
+  }
+}
+
+.form-search {
+  padding: 0 .9375rem;
+}
+
+.form-control {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.container-inline .form-inline {
+  display: flex !important;
+}
+
+
+// Margin below nav and above search (mobile)
+.navbar-dark.navbar-nav {
+  margin-bottom: .9375rem; // 15 px
+}
+
+.homepage--search {
+  background: $secondary;
+  color: $white;
+
+  @include rem(padding-top, 30);
+  @include rem(padding-bottom, 30);
+  @include rem(margin-top, -108);
+
+  @include media-breakpoint-up(sm) {
+    background: rgba($secondary, 0.6);
+  }
+
+  label {
+    font-size: $font-size-ex-ex-lg;
+    display: flex;
+    align-items: center;
+    font-weight: $font-weight-bold;
+  }
+
+  .input-group-prepend { // adapt bs input group to respond
+    flex-basis: 100%;
+
+    @include rem(padding, 0, 0, 10, 0);
+
+    @include media-breakpoint-up(sm) {
+      flex-basis: initial;
+      padding: 0;
+    }
+  }
+}
+
+.region-search {
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    width: auto;
+  }
+}

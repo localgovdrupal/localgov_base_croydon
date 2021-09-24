@@ -1,0 +1,10 @@
+/**
+* @file
+* This file is an override of _buttons.scss in localgov_theme.
+*/
+
+a {
+  &.btn {
+    text-decoration: none; // remove underline for button styled links
+  }
+}

@@ -1,0 +1,35 @@
+/**
+ * @file
+ * This file is an override of _cta.scss in localgov_theme.
+ */
+
+.cta-link {
+  position: relative;
+  color: $magenta;
+  font-size: $font-size-lg;
+  padding-left: 1.25rem !important;
+
+  @include media-breakpoint-up(md) {
+    font-size: $font-size-ex-ex-lg;
+  }
+
+  a {
+    font-size: $font-size-lg;
+
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-ex-ex-lg;
+    }
+  }
+
+  &:before {
+    font-family: $font-family-icons;
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    text-decoration: none;
+    font-size: 1rem;
+    color: $green;
+    content: $fa-chevron-right;
+    margin-right: 0.5rem;
+  }
+}

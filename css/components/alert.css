@@ -1,0 +1,53 @@
+/**
+* @file
+* This file is an override of alert.scss in localgov_base.
+*/
+.localgov-alert-banner .localgov-alert-banner__inner {
+  padding: 1rem 0;
+  margin: 0;
+  align-items: center;
+}
+
+.localgov-alert-banner .localgov-alert-banner__inner p {
+  margin: 0;
+}
+
+.localgov-alert-banner .localgov-alert-banner__inner a:hover,
+.localgov-alert-banner .localgov-alert-banner__inner a:focus {
+  background: var(--color-focus-invert);
+  color: var(--color-link-focus-invert);
+}
+
+.localgov-alert-banner h2 {
+  font-size: var(--font-size);
+  line-height: 1rem;
+}
+
+.localgov-alert-banner .localgov-alert-banner__title,
+.localgov-alert-banner .localgov-alert-banner__body,
+.localgov-alert-banner .localgov-alert-banner--content-link {
+  font-size: var(--font-size-small);
+  position: relative;
+  display: inline-block;
+}
+
+.localgov-alert-banner__dismiss button {
+  border: none;
+}
+
+.localgov-alert-banner .localgov-alert-banner__title {
+  padding-left: 40px;
+  padding-right: 10px;
+}
+
+.localgov-alert-banner .localgov-alert-banner__title:before {
+  position: absolute;
+  left: 0;
+  font-size: var(--font-size-h2);
+  font-family: 'Font Awesome 5 Pro';
+  content: '\f06a';
+  margin: 0;
+  padding: 0;
+  top: 2px;
+}
+

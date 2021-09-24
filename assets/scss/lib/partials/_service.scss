@@ -1,0 +1,72 @@
+/**
+ * @file
+ * This file is an override of _service.scss in localgov_theme.
+ */
+
+// service pages use header links that are styled differently to those featured in main content
+.node--localgov_directory,
+.node--localgov_directories_page {
+  .sidebar {
+    margin-top: 0;
+  }
+}
+
+.node--localgov_services_landing,
+.node--localgov_services_sublanding,
+.node--type-localgov-services-sublanding,
+.node--localgov_directory,
+.node--localgov_directories_page {
+  main { // remove main top margin for service pages
+    margin-top: 0;
+
+    section { // service pages use section differently so dont require the default margin and padding
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .block-system-main-block {
+    h2 {
+      margin-top: 0 !important;
+
+      a {
+        color: $primary;
+        text-decoration: underline;
+
+        &:visited {
+          color: $primary;
+        }
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          color: $secondary;
+        }
+      }
+    }
+  }
+}
+
+.servicehub--update {
+  background-color: $pink;
+
+  .servicehub--status {
+    .fa-info-circle {
+      @include rem(top, 5);
+    }
+  }
+
+  .servicehub--update_inner {
+    @include rem(margin-bottom, 20);
+  }
+
+  &.striped {
+    ul {
+      li {
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

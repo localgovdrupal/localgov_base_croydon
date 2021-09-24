@@ -1,0 +1,181 @@
+/**
+ * @file
+ * This file is an override of _header.scss in localgov_theme.
+ */
+
+.headers {
+  padding: ($spacer * 3) 0;
+
+  .subheader {
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.navbar-brand { // fix width of logo for mobiles
+  min-width: 6.25rem !important;
+
+  @include media-breakpoint-up(sm) {
+    min-width: initial !important;
+  }
+
+  img {
+    min-width: 6.25rem;
+    max-height: 6.25rem;
+
+    @include media-breakpoint-up(sm) {
+      width: initial;
+    }
+  }
+}
+
+.my-account {
+  white-space: nowrap;
+
+  a {
+    color: $yellow;
+    font-weight: $font-bold; // for fallbacks only
+    white-space: nowrap;
+    font-size: $font-size-base;
+    margin: 0;
+
+    &:hover,
+    &:focus {
+      background-color: $focus;
+      color: $link-hover-color;
+      text-decoration: none;
+      box-shadow: 0 0 0 0.125rem $focus;
+
+      > img {
+        @include outline(.1875rem, 0, $focus);
+      }
+    }
+  }
+}
+
+.header--toggle {
+  display: none; // hide initially or it flashes on load in mobile
+  border-bottom: 2rem solid $primary;
+
+  @include media-breakpoint-up(sm) {
+    display: none;
+  }
+
+  a {
+    font-size: $font-size-med;
+    font-weight: $font-bold;
+    text-decoration: none;
+
+    @include rem(line-height, 28);
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .services-list {
+    list-style-type: none;
+    height: 100%;
+    color: $secondary;
+    margin: 0;
+    padding: 0;
+  }
+
+  .services-list--multi {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+
+  .services-title {
+    font-weight: $font-bold;
+    color: $secondary;
+    font-size: $h2-font-size;
+    margin: 0;
+
+    @include rem(line-height, 32);
+    @include rem(padding-bottom, 20);
+  }
+
+  .services-title-blank {
+    @include rem(height, 55);
+  }
+
+  li {
+    @include rem(line-height, 20);
+  }
+
+  div {
+    div {
+      background: $white;
+    }
+  }
+}
+
+.search-placement {
+  position: absolute;
+  top: 0.5rem;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    position: initial;
+    top: auto;
+    width: auto;
+  }
+}
+
+.responsive-services {
+  background: $white;
+  height: 75vh;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+
+    @include rem(width, 12);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 0.125rem solid $white;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 0.063rem rgba(255, 255, 255, .5);
+
+    @include rem(border-radius, 6);
+  }
+
+  .services-title {
+    font-size: $font-size-lg;
+    font-weight: $font-bold;
+    color: $secondary;
+    margin: 0;
+
+    @include rem(padding, 16);
+  }
+
+  ul {
+    padding: 0 0 1rem 1rem;
+    color: $secondary;
+    list-style-type: none;
+
+    li {
+      padding: 0.4rem 0;
+
+      a {
+        font-size: $font-size-med;
+      }
+
+      ul {
+        padding: 0;
+
+        li {
+          a {
+            font-size: $font-size-base;
+            font-weight: $font-normal;
+          }
+        }
+      }
+    }
+  }
+}

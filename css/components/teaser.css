@@ -1,0 +1,24 @@
+.lgd-teaser h3,
+.lgd-teaser h3 a {
+  color: var(--color-accent);
+}
+
+.lgd-teaser h3 a {
+  text-decoration: underline;
+}
+
+.lgd-teaser h3 a:hover,
+.lgd-teaser h3 a:focus {
+  color: var(--color-black);
+}
+
+.lgd-teaser h3 a:visited {
+  color: var(--color-accent);
+}
+
+.lgd-teaser-list .views-row,
+.lgd-teaser-list .service-landing-page__service,
+.lgd-teaser-list .lgd-topic-list-builder__service,
+.news-article .field--name-localgov-news-related > .field__item {
+  border-bottom: 0;
+}

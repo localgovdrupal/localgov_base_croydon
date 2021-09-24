@@ -1,0 +1,16 @@
+/**
+ * @file
+ * This file is an override of _stepbystep.scss in localgov_theme.
+ */
+
+.step-by-step-pages {
+  .step-list {
+    .step {
+      .step__title {
+        .step-show[aria-expanded="true"] {
+          color: $purple;
+        }
+      }
+    }
+  }
+}
