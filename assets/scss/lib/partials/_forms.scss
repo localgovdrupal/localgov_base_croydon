@@ -10,3 +10,73 @@
 .form-control::-ms-input-placeholder { /* Microsoft Edge */
   color: $dark;
 }
+
+.form-control {
+  &:focus {
+    outline: .1875rem solid $yellow;
+    outline-offset: -.1875rem;
+  }
+}
+
+.form-text,
+.form-textarea {
+  @extend .form-control;
+}
+
+.form-submit {
+  @extend .btn;
+}
+
+.webform-submission-form {
+  fieldset,
+  .fieldgroup {
+    border: 0;
+    padding: 0;
+  }
+}
+
+.form-item {
+  legend {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: $font-family-secondary;
+    font-weight: 700;
+    line-height: 1.2;
+    border: 0;
+  }
+
+  label {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-family: $font-family-secondary;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .description {
+    border: 0;
+    background: none;
+    padding: 0;
+
+    .webform-element-description {
+      display: block;
+      width: 100%;
+      font-size: 1.125rem;
+      font-family: $font-family-base;
+      font-weight: 400;
+      color: $form-description-color;
+    }
+  }
+
+  .form-checkboxes input[type="checkbox"] {
+    + label {
+      &:after {
+        color: $green;
+      }
+
+      &:before {
+        border: .063rem solid $checkbox-outline;
+      }
+    }
+  }
+}

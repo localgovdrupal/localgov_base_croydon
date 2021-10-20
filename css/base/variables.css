@@ -361,4 +361,6 @@ body {
   --ctalink-action-svg: var(--color-black);
   --ctalink-action-svg-focus: var(--color-white);
 
+  /*Forms*/
+  --checkbox-select-focus-color: var(--color-yellow);
 }

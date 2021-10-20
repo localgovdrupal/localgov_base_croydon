@@ -1,48 +1,48 @@
 global:
   css:
     base:
-      css/base/variables.css: {weight:200}
+      css/base/variables.css: {}
   js:
     js/main.js: {}
 
 base:
   css:
-    theme: 
-      css/components/base.css: {weight:200}
+    theme:
+      css/components/base.css: {}
       assets/css/lib/main.css: {}
 
 header:
   css:
     theme: 
-      css/components/header.css: {weight:200}
+      css/components/header.css: {}
 
 alert:
   css:
     theme: 
-      css/components/alert.css: {weight:200}
+      css/components/alert.css: {}
 
 footer:
   css:
     theme:
-      css/components/footer.css: {weight:200}
+      css/components/footer.css: {}
 
 homepage:
   css:
     theme: 
-      css/components/homepage.css: {weight:200}
+      css/components/homepage.css: {}
 
 service-cta-block:
   css:
     theme:
-      css/components/service-cta-block.css: {weight:200}
+      css/components/service-cta-block.css: {}
 
 service-landing-page:
   css:
     theme:
-      css/components/service-landing-page.css: {weight:200}
+      css/components/service-landing-page.css: {}
 
 teaser:
   css:
     theme:
-      css/components/teaser.css: {weight:200}
+      css/components/teaser.css: {}
 
