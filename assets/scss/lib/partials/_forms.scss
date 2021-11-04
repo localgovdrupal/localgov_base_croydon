@@ -198,17 +198,6 @@ abbr.ajax-changed {
   padding: 0.9375em;
 }
 
-/* Inline error messages. */
-.form-item--error-message:before {
-  display: inline-block;
-  width: 0.875em;
-  height: 0.875em;
-  content: "";
-  vertical-align: sub;
-  background: url(../../img/svg/error.svg) no-repeat;
-  background-size: contain;
-}
-
 .form-item--error-message {
   color: $red;
   padding-top: 1em;
@@ -218,6 +207,11 @@ abbr.ajax-changed {
 .localgov_forms_date__day,
 .localgov_forms_date__month,
 .localgov_forms_date__year {
+  position: absolute;
+  top: 2em;
+  left: 0;
+  margin-right: 2em;
+
   &:focus {
     outline: .1875rem solid $yellow;
     outline-offset: -.1875rem;
@@ -233,4 +227,26 @@ abbr.ajax-changed {
 .localgov_forms_date__year {
   display: inline-block;
   width: 5.5em !important;
+}
+
+/* Date part label. */
+.form-item-date-element-day label {
+  width: auto;
+  margin-right: 1em;
+}
+
+/* Date input error meesage. */
+.form-item-date-element {
+  margin-bottom: 5.5rem;
+
+}
+
+.form-item-date-element .form-item--error-message {
+  position: relative;
+  top: 3.5rem;
+  margin-bottom: 3rem;
+}
+
+.form-type-localgov-forms-date .webform-element-description {
+  margin-bottom: 2.5rem;
 }
