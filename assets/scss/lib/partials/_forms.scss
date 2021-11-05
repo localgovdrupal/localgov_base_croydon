@@ -190,7 +190,7 @@ abbr.ajax-changed {
 .form-item input.error,
 .form-item textarea.error,
 .form-item select.error {
-  border: 0.125em solid $red;
+  border: 0.1875rem solid $red !important;
 }
 
 .form-item--error {
@@ -238,7 +238,6 @@ abbr.ajax-changed {
 /* Date input error meesage. */
 .form-item-date-element {
   margin-bottom: 5.5rem;
-
 }
 
 .form-item-date-element .form-item--error-message {
