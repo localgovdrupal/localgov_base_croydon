@@ -1,7 +1,7 @@
 /* base styling */
 
 h1, h2, h3, h4, h5, h6, .heading {
-  line-height: 3.5rem;
+  line-height: 1.1;
   padding-right: 1.5rem;
 }
 
@@ -15,10 +15,6 @@ a:focus {
   background-color: var(--color-focus);
   box-shadow: none; /* default drop shadow not required */
   text-decoration: none; /* default text decoration not required */
-}
-
-.hidden {
-  outline: 6px solid lime;
 }
 
 @media screen and (min-width: 62rem) {
