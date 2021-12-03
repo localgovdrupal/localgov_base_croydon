@@ -1,22 +1,17 @@
 <?php
-/**
- * @file Theme hooks to support the LocalGov Base Theme.
- */
-
-use Drupal\views\ViewExecutable;
 
 /**
- * @file Theme hooks to support the LocalGov Base Theme.
+ * @file
+ * Theme hooks to support the LocalGov Base Croydon theme.
  */
 
- /**
- * Implements hook_preprocess_block() for hook_preprocess_block__subsitebanner_homepage().
+/**
+ * Implements hook_preprocess_block() for hook_preprocess_block__localgov_base_croydon_subsitebanner_homepage().
  *
  * Makes the render array for the *banner image path* available to the block
  * template.
  */
-
-function localgov_base_croydon_preprocess_block__subsitebanner_homepage(&$variables) {
+function localgov_base_croydon_preprocess_block__localgov_base_croydon_subsitebanner_homepage(&$variables) {
 
   $banner_paragraph = $variables['content']['#paragraph'];
   $has_no_banner_img = !($banner_paragraph->localgov_image and $banner_paragraph->localgov_image->count());
