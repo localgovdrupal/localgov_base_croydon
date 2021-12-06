@@ -406,8 +406,10 @@
   }
 }
 
-.node--localgov_subsites_overview {
+.lgd-region--banner {
   .jumbotron {
+    padding: 0;
+
     &.home-1 {
       background-color: $primary;
 
