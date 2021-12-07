@@ -1,17 +1,16 @@
 // Main.scss - This file imports all sass components
 
 // Functions
-@import '../../../../localgov_theme/assets/scss/lib/functions';
+@import 'functions';
 
 // Mixins
-@import '../../../../localgov_theme/assets/scss/lib/mixins';
+@import 'mixins';
 
 // Import Bootstrap css
 // Required
 @import '../../../node_modules/bootstrap/scss/functions';
 @import '../../../node_modules/bootstrap/scss/mixins';
 @import '../../../node_modules/bootstrap/scss/variables';
-@import '../../../../localgov_theme/assets/scss/lib/variables';
 // Import council theme settings
 @import 'variables-croydon';
 
@@ -42,7 +41,6 @@
 @import "../../../node_modules/bootstrap/scss/modal";
 @import "../../../node_modules/bootstrap/scss/tooltip";
 @import "../../../node_modules/bootstrap/scss/carousel";
-@import 'functions';
 
 // Import local partials
 @import 'partials/account';
@@ -75,10 +73,9 @@
 @import 'partials/map-overlay';
 @import 'partials/modal';
 @import 'partials/notice';
-@import 'partials/nav';
+// @import 'partials/nav'; trial doing away with this
 @import 'partials/page-builder';
 @import 'partials/page-header';
-@import 'partials/promo';
 @import 'partials/pullquote';
 @import 'partials/remote-video';
 @import 'partials/search';

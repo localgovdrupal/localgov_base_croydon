@@ -1,3 +1,44 @@
+.menu--main .menu-item:last-child { // My Account Styling
+  white-space: nowrap;
+
+  a {
+    color: $yellow;
+    font-weight: $font-bold; // for fallbacks only
+    white-space: nowrap;
+    font-size: $font-size-base;
+    margin: 0;
+
+    &:hover,
+    &:focus {
+      background-color: $focus;
+      color: $link-hover-color;
+      text-decoration: none;
+      box-shadow: 0 0 0 0.125rem $focus;
+
+      > img {
+        @include outline(.1875rem, 0, $focus);
+      }
+    }
+
+    &:after {
+      content: "put icon here";
+      display: block;
+    }
+  }
+}
+
+.lgd-region--search {
+  position: absolute;
+  top: 0.5rem;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    position: initial;
+    top: auto;
+    width: auto;
+  }
+}
+
 //Nav links and big tab links mobile
 .navbar-dark .nav-item {
   font-family: $font-family-secondary;

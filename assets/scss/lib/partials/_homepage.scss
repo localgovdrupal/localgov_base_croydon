@@ -1,5 +1,7 @@
 .path-frontpage {
   main {
+    margin-top: 1rem;
+
     > section {
       margin-bottom: 0;
     }
@@ -195,10 +197,6 @@
     p {
       width: auto;
       display: block;
-
-      a {
-        display: inline;
-      }
     }
 
     div > a {
@@ -231,14 +229,12 @@
 
     a {
       word-break: break-word;
-      color: $carbon;
       display: block;
       text-decoration: underline;
 
       &:hover,
       &:focus {
         text-decoration: none;
-        color: $carbon;
       }
     }
   }
@@ -255,40 +251,26 @@
 
       .layout__region--bottom {
         .box-link {
-          a {
-            width: auto;
-            font-size: $font-size-ex-ex-lg;
-            text-decoration: underline !important;
+          border: 0;
 
-            &:hover,
-            &:focus {
-              text-decoration: underline;
-            }
+          .box-link__title {
+            padding-left: 0;
+          }
 
-            span {
-              margin-top: 0;
+          .box-link__link {
+            &:before {
+              content: $fa-chevron-right;
+              position: absolute;
+              left: 0;
+              top: 0.4rem;
+              font-family: $font-family-icons;
+              font-weight: $fa-font-weight;
+              color: $tertiary;
+              font-size: $font-size-ex-ex-sm;
 
-              &:before {
-                top: 0.3rem;
-                font-size: 1.05rem;
-              }
+              @include rem(margin-right, 5);
             }
           }
-        }
-      }
-    }
-  }
-
-  .paragraph--type--localgov-subscribe-panel {
-    @include rem(margin, 20, 0);
-    @include rem(padding, 32, 0);
-
-    .form-checkboxes {
-      label {
-        font-family: $font-family-base;
-
-        a {
-          font-weight: normal;
         }
       }
     }
@@ -298,23 +280,11 @@
     padding: 0;
     text-align: left;
 
-    @include rem(margin-top, 15);
-    @include rem(margin-left, 15);
-
     .services--feature-icon {
-      width: inherit;
-      height: inherit;
       font-size: $h2-font-size;
-    }
-  }
-
-  .featured-subsite__title {
-    @include rem(margin, 20, 0, 0, 0);
-
-    a {
-      word-break: break-word;
-      line-height: 2rem;
-      color: $carbon;
+      width: auto;
+      padding-right: 1rem;
+      margin-top: 1rem;
     }
   }
 
@@ -323,6 +293,12 @@
 
     @include media-breakpoint-up(sm) {
       font-size: $font-size-lg;
+    }
+  }
+
+  .featured-subsite__img {
+    img {
+      @extend .img-fluid;
     }
   }
 

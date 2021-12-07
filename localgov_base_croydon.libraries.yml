@@ -41,6 +41,11 @@ service-landing-page:
     theme:
       css/components/service-landing-page.css: {weight:200}
 
+secondary-menu:
+  css:
+    theme:
+      css/components/secondary-menu.css: {weight:200}
+
 teaser:
   css:
     theme:
