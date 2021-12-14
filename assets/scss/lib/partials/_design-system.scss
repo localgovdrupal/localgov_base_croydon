@@ -53,7 +53,7 @@ main .sidebar a {
   color: $primary !important;
   text-decoration: underline !important;
   pointer-events: auto !important;
-  padding: 0 !important;
+  padding: 0;
 }
 
 /**

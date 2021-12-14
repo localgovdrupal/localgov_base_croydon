@@ -1,5 +1,5 @@
-.node--localgov_subsites_overview,
-.node--localgov_subsites_page {
+.page-node-type-localgov-subsites-overview,
+.page-node-type-localgov-subsites-page {
   main,
   .sidebar {
     @include rem(margin-top, 10);
@@ -56,29 +56,55 @@
       background-size: contain;
       background-position: right;
     }
+
+    &.banner-full {
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
   }
 
-  .section-nav {
-    background: $section-nav-background;
+  .block-localgov-subsite-navigation {
+    background-color: $section-nav-background !important; // override base
+    color: $white;
+    padding: 0 !important;  // override base
+    overflow: auto;
 
-    h3 {
-      color: $white;
-      padding: inherit;
-      overflow: auto;
-    }
-
-    ul {
+    .menu {
       list-style: none;
-      margin-left: 0;
+      margin: 0;
+      padding: 0;
+
+
+      .menu-item--active-trail {
+        border-left: 0.1875rem solid $indigo;
+        color: $white;
+        margin-bottom: 0;
+
+        span {
+          @include rem(padding, 8, 24);
+        }
+      }
 
       li {
-        background: $white;
-        font-size: 1.125rem;
+        background: $section-nav-background;
+        padding: 0;
 
-        &.menu-item {
-          span {
-            a {
-              padding: 0.5rem 1.5rem;
+        @extend .h3;
+
+        .menu {
+          background: $white;
+          margin: 0;
+          padding: 0;
+
+          li {
+            margin: 0;
+            padding: 0;
+            background: $white;
+            font-size: $font-size-ex-med;
+
+            &.menu-item--active-trail {
+              color: $carbon;
             }
           }
         }
@@ -86,7 +112,10 @@
         a {
           display: block;
           width: 100%;
+          margin: 0;
           border-left: 0.1875rem solid $violet;
+
+          @include rem(padding, 8, 24);
 
           &:hover {
             border-left: 0.1875rem solid $purple;
@@ -95,10 +124,6 @@
 
         span {
           display: block;
-        }
-
-        .is-active {
-          border-left: 0.1875rem solid $indigo;
         }
 
         ul {
@@ -233,12 +258,29 @@
     }
 
     .link-block {
+      position: relative;
+
       h2 {
         margin-top: 0 !important; // stop link block headers inheriting the top margin of generic .content H2s
       }
 
       a {
         color: $linkblock;
+      }
+
+      .link-block__title,
+      .link-block__content {
+        @include rem(padding-left, 5);
+      }
+    }
+
+    .lgd-icon {
+      svg {
+        max-height: $font-size-base;
+        fill: $green;
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
       }
     }
   }

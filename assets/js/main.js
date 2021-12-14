@@ -11,7 +11,7 @@
     var homeSearchButton = document.querySelector('#home-site-search button');
     //var homeExpandServicesLink = document.querySelector('#services--expand-link');
     //var homeExpandServicesContainer = document.querySelector('#services--expand-container');
-    var homeExists = document.querySelector('.homepage');
+    var homeExists = document.querySelector('.path-frontpage');
     var newsroomSearch = document.querySelector('#newsroom--search');
     var newsroomSearchToggle = document.querySelector('#newsroom--search-toggle');
     var directorySearch = document.querySelector('#directories-search-form');
@@ -164,6 +164,7 @@
     /* Homepage only - services list show hide */
     if (homeExists) {
 
+    alert('foo');
     var $servicesBlock = $(".layout--threecol-33-34-33"); // Note: this selector needs to be changed to a more specific class when available
     
     $servicesBlock.slice(2).hide();

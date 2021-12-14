@@ -388,6 +388,8 @@
 
     &.home-1 {
       background-color: $primary;
+      background-repeat: no-repeat;
+      background-size: cover;
 
       .form-control {
         padding-top: 0;

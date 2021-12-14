@@ -1,9 +1,17 @@
-.node--localgov_subsites_overview {
-  .jumbotron {
-    &.banner-full {
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
+.banner--primary {
+  .banner__image { // fix-height
+    img {
+      @include rem(max-height, 200); // reset base min
+      @include rem(min-height, 300); // fix image height
+    }
+  }
+
+  .field--name-localgov-title { // re-implement h1 styling due to override base styling
+    font-family: $font-family-secondary;
+    font-size: $h1-font-size !important;
+
+    @include media-breakpoint-up(lg) {
+      font-size: $font-size-base * 2.875 !important;
     }
   }
 }

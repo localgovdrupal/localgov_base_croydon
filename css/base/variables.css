@@ -296,7 +296,7 @@ body {
   --banner-content-padding: var(--spacing-largest);
   --banner-content-bg-color: var(--color-accent);
   --banner-content-text-color: var(--color-white);
-  --banner-title-size: var(--font-size-larger);
+  --banner-title-size: var(--font-size-h1);
 
   /* Teaser View Mode */
   --teaser-image-with: 33%;
