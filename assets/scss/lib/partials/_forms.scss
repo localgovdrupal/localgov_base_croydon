@@ -49,8 +49,8 @@
 .form-item {
   &.form-item-date-of-birth,
   &.form-item-example-localgov-forms-date,
-  &.form-item-localgov-forms-date-day,
-  &.form-item-localgov-forms-date-of-birth-day { // date specific styling
+  &.form-item-localgov-forms-date,
+  &.form-item-localgov-forms-date-of-birth { // date specific styling
     .container-inline {
       @extend .row;
 
