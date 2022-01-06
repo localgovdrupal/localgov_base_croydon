@@ -94,13 +94,30 @@
 
   .js-form-type-checkbox input[type="checkbox"],
   .form-checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+
     + label {
+      @include rem(margin-left, 15);
+
       &:after {
         color: $green;
+        border-width: 0 0 0.1875rem 0.1875rem;
+        margin: 0;
+        padding: 0;
+
+        @include rem(width, 14);
+        @include rem(height, 8);
+        @include rem(top, 14);
+        @include rem(left, 3);
       }
 
       &:before {
         border-width: .063rem !important;
+        width: 1.25rem;
+        height: 1.25rem;
+
+        @include rem(top, 10);
       }
     }
   }
@@ -388,4 +405,36 @@ ul.thumbnails.image_picker_selector li .thumbnail {
     display: inline-block;
     width: 100%;
   }
+}
+
+/* address actions */
+.address-actions {
+  .address-searchbutton {
+    width: 50%;
+    border: 0 !important;
+    border-radius: 0;
+
+    @extend .btn;
+    @extend .btn-primary;
+
+    @include media-breakpoint-up(sm) {
+      width: 20%;
+    }
+  }
+
+  .js-reset-address {
+    border: 0 !important;
+    border-radius: 0;
+
+    @extend .btn;
+    @extend .btn-carbon;
+  }
+}
+
+.link-button {
+  background: none;
+  color: $carbon;
+  text-decoration: underline;
+  border: 0;
+  padding: 1rem 0;
 }

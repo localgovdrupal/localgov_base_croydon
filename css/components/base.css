@@ -17,10 +17,6 @@ a:focus {
   text-decoration: none; /* default text decoration not required */
 }
 
-.hidden {
-  outline: 6px solid lime;
-}
-
 @media screen and (min-width: 62rem) {
   h1 {
     font-size: calc(var(--font-size) * 2.875);
