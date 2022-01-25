@@ -7,7 +7,8 @@ global:
 
 base:
   css:
-    theme: 
+    theme:
+      assets/css/font-face.css: {}
       css/components/base.css: {weight:200}
       assets/css/lib/main.css: {}
 
