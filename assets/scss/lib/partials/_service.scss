@@ -191,7 +191,7 @@
 }
 
 .block-system-main-block {
-  .node--type-localgov-services-sublanding {
+  .page-node-type-localgov-services-sublanding {
     h3 {
       margin-top: 0;
     }
@@ -199,18 +199,18 @@
 }
 
 // service pages use header links that are styled differently to those featured in main content
-.node--localgov_directory,
-.node--localgov_directories_page {
+.page-node-type-localgov_directory,
+.page-node-type-localgov_directories_page {
   .sidebar {
     margin-top: 0;
   }
 }
 
-.node--localgov_services_landing,
-.node--localgov_services_sublanding,
-.node--type-localgov-services-sublanding,
-.node--localgov_directory,
-.node--localgov_directories_page {
+.page-node-type-localgov-services-landing,
+.page-node-type-localgov-services-sublanding,
+.page-node-type-type-localgov-services-sublanding,
+.page-node-type-localgov-directory,
+.page-node-type-localgov-directories-page {
   main { // remove main top margin for service pages
     margin-top: 0;
 

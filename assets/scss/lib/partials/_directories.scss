@@ -116,7 +116,7 @@
 
 /* Directory Listing */
 
-.node--directory_item {
+.page-node-type-directory-item {
   h2 {
     @include rem(margin-bottom, 30);
   }
@@ -273,7 +273,7 @@
   background: none;
 }
 
-.node--directory_listing {
+.page-node-type-directory-listing {
   .directories-search {
     background-color: $gray-tint;
 

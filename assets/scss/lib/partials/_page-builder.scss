@@ -63,15 +63,20 @@
 
 .fact-box {
   width: 100%;
-  background-color: $indigo;
-  border-bottom: 0.1875rem solid $tan;
+  background-color: $indigo !important;
+  border-bottom: 0.1875rem solid $tan !important;
+  border-left: none !important; // overrule base.css border setting
+  border-right: none !important; // overrule base.css border setting
+  border-top: none !important; // overrule base.css border setting
+  display: flex;
 
   @include rem(margin-bottom, 15);
   @include rem(padding, 50, 15);
 
-  p {
+  .field--name-localgov-fact {
     padding-right: 0; // override of 'main' para styling
     color: $white;
+    font-weight: $font-bold;
 
     @include rem(margin-bottom, 10);
 
