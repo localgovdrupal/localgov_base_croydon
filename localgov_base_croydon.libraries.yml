@@ -10,6 +10,7 @@ base:
     theme:
       css/components/base.css: {}
       assets/css/lib/main.css: {}
+      css/components/form-items.css: {}
 
 header:
   css:
@@ -45,4 +46,3 @@ teaser:
   css:
     theme:
       css/components/teaser.css: {}
-
