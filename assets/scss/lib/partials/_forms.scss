@@ -200,10 +200,13 @@ label {
 }
 
 // Checkbox and radio text size
-.radio label,
-.form-check label {
+.form-item-radios label,
+.form-checkboxes label {
+  font-family: $font-family-base;
+  font-weight: 400;
   font-size: $font-size-med;
 }
+
 
 // Form validation text
 .valid-feedback,
