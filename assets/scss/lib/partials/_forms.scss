@@ -26,11 +26,22 @@
 .button {
   @extend .btn;
 
+  @include rem(height, 50);
+  @include rem(margin, 15, 15, 15, 0);
+
+  border: 0 !important; // override base settings for things like action buttons
+  padding: 0 .9375rem !important;
   font-family: $font-family-secondary;
   font-size: $font-size-ex-ex-lg;
 
-  &.button--primary {
+  &.button--primary,
+  &.button-action {
     @extend .btn-primary;
+  }
+
+  &.button-action {
+    border-radius: 0;
+    padding-top: 0.75rem !important;
   }
 
   &.webform-button--preview {
@@ -61,7 +72,7 @@
   }
 
   legend {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 1.5rem;
     font-family: $font-family-secondary;
     font-weight: 700;
@@ -81,44 +92,15 @@
     border: 0;
     background: none;
     padding: 0;
+    font-size: $font-size-lg;
 
     .webform-element-description {
       display: block;
       width: 100%;
-      font-size: 1.125rem;
+      font-size: $font-size-lg;
       font-family: $font-family-base;
       font-weight: 400;
       color: $form-description-color;
-    }
-  }
-
-  .js-form-type-checkbox input[type="checkbox"],
-  .form-checkbox {
-    width: 1.25rem;
-    height: 1.25rem;
-
-    + label {
-      @include rem(margin-left, 15);
-
-      &:after {
-        color: $green;
-        border-width: 0 0 0.1875rem 0.1875rem;
-        margin: 0;
-        padding: 0;
-
-        @include rem(width, 14);
-        @include rem(height, 8);
-        @include rem(top, 14);
-        @include rem(left, 3);
-      }
-
-      &:before {
-        border-width: .063rem !important;
-        width: 1.25rem;
-        height: 1.25rem;
-
-        @include rem(top, 10);
-      }
     }
   }
 
@@ -201,12 +183,25 @@ label {
 
 // Checkbox and radio text size
 .form-item-radios label,
-.form-checkboxes label {
+.form-checkboxes label,
+.form-type-webform-terms-of-service label {
   font-family: $font-family-base;
   font-weight: 400;
-  font-size: $font-size-med;
+  font-size: $font-size-lg;
 }
 
+.facet-item input[type="checkbox"] + label::after,
+.form-item-webform-terms-of-service input[type="checkbox"] + label::after,
+.form-checkboxes input[type="checkbox"] + label::after {
+  color: $green;
+}
+
+.form-checkboxes input[type="checkbox"] + label::before,
+.facet-item input[type="checkbox"] + label::before,
+.form-item-webform-terms-of-service input[type="checkbox"] + label::before,
+.form-checkboxes input[type="checkbox"]:focus + label:before {
+  border-color: $carbon;
+}
 
 // Form validation text
 .valid-feedback,
@@ -440,4 +435,8 @@ ul.thumbnails.image_picker_selector li .thumbnail {
   text-decoration: underline;
   border: 0;
   padding: 1rem 0;
+}
+
+.js-form-wrapper summary {
+  @include rem(margin, 20, 0);
 }
