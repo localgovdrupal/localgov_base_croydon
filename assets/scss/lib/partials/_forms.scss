@@ -440,3 +440,21 @@ ul.thumbnails.image_picker_selector li .thumbnail {
 .js-form-wrapper summary {
   @include rem(margin, 20, 0);
 }
+
+
+/** Form  validation styling **/
+/* Inline error messages. */
+
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border: 2px solid $red !important;
+}
+
+/* Inline error messages. */
+fieldset.radios--wrapper.error .fieldset-wrapper,
+.form-item--error {
+  padding-left: 15px;
+  color: $red;
+  border-left: 5px solid $red;
+}
