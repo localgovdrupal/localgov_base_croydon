@@ -442,19 +442,20 @@ ul.thumbnails.image_picker_selector li .thumbnail {
 }
 
 
-/** Form  validation styling **/
-/* Inline error messages. */
 
+/** Form  validation styling **/
+
+/* Inline error messages. */
 .form-item input.error,
 .form-item textarea.error,
 .form-item select.error {
-  border: 2px solid $red !important;
+  border: 0.125rem solid $red !important;
 }
 
 /* Inline error messages. */
 fieldset.radios--wrapper.error .fieldset-wrapper,
 .form-item--error {
-  padding-left: 15px;
+  padding-left: 1rem;
   color: $red;
-  border-left: 5px solid $red;
+  border-left: 0.3125rem solid $red;
 }
