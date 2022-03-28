@@ -441,8 +441,6 @@ ul.thumbnails.image_picker_selector li .thumbnail {
   @include rem(margin, 20, 0);
 }
 
-
-
 /** Form  validation styling **/
 
 /* Inline error messages. */
@@ -453,9 +451,21 @@ ul.thumbnails.image_picker_selector li .thumbnail {
 }
 
 /* Inline error messages. */
+fieldset.checkboxes--wrapper.error .fieldset-wrapper,
 fieldset.radios--wrapper.error .fieldset-wrapper,
 .form-item--error {
   padding-left: 1rem;
   color: $red;
   border-left: 0.3125rem solid $red;
+}
+
+/* Form item labels */
+.form-item.form-item--error label,
+fieldset.radios--wrapper.error input[type="radio"] + label.option,
+fieldset.checkboxes--wrapper.error input[type="checkbox"] + label.option {
+  color: $carbon;
+}
+
+.form-item--error-message {
+  padding-top: .325rem;
 }
