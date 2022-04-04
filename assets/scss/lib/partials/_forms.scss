@@ -110,7 +110,6 @@
     font-size: $font-size-ex-med;
     display: block;
     width: 100%;
-    height: $input-height;
     padding: .375rem .75rem;
     font-weight: 400;
     line-height: 1.5;
@@ -119,6 +118,11 @@
     background-clip: padding-box;
     border: .06rem solid $input-border-color;
     border-radius: 0;
+  }
+
+  input,
+  select {
+    height: $input-height;
   }
 }
 
@@ -408,15 +412,20 @@ ul.thumbnails.image_picker_selector li .thumbnail {
 /* address actions */
 .address-actions {
   .address-searchbutton {
-    width: 50%;
+    width: auto;
     border: 0 !important;
     border-radius: 0;
+    color: $carbon;
+    background-color: $green;
+    font-weight: $font-bold;
+    text-decoration: none;
 
     @extend .btn;
-    @extend .btn-primary;
 
-    @include media-breakpoint-up(sm) {
-      width: 20%;
+    &:hover,
+    &:focus {
+      color: $white;
+      background-color: $teal;
     }
   }
 
@@ -425,7 +434,12 @@ ul.thumbnails.image_picker_selector li .thumbnail {
     border-radius: 0;
 
     @extend .btn;
-    @extend .btn-carbon;
+    @extend .btn-secondary;
+
+    &:hover,
+    &:focus {
+      background-color: $indigo;
+    }
   }
 }
 
@@ -444,19 +458,18 @@ ul.thumbnails.image_picker_selector li .thumbnail {
 /** Form  validation styling **/
 
 /* Inline error messages. */
-.form-item input.error,
-.form-item textarea.error,
-.form-item select.error {
-  border: 0.125rem solid $red !important;
+.form-item .error {
+  border: 0.125rem solid $danger !important;
 }
 
 /* Inline error messages. */
 fieldset.checkboxes--wrapper.error .fieldset-wrapper,
 fieldset.radios--wrapper.error .fieldset-wrapper,
 .form-item--error {
-  padding-left: 1rem;
-  color: $red;
-  border-left: 0.3125rem solid $red;
+  color: $danger;
+  border-left: 0.3125rem solid $danger;
+
+  @include rem(padding-left, 16);
 }
 
 /* Form item labels */
@@ -467,5 +480,6 @@ fieldset.checkboxes--wrapper.error input[type="checkbox"] + label.option {
 }
 
 .form-item--error-message {
-  padding-top: .325rem;
+  @include rem(padding, 5, 0);
 }
+
