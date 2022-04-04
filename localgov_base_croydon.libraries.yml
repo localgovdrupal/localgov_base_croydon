@@ -8,41 +8,42 @@ global:
 base:
   css:
     theme:
-      css/components/base.css: {}
+      css/components/base.css: { weight: 200 }
       assets/css/lib/main.css: {}
       css/components/form-items.css: {}
 
 header:
   css:
-    theme: 
-      css/components/header.css: {}
+
+    theme:
+      css/components/header.css: { weight: 200 }
 
 alert:
   css:
-    theme: 
-      css/components/alert.css: {}
+    theme:
+      css/components/alert.css: { weight: 200 }
 
 footer:
   css:
     theme:
-      css/components/footer.css: {}
+      css/components/footer.css: { weight: 200 }
 
 homepage:
   css:
-    theme: 
-      css/components/homepage.css: {}
+    theme:
+      css/components/homepage.css: { weight: 200 }
 
 service-cta-block:
   css:
     theme:
-      css/components/service-cta-block.css: {}
+      css/components/service-cta-block.css: { weight: 200 }
 
 service-landing-page:
   css:
     theme:
-      css/components/service-landing-page.css: {}
+      css/components/service-landing-page.css: { weight: 200 }
 
 teaser:
   css:
     theme:
-      css/components/teaser.css: {}
+      css/components/teaser.css: { weight: 200 }
