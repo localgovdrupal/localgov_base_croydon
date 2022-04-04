@@ -1,0 +1,12 @@
+.lgd-region__inner--secondary-menu {
+  padding: var(--spacing);
+}
+
+.lgd-region__inner--secondary-menu  .block-menu > h2 {
+  padding-left: 0;
+}
+
+.region-secondary-menu .menu-item > a:hover,
+.region-secondary-menu .menu-item > a:focus {
+	color:  var(--color-black);
+}

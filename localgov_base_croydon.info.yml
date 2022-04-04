@@ -13,6 +13,7 @@ libraries:
   - localgov_base_croydon/service-cta-block
   - localgov_base_croydon/service-landing-page
   - localgov_base_croydon/teaser
+  - localgov_base_croydon/secondary-menu
 
 regions:
   tabs: "Tabs"

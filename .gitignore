@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 /node_modules
+=======
+# Ignore node files
+/node_modules
+>>>>>>> feature/croydonstyling

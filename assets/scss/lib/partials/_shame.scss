@@ -1,8 +1,3 @@
-/**
- * @file
- * This file is an override of _shame.scss in localgov_theme.
- */
-
 // Shame file - home for hacks, rule breakers and overrides for BS
 
 // Apply BS '.table' class to all tables. This is here because
@@ -20,12 +15,6 @@ table {
   @include media-breakpoint-up(md) {
     max-width: 100%;
   }
-}
-
-// temp styling related to soft launch
-.beta-notice-sm,
-.notice {
-  display: none;
 }
 
 // remove gap between multi-line news headers background blocks on hover
@@ -110,15 +99,10 @@ main a[href^="mailto:"],
 }
 
 // temp remove related links sidebar on step by step overview - remove this when a perm solution is found
-.node--localgov_step_by_step_overview {
+.page-node-type-localgov-step-by-step-overview {
   .sidebar {
     display: none;
   }
-}
-
-// needs to be factored back into localgov theme - links.scss - the breakpoint was changed from sm to md
-main.col-md-8 a {
-  font-weight: $font-normal !important; // remove bold for main copy links
 }
 
 // axe accessibility audit flags bs visually-hidden elements as having a bad contrast ratio - setting opacity to zero seems to throw this off

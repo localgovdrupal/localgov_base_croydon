@@ -8,7 +8,8 @@ global:
 base:
   css:
     theme:
-      css/components/base.css: { weight: 200 }
+      assets/css/font-face.css: {}
+      css/components/base.css: {weight:200}
       assets/css/lib/main.css: {}
       css/components/form-items.css: {}
 
@@ -42,6 +43,11 @@ service-landing-page:
   css:
     theme:
       css/components/service-landing-page.css: { weight: 200 }
+
+secondary-menu:
+  css:
+    theme:
+      css/components/secondary-menu.css: {weight:200}
 
 teaser:
   css:

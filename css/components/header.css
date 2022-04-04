@@ -28,7 +28,8 @@
 }
 
 .lgd-header .navigation--sub-menu .menu--sub-menu {
-  padding-left:0;
+  padding-left: 0;
+  margin-bottom: 0;
 }
 
 .lgd-header .navigation--sub-menu .menu--sub-menu .menu-item {
@@ -43,4 +44,8 @@
 .lgd-header .navigation--sub-menu .menu--sub-menu .menu-item a {
   text-decoration: none;
   line-height: 1.75rem;
+}
+
+.lgd-header__nav--primary {
+  flex-direction: unset;
 }

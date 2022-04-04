@@ -1,17 +1,16 @@
 // Main.scss - This file imports all sass components
 
 // Functions
-@import '../../../../localgov_theme/assets/scss/lib/functions';
+@import 'functions';
 
 // Mixins
-@import '../../../../localgov_theme/assets/scss/lib/mixins';
+@import 'mixins';
 
 // Import Bootstrap css
 // Required
 @import '../../../node_modules/bootstrap/scss/functions';
 @import '../../../node_modules/bootstrap/scss/mixins';
 @import '../../../node_modules/bootstrap/scss/variables';
-@import '../../../../localgov_theme/assets/scss/lib/variables';
 // Import council theme settings
 @import 'variables-croydon';
 
@@ -43,45 +42,21 @@
 @import "../../../node_modules/bootstrap/scss/tooltip";
 @import "../../../node_modules/bootstrap/scss/carousel";
 
-// Import partials from localgov_theme
-//@import '../../../../localgov_theme/assets/scss/lib/partials/account';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/accordion';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/admin';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/base';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/breadcrumb';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/buttons';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/campaigns';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/cookie';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/colors';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/callout';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/cta';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/directories';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/facets';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/footer';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/forms';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/guides';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/iconlist';
-//@import '../../../../localgov_theme/assets/scss/lib/partials/links';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/main';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/map-overlay';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/modal';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/notice';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/page-builder';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/search';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/shame';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/sidebar';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/service';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/service-status';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/services';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/stepbystep';
-// @import '../../../../localgov_theme/assets/scss/lib/partials/tables';
-@import 'functions';
-
 // Import local partials
+@import 'partials/account';
+@import 'partials/accordion';
+@import 'partials/admin';
+@import 'partials/alert';
 @import 'partials/banners';
+@import 'partials/base';
+@import 'partials/breadcrumb';
 @import 'partials/buttons';
+@import 'partials/campaigns';
 @import 'partials/contact';
-//@import 'partials/cta';
+@import 'partials/cookie';
+@import 'partials/colors';
+@import 'partials/callout';
+@import 'partials/cta';
 @import 'partials/design-system';
 @import 'partials/directories';
 @import 'partials/facets';
@@ -89,18 +64,27 @@
 @import 'partials/formio';
 @import 'partials/forms';
 @import 'partials/footer';
+@import 'partials/guides';
 @import 'partials/google-search';
 @import 'partials/header';
 @import 'partials/homepage';
-@import 'partials/nav';
+@import 'partials/iconlist';
+@import 'partials/links';
+@import 'partials/main';
+@import 'partials/map-overlay';
+@import 'partials/modal';
+@import 'partials/notice';
+// @import 'partials/nav'; trial doing away with this
 @import 'partials/page-builder';
 @import 'partials/page-header';
-@import 'partials/promo';
 @import 'partials/pullquote';
 @import 'partials/remote-video';
 @import 'partials/search';
 @import 'partials/service';
-//@import 'partials/shame';
+@import 'partials/service-status';
+@import 'partials/services';
+@import 'partials/shame';
+@import 'partials/sidebar';
 @import 'partials/socials';
 @import 'partials/stepbystep';
 @import 'partials/subsites';
