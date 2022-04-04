@@ -58,10 +58,7 @@
 }
 
 .form-item {
-  &.form-item-date-of-birth,
-  &.form-item-example-localgov-forms-date,
-  &.form-item-localgov-forms-date,
-  &.form-item-localgov-forms-date-of-birth { // date specific styling
+  .form-item-localgov-forms-date { // date specific styling
     .container-inline {
       @extend .row;
 
@@ -91,13 +88,13 @@
   .description {
     border: 0;
     background: none;
-    padding: 0;
-    font-size: $font-size-lg;
+    padding: 1rem 0;
+    font-size: $font-size-med;
 
     .webform-element-description {
       display: block;
       width: 100%;
-      font-size: $font-size-lg;
+      font-size: $font-size-med;
       font-family: $font-family-base;
       font-weight: 400;
       color: $form-description-color;
@@ -191,7 +188,7 @@ label {
 .form-type-webform-terms-of-service label {
   font-family: $font-family-base;
   font-weight: 400;
-  font-size: $font-size-lg;
+  font-size: $font-size-med;
 }
 
 .facet-item input[type="checkbox"] + label::after,

@@ -262,12 +262,6 @@
   }
 }
 
-.form-checkboxes input[type=checkbox]:checked ~ label:before {
-  content: '\f00c';
-  border: 0.0625rem solid $green;
-  color: $green;
-}
-
 .directories-hide-filters {
   display: block;
   background: none;
