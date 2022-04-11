@@ -183,8 +183,8 @@ label {
 }
 
 // Checkbox and radio text size
-.form-item-radios label,
-.form-checkboxes label,
+.js-webform-radios label,
+.js-form-type-checkbox label,
 .form-type-webform-terms-of-service label {
   font-family: $font-family-base;
   font-weight: 400;
