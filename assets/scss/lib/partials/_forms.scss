@@ -89,7 +89,8 @@
     border: 0;
     background: none;
     padding: 1rem 0;
-    font-size: $font-size-med;
+    font-size: $font-size-base;
+    font-weight: $font-bold;
 
     .webform-element-description {
       display: block;
@@ -472,11 +473,18 @@ fieldset.radios--wrapper.error .fieldset-wrapper,
 /* Form item labels */
 .form-item.form-item--error label,
 fieldset.radios--wrapper.error input[type="radio"] + label.option,
-fieldset.checkboxes--wrapper.error input[type="checkbox"] + label.option {
+fieldset.checkboxes--wrapper.error input[type="checkbox"] + label.option,
+.description {
   color: $carbon;
 }
 
-.form-item--error-message {
-  @include rem(padding, 5, 0);
-}
+// error messages
 
+.form-item--error-message {
+  color: $danger;
+  font-weight: $font-bold;
+  display: inline-block;
+
+  @include rem(padding, 5, 0);
+  @include rem(margin-bottom, 10);
+}
