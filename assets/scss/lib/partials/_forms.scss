@@ -461,10 +461,11 @@ ul.thumbnails.image_picker_selector li .thumbnail {
 }
 
 /* Inline error messages. */
-fieldset.checkboxes--wrapper.error .fieldset-wrapper,
-fieldset.radios--wrapper.error .fieldset-wrapper,
+fieldset.radios--wrapper.required.error,
+fieldset.checkboxes--wrapper.required.error,
+fieldset.checkboxes--wrapper.error,
+fieldset.radios--wrapper.error,
 .form-item--error {
-  color: $danger;
   border-left: 0.3125rem solid $danger;
 
   @include rem(padding-left, 16);
@@ -484,7 +485,15 @@ fieldset.checkboxes--wrapper.error input[type="checkbox"] + label.option,
   color: $danger;
   font-weight: $font-bold;
   display: inline-block;
+  width: 100%;
 
   @include rem(padding, 5, 0);
   @include rem(margin-bottom, 10);
+}
+
+fieldset.checkboxes--wrapper.required.error,
+fieldset.radios--wrapper.required.error {
+  legend {
+    padding-top: 1.3rem;
+  }
 }
