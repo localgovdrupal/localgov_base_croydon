@@ -141,7 +141,7 @@
 .path-frontpage .box-links-listing--boxes .box-links-listing__list-item .box-link a:hover {
   background: #808;
   border-bottom: .3rem solid #fb0;
-  color: #fff
+  color: var(--color-white)
 }
 
 .path-frontpage .box-links-listing--boxes .box-links-listing__list-item .box-link a span {
@@ -477,7 +477,7 @@
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:hover {
   color: var(--color-black);
-  background-color: #fff;
+  background-color: var(--color-white);
   box-shadow: none
 }
 
@@ -506,11 +506,11 @@
 
 .navbar-dark.nav-bigtabs .navbar-nav .nav-link:hover {
   background: #540055;
-  color: #fff
+  color: var(--color-white)
 }
 
 .navbar-dark.nav-bigtabs .navbar-nav .nav-link:focus {
-  background: #fff!important;
+  background: var(--color-white)!important;
   color: var(--color-black)!important
 }
 
@@ -536,10 +536,10 @@
 
 .navbar-dark.nav-bigtabs .nav-item.active,
 .navbar-dark .nav-item.active {
-  background: #fff;
+  background: var(--color-white);
   padding-left: .9375rem;
   padding-right: .9375rem;
-  border-bottom: .5rem solid #fff;
+  border-bottom: .5rem solid var(--color-white);
   margin-bottom: -.5rem
 }
 
@@ -594,7 +594,7 @@
 #js-nav-toggle {
   padding: 0;
   background-color: transparent;
-  border: .125rem solid #fff;
+  border: .125rem solid var(--color-white);
   border-radius: 0;
   width: 38px;
   width: 2.375rem;
@@ -603,7 +603,7 @@
 }
 
 #js-nav-toggle .fa {
-  color: #fff;
+  color: var(--color-white);
   font-size: 1.125rem
 }
 
@@ -680,7 +680,7 @@
 
 .block-nav .btn,
 .block-nav ul li {
-  border-bottom: .0625rem solid #fff!important;
+  border-bottom: .0625rem solid var(--color-white)!important;
   margin: 0!important
 }
 
@@ -823,8 +823,8 @@
 
 .paragraph--type--localgov-subscribe-panel .form-checkboxes input[type="checkbox"] + label::before,
 .promo .form-checkboxes input[type="checkbox"] + label::before {
-  border: .0625rem solid #fff;
-  background: #fff;
+  border: .0625rem solid var(--color-white);
+  background: var(--color-white);
   width: 1.125rem;
   height: 1.125rem;
   top: 3px
@@ -861,7 +861,7 @@
   width: auto;
   height: calc(2.875rem + 4px);
   background: #540055;
-  color: #fff;
+  color: var(--color-white);
   font-size: .9375rem
 }
 
@@ -870,7 +870,7 @@
 }
 
 .icon-search:hover .fa {
-  color: #fff
+  color: var(--color-white)
 }
 
 .form-search {
@@ -893,7 +893,7 @@
 
 .homepage--search {
   background: var(--color-black);
-  color: #fff;
+  color: var(--color-white);
   padding-top: 1.875rem;
   padding-bottom: 1.875rem;
   margin-top: -6.75rem
@@ -1120,7 +1120,7 @@ main.col-md-8 a {
 .socials li a:focus,
 .socials li a:hover {
   background: transparent;
-  color: #fff!important;
+  color: var(--color-white) !important;
   box-shadow: 0 0 0 .2rem #fb0;
   border-radius: 3px;
   border-radius: .1875rem
