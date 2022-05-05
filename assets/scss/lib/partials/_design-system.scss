@@ -49,11 +49,11 @@ pre[class*="language-"] {
 }
 
 // Prevent design system menu styles overriding links in menu demos (simple menu etc)
-main .sidebar a {
+.node--design_system_page main .sidebar a {
   color: $primary !important;
   text-decoration: underline !important;
   pointer-events: auto !important;
-  padding: 0 !important;
+  padding: 0;
 }
 
 /**

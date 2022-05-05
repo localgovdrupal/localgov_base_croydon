@@ -1,5 +1,5 @@
-.node--localgov_subsites_overview,
-.node--localgov_subsites_page {
+.page-node-type-localgov-subsites-overview,
+.page-node-type-localgov-subsites-page {
   main,
   .sidebar {
     @include rem(margin-top, 10);
@@ -8,6 +8,98 @@
       .container-fluid { // remove container fluid padding for nested blocks
         padding-right: 0;
         padding-left: 0;
+      }
+    }
+
+    .block-localgov-subsite-navigation {
+      background-color: $section-nav-background !important; // override base
+      color: $white;
+      padding: 0 !important;  // override base
+      overflow: auto;
+
+      .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .menu-item {
+          background: $section-nav-background;
+          padding: 0;
+
+          @extend .h3;
+
+          a {
+            display: block;
+            width: 100%;
+            margin: 0;
+            color: $primary;
+
+            @include rem(padding, 8, 24);
+          }
+
+          span {
+            display: block;
+          }
+
+          ul {
+            li {
+              border-bottom: 0.0625rem solid $gray !important;
+            }
+          }
+
+          &.menu-item--active-trail {
+            margin-bottom: 0;
+
+            a {
+              color: $white;
+              border-left: 0;
+
+              @include rem(padding, 24, 24);
+            }
+          }
+
+          .menu {
+            background: $white;
+            margin: 0;
+            padding: 0;
+
+            .menu-item {
+              margin: 0;
+              padding: 0;
+              background: $white;
+              font-size: $font-size-ex-med;
+
+              a {
+                color: $primary;
+                border-left: 0.1875rem solid $violet;
+
+                @include rem(padding, 12, 24);
+
+                &:hover {
+                  color: $carbon;
+                  text-decoration: none;
+                  border-left: 0.1875rem solid $purple;
+                }
+              }
+
+              .is-active {
+                color: $carbon;
+                border-left: 0.1875rem solid $indigo;
+              }
+            }
+          }
+        }
+      }
+
+      .reveal {
+        color: $white;
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+          color: $carbon;
+          text-decoration: none;
+        }
       }
     }
   }
@@ -56,68 +148,11 @@
       background-size: contain;
       background-position: right;
     }
-  }
 
-  .section-nav {
-    background: $section-nav-background;
-
-    h3 {
-      color: $white;
-      padding: inherit;
-      overflow: auto;
-    }
-
-    ul {
-      list-style: none;
-      margin-left: 0;
-
-      li {
-        background: $white;
-        font-size: 1.125rem;
-
-        &.menu-item {
-          span {
-            a {
-              padding: 0.5rem 1.5rem;
-            }
-          }
-        }
-
-        a {
-          display: block;
-          width: 100%;
-          border-left: 0.1875rem solid $violet;
-
-          &:hover {
-            border-left: 0.1875rem solid $purple;
-          }
-        }
-
-        span {
-          display: block;
-        }
-
-        .is-active {
-          border-left: 0.1875rem solid $indigo;
-        }
-
-        ul {
-          li {
-            border-bottom: 0.0625rem solid $gray !important;
-          }
-        }
-      }
-    }
-
-    .reveal {
-      color: $white;
-      text-decoration: underline;
-
-      &:hover,
-      &:focus {
-        color: $carbon;
-        text-decoration: none;
-      }
+    &.banner-full {
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
   }
 
@@ -139,6 +174,11 @@
 
       h3 {
         margin-top: 0;
+      }
+
+      .call-out-box__link {
+        @extend .btn;
+        @extend .btn-primary;
       }
     }
 
@@ -233,12 +273,29 @@
     }
 
     .link-block {
+      position: relative;
+
       h2 {
         margin-top: 0 !important; // stop link block headers inheriting the top margin of generic .content H2s
       }
 
       a {
         color: $linkblock;
+      }
+
+      .link-block__title,
+      .link-block__content {
+        @include rem(padding-left, 5);
+      }
+    }
+
+    .lgd-icon {
+      svg {
+        max-height: $font-size-base;
+        fill: $green;
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
       }
     }
   }
@@ -254,17 +311,17 @@
 
 // Localgov theme & core overrides
 
-.node--localgov_subsites_page {
+.page-node-type-localgov-subsites-page {
   .paragraph--type--page-section {
     .layout--twocol {
       .layout__region--first {
-        display: flex; // match heights
+        display: flex; // match heights for the fact boxes
 
         @include rem(padding-right, 15); // ignore padding set in core
       }
 
       .layout__region--second {
-        display: flex; // match heights
+        display: flex; // match heights match heights for the fact boxes
 
         @include rem(padding-left, 15); // ignore padding set in core
       }

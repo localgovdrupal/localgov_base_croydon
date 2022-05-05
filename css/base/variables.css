@@ -31,6 +31,7 @@ body {
     we use the names at our "Colours Applied" section.
   */
   --color-accent: #880088;
+  --color-accent-rgb: 136, 0, 136; /*rgb value needed for accent colours*/
   --color-green: #77bb55;
   --color-red: #ae1100;
   --color-orange: #ff5500;
@@ -41,6 +42,7 @@ body {
   --color-violet: #F0E6ec;
   --color-pink: #AD52AD;
   --color-gray: #DBDFE3;
+  --color-accent-tint: rgba(var(--color-accent-rgb), 0.8);
 
   /*
     Grey Scale
@@ -55,7 +57,7 @@ body {
     Colours Applied
     In this section, we "apply" our colours.
   */
-  --color-info: var(--color-blue);
+  --color-info: var(--color-black);
   --color-success: var(--color-green);
   --color-danger: var(--color-red);
   --color-warning: var(--color-orange);
@@ -221,7 +223,7 @@ body {
   --fact-box-title: var(--font-size-large);
   --fact-box-fact: var(--font-size-largest);
   --fact-box-border: var(--border-large);
-  --fact-box-border-color: var(--color-grey-medium);
+  --fact-box-border-color: var(--color-indigo);
   --fact-box-red: red;
   --fact-box-blue: blue;
   --fact-box-text-color-accent: var(--color-white);
@@ -278,7 +280,7 @@ body {
   /* Call-out Box */
   --call-out-box-padding: var(--spacing-large);
   --call-out-box-link-padding: var(--spacing-smaller);
-  --call-out-box-bg-color: var(--color-accent);
+  --call-out-box-bg-color: var(--color-accent-tint);
   --call-out-box-text-color: var(--color-white);
 
   /* Service Statuses */
@@ -296,7 +298,7 @@ body {
   --banner-content-padding: var(--spacing-largest);
   --banner-content-bg-color: var(--color-accent);
   --banner-content-text-color: var(--color-white);
-  --banner-title-size: var(--font-size-larger);
+  --banner-title-size: var(--font-size-h1);
 
   /* Teaser View Mode */
   --teaser-image-with: 33%;
@@ -361,4 +363,7 @@ body {
   --ctalink-action-svg: var(--color-black);
   --ctalink-action-svg-focus: var(--color-white);
 
+  /*Forms*/
+  --checkbox-select-focus-color: var(--color-yellow);
+  --checkbox-select-outline-color: #A0A0A0;
 }

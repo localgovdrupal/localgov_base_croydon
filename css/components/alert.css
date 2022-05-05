@@ -28,6 +28,10 @@
 .localgov-alert-banner .localgov-alert-banner--content-link {
   font-size: var(--font-size-small);
   position: relative;
+}
+
+.localgov-alert-banner .localgov-alert-banner__body,
+.localgov-alert-banner .localgov-alert-banner--content-link {
   display: inline-block;
 }
 
@@ -38,6 +42,7 @@
 .localgov-alert-banner .localgov-alert-banner__title {
   padding-left: 40px;
   padding-right: 10px;
+  display: inline;
 }
 
 .localgov-alert-banner .localgov-alert-banner__title:before {
@@ -48,6 +53,6 @@
   content: '\f06a';
   margin: 0;
   padding: 0;
-  top: 2px;
+  top: 4px;
 }
 
