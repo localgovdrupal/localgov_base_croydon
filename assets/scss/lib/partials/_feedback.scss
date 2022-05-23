@@ -96,11 +96,8 @@
   }
 }
 
-#block-feedbackform {
-  &.bg-primary {
-    background-color: $white !important;
-  }
 
+.lgd-region--content-bottom {
   .feedback-trigger-page {
     background-color: $primary;
   }

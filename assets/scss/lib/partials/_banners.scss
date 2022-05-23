@@ -1,4 +1,4 @@
-.banner--primary {
+.banner--primary { // Homepage banner
   .banner__image { // fix-height
     img {
       @include rem(max-height, 200); // reset base min
@@ -12,6 +12,15 @@
 
     @include media-breakpoint-up(lg) {
       font-size: $font-size-base * 2.875 !important;
+    }
+  }
+}
+
+.block-localgov-subsite-banner { // subsite banner
+  .banner--primary {
+    .banner__content {
+      outline: 1rem solid lime;
+      max-width: var(--width-container);
     }
   }
 }
