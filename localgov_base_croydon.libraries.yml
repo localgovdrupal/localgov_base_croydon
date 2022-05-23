@@ -4,6 +4,7 @@ global:
       css/base/variables.css: {weight:200}
   js:
     js/main.js: {}
+    js/bootstrap.min.js: {}
 
 base:
   css:
