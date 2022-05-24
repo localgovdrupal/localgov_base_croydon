@@ -155,8 +155,7 @@
     }
   }
 
-  /*Post footer*/
-  .lgd-footer__post-footer {
+  .lgd-footer__post-footer { // Post footer
     .lgd-row {
       align-items: center;
     }
@@ -172,7 +171,7 @@
 
           a {
             color: var(--color-accent);
-            font-size: var( --font-size);
+            font-size: var(--font-size);
             margin-right: 1.5rem;
             font-weight: normal;
 
@@ -186,7 +185,7 @@
     }
 
     .lgd-footer__copyright {
-      display: flex; 
+      display: flex;
       justify-content: space-between;
 
       p {

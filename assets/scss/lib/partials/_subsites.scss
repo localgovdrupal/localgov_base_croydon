@@ -22,11 +22,16 @@
         margin: 0;
         padding: 0;
 
-        .menu-item {
-          background: $section-nav-background;
-          padding: 0;
+        h3 {
+          border-left: 0;
+          margin: 0;
 
-          @extend .h3;
+          @include rem(padding, 10, 24);
+        }
+
+        .menu-item {
+          background: $white;
+          padding: 0;
 
           a {
             display: block;
@@ -43,11 +48,12 @@
 
           ul {
             li {
-              border-bottom: 0.0625rem solid $gray !important;
+              border-bottom: 0.0625rem solid $gray-tint !important;
             }
           }
 
           &.menu-item--active-trail {
+            background-color: $gray-tint;
             margin-bottom: 0;
 
             a {
@@ -71,20 +77,20 @@
 
               a {
                 color: $primary;
-                border-left: 0.1875rem solid $violet;
+                border-left: 0.1875rem solid $gray-tint;
 
                 @include rem(padding, 12, 24);
 
                 &:hover {
                   color: $carbon;
                   text-decoration: none;
-                  border-left: 0.1875rem solid $purple;
+                  border-left: 0.1875rem solid $primary;
                 }
               }
 
               .is-active {
                 color: $carbon;
-                border-left: 0.1875rem solid $indigo;
+                border-left: 0.1875rem solid $primary;
               }
             }
           }
@@ -109,50 +115,6 @@
 
     nav {
       @include rem(margin-bottom, 30);
-    }
-  }
-
-  .jumbotron {
-    margin: 0;
-    padding: 0;
-    background-color: $campaign-jumbotron;
-
-    .jumbo-welcome {
-      h1 {
-        color: $campaign-header;
-        text-align: left;
-        padding: 0;
-        line-height: 1.1;
-        font-weight: $font-bold;
-
-        @include rem(font-size, 50);
-        @include rem(letter-spacing, 0);
-
-        @include media-breakpoint-up(sm) {
-          font-size: $jumbo-font-large;
-        }
-
-        @include media-breakpoint-up(lg) {
-          text-align: left;
-
-          @include rem(font-size, 58);
-        }
-
-        &:before {
-          display: none;
-        }
-      }
-    }
-
-    @include media-breakpoint-up(lg) {
-      background-size: contain;
-      background-position: right;
-    }
-
-    &.banner-full {
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
     }
   }
 
