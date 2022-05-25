@@ -1,0 +1,40 @@
+.maintenance-page {
+  header {
+    background: $primary;
+
+    h1 {
+      display: none !important; // homepage.css override
+    }
+
+    a {
+      display: block;
+      padding: 2rem;
+      margin: 0 auto;
+
+      @include rem(max-width, 250);
+
+      &:hover {
+        background: none;
+      }
+    }
+  }
+
+  main {
+    @extend .col-10;
+
+    margin: auto;
+
+    h1 {
+      text-align: center;
+
+      @include rem(padding-top, 30);
+    }
+
+    p {
+      display: block;
+      margin: 0 auto;
+      width: fit-content;
+      text-align: center;
+    }
+  }
+}

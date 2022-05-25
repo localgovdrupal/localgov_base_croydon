@@ -29,11 +29,12 @@
 
         @include rem(padding, 20, 40);
       }
+
       .field--name-localgov-subsites-banner-text {
         font-size: $font-size-lg;
         color: $carbon;
         @extend .col-8;
-        
+
         @include rem(padding, 20, 40);
       }
     }
