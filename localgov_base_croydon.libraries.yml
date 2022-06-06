@@ -23,11 +23,6 @@ alert:
     theme:
       css/components/alert.css: { weight: 200 }
 
-footer:
-  css:
-    theme:
-      css/components/footer.css: { weight: 200 }
-
 homepage:
   css:
     theme:
