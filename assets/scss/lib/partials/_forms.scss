@@ -497,3 +497,7 @@ fieldset.radios--wrapper.required.error {
     padding-top: 1.3rem;
   }
 }
+
+.address--wrapper .fieldset-wrapper { // remove inherited padding for address lookup
+  padding: 0;
+}
