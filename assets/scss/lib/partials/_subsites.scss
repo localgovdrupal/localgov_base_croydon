@@ -26,73 +26,36 @@
           border-left: 0;
           margin: 0;
 
-          @include rem(padding, 10, 24);
+          @include rem(padding, 20, 24);
         }
 
         .menu-item {
           background: $white;
+          display: grid;
           padding: 0;
 
           a {
-            display: block;
-            width: 100%;
-            margin: 0;
             color: $primary;
+            border-left: 0.1875rem solid $gray-tint;
 
-            @include rem(padding, 8, 24);
+            @include rem(padding, 12, 24);
+
+            &:hover {
+              color: $carbon;
+              text-decoration: none;
+              border-left: 0.1875rem solid $primary;
+            }
+          }
+
+          .is-active {
+            background-color: $gray-tint;
+            color: $carbon;
+            border-left: 0.1875rem solid $primary;
+            text-decoration: none;
           }
 
           span {
             display: block;
-          }
-
-          ul {
-            li {
-              border-bottom: 0.0625rem solid $gray-tint !important;
-            }
-          }
-
-          &.menu-item--active-trail {
-            background-color: $gray-tint;
-            margin-bottom: 0;
-
-            a {
-              color: $white;
-              border-left: 0;
-
-              @include rem(padding, 24, 24);
-            }
-          }
-
-          .menu {
-            background: $white;
-            margin: 0;
-            padding: 0;
-
-            .menu-item {
-              margin: 0;
-              padding: 0;
-              background: $white;
-              font-size: $font-size-ex-med;
-
-              a {
-                color: $primary;
-                border-left: 0.1875rem solid $gray-tint;
-
-                @include rem(padding, 12, 24);
-
-                &:hover {
-                  color: $carbon;
-                  text-decoration: none;
-                  border-left: 0.1875rem solid $primary;
-                }
-              }
-
-              .is-active {
-                color: $carbon;
-                border-left: 0.1875rem solid $primary;
-              }
-            }
           }
         }
       }
@@ -112,7 +75,13 @@
 
   .sidebar {
     margin-top: 0;
+
     @include rem(padding-right, 15);
+    @include rem(padding-left, 15);
+
+    @include media-breakpoint-up(md) {
+      padding-left: 0;
+    }
 
     nav {
       @include rem(margin-bottom, 30);
@@ -120,7 +89,6 @@
   }
 
   .layout--twocol {
-
     h2 {
       margin-top: 0 !important;
     }

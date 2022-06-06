@@ -179,6 +179,8 @@
 
 
 .paragraph--type--page-section {
+  @include rem(margin-bottom, 15);
+  
   .layout--threecol-33-34-33 { // remove default padding set on page builder columns that causes 3 col to wrap
     .layout__region {
       padding-bottom: 0;
