@@ -8,6 +8,7 @@
 
   h2 {
     font-size: $h3-font-size;
+    color: $white;
 
     @include rem(margin-bottom, 16);
   }

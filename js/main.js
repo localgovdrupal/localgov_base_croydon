@@ -40,3 +40,14 @@
   }
 }(Drupal));
 
+(function ($) {
+  $(document).ready(function () {
+    
+    $('.main a').filter(function() {
+      if(this.hostname.indexOf("croydon.gov.uk") === -1){
+        return this.hostname && this.hostname !== location.hostname;
+      }
+    }).addClass('external-link').attr('target', '_blank');
+
+  });
+})(jQuery);
