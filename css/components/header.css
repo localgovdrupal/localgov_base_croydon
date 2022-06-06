@@ -3,6 +3,10 @@
 .lgd-header .lgd-header__toggles {
   margin-left: 0;
 }
+/* -- logo area -- */
+.lgd-header .lgd-region--header {
+  margin-left: var(--spacing);
+}
 /* -- Search -- */
 
 .lgd-header .lgd-region--search {

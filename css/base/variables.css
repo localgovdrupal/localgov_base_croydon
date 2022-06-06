@@ -6,7 +6,7 @@
 */
 /* Widths and Spacing */
 body {
-  --width-extra-large: 73.75rem; /* 1180px */
+  --width-extra-large: 73.125rem; /* 1170px */
   --width-large: 60rem;
   --width-medium: 48rem;
   --width-small: 30rem;
@@ -122,6 +122,9 @@ body {
 */
 body {
 
+  /* Grid amends */
+  --grid-column-spacing: 0rem;
+  
   /* Breadcrumbs */
   --breadcrumbs-background-color: var(--color-white);
   --breadcrumbs-border: var(--border);

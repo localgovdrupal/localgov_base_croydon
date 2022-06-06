@@ -19,10 +19,12 @@
 .block-localgov-subsite-banner { // subsite banner
   .banner--primary {
     .banner__content {
-      background-color: $primary-tint;
-      padding: 0;
+      display: flex;
+      flex-direction: column;
+      background: none; // base override
       max-width: var(--width-container);
       margin: calc(var(--banner-content-margin) * -1) auto 0;
+      padding: 0 var(--spacing-padding-horizontal);
 
       .field--name-localgov-title {
         background-color: $primary;
@@ -31,9 +33,9 @@
       }
 
       .field--name-localgov-subsites-banner-text {
+        background-color: $primary-tint;
         font-size: $font-size-lg;
         color: $carbon;
-        @extend .col-8;
 
         @include rem(padding, 20, 40);
       }

@@ -111,6 +111,7 @@
   }
 
   .sidebar {
+    margin-top: 0;
     @include rem(padding-right, 15);
 
     nav {
@@ -118,9 +119,10 @@
     }
   }
 
-  main {
-    .breadcrumb {
-      @include rem(margin-left, -15);
+  .layout--twocol {
+
+    h2 {
+      margin-top: 0 !important;
     }
 
     .fact-box {
@@ -271,7 +273,7 @@
   }
 }
 
-// Localgov theme & core overrides
+// theme & core overrides
 
 .page-node-type-localgov-subsites-page {
   .paragraph--type--page-section {
