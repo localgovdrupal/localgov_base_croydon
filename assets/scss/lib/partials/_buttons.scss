@@ -267,25 +267,14 @@ aside .btn .fa,
 
 // Start Button
 
-.btn-start {
-  color: $carbon;
-  background-color: $green;
-  border-color: none;
-  font-weight: $font-bold;
-  text-decoration: none;
-  display: flex;
-  align-items: stretch;
+.btn-start { // most of these are set in base but there are some extras and modifiers required for croydon
+  border: 0 !important; // base override
+  line-height: unset !important; // base override
 
   &:after {
-    display: flex;
-    align-self: flex-end;
-    color: $carbon;
-    text-decoration: none;
-    margin-left: auto;
+    margin-left: auto !important; // base override
     font-family: $font-family-icons;
-    content: $fa-chevron-right;
     font-weight: $fa-font-weight;
-    font-size: $font-size-ex-lg;
 
     @include rem(margin-top, 2);
   }
