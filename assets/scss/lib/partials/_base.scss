@@ -113,6 +113,12 @@ main .block-system-main-block a {
     }
   }
 
+  .lgd-teaser__content {
+    h3 {
+      margin-top: 0; // set margin for titles used for within teasers
+    }
+  }
+
   // Display all headers inline block to prevent margin overlap
   h2,
   h3,

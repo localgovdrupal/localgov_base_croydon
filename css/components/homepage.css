@@ -323,8 +323,8 @@
 .path-frontpage .services--feature-block {
   padding: 0;
   text-align: left;
-  margin-top: .9375rem;
-  margin-left: .9375rem
+  margin-top: 0;
+  margin-left: 0
 }
 
 .path-frontpage .services--feature-block .services--feature-icon {

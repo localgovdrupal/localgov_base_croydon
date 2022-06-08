@@ -13,7 +13,6 @@ a:hover,
 a:focus {
   color: var(--color-link-focus);
   background-color: var(--color-focus);
-  box-shadow: none; /* default drop shadow not required */
   text-decoration: none; /* default text decoration not required */
 }
 

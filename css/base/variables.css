@@ -183,22 +183,22 @@ body {
   --input-border-radius: 0;
 
   /* Button Elements (and button-styled links) */
-  --button-padding-vertical: var(--spacing);
+  --button-padding-vertical: var(--spacing-smaller);
   --button-padding-horizontal: var(--spacing);
   --button-text-color: var(--color-white);
-  --button-text-color-hover: var(--color-accent);
-  --button-icon-color: var(--button-text-color);
-  --button-icon-color-hover: var(--color-accent);
-  --button-border-color: var(--color-accent);
+  --button-text-color-hover: var(--color-white);
+  --button-icon-color: var(--color-yellow);
+  --button-icon-color-hover: var(--color-yellow);
+  --button-border-color: var(--color-indigo);
   --button-bg-color: var(--color-accent);
   --button-bg-color-hover: var(--color-white);
   --button-font-family: var(--font-primary);
   --button-border-radius: 0;
 
   /* Sidebar Items */
-  --sidebar-exposed-form-bg-color: var(--color-grey-light);
-  --sidebar-exposed-form-padding-vertical: var(--spacing-larger);
-  --sidebar-exposed-form-padding-horizontal: var(--spacing-larger);
+  --sidebar-exposed-form-bg-color: var(--color-white);
+  --sidebar-exposed-form-padding-vertical: var(--spacing);
+  --sidebar-exposed-form-padding-horizontal: var(--spacing);
   --sidebar-exposed-form-item-spacing: var(--spacing);
 
   /* Guide Navigation */
