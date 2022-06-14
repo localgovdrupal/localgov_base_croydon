@@ -3,6 +3,14 @@
     flex: 1;
   }
 
+  .lgd-header__inner {
+    justify-content: start;
+
+    @include media-breakpoint-up(md) {
+      justify-content: inherit;
+    }
+  }
+
   .lgd-header__toggles {
     margin-bottom: 0;
 

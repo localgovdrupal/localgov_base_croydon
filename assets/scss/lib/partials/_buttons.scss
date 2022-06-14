@@ -82,3 +82,63 @@
     }
   }
 }
+
+// Links styled to look like buttons
+
+.link-button {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: $font-size-ex-med;
+  font-weight: $font-bold;
+  text-decoration: none;
+  color: $link-button-text;
+  background-color: $link-button;
+
+  @include rem(padding, 15);
+  @include rem(line-height, 22);
+
+  span {
+    width: 100%;
+    text-align: left;
+    display: block;
+
+    // ie10 fix
+    @include width(100%, 0.813rem, 0.8125rem);
+    @include rem(padding-right, 5);
+  }
+
+  &:after {
+    display: flex;
+    align-items: center;
+    font-family: $font-family-icons;
+    content: $fa-chevron-right;
+    font-weight: $fa-font-weight;
+    font-size: $font-size-ex-lg;
+
+    @include rem(margin-top, 2);
+  }
+
+  &:hover {
+    color: $link-button-text-focus;
+    text-decoration: none;
+  }
+
+  &:focus {
+    @include outline(.1875rem, -.1875rem, $focus);
+
+    span,
+    &:after {
+      color: $link-button-text-focus;
+    }
+  }
+
+  &:not(:last-child) {
+    @include rem(margin-bottom, 20);
+
+    @include media-breakpoint-up(sm) {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -65,6 +65,7 @@
         a {
           font-size: $font-size-ex-lg;
           font-weight: $font-bold;
+          color: $blue !important; // override base
 
           &:hover,
           &:focus {
