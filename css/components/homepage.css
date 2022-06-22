@@ -1,4 +1,4 @@
-.path-frontpage.page-node-type-localgov-subsites-overview h1 {
+.path-frontpage.page-node-type-localgov-subsites-overview .field--name-localgov-title h1 {
   margin: 0 0 2rem;
   display: flex;
   justify-content: center;
@@ -1063,6 +1063,10 @@ main a[href^="mailto:"] {
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .btn-primary:not(:disabled):not(.disabled):active:focus {
   box-shadow: none
+}
+
+.btn-primary:focus {
+  background-color:  var(--color-accent);
 }
 
 .node--localgov_step_by_step_overview .sidebar {

@@ -1,5 +1,43 @@
 .localgov-alert-banner {
-  &-full {
+  &--major,
+  &--notable-person,
+  &--announcement {
+    .localgov-alert-banner__title {
+      color: $white !important; // force override base colour change due to background
+    }
+  }
+
+  &__title {
+    font-family: $font-family-base;
+    font-weight: $font-normal;
+  }
+
+  &__dismiss {
+    button {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      &:after {
+        display: inline-block;
+        font-family: $font-family-icons;
+        content: $fa-times-circle;
+
+        @include rem(margin-left, 3);
+      }
+    }
+  }
+
+  &__body {
+    a {
+      font-weight: $font-bold;
+    }
+  }
+
+  &-full { // full page alert
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: $carbon;
     border: 0;
 
@@ -87,46 +125,14 @@
         }
       }
     }
-  }
 
-  div > div {
-    > div {
-      p {
-        position: relative;
-        display: inline-block;
-
-        &:first-child {
-          @include rem(padding-left, 40);
-          @include rem(padding-right, 10);
-
-          &:before {
-            position: absolute;
-            left: 0;
-            font-size: $h2-font-size;
-            font-family: $font-family-icons;
-            font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
-            content: $fa-exclaim;
-            margin: 0;
-            padding: 0;
-
-            @include rem(top, -11);
-          }
+    &.localgov-alert-banner--notable-person {
+      a {
+        &:hover,
+        &:focus {
+          color: $carbon; // Base override
         }
-      }
-    }
-
-    > p {
-      margin: 0;
-      font-size: $font-size-med;
-    }
-
-    a {
-      &:hover,
-      &:focus {
-        background: $white;
-        color: $secondary;
       }
     }
   }
 }
-

@@ -17,27 +17,6 @@ a {
   }
 }
 
-main.col-sm-8 a {
-  font-weight: $font-normal !important; // remove bold for main copy links
-}
-
-// External Link
-
-.external-link {
-  &:after {
-    font-family: $font-family-icons;
-    content: $fa-external;
-    font-weight: $fa-font-weight;
-    display: inline; // inline prevents icon from wrapping to newline
-    font-size: $font-size-ex-sm;
-    // ie bug fix for removing before/after underline
-    text-decoration: underline;
-
-    @include rem(padding-left, 5);
-  }
-}
-
-
 /* Action Link */
 
 .action-link-container {

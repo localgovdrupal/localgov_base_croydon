@@ -25,10 +25,58 @@
   }
 
   &__post-footer {
+    padding: var(--spacing);
+
     img {
       min-width: 6.25rem;
       max-height: 6.25rem;
       width: auto;
+    }
+
+    .lgd-row {
+      align-items: center;
+
+      nav {
+        margin-top: var(--spacing);
+        margin-bottom: var(--spacing);
+
+        ul {
+          list-style-type: none;
+          padding-left: 0;
+          margin-bottom: 0;
+
+          li {
+            @include media-breakpoint-up(md) {
+              display: inline-block;
+            }
+
+            a {
+              color: var(--color-accent);
+              font-size: var(--font-size);
+              margin-right: 1.5rem;
+              font-weight: normal;
+
+              &:hover,
+              &:focus {
+                color: var(--color-black);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .lgd-footer__copyright {
+      p {
+        font-size: var(--font-size-smaller);
+        margin-bottom: 0;
+        margin-left: auto;
+      }
+
+      @include media-breakpoint-up(md) {
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 
@@ -153,47 +201,6 @@
     &.active {
       padding-left: .9375rem;
       padding-right: .9375rem;
-    }
-  }
-
-  .lgd-footer__post-footer { // Post footer
-    .lgd-row {
-      align-items: center;
-    }
-
-    nav {
-      ul {
-        list-style-type: none;
-        padding-left: 0;
-        margin-bottom: 0;
-
-        li {
-          display: inline-block;
-
-          a {
-            color: var(--color-accent);
-            font-size: var(--font-size);
-            margin-right: 1.5rem;
-            font-weight: normal;
-
-            &:hover,
-            &:focus {
-              color: var(--color-black);
-            }
-          }
-        }
-      }
-    }
-
-    .lgd-footer__copyright {
-      display: flex;
-      justify-content: space-between;
-
-      p {
-        font-size: var(--font-size-smaller);
-        margin-bottom: 0;
-        margin-left: auto;
-      }
     }
   }
 }
