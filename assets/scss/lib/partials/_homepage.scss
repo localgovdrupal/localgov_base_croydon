@@ -381,6 +381,14 @@
       }
     }
   }
+
+  &.page-node-type-localgov-subsites-overview .layout--twocol {
+    h2 {
+      &.w-auto {
+        margin-top: 3rem !important; // force global margin to return as it has inherited a subsites setting
+      }
+    }
+  }
 }
 
 .lgd-region--banner {

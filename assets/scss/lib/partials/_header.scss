@@ -1,9 +1,9 @@
 .lgd-header {
-  .lgd-header__nav--primary {
+  &__nav--primary {
     flex: 1;
   }
 
-  .lgd-header__inner {
+  &__inner {
     justify-content: start;
 
     @include media-breakpoint-up(md) {
@@ -11,7 +11,7 @@
     }
   }
 
-  .lgd-header__toggles {
+  &__toggles {
     margin-bottom: 0;
 
     .lgd-header__toggle--secondary { // Services Button
@@ -42,7 +42,132 @@
     }
 
     .lgd-header__toggle--primary { // Mobile Menu Button
-      outline: 0.1rem solid red;
+      outline: 0.2rem solid $white;
+      padding: 0;
+      border-radius: 0;
+      margin: 0;
+
+      @include rem(width, 38);
+      @include rem(height, 38);
+
+      .lgd-header__toggle-text {
+        display: none; // text is not required visually
+      }
+
+      .lgd-header__toggle-icon {
+        &:after {
+          transition: none; // remove base setting
+          transform: none; // remove base setting
+          font-size: $font-size-ex-med;
+          font-family: $font-family-icons;
+          content: $fa-bars;
+
+          @include rem(margin-left, 2);
+        }
+      }
+
+      &:hover,
+      &:focus { // re-declare settings to override global button settings
+        outline: 0.2rem solid $white !important;
+        outline-offset: 0;
+        padding: 0;
+        border-radius: 0;
+        margin: 0;
+
+        @include rem(width, 38);
+        @include rem(height, 38);
+      }
+
+      &.lgd-header__toggle--active { // active state icon
+        .lgd-header__toggle-icon {
+          &:after {
+            content: $fa-times;
+            font-size: $font-size-ex-ex-lg;
+
+            @include rem(margin-left, 3);
+          }
+        }
+      }
+    }
+  }
+
+  .lgd-header__nav--active { // use active state to target only mobile search
+    .lgd-region__inner--search {
+      width: 100%;
+
+      .js-form-type-search {
+        width: 100%;
+
+        .form-search {
+          @include rem(margin, 10, 0);
+        }
+      }
+    }
+  }
+
+  .lgd-header__nav--primary {
+    &.lgd-header__nav--active { // use active state to target only mobile primary menu
+      .lgd-region--primary-menu {
+        background-color: $primary;
+
+        .menu--main {
+          li {
+            &:not(:last-child) {
+              a {
+                color: $white;
+                padding: 0;
+                text-decoration: none;
+              }
+            }
+
+            &:last-child {
+              a {
+                padding: 0;
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .lgd-header__nav--secondary {
+    height: 75vh;
+    overflow: auto;
+
+    &.lgd-header__nav--active { // use active state to target only mobile secondary menu
+
+      h2 {
+        &.visually-hidden { // force the title to unhide
+          opacity: 1;
+          width: auto;
+          position: relative !important;
+          overflow: visible;
+          font-size: $font-size-lg;
+        }
+      }
+
+      .menu--localgov-services-menu {
+        list-style-type: none;
+        display: inline;
+
+        li {
+          a {
+            font-weight: $font-bold;
+          }
+        }
+      }
+    }
+  }
+
+  .region-header { // set logo position for mobile and unset for desktop
+    display: flex;
+    flex: auto;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+      flex: none;
     }
   }
 

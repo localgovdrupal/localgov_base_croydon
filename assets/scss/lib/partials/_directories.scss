@@ -87,25 +87,27 @@
   }
 }
 
-.lgd-teaser { // results list styling
-  border-bottom: 0.063rem solid $gray-primary;
+.view-localgov-directory-channel {
+  .lgd-teaser { // results list styling
+    border-bottom: 0.063rem solid $gray-primary;
 
-  @include rem(padding-bottom, 10);
-  @include rem(margin-bottom, 25);
-  @include rem(margin-top, 16);
+    @include rem(padding-bottom, 10);
+    @include rem(margin-bottom, 25);
+    @include rem(margin-top, 16);
 
-  h2 {
-    font-weight: $font-bold;
-    font-size: $font-size-ex-med;
+    h2 {
+      font-weight: $font-bold;
+      font-size: $font-size-ex-med;
 
-    @include rem(margin, 0, 0, 14, 0);
-    @include rem(line-height, 24);
-  }
+      @include rem(margin, 0, 0, 14, 0);
+      @include rem(line-height, 24);
+    }
 
-  .field--type-text-with-summary {
-    font-size: $font-size-lg;
+    .field--type-text-with-summary {
+      font-size: $font-size-lg;
 
-    @include rem(margin-bottom, 12);
+      @include rem(margin-bottom, 12);
+    }
   }
 }
 
@@ -396,7 +398,6 @@
         margin: 0;
         padding: 0;
         color: $carbon;
-
         left: 0;
       }
     }
@@ -404,6 +405,7 @@
 
   .leaflet-container {
     margin-bottom: 2rem;
+
     a {
       margin-left: 0; // remove inherited margin
     }

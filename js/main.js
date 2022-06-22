@@ -1,53 +1,37 @@
 /**
- * @file JS file for the toggling.
+ * @file JS file for service toggling and external links.
  */
-
- (function (Drupal) {
-
-  Drupal.behaviors.toggleServices = {
-    attach: function (context, settings) {
-      context = context || document;
-      const homeExists = context.querySelectorAll('.path-frontpage');
-      const serviceShow = context.querySelectorAll('.services-show');
-      const serviceHide = context.querySelectorAll('.services-hide');
-      let servicesBlock = context.querySelectorAll('.layout--threecol-33-34-33');
-       /* Homepage only - services list show hide */
-    if (homeExists) {  
-      for (let i = 0; i < servicesBlock.length; i++) {
-         if( i > 1) servicesBlock[i].style.display = 'none'
-      }
-      serviceShow.forEach(serviceShower => {
-        serviceShower.addEventListener('click', function() {
-            for (let i = 0; i < servicesBlock.length; i++) {
-                servicesBlock[i].removeAttribute('style');
-            }
-            this.style.display = 'none'
-          });
-        });
-      serviceHide.forEach(serviceHider => {
-        serviceHider.addEventListener('click', function() {
-            for (let i = 0; i < servicesBlock.length; i++) {
-              if( i > 1) servicesBlock[i].style.display = 'none'
-            }
-
-            for (let i = 0; i < serviceShow.length; i++) {
-               if( i > 1) serviceShow[i].style.display = 'block'
-            }
-          });
-        });
-      }
-    }
-  }
-}(Drupal));
 
 (function ($) {
   $(document).ready(function () {
+
+    var homeExists = document.querySelector('.path-frontpage');
     
     $('.main a').filter(function() {
       if(this.hostname.indexOf("croydon.gov.uk") === -1){
         return this.hostname && this.hostname !== location.hostname;
       }
     }).addClass('external-link').attr('target', '_blank');
+
+
+    /* Homepage only - services list show hide */
+    if (homeExists) {
+
+    var $servicesBlock = $(".layout--threecol-33-34-33");
+    
+    $servicesBlock.slice(2).hide();
+
+    $('.services-show').on('click', function(e) {
+      $(this).removeClass("d-flex").addClass("d-none"); // work around for BS4 d-flex using !important and overriding usual hide method
+      $servicesBlock.show();
+      e.preventDefault();
+    });
+
+    $('.services-hide').on('click', function(e) {
+      $servicesBlock.slice(2).hide();
+      $('.services-show').removeClass("d-none").addClass("d-flex"); // work around for BS4 d-flex using !important and overriding usual hide method
+    });
+    }
 
   });
 })(jQuery);

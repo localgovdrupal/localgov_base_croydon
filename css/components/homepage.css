@@ -2,6 +2,7 @@
   margin: 0 0 2rem;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .path-frontpage .field--name-localgov-subsites-banner-text {
@@ -265,7 +266,7 @@
 
 .path-frontpage .news-list a {
   word-break: break-word;
-  color: var(--color-accent);
+  color: var(--color-black);
   display: block;
   text-decoration: underline
 }
@@ -874,7 +875,8 @@
 }
 
 .form-search {
-  padding: 0 .9375rem
+  padding: 0 .9375rem;
+  margin: 0.3125rem
 }
 
 .form-control:focus,
