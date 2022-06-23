@@ -293,42 +293,43 @@
 
       @include rem(left, -30);
     }
-
-    &.contact-facebook {
-      &:before {
-        font-family: $font-family-brands;
-        content: $fa-facebook;
-      }
-    }
-
-    &.contact-twitter {
-      &:before {
-        font-family: $font-family-brands;
-        content: $fa-twitter;
-      }
-    }
-
-    &.contact-youtube {
-      &:before {
-        font-family: $font-family-brands;
-        content: $fa-youtube-square;
-      }
-    }
-
-    &.contact-instagram {
-      &:before {
-        font-family: $font-family-brands;
-        content: $fa-instagram;
-      }
-    }
   }
 
-  .contact-website,
-  .contact-urls,
-  .contact-inspection-report {
+  .contact-urls {
     a {
-      &:before {
-        content: $fa-link;
+      &.contact-website,
+      &.contact-inspection-report {
+        &:before {
+          content: $fa-link;
+        }
+      }
+
+      &.contact-facebook {
+        &:before {
+          font-family: $font-family-brands;
+          content: $fa-facebook;
+        }
+      }
+
+      &.contact-twitter {
+        &:before {
+          font-family: $font-family-brands;
+          content: $fa-twitter;
+        }
+      }
+
+      &.contact-youtube {
+        &:before {
+          font-family: $font-family-brands;
+          content: $fa-youtube-square;
+        }
+      }
+
+      &.contact-instagram {
+        &:before {
+          font-family: $font-family-brands;
+          content: $fa-instagram;
+        }
       }
     }
   }
@@ -385,6 +386,8 @@
     @include rem(margin-left, 30);
 
     .address {
+      position: relative;
+
       br {
         display: none; // hide inline br tags
       }
@@ -398,7 +401,8 @@
         margin: 0;
         padding: 0;
         color: $carbon;
-        left: 0;
+
+        @include rem(left, -30);
       }
     }
   }
@@ -420,5 +424,13 @@
     &.external-link:after {
       display: none;
     }
+  }
+}
+
+.field--name-localgov-directory-opening-times { // opening times are rendered differently - not sure why
+  .field__label {
+    @extend .h3;
+
+    @include rem(margin-bottom, 24);
   }
 }
