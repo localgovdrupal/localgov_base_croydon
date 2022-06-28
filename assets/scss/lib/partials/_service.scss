@@ -337,6 +337,20 @@
 }
 
 // Service page CTA's
+
+
+.service-landing-page__service-item { // services landing page - styling out incorrecting html rendering - to be fixed
+  h2 {
+    @extend .h3;
+  }
+
+  p,
+  .field--name-body,
+  .field--name-localgov-guides-description {
+    font-size: $font-size-lg;
+  }
+}
+
 .block-localgov-service-cta-block {
   @include rem(padding-top, 15);
   @include rem(padding-bottom, 15);
@@ -348,10 +362,22 @@
       @include rem(padding-bottom, 15);
 
       .service-cta-block__list-item { // CTA styling
-        @include rem(padding-right, 15);
+        @include media-breakpoint-up(md) {
+          @include rem(padding-right, 15);
 
-        &:last-child {
-          padding-right: 0;
+          &:nth-child(2n) { // remove the right padding from every second item
+            padding-right: 0;
+          }
+        }
+
+        @include media-breakpoint-up(lg) {
+          &:nth-child(2n) {
+            @include rem(padding-right, 15);
+          }
+
+          &:nth-child(3n) { // remove the right padding from every third item
+            padding-right: 0;
+          }
         }
 
         .service-cta-block__link {
