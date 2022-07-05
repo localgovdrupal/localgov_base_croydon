@@ -12,9 +12,11 @@ base:
       assets/css/font-face.css: {}
       css/components/base.css: { weight: 200 }
       assets/css/lib/main.css: {}
+      css/components/form-items.css: {}
 
 header:
   css:
+
     theme:
       css/components/header.css: { weight: 200 }
 

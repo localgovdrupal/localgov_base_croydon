@@ -1,0 +1,71 @@
+/* Radio Buttons 
+  This radio styling is amended CSS from the gov.uk design system:
+  - https://design-system.service.gov.uk/components/radios/
+
+  We are adding a .form-radios class around each of these here to make sure
+  this only affects radios created by Drupal. If we don't, the position absolute
+  can have very unwanted effects.
+
+  If you need to create custom radios, make sure you have the same class
+  wrapping them.
+*/
+
+.webform-type-radios .form-item {
+  display: block;
+  position: relative;
+  min-height: 40px;
+  margin-bottom: 10px;
+  padding-left: 40px;
+  clear: left;
+}
+.webform-type-radios .form-item input {
+  position: absolute;
+  z-index: 1;
+  top: -2px;
+  left: -2px;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.webform-type-radios .form-item label {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px 15px 5px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.webform-type-radios .form-item [type="radio"] + label::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--radio-select-outline-color);
+  border-radius: 50%;
+  content: "";
+  background: transparent;
+}
+.webform-type-radios .form-item [type="radio"] + label::after {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border: 10px solid currentColor;
+  border-radius: 50%;
+  content: "";
+  opacity: 0;
+  background: currentColor;
+}
+.webform-type-radios .form-item [type="radio"]:focus + label::before {
+  box-shadow: 0 0 0 4px var(--radio-select-focus-color);
+}
+.webform-type-radios .form-item input:checked + label::after {
+  opacity: 1;
+}
+.webform-type-radios .form-item:last-child,
+.webform-type-radios .form-item:last-of-type {
+  margin-bottom: 0;
+}
