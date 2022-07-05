@@ -136,6 +136,10 @@
     height: 75vh;
     overflow: auto;
 
+    @include media-breakpoint-up(md) {
+      height: auto;
+    }
+
     &.lgd-header__nav--active { // use active state to target only mobile secondary menu
 
       h2 {
