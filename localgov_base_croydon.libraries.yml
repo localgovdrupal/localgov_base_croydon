@@ -3,7 +3,12 @@ global:
     base:
       css/base/variables.css: { weight: 200 }
   js:
+    js/bootstrap.min.js: {}
     js/main.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
 
 base:
   css:
@@ -23,11 +28,6 @@ alert:
   css:
     theme:
       css/components/alert.css: { weight: 200 }
-
-footer:
-  css:
-    theme:
-      css/components/footer.css: { weight: 200 }
 
 homepage:
   css:

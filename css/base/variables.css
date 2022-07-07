@@ -6,7 +6,7 @@
 */
 /* Widths and Spacing */
 body {
-  --width-extra-large: 73.75rem; /* 1180px */
+  --width-extra-large: 73.125rem; /* 1170px */
   --width-large: 60rem;
   --width-medium: 48rem;
   --width-small: 30rem;
@@ -122,6 +122,9 @@ body {
 */
 body {
 
+  /* Grid amends */
+  --grid-column-spacing: 0rem;
+  
   /* Breadcrumbs */
   --breadcrumbs-background-color: var(--color-white);
   --breadcrumbs-border: var(--border);
@@ -180,22 +183,22 @@ body {
   --input-border-radius: 0;
 
   /* Button Elements (and button-styled links) */
-  --button-padding-vertical: var(--spacing);
+  --button-padding-vertical: var(--spacing-smaller);
   --button-padding-horizontal: var(--spacing);
   --button-text-color: var(--color-white);
-  --button-text-color-hover: var(--color-accent);
-  --button-icon-color: var(--button-text-color);
-  --button-icon-color-hover: var(--color-accent);
-  --button-border-color: var(--color-accent);
+  --button-text-color-hover: var(--color-white);
+  --button-icon-color: var(--color-yellow);
+  --button-icon-color-hover: var(--color-yellow);
+  --button-border-color: var(--color-indigo);
   --button-bg-color: var(--color-accent);
   --button-bg-color-hover: var(--color-white);
   --button-font-family: var(--font-primary);
   --button-border-radius: 0;
 
   /* Sidebar Items */
-  --sidebar-exposed-form-bg-color: var(--color-grey-light);
-  --sidebar-exposed-form-padding-vertical: var(--spacing-larger);
-  --sidebar-exposed-form-padding-horizontal: var(--spacing-larger);
+  --sidebar-exposed-form-bg-color: var(--color-white);
+  --sidebar-exposed-form-padding-vertical: var(--spacing);
+  --sidebar-exposed-form-padding-horizontal: var(--spacing);
   --sidebar-exposed-form-item-spacing: var(--spacing);
 
   /* Guide Navigation */
@@ -318,22 +321,23 @@ body {
   --search-results-list-item-marker-color: transparent;
 
   /* WYSIWYG Styles */
-  --btn-start-bg-color: var(--color-accent);
-  --btn-start-bg-color-hover: var(--color-white);
-  --btn-start-color: var(--color-white);
-  --btn-start-color-hover: var(--color-success);
+  --btn-start-bg-color: var(--color-green);
+  --btn-start-bg-color-hover: var(--color-teal);
+  --btn-start-color: var(--color-black);
+  --btn-start-color-hover: var(--color-white);
   --btn-start-padding-horizontal: var(--spacing);
   --btn-start-padding-vertical: var(--spacing-smaller);
   --btn-start-border: var(--border);
-  --btn-start-border-color-hover: var(--btn-start-bg-color);
-  --btn-start-icon: "\203A";
+  --btn-start-border-color:  var(--btn-start-bg-color);
+  --btn-start-border-color-hover: var(--btn-start-bg-color-hover);
+  --btn-start-icon: "\f054";
   --btn-start-icon-size: var(--font-size-largest);
-  --btn-start-icon-top: -3px;
+  --btn-start-icon-top: 0;
   --external-link-icon-color: var(--color-accent);
 
     /* Alert Banner */
-  --alert-banner-bg-color: var(--color-success);
-  --alert-banner-bg-color-minor: var(--color-minor);
+  --alert-banner-bg-color: var(--color-teal);
+  --alert-banner-bg-color-minor: var(--color-yellow);
   --alert-banner-bg-color-major: var(--color-danger);
   --alert-banner-bg-color-notable-person: var(--color-black);
   --alert-banner-color: var(--color-white);

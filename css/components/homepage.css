@@ -1,10 +1,11 @@
-.path-frontpage.page-node-type-localgov-subsites-overview h1 { // bespoke croydon
+.path-frontpage.page-node-type-localgov-subsites-overview .field--name-localgov-title h1 {
   margin: 0 0 2rem;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
-.field--name-localgov-subsites-banner-text {
+.path-frontpage .field--name-localgov-subsites-banner-text {
   display: none;
 }
 
@@ -265,7 +266,7 @@
 
 .path-frontpage .news-list a {
   word-break: break-word;
-  color: var(--color-accent);
+  color: var(--color-black);
   display: block;
   text-decoration: underline
 }
@@ -323,8 +324,8 @@
 .path-frontpage .services--feature-block {
   padding: 0;
   text-align: left;
-  margin-top: .9375rem;
-  margin-left: .9375rem
+  margin-top: 0;
+  margin-left: 0
 }
 
 .path-frontpage .services--feature-block .services--feature-icon {
@@ -874,7 +875,8 @@
 }
 
 .form-search {
-  padding: 0 .9375rem
+  padding: 0 .9375rem;
+  margin: 0.3125rem
 }
 
 .form-control:focus,
@@ -1063,6 +1065,10 @@ main a[href^="mailto:"] {
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .btn-primary:not(:disabled):not(.disabled):active:focus {
   box-shadow: none
+}
+
+.btn-primary:focus {
+  background-color:  var(--color-accent);
 }
 
 .node--localgov_step_by_step_overview .sidebar {

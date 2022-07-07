@@ -255,6 +255,7 @@
 
           .box-link__title {
             padding-left: 0;
+            margin-bottom: 0;
           }
 
           .box-link__link {
@@ -377,6 +378,14 @@
 
         @include rem(padding-right, 16);
         @include rem(margin-top, 16);
+      }
+    }
+  }
+
+  &.page-node-type-localgov-subsites-overview .layout--twocol {
+    h2 {
+      &.w-auto {
+        margin-top: 3rem !important; // force global margin to return as it has inherited a subsites setting
       }
     }
   }

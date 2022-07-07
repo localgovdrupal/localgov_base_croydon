@@ -1,174 +1,138 @@
-// Alert banner modifiers
 .localgov-alert-banner {
-  button { // default form button styling
-    background-color: $alert-button-background;
-    color: $alert-button-color;
-    border-radius: 0;
-    padding: .5rem .9375rem;
-    line-height: 1.5;
-    border: solid $alert-button-color;
-    text-align: center;
-    vertical-align: middle;
-    font-weight: 700;
-
-    @include rem(border-width, 1);
-
-    &:focus,
-    &:hover {
-      color: $alert-button-hover;
-      border: solid $alert-button-hover;
-
-      @include rem(border-width, 1);
+  &--major,
+  &--notable-person,
+  &--announcement {
+    .localgov-alert-banner__title {
+      color: $white !important; // force override base colour change due to background
     }
   }
 
-  .localgov-alert-banner__close {
-    a {
-      // alternative styling for link button
-      color: $alert-button-color;
+  &__title {
+    font-family: $font-family-base;
+    font-weight: $font-normal;
+  }
 
-      &:hover,
-      &:focus {
-        background: $alert-button-color;
-        color: $alert-button-hover;
+  &__dismiss {
+    button {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      &:after {
+        display: inline-block;
+        font-family: $font-family-icons;
+        content: $fa-times-circle;
+
+        @include rem(margin-left, 3);
       }
     }
   }
 
-  &.alert-banner--notable-person {
-    background: $alert-bar-notable;
-
-    p,
-    a,
-    div > div a,
-    i {
-      color: $white;
+  &__body {
+    a {
+      font-weight: $font-bold;
     }
   }
 
-  &.localgov-alert-banner--major {
-    background: $alert-bar-major;
+  &-full { // full page alert
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $carbon;
+    border: 0;
 
-    p,
-    a,
-    div > div a,
-    i {
-      color: $white;
+    @include rem(padding, 40);
+
+    h1 {
+      @include rem(margin, 80, 0, 40);
     }
-  }
 
-  &.localgov-alert-banner--minor {
-    background: $alert-bar-minor;
-  }
+    .localgov-alert-banner-full--centered {
+      background: url('../../../logo.svg') top left no-repeat;
+      background-color: $alert-bar-notable;
+      background-size: 40%;
+      overflow-x: hidden;
+      position: relative;
 
-  &.localgov-alert-banner--announcement {
-    background: $alert-bar-announcement;
+      @include rem(margin-bottom, 30);
 
-    p,
-    a,
-    div > div a,
-    i {
-      color: $white;
-    }
-  }
-}
+      @include media-breakpoint-up(md) {
+        background-size: 20%;
+      }
 
-// General alert banner styles
-.alert-bar,
-.localgov-alert-banner {
-  div > div {
-    > div {
-      p {
-        position: relative;
+      .localgov-alert-banner__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
 
-        @include rem(padding-left, 40);
+      .localgov-alert-banner-full--content {
+        @extend .row;
 
-        &:before {
-          position: absolute;
-          left: 0;
-          font-size: $h2-font-size;
-          font-family: $font-family-icons;
-          font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
-          content: $fa-exclaim;
-          margin: 0;
+        @include rem(padding, 15);
+
+        .localgov-alert-banner-full--text {
+          @include media-breakpoint-up(md) {
+            flex: 0 0 50%;
+            max-width: 50%;
+          }
+
+          @include rem(padding, 15, 0);
+
+          @include media-breakpoint-up(md) {
+            @include rem(padding, 0, 30);
+          }
+
+
+          a {
+            display: inline-block;
+
+            @include rem(margin, 15, 0);
+          }
+
+          p { // for the modal - override inherited styling from alert banner
+            padding-left: 0;
+
+            &:before {
+              display: none;
+            }
+          }
+
+          button {
+            @extend .link-button;
+            @extend .btn-primary;
+
+            @include rem(margin, 15, 0);
+
+            &:hover,
+            &:focus {
+              color: $white;
+            }
+
+            &:after {
+              @include rem(margin-left, 10);
+            }
+          }
+        }
+
+        .localgov-alert-banner-full--image {
           padding: 0;
 
-          @include rem(top, -11);
+          @include media-breakpoint-up(md) {
+            flex: 0 0 50%;
+            max-width: 50%;
+          }
         }
       }
     }
 
-    > p {
-      margin: 0;
-      font-size: $font-size-med;
-    }
-
-    a {
-      color: $secondary;
-
-      &:hover,
-      &:focus {
-        background: $white;
-        color: $secondary;
+    &.localgov-alert-banner--notable-person {
+      a {
+        &:hover,
+        &:focus {
+          color: $carbon; // Base override
+        }
       }
     }
-  }
-}
-
-// Pseudo icons for wysiwig added alerts
-.alert {
-  background-color: $white !important;
-  font-weight: $font-bold;
-  font-size: $font-size-lg;
-  position: relative;
-  width: 100%; // always go full width
-  padding-left: 2.75rem; // indent content to allow for absolute icon
-
-  &:before {
-    position: absolute;
-    left: 1rem;
-  }
-}
-
-.alert-success,
-.alert-info,
-.alert-primary,
-.alert-danger,
-.alert-fail,
-.alert-warning {
-  &:before {
-    font-family: $font-family-icons;
-    font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
-  }
-}
-
-.alert-success {
-  &:before {
-    content: $alert-success;
-  }
-}
-
-.alert-info {
-  &:before {
-    content: $alert-info;
-  }
-}
-
-.alert-primary,
-.alert-danger {
-  &:before {
-    content: $fa-exclamation-triangle;
-  }
-}
-
-.alert-fail {
-  &:before {
-    content: $alert-fail;
-  }
-}
-
-.alert-warning {
-  &:before {
-    content: $alert-warning;
   }
 }

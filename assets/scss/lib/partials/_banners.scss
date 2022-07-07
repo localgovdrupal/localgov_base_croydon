@@ -1,4 +1,4 @@
-.banner--primary {
+.banner--primary { // Homepage banner
   .banner__image { // fix-height
     img {
       @include rem(max-height, 200); // reset base min
@@ -12,6 +12,33 @@
 
     @include media-breakpoint-up(lg) {
       font-size: $font-size-base * 2.875 !important;
+    }
+  }
+}
+
+.block-localgov-subsite-banner { // subsite banner
+  .banner--primary {
+    .banner__content {
+      display: flex;
+      flex-direction: column;
+      background: none; // base override
+      max-width: var(--width-container);
+      margin: calc(var(--banner-content-margin) * -1) auto 0;
+      padding: 0 var(--spacing-padding-horizontal);
+
+      .field--name-localgov-title {
+        background-color: $primary;
+
+        @include rem(padding, 20, 40);
+      }
+
+      .field--name-localgov-subsites-banner-text {
+        background-color: $primary-tint;
+        font-size: $font-size-lg;
+        color: $carbon;
+
+        @include rem(padding, 20, 40);
+      }
     }
   }
 }
@@ -68,7 +95,7 @@
     .form-control {
       font-size: 1.375rem;
 
-      @include rem(height, 55);
+      @include rem(height, 51);
     }
 
     .btn {

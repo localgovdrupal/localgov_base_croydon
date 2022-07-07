@@ -175,7 +175,7 @@ $skip-main: $primary;
 // Subsites
 $campaign-header: $carbon;
 $campaign-jumbotron: #fde360;
-$section-nav-background: $indigo;
+$section-nav-background: $primary;
 $calloutbg: $purple-tint;
 $socialdefault: $purple;
 $linkblock: $purple;
@@ -331,6 +331,7 @@ $half-padding: .3125rem;
 
 // Font Awesome Icons
 $fa-times: '\f00d';
+$fa-bars: '\f0c9';
 $fa-font-weight: 900;
 $fa-close: $fa-times;
 $fa-external: '\f35d';
@@ -364,6 +365,7 @@ $fa-twitter: '\f099';
 $fa-instagram: '\f16d';
 $fa-share: '\f14d';
 $fa-user: '\f007';
+$fa-times-circle: '\f057';
 
 // Alert Icons
 $alert-success: $fa-check;

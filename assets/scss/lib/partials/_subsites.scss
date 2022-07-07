@@ -22,71 +22,41 @@
         margin: 0;
         padding: 0;
 
+        h3 {
+          color: $white;
+          border-left: 0;
+          margin: 0;
+
+          @include rem(padding, 20, 24);
+        }
+
         .menu-item {
-          background: $section-nav-background;
+          background: $white;
+          display: grid;
           padding: 0;
 
-          @extend .h3;
-
           a {
-            display: block;
-            width: 100%;
-            margin: 0;
             color: $primary;
+            border-left: 0.1875rem solid $gray-tint;
 
-            @include rem(padding, 8, 24);
+            @include rem(padding, 12, 24);
+
+            &:hover {
+              color: $carbon;
+              text-decoration: none;
+              border-left: 0.1875rem solid $primary;
+            }
+          }
+
+          .is-active {
+            background-color: $gray-tint;
+            color: $carbon;
+            border-left: 0.1875rem solid $primary;
+            text-decoration: none;
           }
 
           span {
             display: block;
-          }
-
-          ul {
-            li {
-              border-bottom: 0.0625rem solid $gray !important;
-            }
-          }
-
-          &.menu-item--active-trail {
-            margin-bottom: 0;
-
-            a {
-              color: $white;
-              border-left: 0;
-
-              @include rem(padding, 24, 24);
-            }
-          }
-
-          .menu {
-            background: $white;
-            margin: 0;
-            padding: 0;
-
-            .menu-item {
-              margin: 0;
-              padding: 0;
-              background: $white;
-              font-size: $font-size-ex-med;
-
-              a {
-                color: $primary;
-                border-left: 0.1875rem solid $violet;
-
-                @include rem(padding, 12, 24);
-
-                &:hover {
-                  color: $carbon;
-                  text-decoration: none;
-                  border-left: 0.1875rem solid $purple;
-                }
-              }
-
-              .is-active {
-                color: $carbon;
-                border-left: 0.1875rem solid $indigo;
-              }
-            }
           }
         }
       }
@@ -105,60 +75,23 @@
   }
 
   .sidebar {
+    margin-top: 0;
+
     @include rem(padding-right, 15);
+    @include rem(padding-left, 15);
+
+    @include media-breakpoint-up(md) {
+      padding-left: 0;
+    }
 
     nav {
       @include rem(margin-bottom, 30);
     }
   }
 
-  .jumbotron {
-    margin: 0;
-    padding: 0;
-    background-color: $campaign-jumbotron;
-
-    .jumbo-welcome {
-      h1 {
-        color: $campaign-header;
-        text-align: left;
-        padding: 0;
-        line-height: 1.1;
-        font-weight: $font-bold;
-
-        @include rem(font-size, 50);
-        @include rem(letter-spacing, 0);
-
-        @include media-breakpoint-up(sm) {
-          font-size: $jumbo-font-large;
-        }
-
-        @include media-breakpoint-up(lg) {
-          text-align: left;
-
-          @include rem(font-size, 58);
-        }
-
-        &:before {
-          display: none;
-        }
-      }
-    }
-
-    @include media-breakpoint-up(lg) {
-      background-size: contain;
-      background-position: right;
-    }
-
-    &.banner-full {
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-  }
-
-  main {
-    .breadcrumb {
-      @include rem(margin-left, -15);
+  .layout--twocol {
+    h2 {
+      margin-top: 0 !important;
     }
 
     .fact-box {
@@ -309,7 +242,7 @@
   }
 }
 
-// Localgov theme & core overrides
+// theme & core overrides
 
 .page-node-type-localgov-subsites-page {
   .paragraph--type--page-section {

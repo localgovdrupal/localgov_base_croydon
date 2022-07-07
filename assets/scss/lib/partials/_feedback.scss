@@ -17,6 +17,7 @@
 
   .fa,
   .fas {
+    font-size: $font-size-base;
     padding-right: .5rem;
   }
 }
@@ -96,11 +97,8 @@
   }
 }
 
-#block-feedbackform {
-  &.bg-primary {
-    background-color: $white !important;
-  }
 
+.lgd-region--content-bottom {
   .feedback-trigger-page {
     background-color: $primary;
   }

@@ -19,11 +19,13 @@ body {
   @include rem(max-width, 1170);
 }
 
-main,
-.sidebar {
-  margin-top: ($spacer * 3);
-  margin-bottom: 0;
+main {
+  .lgd-container {
+    margin-top: ($spacer * 3);
+    margin-bottom: 0;
+  }
 }
+
 
 main form {
   width: 100%;
@@ -107,6 +109,16 @@ main .block-system-main-block a {
   h5,
   h6 {
     margin-top: ($spacer * 3);
+
+    &.link-block__title {
+      margin-top: revert; // revert margin for titles used for within link blocks
+    }
+  }
+
+  .lgd-teaser__content {
+    h3 {
+      margin-top: 0; // set margin for titles used for within teasers
+    }
   }
 
   // Display all headers inline block to prevent margin overlap

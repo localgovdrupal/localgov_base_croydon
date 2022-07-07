@@ -6,14 +6,13 @@ h1, h2, h3, h4, h5, h6, .heading {
 }
 
 a {
-  font-weight: 700;
+  font-weight: 400;
 }
 
 a:hover,
 a:focus {
   color: var(--color-link-focus);
   background-color: var(--color-focus);
-  box-shadow: none; /* default drop shadow not required */
   text-decoration: none; /* default text decoration not required */
 }
 

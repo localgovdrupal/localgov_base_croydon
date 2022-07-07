@@ -1,117 +1,114 @@
-.directory-result {
-  border-bottom: 0.063rem solid $gray-primary;
+.block-localgov-directories {
+  padding-top: 0 !important; // base override
 
-  @include rem(padding-bottom, 4);
-  @include rem(margin-bottom, 25);
-  @include rem(margin-top, 16);
+  &-channel-search-block { // search block stlying
+    form {
+      background-color: $gray-tint;
+      padding: var(--spacing);
 
-  h2 {
-    font-weight: $font-bold;
-    font-size: $font-size-ex-med;
+      .form-text {
+        font-size: $font-size-ex-med;
+      }
 
-    @include rem(margin, 0, 0, 14, 0);
-    @include rem(line-height, 24);
-  }
+      margin-bottom: 1rem;
 
-  p {
-    @include rem(margin-bottom, 12);
-  }
+      label {
+        font-size: $h4-font-size;
+        font-weight: $font-bold;
+        margin-bottom: 0;
+      }
 
-  ul {
-    list-style: none;
-    padding: 0;
+      .form-submit {
+        @extend .btn;
+        @extend .btn-primary;
 
-    @include rem(margin, 12, 0);
+        width: 100%;
+        text-align: left;
+        position: relative;
+        font-size: $h5-font-size;
+        font-weight: $font-bold;
 
-    li {
-      font-size: $font-size-med;
+        &:after {
+          font-family: $font-family-icons;
+          font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
+          content: $fa-search;
+          font-size: $h5-font-size;
+          display: block;
+          position: absolute;
+          right: 1rem;
+          color: $white;
 
-      @include rem(line-height, 34);
+          @include rem(top, 6);
+        }
+      }
+
+      .form-text,
+      select {
+        @extend .form-control;
+      }
     }
   }
-
-  .fas {
-    @include rem(width, 20);
-    @include rem(margin-right, 3);
-  }
 }
 
-// Map Header
-.directory-map-results {
-  margin-bottom: 0;
-  font-size: $font-size-ex-med;
+.block-facets { // facet styling
+  .facets-widget {
+    &--checkbox {
+      background-color: $pink-tint;
+      padding-bottom: var(--spacing);
 
-  @include rem(line-height, 28);
+      .facet-group__title {
+        padding: var(--spacing) 0 0 var(--spacing);
+      }
 
-  [class*='col-'] {
-    @include rem(padding-top, 0);
-    @include rem(padding-bottom, 0);
+      ul {
+        width: auto;
+        background-color: $white;
+        margin: var(--spacing);
+        padding: var(--spacing);
 
-    &:nth-child(2) {
-      text-align: right;
+        li {
+          margin-top: 0;
+          border-bottom: 0.06rem solid $gray;
+
+          @include rem(padding-bottom, 10);
+
+          &:last-child {
+            border: 0;
+            padding-bottom: 0;
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .facet-item input[type="checkbox"] + label::after { // fix globally when forms prject is merged
+        color: $green;
+      }
     }
   }
+}
 
-  label {
-    font-size: $font-size-med;
+.view-localgov-directory-channel {
+  .lgd-teaser { // results list styling
+    border-bottom: 0.063rem solid $gray-primary;
 
-    @include rem(margin-right, 8);
+    @include rem(padding-bottom, 10);
+    @include rem(margin-bottom, 25);
+    @include rem(margin-top, 16);
+
+    h2 {
+      font-weight: $font-bold;
+      font-size: $font-size-ex-med;
+
+      @include rem(margin, 0, 0, 14, 0);
+      @include rem(line-height, 24);
+    }
+
+    .field--type-text-with-summary {
+      font-size: $font-size-lg;
+
+      @include rem(margin-bottom, 12);
+    }
   }
-
-  select {
-    border: 0.063rem solid $gray;
-    font-size: $font-size-lg;
-
-    @include rem(border-radius, 4);
-    @include rem(width, 197);
-    @include rem(padding, 7);
-  }
-
-  .fas,
-  .far {
-    color: $secondary;
-
-    @include rem(padding-right, 5);
-  }
-
-  a {
-    font-weight: $font-bold;
-    text-decoration: none;
-  }
-}
-
-// Map Show/Hide
-.directories-results-search-term {
-  color: $tertiary;
-  font-weight: $font-bold;
-}
-
-.hide-map,
-.show-map,
-.reset-map {
-  text-decoration: none;
-  cursor: pointer;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
-  width: auto;
-}
-
-.hide-map {
-  display: inline;
-}
-
-.show-map {
-  display: none;
-}
-
-.directories-map {
-  border-top: 0.063rem solid $gray;
-  display: block;
-
-  @include rem(margin-bottom, 40);
-  @include rem(padding-top, 18);
-  @include rem(margin-top, 12);
 }
 
 /* Directory Listing */
@@ -142,46 +139,6 @@
   }
 }
 
-.views-exposed-form {
-  margin-bottom: 1rem;
-  background-color: $gray-tint;
-
-  @include rem(padding, 20);
-
-  label {
-    font-size: $h4-font-size;
-    font-weight: $font-bold;
-  }
-
-  button {
-    width: 100%;
-    text-align: left;
-    position: relative;
-    font-size: $h5-font-size;
-
-    .fa-chevron-right {
-      display: none;
-    }
-
-    &:after {
-      font-family: $font-family-icons;
-      font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
-      content: $fa-search;
-      font-size: $h5-font-size;
-      display: block;
-      position: absolute;
-      right: 1rem;
-
-      @include rem(top, 6);
-    }
-  }
-
-  .form-text,
-  select {
-    @extend .form-control;
-  }
-}
-
 .filter-wrapper {
   background: $indigo-tint;
 
@@ -196,10 +153,6 @@
   background: $white;
 
   @include rem(padding, 10);
-}
-
-.facet-filter-header {
-  display: none;
 }
 
 .form-checkboxes {
@@ -311,60 +264,15 @@
   }
 }
 
-.directories-hide-filters .hide-filters,
-.directories-hide-filters .show-filters {
-  background: none;
-  border: none;
-  color: $blue;
-
-  @include rem(font-size, 16);
-}
-
-.directory-contact {
-  font-size: $font-size-lg;
-
-  a {
-    font-size: $font-size-lg;
-    word-break: break-all;
-  }
-
+.directory-contact { // contact information area
   > div {
-    display: flex;
-
     @include rem(margin-bottom, 10);
-
-    > span {
-      font-size: $font-size-lg;
-
-      @include rem(padding-top, 8);
-      @include rem(margin-right, 10);
-    }
   }
-}
-
-.view-localgov-directory-channel {
-  .leaflet-container {
-    margin-bottom: 2rem;
-  }
-
-  .link-block {
-    border-bottom: 0.0625rem solid $gray;
-
-    @include rem(margin-bottom, 20);
-
-    .fa { // hide unwanted chevron
-      display: none !important;
-    }
-  }
-}
-
-.contact-urls {
-  flex-flow: column wrap;
-
 
   a {
     position: relative;
     align-self: flex-start;
+    font-size: $font-size-lg;
 
     @include rem(margin-left, 30);
 
@@ -373,63 +281,111 @@
       font-size: $font-size-lg;
       font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
       font-family: $font-family-icons;
-      content: $fa-link;
       margin: 0;
       padding: 0;
       color: $carbon;
 
       @include rem(left, -30);
     }
+  }
 
-    &.contact-facebook {
-      &:before {
-        font-family: $font-family-brands;
-        content: $fa-facebook;
+  .contact-urls {
+    a {
+      &.contact-website,
+      &.contact-inspection-report {
+        &:before {
+          content: $fa-link;
+        }
+      }
+
+      &.contact-facebook {
+        &:before {
+          font-family: $font-family-brands;
+          content: $fa-facebook;
+        }
+      }
+
+      &.contact-twitter {
+        &:before {
+          font-family: $font-family-brands;
+          content: $fa-twitter;
+        }
+      }
+
+      &.contact-youtube {
+        &:before {
+          font-family: $font-family-brands;
+          content: $fa-youtube-square;
+        }
+      }
+
+      &.contact-instagram {
+        &:before {
+          font-family: $font-family-brands;
+          content: $fa-instagram;
+        }
       }
     }
+  }
 
-    &.contact-twitter {
+  .contact-phone {
+    a {
       &:before {
-        font-family: $font-family-brands;
-        content: $fa-twitter;
+        content: $fa-phone;
       }
     }
+  }
 
-    &.contact-youtube {
+  .contact-email {
+    a {
       &:before {
-        font-family: $font-family-brands;
-        content: $fa-youtube-square;
+        content: $fa-envelope;
       }
     }
+  }
 
-    &.contact-instagram {
+  .contact-instagram {
+    a {
       &:before {
-        font-family: $font-family-brands;
         content: $fa-instagram;
       }
     }
+  }
 
-    &.contact-website {
+  .contact-youtube {
+    a {
       &:before {
-        font-family: $font-family-icons;
-        content: $fa-link;
+        content: $fa-youtube-square;
       }
     }
+  }
 
-    &:nth-child(n+3) {
-      @include rem(margin-top, 10);
+  .contact-twitter {
+    a {
+      &:before {
+        content: $fa-twitter;
+      }
     }
   }
-}
 
-.contact-address {
-  p {
-    position: relative;
-    align-self: flex-start;
+  .contact-facebook {
+    a {
+      &:before {
+        content: $fa-facebook;
+      }
+    }
+  }
 
+  .contact-address {
     @include rem(margin-left, 30);
 
-    &.address {
+    .address {
+      position: relative;
+
+      br {
+        display: none; // hide inline br tags
+      }
+
       &:before {
         position: absolute;
         font-size: $font-size-lg;
@@ -442,6 +398,14 @@
 
         @include rem(left, -30);
       }
+    }
+  }
+
+  .leaflet-container {
+    margin-bottom: 2rem;
+
+    a {
+      margin-left: 0; // remove inherited margin
     }
   }
 }
@@ -457,15 +421,10 @@
   }
 }
 
-// GDS styling overrides
-.block-localgov-directories {
-  .form-optional-text { // remove optional text
-    display: none;
-  }
+.field--name-localgov-directory-opening-times { // opening times are rendered differently - not sure why
+  .field__label {
+    @extend .h3;
 
-  div {
-    .form-actions {
-      padding-left: initial; // gds sets this to 2em
-    }
+    @include rem(margin-bottom, 24);
   }
 }
