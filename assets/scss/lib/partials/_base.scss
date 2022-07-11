@@ -119,6 +119,9 @@ main .block-system-main-block a {
     h3 {
       margin-top: 0; // set margin for titles used for within teasers
     }
+    .field--type-text-with-summary {
+      font-size: $font-size-lg;
+    }
   }
 
   // Display all headers inline block to prevent margin overlap
