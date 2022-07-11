@@ -64,3 +64,8 @@ main {
     font-weight: $font-bold !important;
   }
 }
+
+.eu-cookie-compliance-save-preferences-button {
+  @extend .btn;
+  @extend .btn-primary;
+}
