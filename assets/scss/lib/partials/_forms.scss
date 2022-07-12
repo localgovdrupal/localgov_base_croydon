@@ -346,12 +346,11 @@ label {
   border: 0.063rem solid $focus !important;
 }
 
-/* When the radio button is checked, add a blue background */
+/* When the radio button is checked, add a green background */
 
 .custom-input input:checked ~ .radiomark {
-  background-color: $white;
+  background-color: $green;
 }
-
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 

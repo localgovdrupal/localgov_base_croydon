@@ -69,3 +69,24 @@ main {
   @extend .btn;
   @extend .btn-primary;
 }
+
+.eu-cookie-compliance-categories--on,
+.eu-cookie-compliance-categories--off {
+  position: relative;
+  height: 3rem;
+  display: inline-block;
+  margin: 1rem 1rem 1rem 0;
+
+  input {
+    @extend .radiomark;
+
+    &:checked {
+      background-color: $green;
+    }
+  }
+  label {
+    margin-left: 3rem;
+    margin-top: 0.4rem;
+    font-weight: bold;
+  }
+}
