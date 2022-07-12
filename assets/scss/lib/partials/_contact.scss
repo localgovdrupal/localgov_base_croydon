@@ -9,6 +9,10 @@
     color: $primary;
   }
 
+  .field--name-localgov-contact-heading {
+    @extend .h3;
+  }
+
   .contact-opentimes {
     #field--localgov_contact_office_hours {
       > div {
@@ -203,15 +207,6 @@
     background: $white;
 
     @include rem(padding, 20);
-
-    > div {
-      &:before {
-        font-family: $font-family-icons;
-        content: $fa-map-marker;
-        font-weight: $fa-font-weight;
-        font-size: $font-size-ex-lg;
-      }
-    }
 
     p {
       position: relative;

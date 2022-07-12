@@ -57,3 +57,8 @@ topic-list-builder:
   css:
     theme:
       css/components/topic-list-builder.css: { weight: 200 }
+
+wysiwyg-styles:
+  css:
+    theme:
+      css/components/wysiwyg-styles.css: { weight: 200 }
