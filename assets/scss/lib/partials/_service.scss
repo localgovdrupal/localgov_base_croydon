@@ -339,14 +339,11 @@
 // Service page CTA's
 
 
-.service-landing-page__service-item { // services landing page - styling out incorrecting html rendering - to be fixed
-  h2 {
-    @extend .h3;
-  }
-
+.service-landing-page__service-item { // services landing page
   p,
   .field--name-body,
-  .field--name-localgov-guides-description {
+  .field--name-localgov-guides-description,
+  .field--type-text-with-summary {
     font-size: $font-size-lg;
   }
 }

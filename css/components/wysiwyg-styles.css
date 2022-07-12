@@ -1,0 +1,5 @@
+.external-link::after { /* overrides for hard coded values in base */
+  top:  -1px;
+  width: 0.875rem;
+  height: 0.875rem;
+}

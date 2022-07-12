@@ -28,7 +28,7 @@ function localgov_base_croydon_preprocess_block__localgov_base_croydon_subsiteba
  *
  * - Sets Guide page content width.
  */
-function localgov_base_croydon_preprocess_node__localgov_guides_overview(&$variables) {
+function localgov_base_croydon_preprocess_node__localgov_guides_overview__full(&$variables) {
 
   $variables['attributes']['class'][] = 'lgd-row__two-thirds';
 }
@@ -38,7 +38,7 @@ function localgov_base_croydon_preprocess_node__localgov_guides_overview(&$varia
  *
  * - Sets Guide page content width.
  */
-function localgov_base_croydon_preprocess_node__localgov_guides_page(&$variables) {
+function localgov_base_croydon_preprocess_node__localgov_guides_page__full(&$variables) {
 
   $variables['attributes']['class'][] = 'lgd-row__two-thirds';
 }

@@ -13,7 +13,9 @@ libraries:
   - localgov_base_croydon/service-cta-block
   - localgov_base_croydon/service-landing-page
   - localgov_base_croydon/teaser
+  - localgov_base_croydon/topic-list-builder
   - localgov_base_croydon/secondary-menu
+  - localgov_base_croydon/wysiwyg-styles
 
 regions:
   tabs: "Tabs"

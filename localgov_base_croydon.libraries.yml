@@ -20,7 +20,6 @@ base:
 
 header:
   css:
-
     theme:
       css/components/header.css: { weight: 200 }
 
@@ -53,3 +52,13 @@ teaser:
   css:
     theme:
       css/components/teaser.css: { weight: 200 }
+
+topic-list-builder:
+  css:
+    theme:
+      css/components/topic-list-builder.css: { weight: 200 }
+
+wysiwyg-styles:
+  css:
+    theme:
+      css/components/wysiwyg-styles.css: { weight: 200 }
