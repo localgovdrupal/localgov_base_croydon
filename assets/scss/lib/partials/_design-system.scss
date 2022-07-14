@@ -104,11 +104,14 @@ pre[class*="language-"] {
 
 //DESIGN SYSTEM PRIMARY NAVIGATION TOP
 
+.navbar {
 //Design system primary menu container
-.design-system-menu--primary {
-  padding-top: 0;
-  padding-bottom: 3rem;
-  width: 100%;
+  &.design-system-menu--primary {
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 3rem;
+    width: 100%;
+  }
 }
 
 //Design system primary menu ul
@@ -378,4 +381,8 @@ pre[class*="language-"] {
   .navbar-controls .navbar-brand {
     font-size: 1.125rem;
   }
+}
+
+.sidebar--first {
+  @extend .col-md-4;
 }
