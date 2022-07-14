@@ -348,6 +348,13 @@
   }
 }
 
+.lgd-topic-list-builder__service-item {
+  .field--type-text-with-summary {
+    font-size: $font-size-lg;
+  }
+}
+
+
 .block-localgov-service-cta-block {
   @include rem(padding-top, 15);
   @include rem(padding-bottom, 15);

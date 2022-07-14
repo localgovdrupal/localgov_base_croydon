@@ -11,7 +11,7 @@
 
 
 //Space under breadcrumbs
-.node--design_system_page #block-breadcrumbs div:first-child {
+.page-node-type-design-system-page #block-breadcrumbs div:first-child {
   margin-bottom: 1.25rem !important;
 }
 
@@ -49,7 +49,7 @@ pre[class*="language-"] {
 }
 
 // Prevent design system menu styles overriding links in menu demos (simple menu etc)
-.node--design_system_page main .sidebar a {
+.page-node-type-design-system-page main .sidebar a {
   color: $primary !important;
   text-decoration: underline !important;
   pointer-events: auto !important;
@@ -104,11 +104,14 @@ pre[class*="language-"] {
 
 //DESIGN SYSTEM PRIMARY NAVIGATION TOP
 
+.navbar {
 //Design system primary menu container
-.design-system-menu--primary {
-  padding-top: 0;
-  padding-bottom: 3rem;
-  width: 100%;
+  &.design-system-menu--primary {
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 3rem;
+    width: 100%;
+  }
 }
 
 //Design system primary menu ul
@@ -166,7 +169,7 @@ pre[class*="language-"] {
 //DESIGN SYSTEM MENU
 
 //Out of the box drupal class for active page
-.node--design_system_page .sidebar .is-active {
+.page-node-type-design-system-page .sidebar .is-active {
   font-weight: 700 !important;
   text-decoration: none !important;
   pointer-events: none !important;
@@ -178,7 +181,7 @@ pre[class*="language-"] {
   padding: 0.5rem 0.5rem 0.5rem 0.625rem;
 }
 //Menu sections title
-.node--design_system_page .sidebar ul li span {
+.page-node-type-design-system-page .sidebar ul li span {
   display: block;
   font-size: 1.25rem !important;
   margin: 1.875rem 0 0.9375rem 0;
@@ -191,22 +194,22 @@ pre[class*="language-"] {
 }
 
 //Remove default list styles
-.node--design_system_page .sidebar h3 {
+.page-node-type-design-system-page .sidebar h3 {
   margin-bottom: 1.5rem;
 }
 
 //Remove default list styles
-.node--design_system_page .sidebar ul li {
+.page-node-type-design-system-page .sidebar ul li {
   list-style-type: none;
 }
 
 //Remove default list padding
-.node--design_system_page .sidebar ul {
+.page-node-type-design-system-page .sidebar ul {
   padding: 0;
 }
 
 //Child pages
-.node--design_system_page .sidebar ul ul li a {
+.page-node-type-design-system-page .sidebar ul ul li a {
   pointer-events: auto;
   font-weight: 400;
   color: $primary;
@@ -217,7 +220,7 @@ pre[class*="language-"] {
 }
 
 //Child pages
-.node--design_system_page .sidebar ul ul li a:hover {
+.page-node-type-design-system-page .sidebar ul ul li a:hover {
   text-decoration: underline;
   color: $primary;
   background: none;
@@ -378,4 +381,8 @@ pre[class*="language-"] {
   .navbar-controls .navbar-brand {
     font-size: 1.125rem;
   }
+}
+
+.sidebar--first {
+  @extend .col-md-4;
 }

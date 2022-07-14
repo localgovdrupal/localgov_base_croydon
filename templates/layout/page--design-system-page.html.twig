@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Theme template to display a Design system page.
+ */
+#}
+
+{% extends '@localgov_base/layout/page.html.twig' %}
+
+
+{% block content %}
+  <div class="w-100"></div>
+
+  {% if has_sidebar_first %}
+    <div id="sidebar-first" class="column sidebar col-md-4 mt-0">
+      <aside class="section" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    </div>
+  {% endif %}
+
+  <main id="content" role="main"{{ content_attributes.addClass(content_classes).addClass('design-system-page content col order-md-2 mt-0') }}>
+    {% if page.content_top %}
+      {{ page.content_top }}
+    {% endif %}
+
+    <section class="section">
+      <a id="main-content" tabindex="-1"></a>
+      {{ page.content }}
+    </section>
+  </main>
+
+  {% if has_sidebar_second %}
+    <div id="sidebar-second" class="column sidebar col-md-4">
+      <aside class="section" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    </div>
+  {% endif %}
+
+  {% if page.content_bottom %}
+  <div class="col-sm-12">
+    {{ page.content_bottom }}
+  </div>
+  {% endif %}
+{% endblock %}
