@@ -1,18 +1,25 @@
+/* includes fix for teasers formatting incorrectly on service landing pages */
 .lgd-teaser h3,
-.lgd-teaser h3 a {
+.lgd-teaser h3 a,
+.lgd-topic-list-builder__service-item .node-teaser h3,
+.lgd-topic-list-builder__service-item .node-teaser h3 a {
   color: var(--color-accent);
 }
 
-.lgd-teaser h3 a {
+.lgd-teaser h3 a,
+.lgd-topic-list-builder__service-item .node-teaser h3 a {
   text-decoration: underline;
 }
 
 .lgd-teaser h3 a:hover,
-.lgd-teaser h3 a:focus {
+.lgd-teaser h3 a:focus,
+.lgd-topic-list-builder__service-item .node-teaser h3 a:hover,
+.lgd-topic-list-builder__service-item .node-teaser h3 a:focus {
   color: var(--color-black);
 }
 
-.lgd-teaser h3 a:visited {
+.lgd-teaser h3 a:visited,
+.lgd-topic-list-builder__service-item .node-teaser h3 a:visited {
   color: var(--color-accent);
 }
 
@@ -21,4 +28,8 @@
 .lgd-teaser-list .lgd-topic-list-builder__service,
 .news-article .field--name-localgov-news-related > .field__item {
   border-bottom: 0;
+}
+
+.lgd-topic-list-builder__service-item .node-teaser h3 {
+  margin-top: 0;
 }
