@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Default theme implementation for webform submission data.
+ *
+ * Available variables:
+ * - webform_submission: The webform submission.
+ * - webform: The webform.
+ *
+ * @see template_preprocess_webform_submission_data()
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('gull_site_specific/webform_preview_submission') }}
+{%
+  set classes = [
+    'webform-submission-data',
+    'webform-submission-data--webform-' ~ webform.id()|clean_class,
+    view_mode ? 'webform-submission-data--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+<div{{attributes.addClass(classes)}}>
+	{% if webform.settings['preview_message']%}
+		<div>
+			<h3>{{ webform.settings['preview_message'] }}</h3>
+		</div>
+	{% endif %}
+	{% if elements.data %}
+		<dl class="cds-summary-list">
+			{% for key,value in elements.data %}
+				<div class="cds-summary-list__row">
+					<dt class="cds-summary-list__key">
+						<b>
+							{{ key|capitalize|replace({'_':' '}) }}:</b>
+					</dt>
+					<dd class="cds-summary-list__value">
+						{{ elements.data[key]['#value'] }}
+					</dd>
+					<dd class="cds-summary-list__actions">
+					</dd>
+				</div>
+			{% endfor %}
+		</dl>
+	{% endif %}
+</div>
+
