@@ -1,0 +1,38 @@
+{#
+/**
+* @file
+* Theme implementation of localgov_header_block.
+*
+* @see template_preprocess_block()
+*
+* @ingroup themeable
+*/
+#}
+
+{% if not localgov_base_remove_css %}
+  {{ attach_library('localgov_base/page-title-block') }}
+{% endif %}
+
+{%
+  set classes = [
+    'lgd-page-title-block'
+  ]
+%}
+
+{% if title or lede['#value'] %}
+  <div{{ attributes.addClass(classes) }}>
+
+    {% if title %}
+      <h1 class="lgd-page-title-block__title">{{ title }}</h1>
+    {% endif %}
+
+    {% set is_lede_a_render_array = lede is iterable %}
+    {% set is_lede_not_a_render_array = not is_lede_a_render_array %}
+    {% if is_lede_a_render_array and ('#value' in lede|keys) and lede['#value'] %}
+      {{ lede }}
+    {% elseif is_lede_not_a_render_array and lede %}
+      <p class="lgd-page-title-block__subheader">{{ lede }}</p>
+    {% endif %}
+
+  </div>
+{% endif %}
