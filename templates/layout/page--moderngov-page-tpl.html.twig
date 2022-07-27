@@ -3,7 +3,7 @@
 {% endblock %}
 
 <div class="lgd-container padding-horizontal">
-  {breadcrumb}
+  {{ link('Home', 'base:/') }} &gt; {breadcrumb}
 </div>
 
 <main class="main" id="main-content"> {# The "skip to content" link jumps to here. #}
@@ -63,8 +63,8 @@
         <div class="lgd-container">
           <div class="lgd-row">
             <div class="lgd-row__one-quarter">
-              <a class="" href="/" title="Go to London Borough of Croydon Homepage">
-                <img class="img-fluid" src="https://www.croydon.gov.uk/themes/contrib/localgov_base_croydon/assets/img/footer-logo.png" alt="Croydon Council Footer Logo" /></a>
+              <a class="" href="{{ front_page }}" title="Go to London Borough of Croydon Homepage">
+                <img class="img-fluid" src="{{ front_page|trim('/') }}/themes/contrib/localgov_base_croydon/assets/img/footer-logo.png" alt="Croydon Council Footer Logo" /></a>
             </div>
             <div class="lgd-row__one-half">
               <nav aria-label="Footer Navigation">
