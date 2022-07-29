@@ -2,23 +2,23 @@
   {% include '@localgov_base/layout/header.html.twig' with {'page': page} %}
 {% endblock %}
 
-<div class="lgd-container padding-horizontal">
-  {breadcrumb}
+
+<div class="lgd-container padding-horizontal moderngov-breadcrumb">
+  {{ link('Home', 'base:/') }} &gt; {breadcrumb}
 </div>
 
 <main class="main" id="main-content"> {# The "skip to content" link jumps to here. #}
 
   <div class="lgd-container">
       <div class="lgd-row">
-        <aside class="lgd-row__one-quarter sidebar sidebar--first">
-          {sidenav}
-        </aside>
-
-        <div class="lgd-row__three-quarters">
+        <div class="lgd-row__two-thirds">
           <div class="padding-horizontal">
             {content}
           </div>
         </div>
+        <aside class="lgd-row__one-third sidebar sidebar--second">
+          {sidenav}
+        </aside>
       </div>
   </div>
 </main>
@@ -64,8 +64,8 @@
         <div class="lgd-container">
           <div class="lgd-row">
             <div class="lgd-row__one-quarter">
-              <a class="" href="/" title="Go to London Borough of Croydon Homepage">
-                <img class="img-fluid" src="/themes/contrib/localgov_base_croydon/assets/img/footer-logo.png" alt="Croydon Council Footer Logo" /></a>
+              <a class="" href="{{ front_page }}" title="Go to London Borough of Croydon Homepage">
+                <img class="img-fluid" src="{{ front_page|trim('/') }}/themes/contrib/localgov_base_croydon/assets/img/footer-logo.png" alt="Croydon Council Footer Logo" /></a>
             </div>
             <div class="lgd-row__one-half">
               <nav aria-label="Footer Navigation">

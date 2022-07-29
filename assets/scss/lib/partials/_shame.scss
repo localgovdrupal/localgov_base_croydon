@@ -125,3 +125,11 @@ main a[href^="mailto:"],
 .node--type-localgov-subsites-page .layout--onecol__flexible .layout__region--content.row {
   margin-left: 0;
 }
+
+// style the modern gov breadcrumb
+
+.moderngov-breadcrumb {
+  margin-bottom: 3rem;
+  padding: 0.75rem;
+  border-bottom: 0.0625rem solid $gray-tint;
+}
