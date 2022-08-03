@@ -40,8 +40,13 @@
 %}
 
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
-  
-  
+
+    {% if content.content_moderation_control %}
+      <section class="moderation__panel lgd-row">
+        {{ content.content_moderation_control }}
+      </section>
+    {% endif %}
+
     {# Begin Main Content #}
     
       {# Begin Services List #}
