@@ -1,14 +1,24 @@
 html,
 body {
   margin: 0;
+  height: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   text-size-adjust: none;
   widows: 2;
+  // prevent pull to refresh function on mobiles - stops accidental refresh of forms.
   overscroll-behavior: contain;
+  // this is specifically added to set the body flex and the div thats wrapped around <main>
+  // to allow it to always fill the area between the header and footer.
+  display: flex;
+  flex-direction: column;
+
+  .dialog-off-canvas-main-canvas {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+  }
 }
 
 
