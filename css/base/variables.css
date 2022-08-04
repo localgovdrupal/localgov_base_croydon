@@ -191,7 +191,7 @@ body {
   --button-icon-color-hover: var(--color-yellow);
   --button-border-color: var(--color-indigo);
   --button-bg-color: var(--color-accent);
-  --button-bg-color-hover: var(--color-white);
+  --button-bg-color-hover: var(--color-indigo);
   --button-font-family: var(--font-primary);
   --button-border-radius: 0;
 
