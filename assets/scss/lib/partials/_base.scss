@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   text-size-adjust: none;
   widows: 2;
+  overscroll-behavior: contain;
 }
 
 
