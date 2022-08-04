@@ -1,6 +1,7 @@
 body {
   text-size-adjust: none;
   widows: 2;
+  overscroll-behavior: contain;
 }
 
 .text-monospace {
