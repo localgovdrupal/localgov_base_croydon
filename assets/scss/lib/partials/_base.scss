@@ -1,6 +1,19 @@
+html,
 body {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
   text-size-adjust: none;
   widows: 2;
+}
+
+
+header,
+footer {
+  flex: none;
 }
 
 .text-monospace {
@@ -20,6 +33,8 @@ body {
 }
 
 main {
+  flex: auto;
+
   .lgd-container {
     margin-top: ($spacer * 3);
     margin-bottom: 0;
