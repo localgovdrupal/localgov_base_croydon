@@ -1,0 +1,104 @@
+/* display summary list as a table */
+.cds-summary-list {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-bottom: 1.875rem;
+}
+
+/* adding table element to row after breakpoint */
+@media (min-width: 62rem) {
+  .cds-summary-list__row {
+    display: table-row;
+  }
+}
+
+/* add border to create separation line to rows */
+.cds-summary-list__row {
+  border-bottom: 0.063rem solid $gray;
+}
+
+/* add some space under the rows for smaller screens */
+@media (max-width: 62rem) {
+  .cds-summary-list__row {
+    margin-bottom: 0.938rem;
+  }
+}
+
+/*  width of key column if larger than brakepoint */
+@media (min-width: 62rem) {
+  .cds-summary-list__key {
+    width: 30%;
+  }
+}
+
+/*  prevents overflow in columns  */
+.cds-summary-list__key,
+.cds-summary-list__value {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/*  width of actions column if larger than brakepoint */
+@media (min-width: 62rem) {
+  .cds-summary-list__actions {
+    width: 20%;
+    padding-right: 0;
+    text-align: right;
+  }
+}
+
+.cds-summary-list__actions {
+  margin-bottom: 0.938rem;
+}
+
+/* set the cells of the table if larger than brakepoint */
+@media (min-width: 62rem) {
+  .cds-summary-list__key,
+  .cds-summary-list__value,
+  .cds-summary-list__actions {
+    display: table-cell;
+    padding-top: 0.625rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.625rem;
+  }
+}
+
+.cds-summary-list__key,
+.cds-summary-list__value,
+.cds-summary-list__actions {
+  margin: 0;
+}
+
+/*  hide the action context for sighted users */
+.cds-visually-hidden {
+  position: absolute !important;
+  width: 0.063rem !important;
+  height: 0.063rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* remove the separating line/border from all the rows */
+.cds-summary-list--no-border .cds-summary-list__row {
+  border: 0;
+}
+
+/* style the last total row */
+.cds-summary-list__total {
+  text-align: right;
+  font-weight: 800;
+}
+
+/* add a space in a row for a missing action */
+.cds-summary-list__row--no-actions::after {
+  content: "";
+  display: table-cell;
+}
