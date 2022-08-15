@@ -29,15 +29,26 @@
 		<dl class="cds-summary-list">
 			{% for key,value in elements.data %}
 				<div class="cds-summary-list__row">
+
+					{# Question column #}
 					<dt class="cds-summary-list__key">
-						<b>
-							{{ key|capitalize|replace({'_':' '}) }}:</b>
-					</dt>
-					<dd class="cds-summary-list__value">
+						{# question  #}
+						<h2>{{ key|capitalize|replace({'_':' '}) }}:</h2>
+						{# answer #}
 						{{ elements.data[key]['#value'] }}
+					</dt>
+
+					{# Value column #}
+					<!--
+					<dd class="cds-summary-list__value">
+						{#{  elements.data[key]['#value'] }#}
 					</dd>
+					-->
+
+					{# Action column #}
 					<dd class="cds-summary-list__actions">
 					</dd>
+
 				</div>
 			{% endfor %}
 		</dl>

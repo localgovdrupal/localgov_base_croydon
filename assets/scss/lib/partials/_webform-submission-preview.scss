@@ -102,3 +102,16 @@
   content: "";
   display: table-cell;
 }
+
+/* Hide the summary tag on
+ * webform submissiom preview
+ * paqe
+*/
+.webform-preview {
+  summary {
+    display: none;
+  }
+  label {
+    padding-right: 1rem;
+  }
+}
