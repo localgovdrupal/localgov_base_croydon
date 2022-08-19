@@ -39,9 +39,14 @@
   border: none;
 }
 
+.localgov-alert-banner__dismiss button:hover:after {
+  display: inline-block;
+  text-decoration: none;
+}
+
 .localgov-alert-banner .localgov-alert-banner__title {
   padding-left: 40px;
-  padding-right: 10px;
+  padding-right: 2px;
   display: inline;
 }
 
