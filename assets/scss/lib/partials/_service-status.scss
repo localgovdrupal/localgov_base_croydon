@@ -1,3 +1,18 @@
 .fade:not(.show) { // fix weird BS inherited fade in
   opacity: 1;
 }
+
+.service-status {
+  .nav-link {
+    .service-status-title {
+      color: $blue;
+    }
+
+    &:hover,
+    &:focus {
+      .service-status-title {
+        color: $carbon;
+      }
+    }
+  }
+}

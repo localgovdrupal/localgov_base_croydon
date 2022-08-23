@@ -8,6 +8,8 @@
   }
 
   &__title {
+    display: inline-block;
+    width: auto;
     font-family: $font-family-base;
     font-weight: $font-normal;
   }
@@ -27,6 +29,9 @@
   }
 
   &__body {
+    display: inline-block;
+    width: auto;
+
     a {
       font-weight: $font-bold;
     }
