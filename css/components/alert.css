@@ -24,15 +24,13 @@
 }
 
 .localgov-alert-banner .localgov-alert-banner__title,
-.localgov-alert-banner .localgov-alert-banner__body,
-.localgov-alert-banner .localgov-alert-banner--content-link {
+.localgov-alert-banner .localgov-alert-banner__body {
   font-size: var(--font-size-small);
   position: relative;
 }
 
-.localgov-alert-banner .localgov-alert-banner__body,
 .localgov-alert-banner .localgov-alert-banner--content-link {
-  display: inline-block;
+  display: none; /*not used*/
 }
 
 .localgov-alert-banner__dismiss button {
@@ -45,19 +43,20 @@
 }
 
 .localgov-alert-banner .localgov-alert-banner__title {
-  padding-left: 40px;
-  padding-right: 2px;
+  padding:  0 3px 0 0;
   display: inline;
+  margin-top: 5px;
+  margin-bottom: 4px;
 }
 
 .localgov-alert-banner .localgov-alert-banner__title:before {
   position: absolute;
-  left: 0;
+  left: -40px;
   font-size: var(--font-size-h2);
   font-family: 'Font Awesome 5 Pro';
   content: '\f06a';
   margin: 0;
   padding: 0;
-  top: 4px;
+  top: 1px;
 }
 
