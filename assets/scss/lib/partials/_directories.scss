@@ -328,6 +328,14 @@
     }
   }
 
+  .contact-inspection-report {
+    .inspection-report-url {
+      &:before {
+        content: $fa-link;
+      }
+    }
+  }
+
   .contact-phone {
     a {
       &:before {
