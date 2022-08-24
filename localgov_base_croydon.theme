@@ -42,3 +42,10 @@ function localgov_base_croydon_preprocess_node__localgov_guides_page__full(&$var
 
   $variables['attributes']['class'][] = 'lgd-row__two-thirds';
 }
+
+/**
+ * Hides label from "Plain address" view mode of Geo.
+ */
+function localgov_base_croydon_preprocess_localgov_geo__cds_plain_address(&$variables) {
+  $variables['content']['label'] = NULL;
+}

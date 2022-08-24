@@ -1,137 +1,72 @@
-.localgov-alert-banner {
-  &--major,
-  &--notable-person,
-  &--announcement {
-    .localgov-alert-banner__title {
-      color: $white !important; // force override base colour change due to background
-    }
-  }
+// wysiwig added alerts/announcements with pseudo icons
+.alert {
+  background-color: $white !important;
+  font-weight: $font-bold;
+  font-size: $font-size-lg;
+  position: relative;
+  width: 100%; // always go full width
+  padding: 0.75rem 1.25rem 0.75rem 2.75rem !important;
+  border: .1875rem solid transparent !important;
 
-  &__title {
-    font-family: $font-family-base;
-    font-weight: $font-normal;
-  }
-
-  &__dismiss {
-    button {
-      padding-top: 0;
-      padding-bottom: 0;
-
-      &:after {
-        font-family: $font-family-icons;
-        content: $fa-times-circle;
-
-        @include rem(margin-left, 3);
-      }
-    }
-  }
-
-  &__body {
-    a {
-      font-weight: $font-bold;
-    }
-  }
-
-  &-full { // full page alert
+  &:before {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: $carbon;
-    border: 0;
+    left: 1rem;
+  }
 
-    @include rem(padding, 40);
+  &-warning {
+    color: $orange;
+    border-color: $orange !important;
 
-    h1 {
-      @include rem(margin, 80, 0, 40);
+    &:before {
+      content: $alert-warning;
     }
+  }
 
-    .localgov-alert-banner-full--centered {
-      background: url('../../../logo.svg') top left no-repeat;
-      background-color: $alert-bar-notable;
-      background-size: 40%;
-      overflow-x: hidden;
-      position: relative;
+  &-info {
+    color: $carbon;
+    border-color: $carbon !important;
 
-      @include rem(margin-bottom, 30);
-
-      @include media-breakpoint-up(md) {
-        background-size: 20%;
-      }
-
-      .localgov-alert-banner__close {
-        position: absolute;
-        top: 0;
-        right: 0;
-      }
-
-      .localgov-alert-banner-full--content {
-        @extend .row;
-
-        @include rem(padding, 15);
-
-        .localgov-alert-banner-full--text {
-          @include media-breakpoint-up(md) {
-            flex: 0 0 50%;
-            max-width: 50%;
-          }
-
-          @include rem(padding, 15, 0);
-
-          @include media-breakpoint-up(md) {
-            @include rem(padding, 0, 30);
-          }
-
-
-          a {
-            display: inline-block;
-
-            @include rem(margin, 15, 0);
-          }
-
-          p { // for the modal - override inherited styling from alert banner
-            padding-left: 0;
-
-            &:before {
-              display: none;
-            }
-          }
-
-          button {
-            @extend .link-button;
-            @extend .btn-primary;
-
-            @include rem(margin, 15, 0);
-
-            &:hover,
-            &:focus {
-              color: $white;
-            }
-
-            &:after {
-              @include rem(margin-left, 10);
-            }
-          }
-        }
-
-        .localgov-alert-banner-full--image {
-          padding: 0;
-
-          @include media-breakpoint-up(md) {
-            flex: 0 0 50%;
-            max-width: 50%;
-          }
-        }
-      }
+    &:before {
+      content: $alert-info;
+      left: 1.3rem;
     }
+  }
 
-    &.localgov-alert-banner--notable-person {
-      a {
-        &:hover,
-        &:focus {
-          color: $carbon; // Base override
-        }
-      }
+  &-success {
+    color: $green-alert;
+    border-color: $green-alert !important;
+
+    &:before {
+      content: $alert-success;
     }
+  }
+
+  &-fail,
+  &-danger {
+    color: $red;
+    border-color: $red !important;
+
+    &:before {
+      content: $alert-fail;
+    }
+  }
+}
+
+.alert-success,
+.alert-info,
+.alert-primary,
+.alert-danger,
+.alert-fail,
+.alert-warning {
+  &:before {
+    font-family: $font-family-icons;
+    font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
+  }
+}
+
+.alert-primary,
+.alert-danger {
+  &:before {
+    content: $fa-exclamation-triangle;
   }
 }
