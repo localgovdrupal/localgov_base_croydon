@@ -133,7 +133,7 @@ body {
   --breadcrumbs-padding-vertical: var(--spacing-small);
   --breadcrumbs-padding-horizontal: 0;
   --breadcrumbs-link-color: var(--color-accent);
-  --breadcrumbs-spacing-bottom: 3rem;
+  --breadcrumbs-spacing-bottom: 0;
   
   /* Header Items */
   --section-spacing-vertical-header: var(--spacing);
