@@ -12,6 +12,7 @@ h5, h6 {
 
 a {
   font-weight: 400;
+  transition: none; /*remove base added transitions*/
 }
 
 a:hover,
