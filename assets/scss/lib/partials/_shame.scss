@@ -125,24 +125,3 @@ main a[href^="mailto:"],
 .node--type-localgov-subsites-page .layout--onecol__flexible .layout__region--content.row {
   margin-left: 0;
 }
-
-
-// fix image padding on media with text blocks
-.media-with-text--media-bottom,
-.media-with-text--media-top {
-  img {
-    padding-right: 1.5rem;
-  }
-}
-
-.media-with-text--media-left {
-  img {
-    padding-right: 1.5rem;
-  }
-}
-
-.media-with-text--media-right {
-  img {
-    padding-left: 1.5rem;
-  }
-}
