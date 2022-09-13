@@ -1,9 +1,10 @@
-.banner--primary { // Homepage banner
-  .banner__image { // fix-height
-    img {
-      @include rem(max-height, 200); // reset base min
-      @include rem(min-height, 300); // fix image height
-    }
+.banner--primary { // Subsite banner
+  img {
+    width: 100%;
+    @include rem(max-height, 200); // reset base min
+    @include rem(min-height, 300); // fix image height
+    object-fit: cover;
+    object-position: center;
   }
 
   .field--name-localgov-title { // re-implement h1 styling due to override base styling
