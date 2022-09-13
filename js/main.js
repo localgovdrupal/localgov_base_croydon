@@ -34,6 +34,12 @@
             $('.services-show').removeClass("d-none").addClass("d-flex"); // work around for BS4 d-flex using !important and overriding usual hide method
           });
         }
+
+        /*Subsites nav*/
+        $('.block-localgov-subsite-navigation').on( "click", "h3", function() {
+          $('.block-localgov-subsite-navigation h3').toggleClass('menu-shown');
+          $('.menu-item--active-trail').attr('style', 'display: grid');
+        });
       })
     }
   }
