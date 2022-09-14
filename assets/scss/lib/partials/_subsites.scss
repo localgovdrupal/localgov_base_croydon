@@ -74,6 +74,10 @@
             display: grid;
           }
 
+          &--show {
+            display: grid;
+          }
+
           a {
             color: $primary;
             border-left: 0.1875rem solid $gray-tint;
