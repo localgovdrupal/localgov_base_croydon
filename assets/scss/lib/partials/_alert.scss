@@ -13,6 +13,11 @@
     left: 1rem;
   }
 
+  &-primary {
+    color: $primary;
+    border-color: $primary !important;
+  }
+
   &-warning {
     color: $orange;
     border-color: $orange !important;
