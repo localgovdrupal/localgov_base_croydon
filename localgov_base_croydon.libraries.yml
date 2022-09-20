@@ -17,6 +17,7 @@ base:
       css/components/base.css: { weight: 200 }
       assets/css/lib/main.css: {}
       css/components/form-items.css: {}
+      css/components/box-links.css: { weight: 200 }
 
 header:
   css:

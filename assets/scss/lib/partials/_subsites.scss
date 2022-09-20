@@ -1,5 +1,17 @@
 .page-node-type-localgov-subsites-overview,
 .page-node-type-localgov-subsites-page {
+  main {
+    .lgd-container {
+      > .lgd-row {
+        flex-direction: column-reverse; // put the nav at the top for mobile
+
+        @include media-breakpoint-up(md) {
+          flex-direction: inherit;
+        }
+      }
+    }
+  }
+
   main,
   .sidebar {
     @include rem(margin-top, 10);
@@ -16,6 +28,7 @@
       color: $white;
       padding: 0 !important;  // override base
       overflow: auto;
+      margin-bottom: 1.5rem;
 
       .menu {
         list-style: none;
@@ -26,14 +39,44 @@
           color: $white;
           border-left: 0;
           margin: 0;
+          position: relative;
 
           @include rem(padding, 20, 24);
+
+          &:after {
+            font-family: $font-family-icons;
+            font-weight: $fa-font-weight;
+            color: $white;
+            content: $fa-plus;
+            position: absolute;
+            right: 1rem;
+            margin: auto 0;
+            font-size: 1.6rem;
+
+            @include media-breakpoint-up(md) {
+              display: none; //hide for desktop
+            }
+          }
+
+          &.menu-shown {
+            &:after {
+              content: $fa-minus;
+            }
+          }
         }
 
         .menu-item {
           background: $white;
-          display: grid;
           padding: 0;
+          display: none; // initial hide for mobile accordion
+
+          @include media-breakpoint-up(md) {
+            display: grid;
+          }
+
+          &--show {
+            display: grid;
+          }
 
           a {
             color: $primary;

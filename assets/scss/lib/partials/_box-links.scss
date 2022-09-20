@@ -1,3 +1,12 @@
+.box-link {
+  border: none;
+
+  &__image {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+}
+
 .box-links-listing {
   margin-bottom: 0 !important;
 
