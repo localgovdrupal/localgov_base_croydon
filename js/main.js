@@ -38,7 +38,7 @@
         /*Subsites nav*/
         $('.block-localgov-subsite-navigation').on( "click", "h3", function() {
           $('.block-localgov-subsite-navigation h3').toggleClass('menu-shown');
-          $('.menu-item').toggleClass('menu-item--show');
+          $('.block-localgov-subsite-navigation .menu-item').toggleClass('menu-item--show');
         });
       })
     }
