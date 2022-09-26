@@ -97,7 +97,7 @@
 
     h2 {
       font-weight: $font-bold;
-      font-size: $font-size-ex-med;
+      font-size: $h3-font-size;
 
       @include rem(margin, 0, 0, 14, 0);
       @include rem(line-height, 24);
