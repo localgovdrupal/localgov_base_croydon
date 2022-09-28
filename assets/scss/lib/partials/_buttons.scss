@@ -133,6 +133,7 @@
   &:hover {
     color: $link-button-text-focus;
     text-decoration: none;
+    background: $highlight !important;
   }
 
   &:focus {
