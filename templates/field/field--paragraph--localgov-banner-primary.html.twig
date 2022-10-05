@@ -37,6 +37,8 @@
  * @see template_preprocess_field()
  */
 #}
+{{ breakpoint() }}
+
 {%
   set classes = [
     'field',
@@ -53,6 +55,10 @@
   ]
 %}
 
+{%
+  set html_element = 'localgov_title' ? 'h1' : 'p'
+%}
+
 {% if label_hidden %}
   {% if multiple %}
     <div{{ attributes.addClass(classes, 'field__items') }}>
@@ -62,7 +68,21 @@
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
+      <div{{ attributes.addClass(classes, 'field__item') }}>
+        {# Localgov Banner Primary -
+          for the pupose of acessibility,
+          we need to apply a 'h1' tag  element to
+          the banner's title and 'p' tag to the
+          banners text.
+        #}
+
+        {% if field_name == 'localgov_title' %}
+          <h1>{{ item.content }}</h1>
+        {% else %}
+          <p>{{ item.content }}</p>
+        {% endif %}
+      </div>
+
     {% endfor %}
   {% endif %}
 {% else %}
