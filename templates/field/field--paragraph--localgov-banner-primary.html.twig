@@ -56,7 +56,10 @@
 %}
 
 {%
-  set html_element = 'localgov_title' ? 'h1' : 'p'
+  set html_tag = [
+    field_name == 'localgov_title' ? 'h1',
+    field_name == 'localgov_title' ? 'p'
+  ]
 %}
 
 {% if label_hidden %}
@@ -75,12 +78,17 @@
           the banner's title and 'p' tag to the
           banners text.
         #}
-
         {% if field_name == 'localgov_title' %}
           <h1>{{ item.content }}</h1>
-        {% else %}
+        {% endif %}
+        {% if field_name == 'localgov_subsites_banner_text' %}
           <p>{{ item.content }}</p>
         {% endif %}
+        {% if field_name == 'localgov_image' %}
+          {{ item.content }}
+        {% endif %}
+
+
       </div>
 
     {% endfor %}
