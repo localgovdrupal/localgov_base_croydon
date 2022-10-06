@@ -53,14 +53,6 @@
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]
 %}
-
-{%
-  set html_tag = [
-    field_name == 'localgov_title' ? 'h1',
-    field_name == 'localgov_title' ? 'p'
-  ]
-%}
-
 {% if label_hidden %}
   {% if multiple %}
     <div{{ attributes.addClass(classes, 'field__items') }}>
@@ -86,10 +78,7 @@
         {% if field_name == 'localgov_image' %}
           {{ item.content }}
         {% endif %}
-
-
       </div>
-
     {% endfor %}
   {% endif %}
 {% else %}
