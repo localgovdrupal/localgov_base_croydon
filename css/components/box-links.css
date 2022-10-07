@@ -1,0 +1,8 @@
+.box-link__image {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+.box-link__image img {
+  max-height:  230px;
+}
