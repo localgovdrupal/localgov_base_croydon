@@ -49,3 +49,19 @@ function localgov_base_croydon_preprocess_node__localgov_guides_page__full(&$var
 function localgov_base_croydon_preprocess_localgov_geo__cds_plain_address(&$variables) {
   $variables['content']['label'] = NULL;
 }
+
+/**
+ * Implements hook_preprocess_paragraph().
+ *
+ * Changes:
+ * Adds a variable to determinse if the box links are
+ * on the home page
+ *
+ * @see localgov_base_croydon_preprocess_paragraph__localgov_box_link()
+ */
+function localgov_base_croydon_preprocess_paragraph__localgov_box_link(&$variables) {
+  $paragraph = $variables['paragraph'];
+  if ($paragraph->bundle() === 'localgov_box_link') {
+    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+   }
+}

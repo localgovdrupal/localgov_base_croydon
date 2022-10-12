@@ -133,6 +133,7 @@
   &:hover {
     color: $link-button-text-focus;
     text-decoration: none;
+    background: $highlight !important;
   }
 
   &:focus {
@@ -149,6 +150,15 @@
 
     @include media-breakpoint-up(sm) {
       margin-bottom: 0;
+    }
+  }
+
+  &.manual-address { // specific styling for address lookup
+    padding: 0;
+    margin: 1rem 0;
+
+    &:after {
+      display: none;
     }
   }
 }

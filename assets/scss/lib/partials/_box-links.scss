@@ -37,6 +37,11 @@
           padding: 0;
         }
 
+        h2 { // clear off defaults
+          margin: 0;
+          padding: 0;
+        }
+
         @include media-breakpoint-up(sm) {
           position: relative;
           width: calc(25% - 0.46875rem);
