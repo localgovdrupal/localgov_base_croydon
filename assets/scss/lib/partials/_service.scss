@@ -223,6 +223,7 @@
   .block-system-main-block {
     h2 {
       margin-top: 0 !important;
+      font-size: calc(var(--font-size) * 1.75) !important;
 
       a {
         color: $primary;
