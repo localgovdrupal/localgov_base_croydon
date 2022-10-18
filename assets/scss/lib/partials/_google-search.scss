@@ -1,10 +1,13 @@
 //GENERAL STYLES AND PAGE LAYOUT
 
 //Set font and remove border from outermost container
-.gsc-control-cse,
-.gsc-control-cse .gsc-table-result {
-  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif !important;
-  border: 0 !important;
+.gsc-control-cse {
+  font-family: $font-family-base !important;
+  padding: 0 !important;
+
+  .gsc-table-result {
+    border: 0 !important;
+  }
 }
 
 //Outer wrapper - Makes tabs full width
@@ -48,7 +51,7 @@
 
 //Results info - number of matches (hidden by above class)
 .gsc-result-info {
-  color: #444444 !important;
+  color: $dark !important;
   font-size: 1rem !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -57,35 +60,39 @@
 //RESULT ELEMENT STYLES
 
 //Non visited link title / Non visited promotion title
-.gs-title {
+a {
+  &.gs-title {
   display: inline-block;
   font-size: 1.5rem !important;
-  color: #880088 !important;
+  color: $purple !important;
   margin: 0 !important;
+
+    //Visited link title 
+    &:visited {
+      color: $dark !important;
+
+      b {
+        color: $carbon !important;
+      }
+    }
+
+    //Non visited link - Matching keyword
+    &:link b {
+      font-size: 1.5rem !important;
+      color: $carbon !important;
+      color: $carbon !important;
+      background: $yellow !important;
+      padding: 0.1rem 0.3rem !important;
+    }
+  }
 }
 
-//Non visited link title - The matching keyword
-a.gs-title:link b {
-  font-size: 1.5rem !important;
-  color: #121212 !important;
+// specific override of the styling that forces all body links to 400 weight
+
+main .block-system-main-block a.gs-title {
+  font-weight: 700 !important;
 }
 
-//Visited link title 
-a.gs-title:visited {
-  color: #444444 !important;
-}
-
-//Visited link title - The matching keyword )
-a.gs-title:visited b {
-  color: #121212 !important;
-}
-
-//Non visited link - Matching keyword
-a.gs-title:link b {
-  color: #121212 !important;
-  background: #ffbb00 !important;
-  padding: 0.1rem 0.3rem !important;
-}
 
 //URL
 a.gs-visibleUrl,
