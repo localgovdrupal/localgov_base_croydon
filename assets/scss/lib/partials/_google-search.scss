@@ -64,6 +64,7 @@ a {
   &.gs-title {
   display: inline-block;
   font-size: 1.5rem !important;
+  font-weight: $font-bold;
   color: $purple !important;
   margin: 0 !important;
 
@@ -86,13 +87,6 @@ a {
     }
   }
 }
-
-// specific override of the styling that forces all body links to 400 weight
-
-main .block-system-main-block a.gs-title {
-  font-weight: 700 !important;
-}
-
 
 //URL
 a.gs-visibleUrl,
