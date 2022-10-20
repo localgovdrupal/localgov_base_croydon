@@ -10,4 +10,19 @@
  * @see template_preprocess_input()
  */
 #}
-<button class="btn icon-search" type="submit" value="Search" aria-label="Search this website" title="Search this website"><span class="fa fa-search" aria-hidden="true"></span></button>
+
+
+{% set form_id = attributes['data-twig-suggestion'] %}
+{#
+    Form id 'search-block-form--2'
+    is the search form in the Search region
+    in the header area of the
+    publishing site. What we're doing is
+    changing the form's submit button from an input element
+    to a button element.
+ #}
+{% if form_id == 'search-block-form--2' %}
+    <button class="btn icon-search" type="submit" value="Search" aria-label="Search this website" title="Search this website"><span class="fa fa-search" aria-hidden="true"></span></button>
+{% else %}
+    <input{{ attributes }} />{{ children }}
+{% endif %}
