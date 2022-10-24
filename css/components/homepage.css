@@ -752,27 +752,6 @@
   height: 100%
 }
 
-.icon-search {
-  width: auto;
-  height: calc(2.875rem + 4px);
-  background: #540055;
-  color: var(--color-white);
-  font-size: .9375rem
-}
-
-.icon-search:hover {
-  background: #7b5!important
-}
-
-.icon-search:hover .fa {
-  color: var(--color-white)
-}
-
-.form-search {
-  padding: 0 .9375rem;
-  margin: 0.3125rem
-}
-
 .form-control:focus,
 .views-exposed-form .form-text:focus,
 .views-exposed-form select:focus {
