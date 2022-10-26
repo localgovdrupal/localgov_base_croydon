@@ -21,9 +21,14 @@
     width: auto;
     background: $indigo;
     color: $white;
-    font-size: .9375rem;
 
-    @include rem(padding, 0, 15);
+    @include media-breakpoint-up(sm) {
+
+      // margin-bottom: 0;
+      font-size: $font-size-med;
+    }
+
+    // @include rem(padding, 0, 15);
 
     &:hover {
       background: $green !important;
