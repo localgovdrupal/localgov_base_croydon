@@ -194,14 +194,17 @@ label {
 
 .facet-item input[type="checkbox"] + label::after,
 .form-item-webform-terms-of-service input[type="checkbox"] + label::after,
-.form-checkboxes input[type="checkbox"] + label::after {
+.form-checkboxes input[type="checkbox"] + label::after,
+.js-form-type-checkbox input[type="checkbox"] + label::after {
   color: $green;
 }
 
 .form-checkboxes input[type="checkbox"] + label::before,
+.form-checkboxes input[type="checkbox"]:focus + label:before,
 .facet-item input[type="checkbox"] + label::before,
 .form-item-webform-terms-of-service input[type="checkbox"] + label::before,
-.form-checkboxes input[type="checkbox"]:focus + label:before {
+.js-form-type-checkbox input[type="checkbox"] + label::before,
+.js-form-type-checkbox input[type="checkbox"]:focus + label:before {
   border-color: $carbon;
 }
 

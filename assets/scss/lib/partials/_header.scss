@@ -1,13 +1,15 @@
 .lgd-header {
   &__nav--primary {
-    flex: 1;
+    @include media-breakpoint-up(md) {
+      flex: 1;
+    }
   }
 
   &__inner {
     justify-content: start;
 
     @include media-breakpoint-up(md) {
-      justify-content: inherit;
+      justify-content: flex-start !important;
     }
   }
 
@@ -229,6 +231,10 @@
 
     .form-item {
       margin-bottom: 0;
+    }
+
+    .form-actions {
+      margin-top: 0;
     }
   }
 }
