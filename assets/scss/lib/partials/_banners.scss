@@ -15,6 +15,10 @@
     @include media-breakpoint-up(lg) {
       font-size: $font-size-base * 2.875 !important;
     }
+
+    h1 {
+      color: var(--banner-content-text-color) !important;
+    }
   }
 }
 
@@ -40,6 +44,11 @@
         color: $carbon;
 
         @include rem(padding, 20, 40);
+
+        p {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
       }
     }
   }
