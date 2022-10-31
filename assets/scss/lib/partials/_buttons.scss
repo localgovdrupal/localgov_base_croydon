@@ -16,6 +16,28 @@
   font-family: $font-family-secondary;
   font-size: $font-size-ex-ex-lg;
   text-decoration: none;
+
+  &.icon-search { // search button
+    width: auto;
+    background: $indigo;
+    color: $white;
+
+    @include media-breakpoint-up(sm) {
+
+      // margin-bottom: 0;
+      font-size: $font-size-med;
+    }
+
+    // @include rem(padding, 0, 15);
+
+    &:hover {
+      background: $green !important;
+
+      .fa {
+        color: var(--color-white);
+      }
+    }
+  }
 }
 
 // Start Button // mostly set in base but there are some extras and modifiers required for croydon
