@@ -64,6 +64,17 @@
 
 //RESULT ELEMENT STYLES
 
+// override and force underline
+.gs-result .gs-title, 
+.gs-result .gs-title * {
+  text-decoration: underline !important;
+
+  &:hover,
+  &:focus {
+    text-decoration: none !important;
+  }
+}
+
 //Non visited link title / Non visited promotion title
 a {
   &.gs-title {
