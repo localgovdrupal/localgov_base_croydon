@@ -146,7 +146,7 @@
 
       h2 {
         &.visually-hidden { // force the title to unhide
-          display: inline-block;
+          display: inline;
           opacity: 1;
           width: auto;
           position: relative !important;
@@ -159,6 +159,7 @@
         list-style-type: none;
         padding-inline-start: 0;
         margin-top: 1rem;
+        margin-bottom: 0;
 
         li {
           a {
@@ -239,7 +240,17 @@
   }
 }
 
-.region-secondary-menu .menu-item {
-  margin-bottom: 0;
+.lgd-region__inner--secondary-menu { // base overrides
+  padding: 1.5rem !important;
+}
+
+.region-secondary-menu .menu-item { // base overrides
+  margin-bottom: 0 !important;
   line-height: 1.25rem;
+
+  a {
+    font-size: $font-size-med;
+    line-height: 1.75rem;
+    text-decoration: none;
+  }
 }

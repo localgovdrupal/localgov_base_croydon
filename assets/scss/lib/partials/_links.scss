@@ -202,14 +202,11 @@ a#main-content { // prevent hover colour on 'focus top' anchor
   }
 }
 
-main .block-system-main-block a.cta-link { // explicit override of font weight normal set on body links
-  font-weight: $font-bold !important;
-}
-
 .cta-link {
   position: relative;
   color: $magenta;
   font-size: $font-size-lg;
+  font-weight: $font-bold;
   padding-left: 1.25rem !important;
 
   @include media-breakpoint-up(md) {
