@@ -58,7 +58,7 @@ body {
     In this section, we "apply" our colours.
   */
   --color-info: var(--color-black);
-  --color-success: var(--color-green);
+  --color-success: #338800;
   --color-danger: var(--color-red);
   --color-warning: var(--color-orange);
   --color-link: var(--color-accent);

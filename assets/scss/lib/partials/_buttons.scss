@@ -28,8 +28,6 @@
       font-size: $font-size-med;
     }
 
-    // @include rem(padding, 0, 15);
-
     &:hover {
       background: $green !important;
 
@@ -37,6 +35,11 @@
         color: var(--color-white);
       }
     }
+  }
+
+  &:focus { // reset and amend generic styling for this
+    box-shadow: none;
+    outline: .1875rem solid $highlight;
   }
 }
 
