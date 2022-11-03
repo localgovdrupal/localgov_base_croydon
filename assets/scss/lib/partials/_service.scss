@@ -339,6 +339,11 @@
 
 // Service page CTA's
 
+.lgd-teaser__content--localgov-subsites-overview {
+  .field--name-localgov-subsites-summary {
+    font-size: $font-size-lg;
+  }
+}
 
 .service-landing-page__service-item { // services landing page
   p,
