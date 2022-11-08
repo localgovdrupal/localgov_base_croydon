@@ -8,19 +8,19 @@
   const stepByStep = {};
   stepByStep.showAllText = 'Show summaries';
   stepByStep.hideAllText = 'Hide summaries';
-  stepByStep.showStepText = 'Show ';
-  stepByStep.hideStepText = 'Hide ';
+  stepByStep.showStepText = 'Show';
+  stepByStep.hideStepText = 'Hide';
 
   // Set visibility based on specified button.step-show elements.
   function summaryVisiblity(elements, cmd) {
     switch(cmd) {
       case 'show':
         elements.each(function() {
-          var stepTitle = $(this).parents('.step__title').find('a').text().toLowerCase();
+          var stepTitle = $(this).parents('.step__title').find('a').text();
           $(this).parents('.step').find('.step__summary').addClass('step-show-summary');
-          $(this).text(stepByStep.hideStepText + stepTitle + " step summary");
+          $(this).text(stepByStep.hideStepText);
           $(this).attr("aria-expanded", "true");
-          $(this).attr('aria-label', "Hide " + stepTitle + "step summary");
+          $(this).attr('aria-label', "Hide " + stepTitle + " summary");
         });
         // 'Hide all' control displayed if all steps are shown.
         if ($('.step__summary').length === $('.step-show-summary').length) {
@@ -31,11 +31,11 @@
 
       case 'hide':
         elements.each(function() {
-          var stepTitle = $(this).parents('.step__title').find('a').text().toLowerCase();
+          var stepTitle = $(this).parents('.step__title').find('a').text();
           $(this).parents('.step').find('.step__summary').removeClass('step-show-summary');
           $(this).attr("aria-expanded", "false");
-          $(this).text(stepByStep.showStepText  + stepTitle + " step summary" );
-          $(this).attr('aria-label', "Show " + stepTitle + " step summary");
+          $(this).text(stepByStep.showStepText);
+          $(this).attr('aria-label', "Show " + stepTitle + " summary");
         });
         // 'Show all' control displayed if any steps are hidden.
         $('.step-master').text(stepByStep.showAllText);
@@ -52,8 +52,8 @@
     var $container = $("<span class='step-summary-container'>");
     var $button = $("<button class='step-show'>");
     $button.attr('aria-expanded', isVisible ? "true" : "false");
-    $button.attr('aria-label', (isVisible ? "Hide " : "Show ") + stepTitle + " step summary");
-    $button.text(isVisible ? (stepByStep.hideStepText + (stepTitle).toLowerCase() + " step summary") : stepByStep.showStepText + stepTitle.toLowerCase() + " step summary" );
+    $button.attr('aria-label', (isVisible ? "Hide " : "Show ") + stepTitle + " summary");
+    $button.text(isVisible ? stepByStep.hideStepText : stepByStep.showStepText);
     $container.append($button);
     return $container;
   }
@@ -82,7 +82,7 @@
   // Show / hide single step.
   $('.step-show').on("click", function () {
     $(this).parents('.step').find('.step__summary').toggleClass('step-show-summary');
-    if ($(this).text().includes("Show")) {
+    if ($(this).text() === stepByStep.showStepText) {
       summaryVisiblity($(this), 'show');
     } else {
       summaryVisiblity($(this), 'hide');

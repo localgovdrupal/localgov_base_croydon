@@ -22,7 +22,10 @@ libraries-override:
     js:
       js/step-by-step-nav.js: js/step-by-step-nav.js
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/step-by-step-match-aria-label-and-link-text-ver-2
 regions:
   tabs: "Tabs"
   header: "Header"
