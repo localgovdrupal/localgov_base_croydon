@@ -17,6 +17,11 @@ libraries:
   - localgov_base_croydon/secondary-menu
   - localgov_base_croydon/wysiwyg-styles
 
+libraries-override:
+  localgov_step_by_step/step-by-step-nav:
+    js:
+      js/step-by-step-nav.js: js/step-by-step-nav.js
+
 regions:
   tabs: "Tabs"
   header: "Header"
