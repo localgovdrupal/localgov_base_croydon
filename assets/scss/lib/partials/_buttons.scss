@@ -16,6 +16,7 @@
   font-family: $font-family-secondary;
   font-size: $font-size-ex-ex-lg;
   text-decoration: none;
+  transition: none; // remove bs setting for this
 
   &.icon-search { // search button
     width: auto;
