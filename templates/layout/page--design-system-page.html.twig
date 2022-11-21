@@ -44,3 +44,43 @@
   </div>
   {% endif %}
 {% endblock %}
+
+{% block post_footer %}
+<div class="lgd-footer__post-footer">
+        <div class="lgd-container">
+          <div class="lgd-row">
+      <div class="lgd-row__one-quarter">
+        <a class="" href="/" title="Go to London Borough of Croydon Homepage">
+          <img class="img-fluid" src="/themes/contrib/localgov_base_croydon/assets/img/footer-logo.png" alt="Croydon Council Footer Logo" /></a>
+      </div>
+      <div class="lgd-row__one-half">
+        <nav aria-label="Footer Navigation">
+          <ul>
+            <li>
+              <a href="https://my.croydon.gov.uk">My Account</a>
+            </li>
+            <li>
+              <a href="https://www.croydon.gov.uk/aboutus">About us</a>
+            </li>
+            <li>
+              <a href="https://www.croydon.gov.uk/accessibility">Accessibility</a>
+            </li>
+            <li>
+              <a href="https://www.croydon.gov.uk/cookies">Cookies</a>
+            </li>
+            <li>
+              <a href="https://www.croydon.gov.uk/privacy">Privacy</a>
+            </li>
+            <li>
+              <a href="https://www.croydon.gov.uk/webdisclaimer">Disclaimer</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="lgd-row__one-quarter lgd-footer__copyright">
+        <p>&copy; Croydon Council {{ "now"|date("Y") }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
