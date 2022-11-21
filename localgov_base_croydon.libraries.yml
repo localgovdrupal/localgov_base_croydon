@@ -9,6 +9,7 @@ global:
     - core/drupal
     - core/jquery
     - core/once
+    - core/drupal.debounce
 
 base:
   css:
@@ -18,11 +19,19 @@ base:
       assets/css/lib/main.css: {}
       css/components/form-items.css: {}
       css/components/box-links.css: { weight: 200 }
+      css/components/menu-main.css: { weight: 200 }
 
 header:
   css:
     theme:
       css/components/header.css: { weight: 200 }
+
+header-js:
+  js:
+    js/header.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupal.debounce
 
 alert:
   css:

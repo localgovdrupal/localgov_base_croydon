@@ -1,7 +1,10 @@
 /* -- Services button -- */
 
-.lgd-header .lgd-header__toggles {
-  margin-left: 0;
+
+.lgd-header__toggles .lgd-header__toggle--secondary.lgd-header__toggle--active,
+.lgd-header__toggles .lgd-header__toggle--secondary.lgd-header__toggle--active:hover,
+.lgd-header__toggles .lgd-header__toggle--secondary.lgd-header__toggle--active:focus {
+ outline:  none !important; /* override */
 }
 /* -- logo area -- */
 .lgd-header .lgd-region--header {
@@ -12,16 +15,28 @@
 .lgd-header .lgd-region--search {
   display: inline-flex;
 }
+.lgd-header .lgd-region--search input {
+  min-width: 155px;
+}
 
+.lgd-header .lgd-region__inner--primary-menu {
+  width: 100%;
+}
 /* -- Menu -- */
 
 .lgd-header .lgd-region--primary-menu {
   display: inline-flex;
+  width: 100%;
 }
 
 .lgd-header .navigation--main .menu--main .menu-item {
  font-family: var(--font-secondary);
  font-size: var(--font-size-large);
+}
+
+.lgd-header .navigation--main .menu--main .menu-item:last-child {
+  margin-left: auto;
+  margin-right: 1.2rem;
 }
 /* -- Sub menu -- */
 
@@ -52,4 +67,81 @@
 
 .lgd-header__nav--primary {
   flex-direction: unset;
+}
+
+/*fix breakpoint issues caused by non variable breakpoints used in base file*/
+
+.lgd-header .lgd-region--header {
+    margin-right: 0;
+}
+
+@media screen and (min-width: 63rem) {
+  .lgd-header .lgd-region--header {
+    margin-right: 1.875rem;
+  }
+}
+
+@media screen and (min-width: 48rem) { /* base sets the menu to show at 48rem, because we have changed it we now need to reset */
+  .lgd-header__nav--primary {
+    display: none;
+    width: 100%;
+  }
+
+ .lgd-region--primary-menu .menu--main {
+    display: unset;
+  }
+
+  .lgd-header__toggle--primary {
+    display: flex;
+  }
+
+  .lgd-header__toggle--secondary {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 62rem) {
+
+  .lgd-header .lgd-header__toggles {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .lgd-region--primary-menu .menu--main {
+    display: flex;
+  }
+
+  .lgd-header__nav--primary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    margin-left: 0;
+  }
+
+  .lgd-header__toggle {
+    margin-left:  0;
+  }
+
+  .lgd-header__toggle--primary {
+    display: none;
+  }
+
+  .lgd-header__toggle--secondary {
+    display: flex;
+    padding-top:  21px;
+    padding-bottom:  21px;
+  }
+  .lgd-header__toggle--secondary:hover,
+  .lgd-header__toggle--secondary:focus {
+      box-shadow: 0 0 0 0.125rem var(--color-yellow);
+  }
+
+  .lgd-region--search {
+    margin-left: auto;
+  }
+
+  .lgd-region--search .form-item-s {
+    flex-grow: initial;
+  }
 }
