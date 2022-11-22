@@ -16,11 +16,10 @@ libraries:
   - localgov_base_croydon/topic-list-builder
   - localgov_base_croydon/secondary-menu
   - localgov_base_croydon/wysiwyg-styles
-
-libraries-override:    
-  header_js/header_js:
-    js:
-      localgov_base/js/header.js: localgov_base_croydon/js/header.js
+libraries-override:
+  header-js/header-js:
+    js: 
+      js/header.js: js/header.js
 regions:
   tabs: "Tabs"
   header: "Header"
