@@ -17,7 +17,7 @@ libraries:
   - localgov_base_croydon/secondary-menu
   - localgov_base_croydon/wysiwyg-styles
 libraries-override:
-  header-js/header-js:
+  localgov_base/header-js:
     js: 
       js/header.js: js/header.js
 regions:

@@ -75,6 +75,13 @@
     margin-right: 0;
 }
 
+/* set logo to reduced width to stop wrapping of nav items right before the mobile view kicks in */
+@media screen and (min-width: 62rem) and (max-width: 63rem) {
+  .branding__item--logo img { 
+    max-width:  85%;
+  }
+}
+
 @media screen and (min-width: 63rem) {
   .lgd-header .lgd-region--header {
     margin-right: 1.875rem;
@@ -132,6 +139,7 @@
     padding-top:  21px;
     padding-bottom:  21px;
   }
+  
   .lgd-header__toggle--secondary:hover,
   .lgd-header__toggle--secondary:focus {
       box-shadow: 0 0 0 0.125rem var(--color-yellow);

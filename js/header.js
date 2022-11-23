@@ -146,7 +146,6 @@ if (window.NodeList && !NodeList.prototype.forEach) {
       function handleWindowResized() {
         handleReset();
         if  (window.innerWidth < 992) {
-          alert('working 992');
           if (secondaryMenuToggle) {
             secondaryMenuToggle.removeEventListener('click', handleSecondaryMenuToggleClick, true);
             secondaryMenuToggle.removeEventListener('click', handleSecondaryMenuShiftTabClick, true);

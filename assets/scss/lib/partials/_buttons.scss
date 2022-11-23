@@ -23,9 +23,8 @@
     background: $indigo;
     color: $white;
 
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(lg) {
 
-      // margin-bottom: 0;
       font-size: $font-size-med;
     }
 
