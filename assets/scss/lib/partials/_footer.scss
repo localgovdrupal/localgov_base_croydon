@@ -78,6 +78,20 @@
         justify-content: space-between;
       }
     }
+    // custom breakpoint override to force containers full width in the 768-992 range
+    @media screen and (min-width: 48rem) and (max-width: 62rem) {
+      .lgd-row__one-quarter,
+      .lgd-row__one-half {
+        width: 100%;
+      }
+
+      .lgd-footer__copyright {
+        p {
+          margin-left: 0;
+          margin-right: auto;
+        }
+      }
+    }
   }
 
   .iconlist {
