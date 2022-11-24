@@ -1,6 +1,11 @@
 /**
- * @file JS file for the header component.
+ * @file JS file override for the header component.
  */
+
+ // Note: This file is an override of the header.js used in base.
+ // It is essentially the same but duplicated here in order to change 
+ // the breakpoint at which the mobile menu operates see below
+ // 'window.innerWidth < 768' has been changed to 'window.innerWidth < 992'.
 
 // Small polyfill needed for IE11
 // We can remove this when we stop supporting IE11.
