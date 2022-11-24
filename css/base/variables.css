@@ -8,7 +8,7 @@
 body {
   --width-extra-large: 73.125rem; /* 1170px */
   --width-large: 60rem;
-  --width-medium: 48rem;
+  --width-medium: 62rem;
   --width-small: 30rem;
   --width-container: var(--width-extra-large);
   --spacing-smallest: 0.25rem;

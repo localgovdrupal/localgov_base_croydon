@@ -16,15 +16,14 @@
   font-family: $font-family-secondary;
   font-size: $font-size-ex-ex-lg;
   text-decoration: none;
+  transition: none; // remove bs setting for this
 
   &.icon-search { // search button
     width: auto;
     background: $indigo;
     color: $white;
 
-    @include media-breakpoint-up(sm) {
-
-      // margin-bottom: 0;
+    @include media-breakpoint-up(lg) {
       font-size: $font-size-med;
     }
 

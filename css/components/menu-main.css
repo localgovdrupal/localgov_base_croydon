@@ -1,0 +1,50 @@
+.menu--main > .menu-item a {
+  display: inline-block;
+}
+
+@media screen and (min-width: 48rem) { /* reset the base 48rem setting */
+  .menu--main > .menu-item {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* change the padding on the nav items so they dont wrap in this custom breakpoint range */
+@media screen and (min-width: 62rem) and (max-width: 66rem) {
+  .menu--main > .menu-item a {
+    padding: var(--spacing) 0.4rem;
+  }
+}
+
+@media screen and (min-width: 62rem) { /* breakpoint changed from base setting of 48rem */
+  .lgd-region--primary-menu {
+    background-color: transparent;
+  }
+
+  .lgd-region--primary-menu .menu--main {
+    display: flex;
+  }
+
+  .menu--main > .menu-item {
+    margin-right: var(--spacing-smaller);
+    margin-left: var(--spacing-smaller);
+  }
+
+  .menu--main > .menu-item a {
+    display: block;
+    color: var(--color-white);
+    border: 1px solid transparent;
+    background-color: transparent;
+  }
+
+  .menu--main > .menu-item--active-trail a,
+  .menu--main > .menu-item a:focus,
+  .menu--main > .menu-item a:hover {
+    color: var(--color-black);
+    background-color: var(--color-white);
+  }
+
+  .menu--main > .menu-item a:hover {
+    border-color: var(--color-white);
+  }
+}

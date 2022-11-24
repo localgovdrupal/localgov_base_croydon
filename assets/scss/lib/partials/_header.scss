@@ -1,6 +1,6 @@
 .lgd-header {
   &__nav--primary {
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       flex: 1;
     }
   }
@@ -8,7 +8,7 @@
   &__inner {
     justify-content: start;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       justify-content: flex-start !important;
     }
   }
@@ -119,6 +119,11 @@
                 color: $white;
                 padding: 0;
                 text-decoration: none;
+
+                &:hover,
+                &:focus {
+                  color: $black;
+                }
               }
             }
 
@@ -138,7 +143,7 @@
     height: 75vh;
     overflow: auto;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       height: auto;
     }
 
@@ -174,13 +179,15 @@
     display: flex;
     flex: auto;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       display: block;
       flex: none;
     }
   }
 
   .menu--main .menu-item:last-child { // My Account Styling
+    display: flex;
+    align-items: center;
     white-space: nowrap;
 
     a {
@@ -189,7 +196,7 @@
       white-space: nowrap;
       font-size: $font-size-base;
       margin: 1rem;
-      padding: 0.25rem 0 0 0;
+      padding: 0;
       position: relative;
       border: 0;
 
@@ -199,6 +206,7 @@
         color: $link-hover-color;
         text-decoration: none;
         border: 0;
+        box-shadow: none;
       }
 
       &:after {

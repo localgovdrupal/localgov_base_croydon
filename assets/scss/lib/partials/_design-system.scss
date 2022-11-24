@@ -107,10 +107,11 @@ pre[class*="language-"] {
 .navbar {
 //Design system primary menu container
   &.design-system-menu--primary {
-    padding-top: 0;
+    padding-top: 2rem;
     padding-left: 0;
-    padding-bottom: 3rem;
+    padding-bottom: 0;
     width: 100%;
+    margin-bottom: 0 !important; // important used to override bs mb-5 setting
   }
 }
 
