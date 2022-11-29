@@ -291,6 +291,10 @@
 
   .contact-urls {
     a {
+      &:before {
+        content: $fa-link; // catch all
+      }
+
       &.contact-website,
       &.contact-inspection-report {
         &:before {
