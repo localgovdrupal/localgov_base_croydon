@@ -436,3 +436,12 @@
     @include rem(margin-bottom, 24);
   }
 }
+
+.field--name-localgov-directory-job-title,
+.field--name-localgov-directory-name {
+  @include rem(font-size, 19);
+
+  .field__label {
+    font-weight: $font-bold;
+  }
+}
