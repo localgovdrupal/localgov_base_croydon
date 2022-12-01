@@ -13,7 +13,7 @@
 
 {# Header or Directories search submit #}
 {% set form_input_submit = 'header-search-block-form-submit' %}
-{% set is_dir_channel = attributes.hasAttribute('data-drupal-selector') and attributes['data-drupal-selector']|render starts with 'edit-submit-localgov-directory-channel-' %}
+{% set is_dir_channel = attributes.hasAttribute('data-drupal-selector') and attributes['data-drupal-selector']|render starts with 'edit-submit-localgov-directory-channel' %}
 
 {# Changing the header or directory search submit input element to a button element #}
 
@@ -24,6 +24,5 @@
   <span>Search</span>
 </button>
 {% else %}
-not found
     <input{{ attributes }} />{{ children }}
 {% endif %}
