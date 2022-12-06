@@ -225,17 +225,22 @@
   }
 
   .lgd-region--search {
-    width: 100%;
-    margin-top: 0;
-    margin-bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    &.lgd-header__nav--active {
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+      align-items: center;
+      justify-content: center;
+      margin-right: var(--spacing);
+      margin-left: var(--spacing);
+      display: flex;
+    }
 
     @include media-breakpoint-up(lg) {
       position: initial;
       top: auto;
       width: auto;
+      border: 1px solid
     }
 
     .form-item {
@@ -261,4 +266,8 @@
     line-height: 1.75rem;
     text-decoration: none;
   }
+}
+
+.lgd-header__search {
+  display: none;
 }
