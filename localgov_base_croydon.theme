@@ -24,6 +24,26 @@ function localgov_base_croydon_preprocess_block__localgov_base_croydon_subsiteba
 }
 
 /**
+ * Implements hook_preprocess_node() for hook_preprocess_node__localgov_guides_page().
+ *
+ * - Sets Guide page content width.
+ */
+function localgov_base_croydon_preprocess_node__localgov_guides_overview__full(&$variables) {
+
+  $variables['attributes']['class'][] = 'lgd-row__two-thirds';
+}
+
+/**
+ * Implements hook_preprocess_node() for hook_preprocess_node__localgov_guides_page().
+ *
+ * - Sets Guide page content width.
+ */
+function localgov_base_croydon_preprocess_node__localgov_guides_page__full(&$variables) {
+
+  $variables['attributes']['class'][] = 'lgd-row__two-thirds';
+}
+
+/**
  * Hides label from "Plain address" view mode of Geo.
  */
 function localgov_base_croydon_preprocess_localgov_geo__cds_plain_address(&$variables) {
