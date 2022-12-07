@@ -16,13 +16,12 @@
 {% set is_dir_channel = attributes.hasAttribute('data-drupal-selector') and attributes['data-drupal-selector']|render starts with 'edit-submit-localgov-directory-channel' %}
 
 {# Changing the header or directory search submit input element to a button element #}
-
-{% if (form_input_submit in attributes.class) %}
+{% if form_input_submit in attributes.class %}
     <button class="btn icon-search" type="submit" value="Search" aria-label="Search this website" title="Search this website"><span class="fa fa-search" aria-hidden="true"></span></button>
-{% elseif (is_dir_channel)%}
+{% elseif is_dir_channel %}
     <button data-drupal-selector="edit-submit-localgov-directory-channel" type="submit" id="edit-submit-localgov-directory-channel" value="Search" class="button js-form-submit form-submit btn btn-primary btn-sm mt-2" aria-label="Search directories" title="Search directories">
-  <span>Search</span>
-</button>
+      <span>Search</span>
+    </button>
 {% else %}
     <input{{ attributes }} />{{ children }}
 {% endif %}
