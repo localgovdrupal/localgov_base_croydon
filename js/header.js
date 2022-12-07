@@ -167,6 +167,7 @@ if (window.NodeList && !NodeList.prototype.forEach) {
       function handleWindowResized() {
         handleReset();
         if  (window.innerWidth < 992) {
+
           if (secondaryMenuToggle) {
             secondaryMenuToggle.removeEventListener('click', handleSecondaryMenuToggleClick, true);
             secondaryMenuToggle.removeEventListener('click', handleSecondaryMenuShiftTabClick, true);
@@ -174,7 +175,14 @@ if (window.NodeList && !NodeList.prototype.forEach) {
           if (primaryMenuToggle) {
             primaryMenuToggle.addEventListener('click', handlePrimaryMenuToggleClick);
           }
+
+          primaryMenuRegion.parentNode.insertBefore(primaryMenuRegion, searchRegion);
+          //searchRegion.classList.add('lgd-header__search');
+    
         } else {
+
+          //searchRegion.insertBefore(secondaryMenuRegion);
+
           if (primaryMenuToggle) {
             primaryMenuToggle.removeEventListener('click', handlePrimaryMenuToggleClick, true);
           }
@@ -197,17 +205,6 @@ if (window.NodeList && !NodeList.prototype.forEach) {
           handleWindowResized();
         }
       }
-
-      // Remove Search fr0m Primary Menu
-      function removeSearchFromPrimaryMenu() {
-
-        if (window.innerWidth < 992) {
-          jQuery(searchRegion).insertBefore(secondaryMenuRegion);
-          searchRegion.classList.add('lgd-header__search');
-
-        }
-      }
-      removeSearchFromPrimaryMenu();
 
 
       // Call our functions, initially and also when the window is resized.
