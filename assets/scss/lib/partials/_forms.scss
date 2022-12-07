@@ -503,3 +503,11 @@ fieldset.radios--wrapper.required.error {
 .address--wrapper .fieldset-wrapper { // remove inherited padding for address lookup
   padding: 0;
 }
+
+.form-managed-file { // prevent checkbox form labels wrapping when displaying uploaded files
+  label.option {
+    span {
+      display: initial;
+    }
+  }
+}
