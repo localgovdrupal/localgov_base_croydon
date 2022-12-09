@@ -30,10 +30,7 @@ if (window.NodeList && !NodeList.prototype.forEach) {
       let primaryMenuRegion;
       let secondaryMenuRegion;
       let searchRegion;
-      //let searchRegion = context.querySelector('.lgd-region--search');
-
-
-
+      
       if (context.querySelector('.lgd-header__nav--primary')) {
         primaryMenuRegion = context.querySelector('.lgd-header__nav--primary');
         regions.push(primaryMenuRegion);
@@ -166,8 +163,8 @@ if (window.NodeList && !NodeList.prototype.forEach) {
       // the secondary menu region when clicked (the primary menu will always be visible).
       function handleWindowResized() {
         handleReset();
-        if  (window.innerWidth < 992) {
 
+        if  (window.innerWidth < 992) {
           if (secondaryMenuToggle) {
             secondaryMenuToggle.removeEventListener('click', handleSecondaryMenuToggleClick, true);
             secondaryMenuToggle.removeEventListener('click', handleSecondaryMenuShiftTabClick, true);
@@ -175,14 +172,7 @@ if (window.NodeList && !NodeList.prototype.forEach) {
           if (primaryMenuToggle) {
             primaryMenuToggle.addEventListener('click', handlePrimaryMenuToggleClick);
           }
-
-          primaryMenuRegion.parentNode.insertBefore(primaryMenuRegion, searchRegion);
-          //searchRegion.classList.add('lgd-header__search');
-    
         } else {
-
-          //searchRegion.insertBefore(secondaryMenuRegion);
-
           if (primaryMenuToggle) {
             primaryMenuToggle.removeEventListener('click', handlePrimaryMenuToggleClick, true);
           }
@@ -206,9 +196,16 @@ if (window.NodeList && !NodeList.prototype.forEach) {
         }
       }
 
+      // move search block out of the primary menu block so the responsive display order can be re-arranged
+      var parentDiv = context.querySelector('.lgd-header__inner');
+      
+      function moveSearch() {
+        parentDiv.insertBefore(searchRegion, primaryMenuRegion);
+      }
 
       // Call our functions, initially and also when the window is resized.
       handleWindowResized();
+      moveSearch(); // call function to move search
       window.addEventListener('resize', Drupal.debounce(handleCheckIfWindowActuallyResized, 50, false));
     }
   };
