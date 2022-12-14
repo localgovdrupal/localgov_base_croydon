@@ -12,9 +12,6 @@
 }
 /* -- Search -- */
 
-.lgd-header .lgd-region--search {
-  display: inline-flex;
-}
 .lgd-header .lgd-region--search input {
   min-width: 155px;
 }
@@ -36,7 +33,7 @@
 
 .lgd-header .navigation--main .menu--main .menu-item:last-child {
   margin-left: auto;
-  margin-right: 1.2rem;
+  margin-right: 0;
 }
 /* -- Sub menu -- */
 
@@ -89,7 +86,8 @@
 }
 
 @media screen and (min-width: 48rem) { /* base sets the menu to show at 48rem, because we have changed it we now need to reset */
-  .lgd-header__nav--primary {
+  .lgd-header__nav--primary,
+  .lgd-region--search {
     display: none;
     width: 100%;
   }
@@ -118,7 +116,8 @@
     display: flex;
   }
 
-  .lgd-header__nav--primary {
+  .lgd-header__nav--primary,
+  .lgd-region--search {
     display: flex;
     flex-direction: row;
     align-items: center;
