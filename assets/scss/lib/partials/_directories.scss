@@ -38,7 +38,7 @@
           right: 1rem;
           color: $white;
 
-          @include rem(top, 6);
+          @include rem(top,11);
         }
       }
 
@@ -291,6 +291,10 @@
 
   .contact-urls {
     a {
+      &:before {
+        content: $fa-link; // catch all
+      }
+
       &.contact-website,
       &.contact-inspection-report {
         &:before {
@@ -429,10 +433,19 @@
   }
 }
 
-.field--name-localgov-directory-opening-times { // opening times are rendered differently - not sure why
+.field--name-localgov-directory-opening-times { // opening times require independent styling
   .field__label {
     @extend .h3;
 
     @include rem(margin-bottom, 24);
+  }
+}
+
+.field--name-localgov-directory-job-title,
+.field--name-localgov-directory-name { // contact name and job title require independent styling
+  @include rem(font-size, 19);
+
+  .field__label {
+    font-weight: $font-bold;
   }
 }
