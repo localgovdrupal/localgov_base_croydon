@@ -8,5 +8,5 @@ This is a sub theme for croydon.gov.uk using localgov_base as its base theme.
 This project is maintained by: 
 
  - Chris Stevens https://github.com/cjstevens78
- - Matt https://github.com/MattOz-CDS
- - Adnan https://github.com/Adnan-cds
+ - Matt Ozogolu https://github.com/MattOz-CDS
+ - Adnan Muhammad https://github.com/Adnan-cds
