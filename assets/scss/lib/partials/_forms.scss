@@ -23,6 +23,17 @@
   @extend .form-control;
 }
 
+input.form-file {
+  border: none !important;
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    font-weight: 300;
+  }
+}
+
 .button {
   @extend .btn;
 
