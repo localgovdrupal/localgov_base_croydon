@@ -63,7 +63,11 @@
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
+      {# <div {{ attributes.addClass(classes, 'field__item') }}>{{ item.content  }}</div> #}
+      {# <div {{ attributes.addClass(classes, 'field__item') }}>{{ place_name }}</div> #}
+      <div {{ attributes.addClass(classes,'field__item') }}>{{ address_line_one|replace({',': ''}) ~ ', ' ~ town ~ ', ' ~ post_code }}</div>
+      {# <div {{ attributes.addClass(classes, 'field__item') }}>{{ town }}</div> #}
+      {# <div {{ attributes.addClass(classes, 'field__item') }}>{{ post_code }}</div> #}
     {% endfor %}
   {% endif %}
 {% else %}
