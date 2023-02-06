@@ -23,15 +23,23 @@
   @extend .form-control;
 }
 
-input.form-file {
-  border: none !important;
+.form-item input[type="file"] {
+  background: none;
+  border: 0 !important;
   padding: 0;
+  width: auto;
+  height: auto;
 
   &:hover,
   &:focus {
-    background-color: transparent;
-    font-weight: 300;
+    color: $carbon;
+    background: none;
+    font-weight: normal;
   }
+}
+
+#file-upload-button {
+  padding: 3rem;
 }
 
 .button {
