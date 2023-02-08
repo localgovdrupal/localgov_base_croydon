@@ -449,3 +449,11 @@
     font-weight: $font-bold;
   }
 }
+
+.facet-result-item {
+  display: flex;
+}
+
+span.facet-item__count {
+  display: contents;
+}

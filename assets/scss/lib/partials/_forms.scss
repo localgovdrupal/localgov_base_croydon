@@ -511,3 +511,7 @@ fieldset.radios--wrapper.required.error {
     }
   }
 }
+
+.facet-item input[type="checkbox"] + label { // widens the width of facet span
+  width: 90% !important;
+}
