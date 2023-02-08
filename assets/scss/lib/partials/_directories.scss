@@ -103,6 +103,7 @@
       @include rem(line-height, 24);
     }
 
+    .field--name-localgov-location,
     .field--type-text-with-summary {
       font-size: $font-size-lg;
 
@@ -388,7 +389,8 @@
     }
   }
 
-  .contact-address {
+  .contact-address,
+  .field--name-localgov-location {
     @include rem(margin-left, 30);
 
     .address {
