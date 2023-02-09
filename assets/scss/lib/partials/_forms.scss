@@ -530,3 +530,13 @@ fieldset.radios--wrapper.required.error {
     }
   }
 }
+
+// set empty rhs for forms layout
+
+.path-webform .webform-submission-form {
+  @include media-breakpoint-up(md) {
+    //@extend .col-8;
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+  }
+}
