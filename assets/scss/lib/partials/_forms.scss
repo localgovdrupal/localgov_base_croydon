@@ -23,6 +23,25 @@
   @extend .form-control;
 }
 
+.form-item input[type="file"] {
+  background: none;
+  border: 0 !important;
+  padding: 0;
+  width: auto;
+  height: auto;
+
+  &:hover,
+  &:focus {
+    color: $carbon;
+    background: none;
+    font-weight: normal;
+  }
+}
+
+#file-upload-button {
+  padding: 3rem;
+}
+
 .button {
   @extend .btn;
 
@@ -509,5 +528,15 @@ fieldset.radios--wrapper.required.error {
     span {
       display: initial;
     }
+  }
+}
+
+// set empty rhs for forms layout
+
+.path-webform .webform-submission-form {
+  @include media-breakpoint-up(md) {
+    //@extend .col-8;
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
   }
 }
