@@ -103,7 +103,6 @@
       @include rem(line-height, 24);
     }
 
-    .field--name-localgov-location,
     .field--type-text-with-summary {
       font-size: $font-size-lg;
 
@@ -389,8 +388,8 @@
     }
   }
 
-  .contact-address,
-  .field--name-localgov-location {
+
+  .contact-address {
     @include rem(margin-left, 30);
 
     .address {
@@ -458,4 +457,20 @@
 
 span.facet-item__count {
   display: contents;
+}
+
+
+.field.field--name-localgov-directory-phone.field--type-telephone.field--label-hidden.field__item:before,
+.field.field--name-localgov-location.field--type-entity-reference.field--label-hidden.field__item:before {
+  font-size: 1.1875rem;
+  font-weight: 900;
+  font-family: Font Awesome\ 5 Pro;
+  content: "";
+  margin: 0;
+  padding: 0;
+  color: #121212;
+}
+
+.field.field--name-localgov-directory-phone.field--type-telephone.field--label-hidden.field__item:before {
+  content: "" !important;
 }
