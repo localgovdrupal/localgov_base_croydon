@@ -512,6 +512,22 @@ fieldset.radios--wrapper.required.error {
   }
 }
 
-.facet-item input[type="checkbox"] + label { // widens the width of facet span
+/* facet syling */
+.form-checkboxes input[type="checkbox"] + label,
+.facet-item input[type="checkbox"] + label,
+.form-item-webform-terms-of-service input[type="checkbox"] + label {
   width: 90% !important;
+}
+
+div#facet-group {
+  display: flex;
+}
+
+span.facet-item__value {
+  display: inline-block;
+  width: 90%;
+}
+
+span.facet-item__count {
+  display: contents;
 }
