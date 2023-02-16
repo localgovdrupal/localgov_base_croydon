@@ -38,12 +38,12 @@
  */
 #}
 
-
 {% set current_url = url('<current>')['#markup'] %}
 {% set url = url('<current>')['#markup'] %}
 {# {{ url|split('/')|last }}
 {{ current_url }} #}
-
+{# {{ '/' ~ place_name|lower|replace({' ':'-'}) }}
+{{ current_url }} #}
 
 {%
   set classes = [
@@ -61,39 +61,31 @@
   ]
 %}
 
-
-
-	{% if label_hidden %}
-		{% if multiple %}
-			<div{{attributes.addClass(classes,'field__items')}}>
-				{% for item in items %}
-					<div{{item.attributes.addClass('field__item')}}>{{ item.content }}</div>
-				{% endfor %}
-			</div>
-		{% else %}
-			{% for item in items %}
-				{% if ( current_url ends with ('/secondary-schools') ) %}
-					<div {{ attributes.addClass(classes,'field__item') }}>{{ address_line_one|replace({',': ''}) ~ ', ' ~ town ~ ', ' ~ post_code }}</div>
-				{% endif %}
-				{% if ( current_url ends with ('/primary-infant-and-junior-schools') )%}
-					<div {{ attributes.addClass(classes,'field__item') }}>{{ address_line_one|replace({',': ''}) ~ ', ' ~ town ~ ', ' ~ post_code }}</div>
-				{% else  %}
-					<div{{attributes.addClass(classes,'field__item')}}>{{ item.content }}</div>
-				{% endif %}
-			{% endfor %}
-		{% endif %}
-	{% else %}
-		<div{{attributes.addClass(classes)}}>
-			<div{{title_attributes.addClass(title_classes)}}>{{ label }}</div>
-			{% if multiple %}
-				<div class="field__items">
-				{% endif %}
-				{% for item in items %}
-					<div{{item.attributes.addClass('field__item')}}>{{ item.content }}</div>
-				{% endfor %}
-				{% if multiple %}
-				</div>
-			{% endif %}
-		</div>
-	{% endif %}
-
+  {% if label_hidden %}
+    {% if multiple %}
+      <div{{ attributes.addClass(classes, 'field__items') }}>
+        {% for item in items %}
+          <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        {% endfor %}
+      </div>
+    {% else %}
+      {% for item in items %}
+       {% if ( current_url ends with ('/secondary-schools') or ('/primary-infant-and-junior-schools') ) %}
+          <div {{ attributes.addClass(classes,'field__item') }}>{{ address_line_one|replace({',': ''}) ~ ', ' ~ town ~ ', ' ~ post_code  }}</div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% else %}
+    <div{{ attributes.addClass(classes) }}>
+      <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+      {% if multiple %}
+        <div class="field__items">
+      {% endif %}
+      {% for item in items %}
+        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+      {% endfor %}
+      {% if multiple %}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
