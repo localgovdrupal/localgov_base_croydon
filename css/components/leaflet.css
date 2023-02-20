@@ -1,3 +1,25 @@
+.leaflet-popup-content-wrapper {
+    padding: 1px;
+    text-align: left;
+    border-radius: 0px !important;
+}
 .leaflet-popup-content {
-    height: 200px;
+    height: max-content;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    font: 28px/28px Tahoma, Verdana, sans-serif;
+    font-weight: 800;
+    color: #757575;
+    text-decoration: none;
+    background: transparent;
+    margin-top: .625rem;
+    margin-right: .625rem;
 }
