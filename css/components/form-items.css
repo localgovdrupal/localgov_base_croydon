@@ -133,3 +133,8 @@
 .js-form-type-checkbox input[type="checkbox"]:checked + label:after {
   opacity: 1;
 }
+
+button:focus {
+  text-decoration: none;
+}
+

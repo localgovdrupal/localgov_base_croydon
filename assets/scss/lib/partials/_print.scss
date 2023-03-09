@@ -1,0 +1,53 @@
+// PRINT ONLY STYLES
+@media print { // Print only
+  // Ensure elements print in full
+  * {
+    overflow: visible !important;
+  }
+  // Ensure styling is applied on all pages and reset bg colour
+  body,
+  .app-body {
+    height: auto !important;
+    background-color: $white !important;
+  }
+  // Print only logo
+  .print-logo {
+    margin-top: 1.8897640176081rem; // 8mm
+  }
+  // Elements to avoid printing across 2 pages
+  .crm-widget {
+    break-inside: avoid;
+  }
+  // Hide elements...
+  .btn,
+  .region-banner,
+  .eu-cookie-compliance-banner,
+  .webpage-toolbar-container,
+  .cta-link,
+  .cta-link::before,
+  .cr-user-icons,
+  .field--name-localgov-newsroom-teaser-image,
+  .box-link,
+  .paragraph--type--localgov-subscribe-panel {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+  // Un design environment banners
+  #banner-build,
+  #banner-test {
+    background: $white !important;
+
+    a {
+      color: $black !important;
+    }
+
+    .badge {
+      color: $white;
+      background: $black;
+    }
+  }
+}
