@@ -49,6 +49,7 @@
   line-height: unset !important; // base override
 
   &:after {
+    margin-left: auto !important; // base override
     font-family: $font-family-icons;
     font-weight: $fa-font-weight;
 
