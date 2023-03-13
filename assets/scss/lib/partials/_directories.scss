@@ -464,11 +464,11 @@ span.facet-item__count {
 .field.field--name-localgov-location.field--type-entity-reference.field--label-hidden.field__item:before {
   font-size: 1.1875rem;
   font-weight: 900;
-  font-family: Font Awesome\ 5 Pro;
+  font-family: $font-family-icons;
   content: "";
   margin: 0;
   padding: 0;
-  color: #121212;
+  color: $carbon;
   margin-right: .6235rem;
 }
 
