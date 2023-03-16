@@ -1,26 +1,17 @@
 // PRINT ONLY STYLES
+
 @media print { // Print only
-  // Ensure elements print in full
   * {
     overflow: visible !important;
   }
-  // Ensure styling is applied on all pages and reset bg colour
+
   body,
   .app-body {
     height: auto !important;
     background-color: $white !important;
   }
-  // Print only logo
-  .print-logo {
-    margin-top: 1.8897640176081rem; // 8mm
-  }
-  // Elements to avoid printing across 2 pages
-  .crm-widget {
-    break-inside: avoid;
-  }
-  // Hide elements...
+
   .btn,
-  .region-banner,
   .eu-cookie-compliance-banner,
   .webpage-toolbar-container,
   .cta-link,
@@ -28,26 +19,45 @@
   .cr-user-icons,
   .field--name-localgov-newsroom-teaser-image,
   .box-link,
-  .paragraph--type--localgov-subscribe-panel {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
+  .paragraph--type--localgov-subscribe-panel,
+  .lgd-footer__post-footer .lgd-row__one-half,
+  .block-localgov-alert-banner,
+  #block-localgov-base-croydon-feedbackform--2 {
+    display: none !important;
   }
-  // Un design environment banners
-  #banner-build,
-  #banner-test {
-    background: $white !important;
 
+  .region-banner {
+    outline: 2rem solid;
+    height: auto !important;
+    min-height: 0 !important;
+
+    h1 {
+      color: $black;
+    }
+
+    form {
+      display: none !important;
+    }
+  }
+
+  .branding {
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CjxyZWN0IHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZiI+PC9yZWN0Pgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjY2NjIj48L3JlY3Q+Cjwvc3ZnPg==");
+    outline: 0.2rem solid;
+    width: 5rem;
+    height: 2rem;
     a {
-      color: $black !important;
+      display: none;
     }
+  }
 
-    .badge {
-      color: $white;
-      background: $black;
-    }
+  // step by step
+
+  .step-summary-container,
+  .summaries-control {
+    display: none !important;
+  }
+
+  .step__summary {
+    display: block !important;
   }
 }
