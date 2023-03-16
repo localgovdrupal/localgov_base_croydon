@@ -65,3 +65,8 @@ wysiwyg-styles:
   css:
     theme:
       css/components/wysiwyg-styles.css: { weight: 200 }
+
+leaflet:
+  css:
+    theme:
+      css/components/leaflet.css: {}
