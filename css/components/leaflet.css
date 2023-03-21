@@ -1,0 +1,29 @@
+.leaflet-popup-content-wrapper {
+    padding: 1px;
+    text-align: left;
+    border-radius: 0px !important;
+}
+.leaflet-popup-content {
+    height: max-content;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    font: 28px/28px Tahoma, Verdana, sans-serif;
+    font-weight: 800;
+    color: #757575;
+    text-decoration: none;
+    background: transparent;
+    margin-top: .625rem;
+    margin-right: .625rem;
+}
+img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
+    -webkit-filter: saturate(0%) grayscale(100%) brightness(69%) contrast(1000%);
+    filter: saturate(0%) grayscale(100%) brightness(69%) contrast(1000%);
+}
