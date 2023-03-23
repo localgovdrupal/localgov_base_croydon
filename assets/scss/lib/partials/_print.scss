@@ -11,14 +11,20 @@
     background-color: $white !important;
   }
 
+  .lgd-header {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .btn,
+  .region-banner,
+  .jumbotron,
   .eu-cookie-compliance-banner,
   .webpage-toolbar-container,
   .cta-link,
   .cta-link::before,
   .cr-user-icons,
   .field--name-localgov-newsroom-teaser-image,
-  .box-link,
   .paragraph--type--localgov-subscribe-panel,
   .lgd-footer__post-footer .lgd-row__one-half,
   .block-localgov-alert-banner,
@@ -26,27 +32,38 @@
     display: none !important;
   }
 
-  .region-banner {
-    outline: 2rem solid;
-    height: auto !important;
-    min-height: 0 !important;
+  .branding {
+    visibility: visible;
+    background-image: url(../../img/footer-logo.png) !important;
+    height: 12rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    -webkit-print-color-adjust: exact;
+    width: 15rem;
 
-    h1 {
-      color: $black;
-    }
-
-    form {
-      display: none !important;
+    a {
+      display: none;
     }
   }
 
-  .branding {
-    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CjxyZWN0IHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgZmlsbD0iI2ZmZiI+PC9yZWN0Pgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjY2NjIj48L3JlY3Q+Cjwvc3ZnPg==");
-    outline: 0.2rem solid;
-    width: 5rem;
-    height: 2rem;
+  .lgd-footer {
+    h2,
+    p,
     a {
-      display: none;
+      color: $black !important;
+    }
+
+    .iconlist {
+      color: $black !important;
+
+      i {
+        display: none !important;
+      }
+    }
+
+    .socials {
+      display: none !important;
     }
   }
 
@@ -58,6 +75,13 @@
   }
 
   .step__summary {
-    display: block !important;
+    display: inline-block !important;
+  }
+
+  .step-list .step:last-child {
+    .step__summary {
+      display: inline-block !important;
+      margin-bottom: 4rem !important;
+    }
   }
 }
