@@ -459,8 +459,8 @@ span.facet-item__count {
   display: contents;
 }
 
-.field.field--name-localgov-directory-phone.field--type-telephone.field--label-hidden.field__item:before,
-.field.field--name-localgov-location.field--type-entity-reference.field--label-hidden.field__item:before {
+.field.field--name-postal-address.field--type-address.field--label-hidden.field__item p.address:before,
+.field.field--name-localgov-directory-phone.field--type-telephone.field--label-hidden.field__item:before {
   font-size: 1.1875rem;
   font-weight: 900;
   font-family: $font-family-icons;
@@ -471,12 +471,16 @@ span.facet-item__count {
   margin-right: .6235rem;
 }
 
-
 .field.field--name-localgov-directory-phone.field--type-telephone.field--label-hidden.field__item:before {
   content: "" !important;
 }
 
-.field.field--name-localgov-location.field--type-entity-reference.field--label-hidden.field__item,
+.field.field--name-postal-address.field--type-address.field--label-hidden.field__item,
 .field.field--name-localgov-directory-phone.field--type-telephone.field--label-hidden.field__item {
   font-size: 1.1875rem;
+}
+
+.field.field--name-postal-address.field--type-address.field--label-hidden.field__item p.address {
+  padding: 0;
+  margin: 0;
 }
