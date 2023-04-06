@@ -67,6 +67,13 @@
     }
   }
 
+  .lgd-guide-nav { // hide guides links
+    display: none !important;
+  }
+
+  .external-link:after {
+    display: none !important;
+  }
   // step by step
 
   .step-summary-container,
