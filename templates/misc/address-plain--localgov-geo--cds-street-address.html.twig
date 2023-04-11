@@ -1,7 +1,10 @@
 {#
 /**
  * @file
- * Default template for the 'plain' address formatter.
+ * A 'plain' address formatter.
+ *
+ * A comma separated single line address.  Applies to the localgov_geo entity's
+ * cds_street_address entity display mode.  Excludes the country code.
  *
  * Available variables:
  *   - given_name: Given name.
@@ -37,25 +40,25 @@
  */
 #}
 <p class="address" translate="no">
-  {% if given_name or family_name %}
-    {{ given_name }} {{ family_name }} <br>
-  {% endif %}
-  {% if organization %}
-    {{ organization ~ ', ' }}
-  {% endif %}
-  {% if address_line1 %}
-    {{ address_line1 ~ ', ' }}
-  {% endif %}
-  {% if address_line2 %}
-    {{ address_line2 ~ ', ' }}
-  {% endif %}
-  {% if dependent_locality.code %}
-    {{ dependent_locality.code ~ ', ' }}
-  {% endif %}
-  {% if locality.code %}
-    {{ locality.code ~ ', ' }}
-  {% endif %}
-  {% if postal_code %}
-    {{ postal_code ~ '.' }}
-  {% endif %}
+  {%- if given_name or family_name -%}
+    {{- given_name }} {{ family_name -}}
+  {%- endif -%}
+  {%- if organization|trim -%}
+    {{- organization|trim ~ ', ' -}}
+  {%- endif -%}
+  {%- if address_line1|trim -%}
+    {{- address_line1|trim ~ ', ' -}}
+  {%- endif -%}
+  {%- if address_line2|trim -%}
+    {{- address_line2|trim ~ ', ' -}}
+  {%- endif -%}
+  {%- if dependent_locality.code|trim -%}
+    {{- dependent_locality.code|trim ~ ', ' -}}
+  {%- endif -%}
+  {%- if locality.code|trim -%}
+    {{- locality.code|trim ~ ', ' -}}
+  {%- endif -%}
+  {%- if postal_code|trim -%}
+    {{- postal_code|trim ~ '.' -}}
+  {%- endif -%}
 </p>
