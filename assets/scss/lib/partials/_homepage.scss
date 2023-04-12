@@ -306,3 +306,8 @@
     }
   }
 }
+
+.services-show:hover,
+.services-hide:hover {
+  outline: 0.1875rem solid $yellow;
+}
