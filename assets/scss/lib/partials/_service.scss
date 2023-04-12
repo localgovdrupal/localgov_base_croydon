@@ -339,27 +339,8 @@
 
 // Service page CTA's
 
-.lgd-teaser__content--localgov-subsites-overview {
-  .field--name-localgov-subsites-summary {
-    font-size: $font-size-lg;
-  }
-}
-
-.service-landing-page__service-item { // services landing page
-  p,
-  .field--name-body,
-  .field--name-localgov-guides-description,
-  .field--type-text-with-summary,
-  .field--name-localgov-subsites-summary {
-    font-size: $font-size-lg;
-  }
-}
-
-.lgd-topic-list-builder__service-item {
-  .field--name-localgov-guides-description,
-  .field--type-text-with-summary {
-    font-size: $font-size-lg;
-  }
+.localgov-services-sublanding .field__item { // catch all service paragraphs which dont have <p> tags
+  font-size: $font-size-lg;
 }
 
 
