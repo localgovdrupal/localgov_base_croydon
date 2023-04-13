@@ -1,0 +1,94 @@
+// PRINT ONLY STYLES
+
+@media print { // Print only
+  * {
+    overflow: visible !important;
+  }
+
+  body,
+  .app-body {
+    height: auto !important;
+    background-color: $white !important;
+  }
+
+  .lgd-header {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .btn,
+  .region-banner,
+  .jumbotron,
+  .eu-cookie-compliance-banner,
+  .webpage-toolbar-container,
+  .cta-link,
+  .cta-link::before,
+  .cr-user-icons,
+  .field--name-localgov-newsroom-teaser-image,
+  .paragraph--type--localgov-subscribe-panel,
+  .lgd-footer__post-footer .lgd-row__one-half,
+  .block-localgov-alert-banner,
+  #block-localgov-base-croydon-feedbackform--2 {
+    display: none !important;
+  }
+
+  .branding {
+    visibility: visible;
+    background-image: url(../../img/footer-logo.png) !important;
+    height: 12rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    -webkit-print-color-adjust: exact;
+    width: 15rem;
+
+    a {
+      display: none;
+    }
+  }
+
+  .lgd-footer {
+    h2,
+    p,
+    a {
+      color: $black !important;
+    }
+
+    .iconlist {
+      color: $black !important;
+
+      i {
+        display: none !important;
+      }
+    }
+
+    .socials {
+      display: none !important;
+    }
+  }
+
+  .lgd-guide-nav { // hide guides links
+    display: none !important;
+  }
+
+  .external-link:after {
+    display: none !important;
+  }
+  // step by step
+
+  .step-summary-container,
+  .summaries-control {
+    display: none !important;
+  }
+
+  .step__summary {
+    display: inline-block !important;
+  }
+
+  .step-list .step:last-child {
+    .step__summary {
+      display: inline-block !important;
+      margin-bottom: 4rem !important;
+    }
+  }
+}
