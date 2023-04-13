@@ -90,8 +90,9 @@
 .view-localgov-directory-channel {
   .lgd-teaser { // results list styling
     border-bottom: 0.063rem solid $gray-primary;
+    display: block; // flex override
 
-    @include rem(padding-bottom, 10);
+    @include rem(padding-bottom, 25);
     @include rem(margin-bottom, 25);
     @include rem(margin-top, 16);
 
@@ -460,7 +461,8 @@ span.facet-item__count {
 }
 
 .field.field--name-postal-address.field--type-address.field--label-hidden.field__item p.address:before,
-.field.field--name-localgov-directory-phone.field--type-telephone.field--label-hidden.field__item:before {
+.field.field--name-localgov-directory-phone.field--type-telephone.field--label-hidden.field__item:before,
+.field-content.views-field.views-field-localgov-location-distance:before {
   font-size: 1.1875rem;
   font-weight: 900;
   font-family: $font-family-icons;
@@ -469,13 +471,20 @@ span.facet-item__count {
   padding: 0;
   color: $carbon;
   margin-right: .6235rem;
+  display: inline-block;
+  width: 1.2rem;
 }
 
 .field.field--name-localgov-directory-phone.field--type-telephone.field--label-hidden.field__item:before {
   content: "" !important;
 }
 
+.field-content.views-field.views-field-localgov-location-distance:before {
+  content: "\f018" !important;
+}
+
 .field.field--name-postal-address.field--type-address.field--label-hidden.field__item,
+.field-content.views-field.views-field-localgov-location-distance,
 .field.field--name-localgov-directory-phone.field--type-telephone.field--label-hidden.field__item {
   font-size: 1.1875rem;
 }
