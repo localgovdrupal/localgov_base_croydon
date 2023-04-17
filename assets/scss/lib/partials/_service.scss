@@ -338,9 +338,11 @@
 }
 
 // Service page CTA's
-
-.localgov-services-sublanding .field__item { // catch all service paragraphs which dont have <p> tags
-  font-size: $font-size-lg;
+.service-landing-page,
+.localgov-services-sublanding {
+  .field__item { // catch all service paragraphs which dont have <p> tags
+    font-size: $font-size-lg;
+  }
 }
 
 
