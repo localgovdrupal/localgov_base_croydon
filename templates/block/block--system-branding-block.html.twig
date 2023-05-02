@@ -18,7 +18,7 @@
 
     <div class="branding">
       <div class="branding__item branding__item--logo">
-        <img src="/themes/contrib/localgov_base_croydon/print-logo.jpg" alt="{{ site_name ? site_name : 'Home'|t }}" class="print__logo"/>
+        <img src="{{ file_url(directory ~ '/print-logo.jpg') }}" alt="{{ site_name ? site_name : 'Home'|t }}" class="print__logo"/>
         <a href="{{ path('<front>') }}" rel="home" class="branding__logo">
           <img src="{{ site_logo }}" alt="{{ site_name ? site_name : 'Home'|t }}" />
 
