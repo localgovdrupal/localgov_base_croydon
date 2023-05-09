@@ -70,3 +70,7 @@ leaflet:
   css:
     theme:
       css/components/leaflet.css: {}
+
+leaflet-drupal:
+  js:
+    assets/js/leaflet.drupal.js: {}

@@ -21,6 +21,9 @@ libraries-override:
   localgov_base/header-js:
     js:
       js/header.js: js/header.js
+  leaflet/leaflet-drupal:
+    js:
+      js/leaflet.drupal.js: assets/js/leaflet.drupal.js
 regions:
   tabs: "Tabs"
   header: "Header"
