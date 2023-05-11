@@ -23,7 +23,12 @@
     margin-top: .625rem;
     margin-right: .625rem;
 }
-/* img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
-    -webkit-filter: saturate(0%) grayscale(100%) brightness(69%) contrast(1000%);
-    filter: saturate(0%) grayscale(100%) brightness(69%) contrast(1000%);
-} */
+
+/* Leaflet Map pin */
+.leaflet-div-icon {
+    border: 0px !important;
+    background-color: transparent !important;
+    width: 25px;
+    height: 41px;
+    background-image: url('/themes/contrib/localgov_base_croydon/assets/img/map-marker.png');
+}
