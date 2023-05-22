@@ -65,3 +65,12 @@ function localgov_base_croydon_preprocess_paragraph__localgov_box_link(&$variabl
     $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
    }
 }
+/**
+ *
+ *
+ *
+ */
+function localgov_base_croydon_preprocess_facets_item_list(&$variables) {
+  $variables;
+ // if () {}}
+}
