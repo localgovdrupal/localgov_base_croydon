@@ -80,7 +80,6 @@ li.facet-item.facets-reset input[type=checkbox]:checked+label:before {
 }
 
 .facet-filter-visibility {
-    float: right;
     padding: 0rem 0.0rem 0rem 0rem;
 }
 

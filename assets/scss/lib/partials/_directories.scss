@@ -498,3 +498,18 @@ span.facet-item__count {
   color: $green;
   font-weight: bold;
 }
+
+.block-facets .facets-widget.facets-widget--checkbox ul:nth-child(2) {
+  position: relative;
+  top: -3.125rem;
+  width: 100%;
+  padding: 0;
+  height: 3.125rem;
+  left: -1rem;
+}
+
+.block-facets .facets-widget.facets-widget--checkbox ul:nth-child(2) li:empty {
+  left: -1rem;
+  display: none;
+
+}
