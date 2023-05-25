@@ -35,6 +35,17 @@
           });
         }
 
+        
+        /*Leaflet Map Marker Active State*/
+        setTimeout(loadMap, 3000); /*Important gives map time to load into the DOM*/
+
+        function loadMap() {
+           $('.leaflet-div-icon').on('click', function(e) {
+           $('.leaflet-div-icon-active').removeClass('leaflet-div-icon-active');
+           $(this).addClass('leaflet-div-icon-active');
+          });
+        }
+
         /*Subsites nav*/
         $('.block-localgov-subsite-navigation').on( "click", "h3", function() {
           $('.block-localgov-subsite-navigation h3').toggleClass('menu-shown');
