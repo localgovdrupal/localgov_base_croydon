@@ -506,10 +506,20 @@ span.facet-item__count {
   padding: 0;
   height: 3.125rem;
   left: -1rem;
+  margin-bottom: -3.75rem;
 }
 
 .block-facets .facets-widget.facets-widget--checkbox ul:nth-child(2) li:empty {
   left: -1rem;
   display: none;
+}
 
+li.facet-item.facets-reset label div.facet-result-item span.facet-item__count {
+  display: none;
+}
+
+li.facet-item.facets-reset label div.facet-result-item span.facet-item__value {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }

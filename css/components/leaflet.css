@@ -30,12 +30,20 @@ img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
 /* li.facet-item.facets-reset input[type=checkbox] {
     content: "\f2f9" !important;
 } */
+.facet-item.facets-reset input[type=checkbox]+label,
+.form-checkboxes input[type=checkbox]+label,
+.form-item-webform-terms-of-service input[type=checkbox]+label {
+    width: 40%!important;
+    position: relative;
+    float: right;
+}
+
 li.facet-item.facets-reset input[type=checkbox]+label:before {
     font-size: 1.1875rem;
     font-weight: 900;
     font-family: Font Awesome\ 5 Pro;
     content: "\f2f9";
-    padding: 7px 0px 0px 11px;
+    padding: 5px 0px 0px 10px;
     color: #121212;
     margin: 0 0.6235rem 0 0;
     display: inline-block;
@@ -56,8 +64,10 @@ li.facet-item.facets-reset input[type=checkbox]:checked+label:before {
     margin: 0 0.6235rem 0 0;
     display: inline-block;
     border-color: transparent;
+    padding-bottom: 0.625rem;
 }
 
+.facets-reset .facet-result-item,
 .facet-filter-visibility,
 .leaflet-recenter-map,
 .leaflet-map-visibility--hide-map,
