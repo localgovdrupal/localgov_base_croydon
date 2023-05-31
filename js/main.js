@@ -35,7 +35,7 @@
           });
         }
 
-        
+
         /*Leaflet Map Marker Active State*/
         setTimeout(loadMap, 3000); /*Important gives map time to load into the DOM*/
 
@@ -66,6 +66,12 @@
           $('.facets-widget.facets-widget--checkbox').toggle();
           ($(this).text() === "Hide filters") ? $(this).text("Show filters") : $(this).text("Hide filters");
         });
+
+        // Recenter Map
+        $('.leaflet-recenter-map').on('click', function(e){
+          $("a.leaflet-bar-part.leaflet-bar-part-single")[0].click();
+        });
+
 
       })
     }
