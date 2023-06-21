@@ -499,7 +499,7 @@ span.facet-item__count {
   font-weight: bold;
 }
 
-.block-facets .facets-widget.facets-widget--checkbox ul:nth-child(2) {
+.block-facets .facets-widget.facets-widget--checkbox ul.facet-show-reset:nth-child(2) {
   position: relative;
   top: -3.125rem;
   width: 100%;
@@ -509,7 +509,7 @@ span.facet-item__count {
   margin-bottom: -3.75rem;
 }
 
-.block-facets .facets-widget.facets-widget--checkbox ul:nth-child(2) li:empty {
+.block-facets .facets-widget.facets-widget--checkbox ul.facet-show-reset:nth-child(2) li:empty {
   left: -1rem;
   display: none;
 }
