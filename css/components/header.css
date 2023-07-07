@@ -72,9 +72,13 @@
     margin-right: 0;
 }
 
+.branding__item--logo a {
+  transition: none;
+  display: contents;
+}
 /* set logo to reduced width to stop wrapping of nav items right before the mobile view kicks in */
 @media screen and (min-width: 62rem) and (max-width: 63rem) {
-  .branding__item--logo img { 
+  .branding__item--logo img {
     max-width:  85%;
   }
 }
@@ -138,7 +142,7 @@
     padding-top:  21px;
     padding-bottom:  21px;
   }
-  
+
   .lgd-header__toggle--secondary:hover,
   .lgd-header__toggle--secondary:focus {
       box-shadow: 0 0 0 0.125rem var(--color-yellow);
