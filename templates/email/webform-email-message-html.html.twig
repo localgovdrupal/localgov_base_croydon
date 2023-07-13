@@ -11,4 +11,21 @@
  * @ingroup themeable
  */
 #}
-{{ message.body }}
+<html>
+	<head>
+		<title>{{ subject }}</title>
+	</head>
+	<body>
+		<div id="header" style="background-color: #880088; padding: 10px 0px 0px 10px;">
+			<div id="container" style="padding-left:50px">
+				<img src="https://www.croydon.gov.uk/themes/contrib/localgov_base_croydon/logo.png" alt="{{ 'Croydon Council Forms Site Logo'|t }}" width="154px" height="56px">
+			</div>
+		</div>
+		<div id="body" style="padding-left:50px">
+			{# {{ body|raw }} #}
+            {{ message.body }}
+		</div>
+		<div id="footer" style="padding-left:50px"></div>
+	</body>
+</html>
+{# {{ message.body }} #}
