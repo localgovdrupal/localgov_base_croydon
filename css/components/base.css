@@ -1,18 +1,25 @@
 /* base styling */
 
-h1, h2, h3, h4, h5, h6, .heading {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
   line-height: 1.1;
   padding-right: 1.5rem;
 }
 
-h5, h6 {
-  font-variant: normal; /*reset base setting thats setting caps*/
-  text-decoration: none; /*reset base setting thats setting underline*/
+h5,
+h6 {
+  font-variant: normal; /* reset base setting thats setting caps */
+  text-decoration: none; /* reset base setting thats setting underline */
 }
 
 a {
   font-weight: 400;
-  transition: none; /*remove base added transitions*/
+  transition: none; /* remove base added transitions */
 }
 
 a:hover,
@@ -35,3 +42,9 @@ a:focus {
     font-size: calc(var(--font-size) * 1.75);
   }
 }
+
+.card-header.bg-primary h4 {
+    margin: 0;
+    color: var(--color-white);
+}
+
