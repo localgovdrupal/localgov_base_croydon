@@ -43,7 +43,7 @@ a:focus {
   }
 }
 
-.card-header.bg-primary h4 {
+.card-header.bg-primary h4 { /* specific stylin for forms headings */
     margin: 0;
     color: var(--color-white);
 }
