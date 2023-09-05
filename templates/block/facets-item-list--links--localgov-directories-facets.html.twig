@@ -24,7 +24,6 @@
  * @ingroup themeable
  */
 #}
-
 {% if not localgov_base_remove_css %}
   {{ attach_library('localgov_base/facets') }}
 {% endif %}
@@ -53,4 +52,7 @@
         {{ empty }}
     {% endif %}
   {% endif %}
+</div>
+<div class="facet-filter-control">
+  <span class="facet-filter-visibility">Hide filters</span>
 </div>

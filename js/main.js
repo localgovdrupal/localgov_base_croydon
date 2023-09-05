@@ -8,7 +8,7 @@
       once('oneTimeLoad', 'html', context).forEach( function (element) {
 
         var homeExists = document.querySelector('.path-frontpage');
-    
+
         $('.main a').filter(function() {
           if(this.hostname.indexOf("croydon.gov.uk") === -1){
             return this.hostname && this.hostname !== location.hostname;
@@ -20,7 +20,7 @@
         if (homeExists) {
 
           var $servicesBlock = $(".layout--threecol-33-34-33");
-          
+
           $servicesBlock.slice(2).hide();
 
           $('.services-show').on('click', function(e) {
@@ -35,7 +35,7 @@
           });
         }
 
-        
+
         /*Leaflet Map Marker Active State*/
         setTimeout(loadMap, 3000); /*Important gives map time to load into the DOM*/
 
@@ -51,6 +51,28 @@
           $('.block-localgov-subsite-navigation h3').toggleClass('menu-shown');
           $('.block-localgov-subsite-navigation .menu-item').toggleClass('menu-item--show');
         });
+
+        // Directories Map Visibility
+        $('.leaflet-map-visibility').on('click', function(e){
+          $('.leaflet-map-visibility').toggleClass('leaflet-map-visibility--hide-map');
+          $('#leaflet-map-view-localgov-directory-channel-embed-map').toggle();
+          $('.leaflet-recenter-map').toggle();
+          ($(this).text() === "Show map") ? $(this).text("Hide map") : $(this).text("Show map");
+        });
+
+        // Directories Facet filter visibility
+        $('.facet-filter-visibility').on('click', function(e){
+          $('.facet-filter-visibility').toggleClass('facet-filter-visibility--hide-filter');
+          $('.facets-widget.facets-widget--checkbox').toggle();
+          ($(this).text() === "Hide filters") ? $(this).text("Show filters") : $(this).text("Hide filters");
+        });
+
+        // Recenter Map
+        $('.leaflet-recenter-map').on('click', function(e){
+          $("a.leaflet-bar-part.leaflet-bar-part-single")[0].click();
+        });
+
+
       })
     }
   }
