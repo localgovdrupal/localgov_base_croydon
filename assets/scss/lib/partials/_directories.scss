@@ -535,7 +535,10 @@ li.facet-item.facets-reset input[type=checkbox] + label:before {
   font-weight: 900;
   font-family: $font-family-icons;
   content: "\f2f9";
-  padding: 0.313rem 0 0.625rem;
+  padding-top: 0.313rem;
+  padding-right: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-left: 0.825rem;
   color: $carbon;
   margin: 0 0.625rem 0 0;
   display: inline-block;
