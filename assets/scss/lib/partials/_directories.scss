@@ -522,12 +522,18 @@ li.facet-item.facets-reset label div.facet-result-item span.facet-item__value {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  font-weight: 900;
 }
 
 .facet-item.facets-reset input[type=checkbox] + label {
-  width: 40% !important;
+  width: 43% !important;
   position: relative;
   float: right;
+  text-decoration: none;
+
+  @include media-breakpoint-up(lg) {
+    width: 42% !important;
+  }
 }
 
 li.facet-item.facets-reset input[type=checkbox] + label:before {
@@ -544,6 +550,13 @@ li.facet-item.facets-reset input[type=checkbox] + label:before {
   display: inline-block;
   width: 1.2rem;
   border-color: transparent;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 0.313rem;
+    padding-right: 0.625rem;
+    padding-bottom: 0.625rem;
+    padding-left: 0.825rem;
+  }
 }
 
 li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
@@ -563,10 +576,9 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
   font-size: 1.1875rem;
   font-weight: 900;
   color: $carbon;
-  margin: 0 0.6235rem 0 0;
+  margin: 0.625rem 0.6235rem 0 0;
   display: inline-block;
   border-color: transparent;
-  padding-bottom: 0.625rem;
 
   &:before {
     font-family: $font-family-icons;

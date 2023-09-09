@@ -33,10 +33,9 @@ img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
     font-size: 1.1875rem;
     font-weight: 900;
     color: #121212;
-    margin: 0 0.6235rem 0 0;
+    margin: 0 0.625rem 0.625rem 0;
     display: inline-block;
     border-color: transparent;
-    padding-bottom: 0.625rem;
 }
 
 .leaflet-recenter-map,
