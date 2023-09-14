@@ -60,19 +60,41 @@
           ($(this).text() === "Show map") ? $(this).text("Hide map") : $(this).text("Show map");
         });
 
-        // Directories Facet filter visibility
+        // By default we hide the facets block on mobile
+        // devices. This is done using a media query.
+
+        // Hide the facet filter block and set the button link to text.
+        if ($('.facets-widget.facets-widget--checkbox').css('display') == 'none') {
+          $('.facet-filter-visibility').toggleClass('facet-filter-visibility--hide-filter');
+          $('.facet-filter-visibility.facet-filter-visibility--hide-filter').text("Show filters");
+        }
+        // Show the facet filter block and set the button link to text.
+        if ($('.facets-widget.facets-widget--checkbox').css('display') == 'block') {
+          $('.facet-filter-visibility.facet-filter-visibility--hide-filter').removeClass();
+          $('.facet-filter-visibility').text("Hide filters");
+        }
+
+        // Display the Facet block if a facet is checked
+        // when the window has loaded.
+        $( window ).on( "load", function() {
+          if ($('.facets-widget input[type=checkbox]').is(":checked")) {
+            $('.facets-widget.facets-widget--checkbox').css('display','block');
+            $('.facet-filter-visibility.facet-filter-visibility--hide-filter').removeClass('facet-filter-visibility--hide-filter');
+            $('.facet-filter-visibility').text("Hide filters");
+          }
+        });
+
+        // Facet filter show or hide button links.
         $('.facet-filter-visibility').on('click', function(e){
           $('.facet-filter-visibility').toggleClass('facet-filter-visibility--hide-filter');
           $('.facets-widget.facets-widget--checkbox').toggle();
-          ($(this).text() === "Hide filters") ? $(this).text("Show filters") : $(this).text("Hide filters");
+          ($(this).text() === "Show filters") ? $(this).text("Hide filters") : $(this).text("Show filters");
         });
 
         // Recenter Map
         $('.leaflet-recenter-map').on('click', function(e){
           $("a.leaflet-bar-part.leaflet-bar-part-single")[0].click();
         });
-
-
       })
     }
   }
