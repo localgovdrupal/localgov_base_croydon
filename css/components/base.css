@@ -70,8 +70,11 @@ a:focus {
   margin-top: 0;
 } 
 
-/* override nested padding-horizontal classes */
+/* override nested padding-horizontal and container classes */
 .lgd-container .padding-horizontal .padding-horizontal {
   padding-left: 0;
   padding-right: 0;
+}
+.lgd-container .lgd-container {
+  margin-top: 0;
 }
