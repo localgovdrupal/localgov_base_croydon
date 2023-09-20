@@ -64,3 +64,9 @@ a:focus {
 .lgd-prev-next--guides {
   padding-top: var(--spacing-padding-horizontal);
 }
+
+/* override nested padding-horizontal classes */
+.lgd-container .padding-horizontal .padding-horizontal {
+  padding-left: 0;
+  padding-right: 0;
+}
