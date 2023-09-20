@@ -56,7 +56,8 @@ a:focus {
 }
 
 .page-node-type-localgov-services-landing .lgd-region--content,
-.lgd-prev-next--guides {
+.lgd-prev-next--guides,
+.eu-cookie-compliance-content {
   padding-right: var(--spacing-padding-horizontal);
   padding-left: var(--spacing-padding-horizontal);
 }
@@ -64,6 +65,10 @@ a:focus {
 .lgd-prev-next--guides {
   padding-top: var(--spacing-padding-horizontal);
 }
+
+.node--type-localgov-directory > .lgd-container {
+  margin-top: 0;
+} 
 
 /* override nested padding-horizontal classes */
 .lgd-container .padding-horizontal .padding-horizontal {
