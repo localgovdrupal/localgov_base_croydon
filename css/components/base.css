@@ -47,3 +47,34 @@ a:focus {
     margin: 0;
     color: var(--color-white);
 }
+
+/* Specific overrides to correct container changes made in localgov base */
+.lgd-region--content {
+  max-width: var(--width-container);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.page-node-type-localgov-services-landing .lgd-region--content,
+.lgd-prev-next--guides,
+.eu-cookie-compliance-content {
+  padding-right: var(--spacing-padding-horizontal);
+  padding-left: var(--spacing-padding-horizontal);
+}
+
+.lgd-prev-next--guides {
+  padding-top: var(--spacing-padding-horizontal);
+}
+
+.node--type-localgov-directory > .lgd-container {
+  margin-top: 0;
+} 
+
+/* override nested padding-horizontal and container classes */
+.lgd-container .padding-horizontal .padding-horizontal {
+  padding-left: 0;
+  padding-right: 0;
+}
+.lgd-container .lgd-container {
+  margin-top: 0;
+}
