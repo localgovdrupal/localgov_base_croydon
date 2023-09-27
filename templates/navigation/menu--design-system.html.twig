@@ -52,7 +52,7 @@
       {% set navbar_brand_title = 'Menu' %}
       {% set navbar_brand_path = '#' %}
 
-      {% for item in items if item.in_active_trail %}
+      {% for item in items|filter(item => item.in_active_trail) %}
         {% set top_ul_class = top_ul_class|merge(['has-active-trail']) %}
         {% set navbar_brand_title = item.title %}
         {% set navbar_brand_path = item.url %}
