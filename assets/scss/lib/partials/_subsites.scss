@@ -285,22 +285,27 @@
   }
 }
 
-// theme & core overrides
+// base overrides
 
 .page-node-type-localgov-subsites-page {
   .paragraph--type--page-section {
     .layout--twocol {
       .layout__region--first {
-        display: flex; // match heights for the fact boxes
-
         @include rem(padding-right, 15); // ignore padding set in core
       }
-
       .layout__region--second {
-        display: flex; // match heights match heights for the fact boxes
-
         @include rem(padding-left, 15); // ignore padding set in core
       }
     }
+  }
+}
+
+// media with text overrides
+
+.media-with-text--media-top {
+  margin-bottom: 0;
+  
+  img {
+    padding-right: 0;
   }
 }
