@@ -291,21 +291,52 @@
   .paragraph--type--page-section {
     .layout--twocol {
       .layout__region--first {
-        @include rem(padding-right, 15); // ignore padding set in core
+        display: block;
+        padding-right: 0;
+        padding-left: 0;
+
+        @include media-breakpoint-up(md) {
+          @include rem(padding-right, 15); // ignore padding set in base
+        }
       }
+
       .layout__region--second {
-        @include rem(padding-left, 15); // ignore padding set in core
+        display: block;
+        padding-right: 0;
+        padding-left: 0;
+
+        @include media-breakpoint-up(md) {
+          @include rem(padding-left, 15); // ignore padding set in base
+        }
       }
     }
   }
 }
 
 // media with text overrides
-
 .media-with-text--media-top {
   margin-bottom: 0;
-  
+
   img {
-    padding-right: 0;
+    padding-right: 0 !important;
+  }
+
+  .media-with-text__link {
+    font-size: $font-size-ex-med;
+
+    @include rem(padding-right, 20);
+
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-lg;
+    }
+
+    &.external-link {
+      &:hover,
+      &:focus {
+        &:after {
+          background-color: $carbon;
+        }
+      }
+    }
   }
 }
