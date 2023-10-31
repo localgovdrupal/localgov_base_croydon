@@ -4,6 +4,7 @@
  * @file
  * Theme hooks to support the LocalGov Base Croydon theme.
  */
+
 /**
  * Implements hook_preprocess_block() for hook_preprocess_block__localgov_base_croydon_subsitebanner_homepage().
  *
@@ -46,8 +47,15 @@ function localgov_base_croydon_preprocess_node__localgov_guides_page__full(&$var
 /**
  * Hides label from "Plain address" view mode of Geo.
  */
-function localgov_base_croydon_preprocess_localgov_geo__cds_plain_address(&$variables) {
+function localgov_base_croydon_preprocess_geo_entity__cds_plain_address(&$variables) {
   $variables['content']['label'] = NULL;
+}
+
+/**
+ * See above.
+ */
+function localgov_base_croydon_preprocess_localgov_geo__cds_plain_address(&$variables) {
+  localgov_base_croydon_preprocess_geo_entity__cds_plain_address($variables);
 }
 
 /**
@@ -55,7 +63,7 @@ function localgov_base_croydon_preprocess_localgov_geo__cds_plain_address(&$vari
  *
  * Changes:
  * Adds a variable to determinse if the box links are
- * on the home page
+ * on the home page.
  *
  * @see localgov_base_croydon_preprocess_paragraph__localgov_box_link()
  */
@@ -63,5 +71,5 @@ function localgov_base_croydon_preprocess_paragraph__localgov_box_link(&$variabl
   $paragraph = $variables['paragraph'];
   if ($paragraph->bundle() === 'localgov_box_link') {
     $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
-   }
+  }
 }

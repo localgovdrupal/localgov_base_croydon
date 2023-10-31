@@ -1,4 +1,4 @@
-/* Radio Buttons 
+/* Radio Buttons
   This radio styling is amended CSS from the gov.uk design system:
   - https://design-system.service.gov.uk/components/radios/
 
@@ -93,6 +93,18 @@
   touch-action: manipulation;
 }
 
+.js-form-type-checkbox.form-item--error input[type="checkbox"] + label::before {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  content: "";
+  border: 2px solid #ae1100;
+  background: transparent;
+}
+
 .js-form-type-checkbox input[type="checkbox"] + label::before {
   position: absolute;
   top: 0;
@@ -119,7 +131,21 @@
   border-top-color: transparent;
   background: transparent;
 }
-
+.js-form-type-checkbox.form-item--error input[type="checkbox"] + label::after {
+  position: absolute;
+  top: 51px;
+  left: 29px;
+  box-sizing: border-box;
+  width: 23px;
+  height: 12px;
+  content: "";
+  transform: rotate(-45deg);
+  opacity: 0;
+  border: solid;
+  border-width: 0 0 5px 5px;
+  border-top-color: transparent;
+  background: transparent;
+}
 .js-form-type-checkbox input[type="checkbox"]:focus + label:before {
   border-width: 4px;
   box-shadow: 0 0 0 3px var(--checkbox-select-focus-color);

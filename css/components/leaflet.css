@@ -27,6 +27,52 @@ img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
     -webkit-filter: saturate(0%) grayscale(100%) brightness(69%) contrast(1000%);
     filter: saturate(0%) grayscale(100%) brightness(69%) contrast(1000%);
 }
+
+.leaflet-recenter-map,
+.leaflet-map-visibility {
+    font-size: 1.1875rem;
+    font-weight: 900;
+    color: #121212;
+    margin: 0 0.625rem 0.625rem 0;
+    display: inline-block;
+    border-color: transparent;
+}
+
+.leaflet-recenter-map,
+.leaflet-map-visibility--hide-map,
+.leaflet-map-visibility {
+    &:hover {
+        color: var(--color-link-focus);
+        background-color: var(--color-focus);
+        text-decoration: none;
+    }
+}
+
+.leaflet-map-visibility {
+    &:before {
+        font-family: Font Awesome\ 5 Pro;
+        content: "\f070";
+        width: 1.2rem;
+        padding: 0rem 0.3rem 0rem 0rem;
+    }
+}
+
+.leaflet-recenter-map:before {
+    font-family: Font Awesome\ 5 Pro;
+    content: "\f78c";
+    padding: 0rem 0.3rem 0rem 0rem;
+}
+
+.leaflet-map-visibility--hide-map {
+    &:before {
+        font-family: Font Awesome\ 5 Pro;
+        content: "\f06e" !important;
+        width: 1.2rem;
+        padding: 0rem 0.3rem 0rem 0rem;
+    }
+}
+/* .facet-filter-visibility:before */
+
 .leaflet-div-icon {
     border: 0px !important;
     background-color: transparent !important;
