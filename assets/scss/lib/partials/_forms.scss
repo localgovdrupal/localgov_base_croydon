@@ -133,8 +133,8 @@
 
   .description {
     border: 0;
+    padding: 0 0 1rem 0;
     background: none;
-    padding: 1rem 0;
     font-size: $font-size-base;
     font-weight: $font-bold;
 
@@ -146,6 +146,10 @@
       font-weight: 400;
       color: $form-description-color;
     }
+  }
+
+  [id*='after--description'] {
+    padding: 1rem 0;
   }
 
   input,
@@ -167,6 +171,17 @@
   input,
   select {
     height: $input-height;
+  }
+}
+
+.webform-type-radios {
+  .description {
+    display: block;
+    width: 100%;
+    font-size: $font-size-med;
+    font-family: $font-family-base;
+    font-weight: 400;
+    color: $form-description-color;
   }
 }
 
@@ -608,7 +623,7 @@ span.facet-item__count {
   }
 
   .js-webform-type-radios .fieldset-wrapper {
-    padding: .625rem .625rem .625rem 0;
+    padding: 0;
   }
 
   legend {
@@ -680,7 +695,7 @@ span.facet-item__count {
 .webform-type-radios .form-item label,
 .js-form-type-checkbox label {
   position: relative;
-  padding: 10px 15px 10px 55px !important;
+  padding: 0.625rem 0.9375rem 0.625rem 3.438rem !important;
 }
 
 .webform-type-radios .form-item,
