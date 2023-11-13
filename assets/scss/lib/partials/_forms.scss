@@ -629,6 +629,52 @@ span.facet-item__count {
   legend {
     margin-bottom: 0.4rem;
   }
+
+  // customise messages
+
+  .messages {
+    &--error {
+      border: 0.313rem solid;
+      border-radius: 0;
+      background: none;
+      color: $carbon;
+      border-color: $danger;
+      box-shadow: none;
+
+      @include rem(padding, 20);
+
+      .messages__list {
+        > .messages__item {
+          font-size: $h5-font-size;
+
+          @include media-breakpoint-up(md) {
+            font-size: $h4-font-size;
+          }
+
+          .item-list__comma-list {
+            display: block;
+            font-size: $font-size-ex-med;
+          }
+
+          ~ .messages__item {
+            font-size: $font-size-ex-med;
+
+            @include media-breakpoint-up(md) {
+              font-size: $font-size-lg;
+            }
+          }
+        }
+      }
+
+      > div {
+        font-size: $font-size-ex-med;
+
+        @include media-breakpoint-up(md) {
+          font-size: $font-size-lg;
+        }
+      }
+    }
+  }
 }
 
 .localgov-webform-uk-address {
