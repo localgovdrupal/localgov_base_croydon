@@ -88,26 +88,6 @@
     }
   }
 
-  &-lgd-date-of-birth-day,
-  &-lgd-date-of-birth-month,
-  &-lgd-date-of-birth-desc-after-day,
-  &-lgd-date-of-birth-desc-after-month {
-    max-width: 6%;
-    margin-left: 0;
-    margin-top: 0.5em;
-    margin-right: 0.5em;
-
-    .form-text {
-      @include rem(padding, 6);
-    }
-  }
-
-  &-lgd-date-of-birth-year,
-  &-lgd-date-of-birth-desc-after-year {
-    max-width: 9%;
-  }
-
-
   .localgov-forms-date {
     input {
       @include rem(padding, 6);
@@ -596,7 +576,6 @@ span.facet-item__count {
 
 .path-webform .webform-submission-form {
   @include media-breakpoint-up(md) {
-    //@extend .col-8;
     flex: 0 0 66.66667%;
     max-width: 66.66667%;
   }
@@ -747,4 +726,57 @@ span.facet-item__count {
 .webform-type-radios .form-item,
 .js-form-type-checkbox {
   padding-left: 0 !important;
+}
+
+/* Custom Date of Birth Styling */
+
+.form-item-lgd-date-of-birth .container-inline,
+.form-item-lgd-date-of-birth-desc-after .container-inline {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-item-lgd-date-of-birth .container-inline div[class*="-day"],
+.form-item-lgd-date-of-birth-desc-after .container-inline div[class*="-day"] {
+  margin-left: 0;
+  flex: 1;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(md) {
+    max-width: 6%;
+  }
+
+  input {
+    @include rem(padding, 6);
+  }
+}
+
+.form-item-lgd-date-of-birth .container-inline div[class*="-month"],
+.form-item-lgd-date-of-birth-desc-after .container-inline div[class*="-month"] {
+  flex: 2;
+  margin: 0.5em;
+
+  @include media-breakpoint-up(md) {
+    max-width: 6%;
+  }
+
+  input {
+    @include rem(padding, 6);
+  }
+}
+
+.form-item-lgd-date-of-birth .container-inline div[class*="-year"],
+.form-item-lgd-date-of-birth-desc-after .container-inline div[class*="-year"] {
+  flex: 3;
+  margin: 0.5em;
+
+  @include media-breakpoint-up(md) {
+    max-width: 9%;
+  }
+
+  input {
+    @include rem(padding, 6);
+  }
 }
