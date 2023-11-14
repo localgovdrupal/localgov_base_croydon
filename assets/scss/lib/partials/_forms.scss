@@ -646,10 +646,15 @@ span.facet-item__count {
       }
 
       > div {
-        font-size: $font-size-ex-med;
+        font-size: $h5-font-size;
 
         @include media-breakpoint-up(md) {
-          font-size: $font-size-lg;
+          font-size: $h4-font-size;
+        }
+
+        ul {
+          display: block;
+          font-size: $font-size-ex-med;
         }
       }
     }
