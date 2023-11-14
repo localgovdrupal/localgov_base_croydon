@@ -633,6 +633,14 @@ span.facet-item__count {
           .item-list__comma-list {
             display: block;
             font-size: $font-size-ex-med;
+
+            li {
+              display: block;
+
+              &:after {
+                display: none;
+              }
+            }
           }
 
           ~ .messages__item {
@@ -655,6 +663,14 @@ span.facet-item__count {
         ul {
           display: block;
           font-size: $font-size-ex-med;
+
+          li {
+            display: block;
+
+            &:after {
+              display: none;
+            }
+          }
         }
       }
     }
@@ -709,8 +725,7 @@ span.facet-item__count {
           }
 
           .description {
-            font-size: $font-size-med;
-            font-weight: 400;
+            display: none; // explicitly hide this description text
           }
         }
       }
