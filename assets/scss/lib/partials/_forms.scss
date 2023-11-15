@@ -77,13 +77,20 @@
 }
 
 .form-item {
-  .form-item-localgov-forms-date { // date specific styling
+  &-localgov-forms-date { // date specific styling
+
     .container-inline {
       @extend .row;
 
       .form-item {
         @extend .col-4;
       }
+    }
+  }
+
+  .localgov-forms-date {
+    input {
+      @include rem(padding, 6);
     }
   }
 
@@ -106,8 +113,8 @@
 
   .description {
     border: 0;
+    padding: 0 0 1rem 0;
     background: none;
-    padding: 1rem 0;
     font-size: $font-size-base;
     font-weight: $font-bold;
 
@@ -119,6 +126,10 @@
       font-weight: 400;
       color: $form-description-color;
     }
+  }
+
+  [id*='after--description'] {
+    padding: 1rem 0;
   }
 
   input,
@@ -140,6 +151,17 @@
   input,
   select {
     height: $input-height;
+  }
+}
+
+.webform-type-radios {
+  .description {
+    display: block;
+    width: 100%;
+    font-size: $font-size-med;
+    font-family: $font-family-base;
+    font-weight: 400;
+    color: $form-description-color;
   }
 }
 
@@ -299,7 +321,7 @@ label {
 
 .custom-input:hover input ~ .checkmark {
   background-color: $white;
-  border: 0.125rem solid $focus !important;
+  border: 0.188rem solid $focus !important;
 }
 
 // When the checkbox is checked, add a blue background
@@ -478,7 +500,7 @@ ul.thumbnails.image_picker_selector li .thumbnail {
 
 /* Inline error messages. */
 .form-item .error {
-  border: 0.125rem solid $danger !important;
+  border: 0.188rem solid $danger !important;
 }
 
 /* Inline error messages. */
@@ -554,8 +576,227 @@ span.facet-item__count {
 
 .path-webform .webform-submission-form {
   @include media-breakpoint-up(md) {
-    //@extend .col-8;
     flex: 0 0 66.66667%;
     max-width: 66.66667%;
+  }
+}
+
+/* styling fixes from design review oct 2023 */
+
+.path-webform {
+  h1 {
+    margin-bottom: 3.5rem;
+
+    &.lgd-page-title-block__title {
+      display: none;
+    }
+  }
+
+  .js-form-type-textfield,
+  .js-form-type-email,
+  .js-form-type-textarea,
+  .js-form-type-processed-text,
+  .js-form-type-checkbox,
+  .radios--wrapper {
+    margin-bottom: 2.75rem;
+  }
+
+  .js-webform-type-radios .fieldset-wrapper {
+    padding: 0;
+  }
+
+  legend {
+    margin-bottom: 0.4rem;
+  }
+
+  // customise messages
+
+  .messages {
+    &--error {
+      border: 0.313rem solid;
+      border-radius: 0;
+      background: none;
+      color: $carbon;
+      border-color: $danger;
+      box-shadow: none;
+
+      @include rem(padding, 20);
+
+      .messages__list {
+        > .messages__item {
+          font-size: $h5-font-size;
+
+          @include media-breakpoint-up(md) {
+            font-size: $h4-font-size;
+          }
+
+          .item-list__comma-list {
+            display: block;
+            font-size: $font-size-ex-med;
+
+            li {
+              display: block;
+
+              &:after {
+                display: none;
+              }
+            }
+          }
+
+          ~ .messages__item {
+            font-size: $font-size-ex-med;
+
+            @include media-breakpoint-up(md) {
+              font-size: $font-size-lg;
+            }
+          }
+        }
+      }
+
+      > div {
+        font-size: $h5-font-size;
+
+        @include media-breakpoint-up(md) {
+          font-size: $h4-font-size;
+        }
+
+        ul {
+          display: block;
+          font-size: $font-size-ex-med;
+
+          li {
+            display: block;
+
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.localgov-webform-uk-address {
+  &--wrapper {
+    @include rem(margin-bottom, 44);
+
+    .webform-element-description {
+      font-size: $font-size-ex-ex-lg;
+      padding-bottom: 1rem;
+      margin-bottom: 3rem;
+      border-bottom: 0.0625rem solid $gray-light;
+    }
+
+    .fieldset {
+      &-wrapper {
+        padding: 0;
+
+        .centralhub-address-lookup,
+        .js-address-entry-container {
+          background-color: $gray-lookup;
+
+          @include rem(padding, 10);
+
+          .form-element-actions {
+            .button {
+              font-size: $font-size-ex-med;
+            }
+          }
+
+          .link-button.manual-address {
+            font-size: $font-size-lg;
+            font-weight: 400;
+            color: $purple;
+
+            &:focus,
+            &:hover {
+              color: $carbon;
+              text-decoration: none;
+            }
+          }
+        }
+
+        .form-item-address-lookup-address-lookup-address-search-address-searchstring {
+          margin-bottom: 0;
+
+          label {
+            color: $gray-lookup-two;
+          }
+
+          .description {
+            display: none; // explicitly hide this description text
+          }
+        }
+      }
+
+      &-legend {
+        @extend .h1;
+      }
+    }
+  }
+}
+
+.webform-type-radios .form-item label,
+.js-form-type-checkbox label {
+  position: relative;
+  padding: 0.625rem 0.9375rem 0.625rem 3.438rem !important;
+}
+
+.webform-type-radios .form-item,
+.js-form-type-checkbox {
+  padding-left: 0 !important;
+}
+
+/* Custom Date of Birth Styling */
+
+.form-item-lgd-date-of-birth .container-inline,
+.form-item-lgd-date-of-birth-desc-after .container-inline {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-item-lgd-date-of-birth .container-inline div[class*="-day"],
+.form-item-lgd-date-of-birth-desc-after .container-inline div[class*="-day"] {
+  margin-left: 0;
+  flex: 1;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(md) {
+    max-width: 6%;
+  }
+
+  input {
+    @include rem(padding, 6);
+  }
+}
+
+.form-item-lgd-date-of-birth .container-inline div[class*="-month"],
+.form-item-lgd-date-of-birth-desc-after .container-inline div[class*="-month"] {
+  flex: 2;
+  margin: 0.5em;
+
+  @include media-breakpoint-up(md) {
+    max-width: 6%;
+  }
+
+  input {
+    @include rem(padding, 6);
+  }
+}
+
+.form-item-lgd-date-of-birth .container-inline div[class*="-year"],
+.form-item-lgd-date-of-birth-desc-after .container-inline div[class*="-year"] {
+  flex: 3;
+  margin: 0.5em;
+
+  @include media-breakpoint-up(md) {
+    max-width: 9%;
+  }
+
+  input {
+    @include rem(padding, 6);
   }
 }
