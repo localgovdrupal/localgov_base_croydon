@@ -585,13 +585,16 @@ span.facet-item__count {
 /* styling fixes from design review oct 2023 */
 
 .path-webform {
-  h1 {
-    margin-bottom: 3.5rem;
 
-    &.lgd-page-title-block__title {
-      display: none;
-    }
-  }
+  /* Chris, I commented this out becuase it hides 'Form Titles' */
+
+  // h1 {
+  //   margin-bottom: 3.5rem;
+
+  //   &.lgd-page-title-block__title {
+  //     display: none;
+  //   }
+  // }
 
   .js-form-type-textfield,
   .js-form-type-email,
