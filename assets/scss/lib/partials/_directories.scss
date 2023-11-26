@@ -154,12 +154,6 @@
   }
 }
 
-.fieldset-wrapper {
-  background: $white;
-
-  @include rem(padding, 10);
-}
-
 .form-checkboxes {
   > div {
     position: relative;
