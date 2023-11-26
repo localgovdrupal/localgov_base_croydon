@@ -1,6 +1,6 @@
 /**
 * @file
-* This file is an override of alert.scss in localgov_base.
+* This file is an override of alert-banner.css in localgov_base.
 */
 .localgov-alert-banner .localgov-alert-banner__inner {
   padding: 1rem 0;
@@ -45,7 +45,7 @@
 .localgov-alert-banner .localgov-alert-banner__title {
   padding:  0 3px 0 0;
   display: inline;
-  margin-top: 5px;
+  margin-top: 4px;
   margin-bottom: 4px;
 }
 
@@ -59,4 +59,3 @@
   padding: 0;
   top: 1px;
 }
-
