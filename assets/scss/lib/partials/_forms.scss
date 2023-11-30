@@ -250,6 +250,10 @@ label {
   border-color: $carbon;
 }
 
+.js-form-type-checkbox input[type="checkbox"] + label {
+  margin-left: 0 !important;
+}
+
 // Form validation text
 .valid-feedback,
 .invalid-feedback {
@@ -739,6 +743,15 @@ span.facet-item__count {
 .webform-type-radios .form-item,
 .js-form-type-checkbox {
   padding-left: 0 !important;
+}
+
+.js-form-type-checkbox.form-item--error {
+  padding-left: 1rem !important;
+}
+
+.js-form-type-checkbox.form-item--error input[type="checkbox"] + label::before {
+  top:  0 !important;
+  left: 0 !important;
 }
 
 /* Custom Date of Birth Styling */
