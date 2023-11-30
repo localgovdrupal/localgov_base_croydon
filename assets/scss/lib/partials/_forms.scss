@@ -145,7 +145,7 @@
     color: $form-description-color;
     background-color: $white;
     background-clip: padding-box;
-    border: .06rem solid $input-border-color;
+    border: $input-border-size solid $input-border-color;
     border-radius: 0;
   }
 
@@ -315,7 +315,7 @@ label {
   top: 0;
   left: 0;
   background-color: $white;
-  border: 0.063rem solid $input-border-color;
+  border: $input-border-size solid $input-border-color;
   margin: 0 !important;
 
   @include rem(width, 40);
@@ -326,7 +326,7 @@ label {
 
 .custom-input:hover input ~ .checkmark {
   background-color: $white;
-  border: 0.188rem solid $focus !important;
+  border: $input-border-size solid $focus !important;
 }
 
 // When the checkbox is checked, add a blue background
@@ -360,7 +360,7 @@ label {
 // Style the checkmark/indicator
 
 .custom-input .checkmark:after {
-  border: 0.063rem solid $green;
+  border: $input-border-size solid $green;
   border-width: 0 0.313rem 0.313rem 0;
   transform: rotate(45deg);
 
@@ -380,7 +380,7 @@ label {
   left: 0;
   background-color: $white;
   border-radius: 50%;
-  border: 0.063rem solid $input-border-color;
+  border: $input-border-size solid $input-border-color;
   margin: 0 !important;
 
   @include rem(width, 40);
@@ -392,7 +392,7 @@ label {
 
 .custom-input:hover input ~ .radiomark {
   background-color: $white;
-  border: 0.063rem solid $focus !important;
+  border: $input-border-size solid $focus !important;
 }
 
 /* When the radio button is checked, add a white background */
@@ -749,9 +749,14 @@ span.facet-item__count {
   padding-left: 1rem !important;
 }
 
-.js-form-type-checkbox.form-item--error input[type="checkbox"] + label::before {
-  top:  0 !important;
+.js-form-type-checkbox.form-item--error input[type="checkbox"] + label::before
+ {
+  top: 0 !important;
   left: 0 !important;
+}
+.js-form-type-checkbox.form-item--error input[type="checkbox"] + label::after {
+  top: 0.688rem !important;
+  left: 0.563rem !important;
 }
 
 /* Custom Date of Birth Styling */
