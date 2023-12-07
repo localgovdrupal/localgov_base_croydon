@@ -12,6 +12,7 @@
  * @ingroup themeable
  */
 #}
+{{ breakpoint() }}
 {%
   set classes = [
     'webform-submission-data',
@@ -27,26 +28,44 @@
 	{% endif %}
 	{% if elements.data %}
 		<dl class="cds-summary-list">
-			{% for key,value in elements.data %}
+			{% for page_key,page_value in elements.data %}
 				<div class="cds-summary-list__row">
 
 					{# Question column #}
 					<dt class="cds-summary-list__key">
 						{# question  #}
-						<h2>{{ key|capitalize|replace({'_':' '}) }}:</h2>
+						{# <h2>{{ key|capitalize|replace({'_':' '}) }}:</h2> #}
 						{# answer #}
-						{{ elements.data[key]['#value'] }}
+						{{ elements.data[page_key]['#summary']['page_number'] }}
+						{{ elements.data[page_key]['#summary']['label'] }}
 					</dt>
 
 					{# Value column #}
-					<!--
 					<dd class="cds-summary-list__value">
+						{% if not elements.data[page_key]['#summary']['value'].key is defined %}
+							{{ elements.data[page_key]['#summary']['value'] }}
+						{% endif %}
+
+						{% if elements.data[page_key]['#summary']['value'] is iterable %}
+							{% for key, value in elements.data[page_key]['#summary']['value'] %}
+								{{ elements.data[page_key]['#summary']['value'][key]['label'] }}
+								{{ elements.data[page_key]['#summary']['value'][key]['value'] }}
+								{# {{ elements.data[page_key]['#summary']['value'][key][value] }} #}
+								{# {{ key }} #}
+
+								</br>
+							{% endfor %}
+						{% endif %}
+
+
+
 						{#{  elements.data[key]['#value'] }#}
 					</dd>
-					-->
+
 
 					{# Action column #}
 					<dd class="cds-summary-list__actions">
+						{{ elements.data[page_key]['#summary']['wizard_page_link'] }}
 					</dd>
 
 				</div>
