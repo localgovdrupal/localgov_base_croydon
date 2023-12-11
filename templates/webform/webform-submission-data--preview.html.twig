@@ -12,7 +12,6 @@
  * @ingroup themeable
  */
 #}
-{{ breakpoint() }}
 {%
   set classes = [
     'webform-submission-data',
@@ -29,48 +28,42 @@
 	{% if elements.data %}
 		<dl class="cds-summary-list">
 			{% for page_key,page_value in elements.data %}
-				<div class="cds-summary-list__row">
+				<div
+					class="cds-summary-list__row">
 
-					{# Question column #}
+					{# Webform Page column #}
 					<dt class="cds-summary-list__key">
-						{# question  #}
-						{# <h2>{{ key|capitalize|replace({'_':' '}) }}:</h2> #}
-						{# answer #}
-						{{ elements.data[page_key]['#summary']['page_number'] }}
+						{{ elements.data[page_key]['#summary']['page_key'] }}
 						{{ elements.data[page_key]['#summary']['label'] }}
 					</dt>
 
 					{# Value column #}
 					<dd class="cds-summary-list__value">
-						{% if not elements.data[page_key]['#summary']['value'].key is defined %}
-							{{ elements.data[page_key]['#summary']['value'] }}
-						{% endif %}
-
-						{% if elements.data[page_key]['#summary']['value'] is iterable %}
+						{% if elements.data[page_key]['#summary']['value'] is iterable  %}
+							{# Form elements that are in a fieldset #}
 							{% for key, value in elements.data[page_key]['#summary']['value'] %}
 								{{ elements.data[page_key]['#summary']['value'][key]['label'] }}
 								{{ elements.data[page_key]['#summary']['value'][key]['value'] }}
-								{# {{ elements.data[page_key]['#summary']['value'][key][value] }} #}
-								{# {{ key }} #}
+							</br>
+						{% endfor %}
 
-								</br>
-							{% endfor %}
-						{% endif %}
+					{% else %}
+						{# Single form element #}
+						{{ elements.data[page_key]['#summary']['value'] }}
+					{% endif %}
 
+					{% if elements.data[page_key]['#summary']['value']['#markup'] or
+							elements.data[page_key]['#summary']['value']['#plain_text'] is defined %}
+						{{ elements.data[page_key]['#summary']['value'] }}
+					{% endif %}
 
+				</dd>
+				{# Action column #}
+				<dd class="cds-summary-list__actions">
+					{{ elements.data[page_key]['#summary']['wizard_page_link'] }}
+				</dd>
 
-						{#{  elements.data[key]['#value'] }#}
-					</dd>
-
-
-					{# Action column #}
-					<dd class="cds-summary-list__actions">
-						{{ elements.data[page_key]['#summary']['wizard_page_link'] }}
-					</dd>
-
-				</div>
-			{% endfor %}
-		</dl>
-	{% endif %}
-</div>
-
+			</div>
+		{% endfor %}
+	</dl>
+{% endif %}</div>

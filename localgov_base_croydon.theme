@@ -76,114 +76,59 @@ function localgov_base_croydon_preprocess_paragraph__localgov_box_link(&$variabl
 
 /**
  * Prepares variables for webform submission data templates.
- *
- * Default template: webform-submission-data.html.twig.
- *
- * @param array $variables
- *   An associative array containing:
- *   - data: An array of elements to display in view mode.
- *   - webform_submission: The webform submissions object.
- *   - view_mode: View mode; e.g., 'html', 'text', 'table', 'yaml', etc.
  */
 function localgov_base_croydon_preprocess_webform_submission_data(array &$variables) {
-  $variables['view_mode'] = $variables['elements']['#view_mode'];
-  $variables['webform_submission'] = $variables['elements']['#webform_submission'];
-  if ($variables['webform_submission'] instanceof WebformSubmissionInterface) {
-    $variables['webform'] = $variables['webform_submission']->getWebform();
-  }
-
-  // Webform wizard page number.
-  // Webform element label.
-  // Webform element value.
-  // Webform element fieldset.
-
 
   // Completed Form.
   $completed_form = [];
   $completed_form = $variables["elements"]["data"];
-  $completed_form;
 
-  // Set up the array keys - page number and webfom element key
+  // Set up the array keys.
+  // - Wizard page key.
+  // - Webfom element key.
   foreach ($completed_form as $key => $value) {
     $webform_element_key = array_key_first($value["#value"]['#children']);
 
-    // Page Number
-    $webform_page_number = $value['#element']['#title'];
+    // Page key.
+    $webform_wizard_page_key = $value['#element']['#title'];
 
-    // Label
-    // Form Data - Label
+    // Form Data - Label.
     $webform_element_label = $value["#value"]['#children'][$webform_element_key]['#element']['#title'];
 
-    // Form Data - Answer
+    // Form Data - Value.
     $webform_element_value = $value["#value"]['#children'][$webform_element_key]['#value'];
 
-    $webform_fieldset_element = null;
-
-    // Webform page wizard link.
+    // Webform wizard page link.
     if (array_key_exists('wizard_page_link', $value["#value"]['#children'])) {
-      $webform_wizard_page_link  = $value["#value"]['#children']['wizard_page_link'];
+      $webform_wizard_page_link = $value["#value"]['#children']['wizard_page_link'];
     }
 
-
-    // Form Data - Fieldset
-    // Check if this is a fieldset
+    // Check if this is a fieldset.
+    // Form Data - Fieldset.
+    $webform_fieldset_element = NULL;
     if ($webform_element_value["#type"] == 'fieldset' &&
-      isset($webform_element_value['#children'])){
-
-      // Count how many children
-      $number_of_questions = count($webform_element_value['#children']);
-      $number_of_questions;
-
-      $webform_fieldset_label = $webform_element_value['#title'];
-      $webform_fieldset_label;
+      isset($webform_element_value['#children'])) {
 
       $webform_fieldset_element = [];
       foreach ($webform_element_value['#children'] as $element_key => $element_value) {
-        $webform_fieldset_element[$element_key]['label'] = $webform_element_value['#children'][$element_key]['#element']['#title'];
+        $webform_fieldset_element[$element_key]['label'] = $element_value['#element']['#title'];
         $webform_fieldset_element[$element_key]['value'] = $element_value['#value'];
-        //array_shift($webform_element_value['#children']);
 
-        // Copy Webform fieldset elem
+        // Copy Webform fieldset element.
         $webform_element_value = $webform_fieldset_element;
       }
 
-
-        // $completed_form[$key]['#summary'][$webform_fieldset_label]['label'] =  $value1['#element']['#title'];
-        // $completed_form[$key]['#summary'][$webform_fieldset_label]['value'] =  $value1['#value'];
-
-
-    } else {
-      foreach ($webform_element_value as $key3 => $value3 ) {
+    }
+    else {
+      foreach ($webform_element_value as $key3 => $value3) {
         $webform_element_value = $value3;
       }
     }
-    // Does this have a child
-
-
-    // Check for labels
-
-
-    // Check for
-
-    // $webform_question_answer = $value["#value"]['#children'][$webform_element_key]['#value'];
-
-
-
-    // $number_of_questions;
-    // Loop through children value
-
-    // $webform_quetion_awnser = $variables["elements"]["data"][$key]["#value"]['#children'][$webform_question_key]['#value'];
-
-    $completed_form[$key]['#summary']['page_number'] = $webform_page_number;
+    $completed_form[$key]['#summary']['page_key'] = $webform_wizard_page_key;
     $completed_form[$key]['#summary']['label'] = $webform_element_label;
     $completed_form[$key]['#summary']['value'] = $webform_element_value;
     $completed_form[$key]['#summary']['wizard_page_link'] = $webform_wizard_page_link;
-    //  $completed_form[$key]['#summary'][0]['fieldset'] = $webform_element_value;
-    // $completed_form[$key]['#summary']['#title'][] = $webform_question_awswer;
 
-    // $webform_question_key;
-    // $variables["elements"]["data"][$key]["#value"]['#children'][$webform_question_key] = $completed_form[$key]['#summary']['#title'];
-    // $completed_form[$key]['#summary']['#title'] = [];
   }
   $variables["elements"]["data"] = $completed_form;
 
