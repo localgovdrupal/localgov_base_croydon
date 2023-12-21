@@ -33,7 +33,7 @@
 
 					{# Webform Page column #}
 					<dt class="cds-summary-list__key">
-						{{ elements.data[page_key]['#summary']['page_key'] }}
+						{{ elements.data[page_key]['#summary']['page_title'] }}
 						{{ elements.data[page_key]['#summary']['label'] }}
 					</dt>
 
@@ -42,28 +42,33 @@
 						{% if elements.data[page_key]['#summary']['value'] is iterable  %}
 							{# Form elements that are in a fieldset #}
 							{% for key, value in elements.data[page_key]['#summary']['value'] %}
-								{{ elements.data[page_key]['#summary']['value'][key]['label'] }}
-								{{ elements.data[page_key]['#summary']['value'][key]['value'] }}
-							</br>
-						{% endfor %}
+								{{ elements.data[page_key]['#summary']['value'][key]['label'] }} </br>
+								{{ elements.data[page_key]['#summary']['value'][key]['value'] }} </br>
+							{% endfor %}
 
-					{% else %}
-						{# Single form element #}
-						{{ elements.data[page_key]['#summary']['value'] }}
-					{% endif %}
+							{% else %}
+							{# Single form element #}
+							{{ elements.data[page_key]['#summary']['value'] }}
 
-					{% if elements.data[page_key]['#summary']['value']['#markup'] or
-							elements.data[page_key]['#summary']['value']['#plain_text'] is defined %}
-						{{ elements.data[page_key]['#summary']['value'] }}
-					{% endif %}
+						{% endif %}
 
-				</dd>
-				{# Action column #}
-				<dd class="cds-summary-list__actions">
-					{{ elements.data[page_key]['#summary']['wizard_page_link'] }}
-				</dd>
+						{% if elements.data[page_key]['#summary']['value']['#markup'] or
+								elements.data[page_key]['#summary']['value']['#plain_text'] is defined %}
+							{{ elements.data[page_key]['#summary']['value'] }}
+						{% endif %}
 
-			</div>
-		{% endfor %}
-	</dl>
-{% endif %}</div>
+					</dd>
+
+					{# Action column #}
+					<dd class="cds-summary-list__actions">
+						{{ elements.data[page_key]['#summary']['wizard_page_link'] }}
+					</dd>
+
+				</div>
+
+			{% endfor %}
+		</dl>
+	{% endif %}
+
+</div>
+
