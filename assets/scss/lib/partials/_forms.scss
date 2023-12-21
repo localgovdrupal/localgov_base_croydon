@@ -100,20 +100,28 @@
   }
 
   legend {
-    font-size: 1.25rem;
+    font-size: $h5-font-size;
     margin-bottom: 1.5rem;
     font-family: $font-family-secondary;
     font-weight: 700;
     line-height: 1.2;
     border: 0;
+
+    @include media-breakpoint-up(md) {
+      font-size: $h4-font-size;
+    }
   }
 
   label {
-    font-size: 1.25rem;
+    font-size: $h5-font-size;
     margin-bottom: 1rem;
     font-family: $font-family-secondary;
     font-weight: 700;
     line-height: 1.2;
+
+    @include media-breakpoint-up(md) {
+      font-size: $h4-font-size;
+    }
   }
 
   .description {
@@ -130,6 +138,10 @@
       font-family: $font-family-base;
       font-weight: 400;
       color: $form-description-color;
+
+      @include media-breakpoint-up(md) {
+        font-size: $font-size-ex-lg;
+      }
     }
   }
 
@@ -168,6 +180,10 @@
     font-family: $font-family-base;
     font-weight: 400;
     color: $form-description-color;
+
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-ex-lg;
+    }
   }
 }
 
@@ -237,6 +253,10 @@ label {
   font-family: $font-family-base;
   font-weight: 400;
   font-size: $font-size-med;
+
+  @include media-breakpoint-up(md) {
+    font-size: $font-size-ex-lg;
+  }
 }
 
 .facet-item input[type="checkbox"] + label::after,
@@ -529,19 +549,29 @@ fieldset.radios--wrapper.error,
 fieldset.radios--wrapper.error input[type="radio"] + label.option,
 fieldset.checkboxes--wrapper.error input[type="checkbox"] + label.option,
 .description {
+  font-size: $font-size-med;
   color: $carbon;
+
+  @include media-breakpoint-up(md) {
+    font-size: $font-size-ex-lg;
+  }
 }
 
 // error messages
 
 .form-item--error-message {
   color: $danger;
+  font-size: $font-size-med;
   font-weight: $font-bold;
   display: inline-block;
   width: 100%;
 
   @include rem(padding, 5, 0);
   @include rem(margin-bottom, 10);
+
+  @include media-breakpoint-up(md) {
+    font-size: $font-size-ex-lg;
+  }
 }
 
 fieldset.checkboxes--wrapper.required.error,
@@ -731,10 +761,6 @@ span.facet-item__count {
           }
         }
       }
-
-      &-legend {
-        @extend .h1;
-      }
     }
   }
 }
@@ -742,7 +768,7 @@ span.facet-item__count {
 .webform-type-radios .form-item label,
 .js-form-type-checkbox label {
   position: relative;
-  padding: 0.625rem 0.9375rem 0.625rem 3.438rem !important;
+  padding: 0.5625rem 0.9375rem 0.625rem 3.438rem !important;
 }
 
 .webform-type-radios .form-item,
