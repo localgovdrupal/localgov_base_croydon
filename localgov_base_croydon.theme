@@ -108,7 +108,7 @@ function localgov_base_croydon_preprocess_webform_submission_data(array &$variab
       $webform_wizard_page_link = $page_value["#value"]['#children']['wizard_page_link'];
     }
 
-    // Filter out Form elelemnts
+    // Filter out Form eleemnts
     // Get the webform elements.
     // Anything in the array that is not preceded with a '#'
     // we assume is a webform element.
