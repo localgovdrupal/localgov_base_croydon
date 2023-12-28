@@ -12,7 +12,6 @@
  * @ingroup themeable
  */
 #}
-{{ breakpoint() }}
 {%
   set classes = [
     'webform-submission-data',
@@ -48,12 +47,10 @@
 					{# Value column #}
 					<dd class="cds-summary-list__value">
 						{% if elements.data[page_key]['#summary']['value'] is iterable  %}
-
 							{# Form elements that are in a fieldset #}
 							{% for key, value in elements.data[page_key]['#summary']['value'] %}
 								{% if elements.data[page_key]['#summary']['value'][key]['value']['#type'] == 'fieldset' %}
 									{# Fieldset label #}
-									{# {{ elements.data[page_key]['#summary']['value'][key]['label'] }}</br> #}
 									{% for fieldset_key, fieldset_value in elements.data[page_key]['#summary']['value'][key]['value']['#children'] %}
 										{# Fieldset element label #}
 										{{ elements.data[page_key]['#summary']['value'][key]['value']['#children'][fieldset_key]['#element']['#title'] }}</br>
@@ -65,11 +62,10 @@
 									{{ elements.data[page_key]['#summary']['value'][key]['value'] }} </br>
 								{% endif %}
 							{% endfor %}
-
 						{% endif %}
 					</dd>
 					{# The third column in the summary table #}
-					{# The 'Edit' #}
+					{# The 'Edit' link #}
 					<dd class="cds-summary-list__actions">
 						{{ elements.data[page_key]['#summary']['wizard_page_link'] }}
 					</dd>
