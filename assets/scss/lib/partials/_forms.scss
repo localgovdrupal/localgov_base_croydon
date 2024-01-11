@@ -153,7 +153,7 @@
   input,
   textarea,
   select {
-    font-size: $font-size-ex-med;
+    font-size: $font-size-med;
     display: block;
     width: 100%;
     padding: .375rem .75rem;
@@ -164,6 +164,10 @@
     background-clip: padding-box;
     border: $input-border-size solid $input-border-color;
     border-radius: 0;
+
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-ex-lg;
+    }
   }
 
   input,
@@ -846,4 +850,8 @@ span.facet-item__count {
 main.col-sm-8 .webform-type-fieldset legend,
 .webform-type-fieldset legend {
   margin-bottom: 1rem !important;
+}
+
+.localgov-webform-uk-address--wrapper legend {
+  margin-bottom: 0 !important;
 }
