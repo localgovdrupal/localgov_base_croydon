@@ -108,7 +108,7 @@ function localgov_base_croydon_preprocess_webform_submission_data(array &$variab
       $webform_wizard_page_link = $page_value["#value"]['#children']['wizard_page_link'];
     }
 
-    // Filter out Form eleemnts
+    // Filter out Form elements
     // Get the webform elements.
     // Anything in the array that is not preceded with a '#'
     // we assume is a webform element.
@@ -119,6 +119,18 @@ function localgov_base_croydon_preprocess_webform_submission_data(array &$variab
       if("#" !== substr($element_setting_value, 0, 1)) {
         $webform_element[$element_setting_value]['label'] =  $page_value['#element'][$element_setting_value]['#title'];
         $webform_element[$element_setting_value]['value'] =  $page_value['#value']['#children'][$element_setting_value]['#value'];
+      }
+
+      // Check that the webform element's value is not empty
+      // If it's empty remove the element.
+      if ($webform_element[$element_setting_value]['value'] == null ) {
+        unset($webform_element[$element_setting_value]);
+      }
+
+      // Check if the webform element has a key called 'actions'.
+      // The 'action' array key will be the form submit button.
+      if (array_key_exists('actions', $webform_element)) {
+        unset($webform_element['actions']);
       }
 
       $webform_element_value = $webform_element;
