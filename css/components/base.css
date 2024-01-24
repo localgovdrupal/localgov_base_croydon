@@ -78,3 +78,8 @@ a:focus {
 .lgd-container .lgd-container {
   margin-top: 0;
 }
+/*remove default background used to denote unpublished material for preview link items*/
+.path-preview-link .node--unpublished, 
+.path-preview-link .paragraph--unpublished {
+  background-color:transparent;
+}
