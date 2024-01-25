@@ -27,31 +27,54 @@
 	{% endif %}
 	{% if elements.data %}
 		<dl class="cds-summary-list">
-			{% for key,value in elements.data %}
+			{% for page_key,page_value in elements.data %}
 				<div class="cds-summary-list__row">
-
-					{# Question column #}
+					{# The first column in the summary table #}
+					{# Page label #}
+					{# Question label #}
 					<dt class="cds-summary-list__key">
-						{# question  #}
-						<h2>{{ key|capitalize|replace({'_':' '}) }}:</h2>
-						{# answer #}
-						{{ elements.data[key]['#value'] }}
+						{% if elements.data[page_key]['#summary']['value'] is iterable  %}
+
+							{# Form elements that are in a fieldset #}
+							{% for key, value in elements.data[page_key]['#summary']['value'] %}
+								{{ elements.data[page_key]['#summary']['page_title'] }} </br>
+								{{ elements.data[page_key]['#summary']['value'][key]['label'] }}</br>
+							{% endfor %}
+
+						{% endif %}
 					</dt>
-
+					{# The second column in the summary table #}
 					{# Value column #}
-					<!--
 					<dd class="cds-summary-list__value">
-						{#{  elements.data[key]['#value'] }#}
+						{% if elements.data[page_key]['#summary']['value'] is iterable  %}
+							{# Form elements that are in a fieldset #}
+							{% for key, value in elements.data[page_key]['#summary']['value'] %}
+								{% if elements.data[page_key]['#summary']['value'][key]['value']['#type'] == 'fieldset' %}
+									{# Fieldset label #}
+									{% for fieldset_key, fieldset_value in elements.data[page_key]['#summary']['value'][key]['value']['#children'] %}
+										{# Fieldset element label #}
+										{{ elements.data[page_key]['#summary']['value'][key]['value']['#children'][fieldset_key]['#element']['#title'] }}</br>
+										{# Fieldset element value #}
+										{{ elements.data[page_key]['#summary']['value'][key]['value']['#children'][fieldset_key]['#value'] }} </br>
+									{% endfor %}
+								{% else %}
+									{# Form element values that are not in a fieldset #}
+									{{ elements.data[page_key]['#summary']['value'][key]['value'] }} </br>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
 					</dd>
-					-->
-
-					{# Action column #}
+					{# The third column in the summary table #}
+					{# The 'Edit' link #}
 					<dd class="cds-summary-list__actions">
+						{{ elements.data[page_key]['#summary']['wizard_page_link'] }}
 					</dd>
 
 				</div>
+
 			{% endfor %}
 		</dl>
 	{% endif %}
+
 </div>
 

@@ -73,3 +73,101 @@ function localgov_base_croydon_preprocess_paragraph__localgov_box_link(&$variabl
     $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
   }
 }
+
+/**
+ * Prepares variables for webform submission data templates.
+ */
+function localgov_base_croydon_preprocess_webform_submission_data(array &$variables) {
+
+  // Completed Form.
+  $completed_form = [];
+  $completed_form = $variables["elements"]["data"];
+  foreach ($completed_form as $page_key => $page_value) {
+
+    // Are the elelemnts on a wizard page?
+    // Set up the array keys.
+    // - Wizard page key.
+    // - Webfom element key.
+    if (isset($page_value["#value"]['#children'])) {
+      $webform_element_key = array_key_first($page_value["#value"]['#children']);
+    }
+
+
+    if (isset($page_value['#element']['#webform_key'])) {
+      $webform_wizard_page_key = $page_value['#element']['#webform_key'];
+    }
+
+    // Page title.
+    $webform_wizard_page_title = $page_value['#element']['#title'];
+
+    // Form Data - Label.
+
+    // Webform wizard page link.
+    // The Edit summary button.
+    if (isset($page_value["#value"]['#children']) && array_key_exists('wizard_page_link', $page_value["#value"]['#children'])) {
+      $webform_wizard_page_link = $page_value["#value"]['#children']['wizard_page_link'];
+    }
+
+    // Filter out Form elements
+    // Get the webform elements.
+    // Anything in the array that is not preceded with a '#'
+    // we assume is a webform element.
+    $webform_element = [];
+    $webform_element_value = NULL;
+
+    foreach (array_keys($page_value['#element']) as $element_setting_key => $element_setting_value) {
+      if("#" !== substr($element_setting_value, 0, 1)) {
+        $webform_element[$element_setting_value]['label'] =  $page_value['#element'][$element_setting_value]['#title'];
+        $webform_element[$element_setting_value]['value'] =  $page_value['#value']['#children'][$element_setting_value]['#value'];
+      }
+
+      // Check that the webform element's value is not empty
+      // If it's empty remove the element.
+      if ($webform_element[$element_setting_value]['value'] == null ) {
+        unset($webform_element[$element_setting_value]);
+      }
+
+      // Check if the webform element has a key called 'actions'.
+      // The 'action' array key will be the form submit button.
+      if (array_key_exists('actions', $webform_element)) {
+        unset($webform_element['actions']);
+      }
+
+      $webform_element_value = $webform_element;
+    }
+
+    // Check if this is a fieldset that has form elements in it.
+    // Form Data - Fieldset.
+    $webform_fieldset_element = [];
+    $webform_fieldset_element = NULL;
+
+    if (isset($webform_element_value[$webform_element_key]['value']["#type"]) &&
+      $webform_element_value[$webform_element_key]['value']['#type'] == 'fieldset' &&
+      $webform_element_value[$webform_element_key]['value']['#children'] != NULL ) {
+
+      $webform_fieldset_element = [];
+      // Fieldset label
+      if (isset($webform_element_value['value'])  && $webform_element_value['value'] != NULL ) {
+
+        foreach ($webform_element_value['value']['#children'] as $element_key => $element_value) {
+          $webform_fieldset_element[$element_key]['fieldset_label'] = $webform_element['title'];
+          $webform_fieldset_element[$element_key]['label'] = $element_value['#element']['#title'];
+          $webform_fieldset_element[$element_key]['value'] = $element_value['#value'];
+
+          // Copy Webform fieldset element.
+          $webform_element_value = $webform_fieldset_element;
+        }
+
+      }
+
+    }
+    $completed_form[$page_key]['#summary']['page_key'] = $webform_wizard_page_key;
+    $completed_form[$page_key]['#summary']['page_title'] = $webform_wizard_page_title;
+    // $completed_form[$page_key]['#summary']['label'] = $webform_element_label;
+    $completed_form[$page_key]['#summary']['value'] = $webform_element_value;
+    $completed_form[$page_key]['#summary']['wizard_page_link'] = $webform_wizard_page_link;
+
+  }
+  $variables["elements"]["data"] = $completed_form;
+
+}
