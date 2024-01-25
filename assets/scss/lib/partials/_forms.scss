@@ -100,7 +100,7 @@
   }
 
   legend {
-    font-size: $h2-font-size;
+    font-size: $legend-mobile-font-size;
     margin-bottom: 1.5rem;
     font-family: $font-family-secondary;
     font-weight: 700;
@@ -142,7 +142,7 @@
 
   &.js-form-type-select {
     select {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.75rem;
     }
 
     [id*=after--description] {
@@ -746,7 +746,6 @@ span.facet-item__count {
     .webform-element-description {
       font-size: $font-size-ex-ex-lg;
       padding-bottom: 1rem;
-      margin-bottom: 3rem;
       border-bottom: 0.0625rem solid $gray-light;
     }
 
@@ -756,6 +755,7 @@ span.facet-item__count {
 
         .centralhub-address-lookup,
         .js-address-entry-container {
+          margin-top: 1rem;
           background-color: $gray-lookup;
 
           @include rem(padding, 10);
