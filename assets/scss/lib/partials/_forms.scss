@@ -100,7 +100,7 @@
   }
 
   legend {
-    font-size: $h5-font-size;
+    font-size: $legend-mobile-font-size;
     margin-bottom: 1.5rem;
     font-family: $font-family-secondary;
     font-weight: 700;
@@ -108,7 +108,7 @@
     border: 0;
 
     @include media-breakpoint-up(md) {
-      font-size: $h4-font-size;
+      font-size: $legend-font-size;
     }
   }
 
@@ -121,6 +121,32 @@
 
     @include media-breakpoint-up(md) {
       font-size: $h4-font-size;
+    }
+  }
+
+  &.radios--wrapper {
+    margin-top: 1rem;
+
+    legend {
+      font-size: $h5-font-size;
+      margin-bottom: 1rem;
+      font-family: $font-family-secondary;
+      font-weight: 700;
+      line-height: 1.2;
+
+      @include media-breakpoint-up(md) {
+        font-size: $h4-font-size;
+      }
+    }
+  }
+
+  &.js-form-type-select {
+    select {
+      margin-bottom: 2.75rem;
+    }
+
+    [id*=after--description] {
+      padding-top: 0;
     }
   }
 
@@ -153,7 +179,7 @@
   input,
   textarea,
   select {
-    font-size: $font-size-ex-med;
+    font-size: $font-size-med;
     display: block;
     width: 100%;
     padding: .375rem .75rem;
@@ -164,6 +190,10 @@
     background-clip: padding-box;
     border: $input-border-size solid $input-border-color;
     border-radius: 0;
+
+    @include media-breakpoint-up(md) {
+      font-size: $font-size-ex-lg;
+    }
   }
 
   input,
@@ -716,7 +746,6 @@ span.facet-item__count {
     .webform-element-description {
       font-size: $font-size-ex-ex-lg;
       padding-bottom: 1rem;
-      margin-bottom: 3rem;
       border-bottom: 0.0625rem solid $gray-light;
     }
 
@@ -726,6 +755,7 @@ span.facet-item__count {
 
         .centralhub-address-lookup,
         .js-address-entry-container {
+          margin-top: 1rem;
           background-color: $gray-lookup;
 
           @include rem(padding, 10);
@@ -846,4 +876,13 @@ span.facet-item__count {
 main.col-sm-8 .webform-type-fieldset legend,
 .webform-type-fieldset legend {
   margin-bottom: 1rem !important;
+}
+
+.localgov-webform-uk-address--wrapper legend {
+  margin-bottom: 0 !important;
+}
+
+// reset search input border in masthead
+.lgd-header .lgd-region--search input {
+  border: .06rem solid $checkbox-outline !important;
 }
