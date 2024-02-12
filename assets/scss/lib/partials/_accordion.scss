@@ -53,3 +53,68 @@
   background-color: $accordion-background;
   color: $white;
 }
+
+/* Component added accordions */
+.accordion-pane {
+  &__title {
+    outline: 2px solid lime;
+    button {
+      background: none;
+      color: $carbon;
+    }
+  }
+  &__content {
+    outline: 2px solid orange;
+  }
+
+  .accordion-icon {
+    display: block;
+    outline: 2px solid pink;
+  }
+}
+
+.accordion-icon {
+  align-self: center;
+  margin-left: auto;
+  display: inline;
+}
+
+/*Accordion collapsed down icon*/
+
+.accordion-heading.collapsed .croydon-accordion-icon:after {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f13a";
+  font-weight: 500; /*reduced from 900 to give outlines rather than solid icon*/
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.25rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  text-decoration: none;
+  color:$purple;
+}
+
+
+/*Accordion expanded up icon*/
+
+.accordion-heading .croydon-accordion-icon:after {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f139";
+  font-weight: 500;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.25rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  text-decoration: none;
+  color: #880088;
+}
+
+/* adding a line break before icon */
+
+.accordion-heading.collapsed .croydon-accordion-icon:before,.accordion-heading .croydon-accordion-icon:before {
+  content: "\a";
+  white-space: pre;
+}
+
+
