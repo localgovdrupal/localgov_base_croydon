@@ -56,65 +56,74 @@
 
 /* Component added accordions */
 .accordion-pane {
+  border-bottom: 0.0625rem solid $gray;
+
   &__title {
-    outline: 2px solid lime;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      padding: 0;
+    }
+
     button {
       background: none;
       color: $carbon;
+      border: 0;
+      padding: 0.5rem 0 1.5rem 0;
+
+      &:hover,
+      &:focus {
+        background: $accordion-background-highlight;
+        text-decoration: none;
+      }
+
+      &[aria-expanded="true"] .accordion-icon:before {
+        font-family: $font-family-icons;
+        content: "\f139";
+        font-weight: 500;
+        display: inline-block;
+        text-decoration: none;
+        font-size: $font-size-ex-lg;
+        padding-right: 1rem;
+        padding-top: 1.5rem;
+        color: $purple;
+      }
+
+      &[aria-expanded="true"] .accordion-icon:after {
+        content: "Hide";
+        font-family: $font-family-base;
+        font-size: $font-size-lg;
+        color: $purple;
+      }
+
+      span {
+        pointer-events: none;
+      }
     }
-  }
-  &__content {
-    outline: 2px solid orange;
   }
 
   .accordion-icon {
     display: block;
-    outline: 2px solid pink;
+
+    &:before {
+      font-family: $font-family-icons;
+      content: "\f13a";
+      font-weight: 500;
+      display: inline-block;
+      text-decoration: none;
+      font-size: $font-size-ex-lg;
+      padding-right: 1rem;
+      padding-top: 1.5rem;
+      color: $purple;
+    }
+
+    &:after {
+      content: "Show";
+      font-family: $font-family-base;
+      font-size: $font-size-lg;
+      color: $purple;
+    }
   }
 }
-
-.accordion-icon {
-  align-self: center;
-  margin-left: auto;
-  display: inline;
-}
-
-/*Accordion collapsed down icon*/
-
-.accordion-heading.collapsed .croydon-accordion-icon:after {
-  font-family: "Font Awesome 5 Pro";
-  content: "\f13a";
-  font-weight: 500; /*reduced from 900 to give outlines rather than solid icon*/
-  display: inline-block;
-  text-decoration: none;
-  font-size: 1.25rem;
-  padding-right: 1rem;
-  padding-top: 1.5rem;
-  text-decoration: none;
-  color:$purple;
-}
-
-
-/*Accordion expanded up icon*/
-
-.accordion-heading .croydon-accordion-icon:after {
-  font-family: "Font Awesome 5 Pro";
-  content: "\f139";
-  font-weight: 500;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 1.25rem;
-  padding-right: 1rem;
-  padding-top: 1.5rem;
-  text-decoration: none;
-  color: #880088;
-}
-
-/* adding a line break before icon */
-
-.accordion-heading.collapsed .croydon-accordion-icon:before,.accordion-heading .croydon-accordion-icon:before {
-  content: "\a";
-  white-space: pre;
-}
-
-
