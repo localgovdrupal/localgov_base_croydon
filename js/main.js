@@ -95,6 +95,21 @@
         $('.leaflet-recenter-map').on('click', function(e){
           $("a.leaflet-bar-part.leaflet-bar-part-single")[0].click();
         });
+
+        // handle mobile overlength guide navs set to toggle
+        $(".lgd-guide-nav__content").on('click', function(e) {
+          e.preventDefault();
+          $(".lgd-guide-nav").toggleClass("hidden");
+        });
+        $(window).on( "resize", function() {
+          var windowWidth = $(window).width();
+          if (windowWidth > 768) {
+            $(".lgd-guide-nav").removeClass("hidden");
+          } else {
+            $(".lgd-guide-nav").addClass("hidden");
+          }
+        }).resize();
+
       })
     }
   }

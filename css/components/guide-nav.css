@@ -1,0 +1,12 @@
+.lgd-guide-nav__content {
+  display: block;
+  background-color: var(--color-grey-light);
+  font-size: var(--font-size-h2);
+  font-family: var(--font-secondary);
+}
+
+@media screen and (min-width: 48rem) {
+	.lgd-guide-nav__content {
+		display: none;
+	}
+}
