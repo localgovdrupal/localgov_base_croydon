@@ -98,15 +98,22 @@
 
         // handle mobile overlength guide navs set to toggle
         $(".lgd-guide-nav__content").on('click', function(e) {
-          e.preventDefault();
+          $(this).toggleClass("lgd-guide-nav__open");
           $(".lgd-guide-nav").toggleClass("hidden");
+
+          e.preventDefault();
         });
+
         $(window).on( "resize", function() {
           var windowWidth = $(window).width();
-          if (windowWidth > 768) {
-            $(".lgd-guide-nav").removeClass("hidden");
-          } else {
+              listLength = $('.lgd-guide-nav__list li').length;
+
+          if (windowWidth <= 768 && listLength > 10) {
             $(".lgd-guide-nav").addClass("hidden");
+            $(".lgd-guide-nav__content").css("display", "block");
+          } else {
+            $(".lgd-guide-nav").removeClass("hidden");
+            $(".lgd-guide-nav__content").css();
           }
         }).resize();
 
