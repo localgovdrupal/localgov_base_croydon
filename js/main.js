@@ -108,7 +108,7 @@
           var windowWidth = $(window).width();
               listLength = $('.lgd-guide-nav__list li').length;
 
-          if (windowWidth <= 768 && listLength > 10) {
+          if (windowWidth <= 768 && listLength > 5) {
             $(".lgd-guide-nav").addClass("hidden");
             $(".lgd-guide-nav__content").css("display", "block");
           } else {
