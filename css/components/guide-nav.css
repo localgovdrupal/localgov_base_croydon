@@ -1,0 +1,27 @@
+.lgd-guide-nav__content {
+  display: none; /* hide unless required - state changed via js */
+  background-color: var(--color-grey-light);
+  font-size: var(--font-size-h3);
+  font-family: var(--font-secondary);
+  color: var(--color-black);
+}
+
+.lgd-guide-nav__content:before {
+	font-family: 'Font Awesome 5 Pro';
+	content: '\f078';
+	padding: 0 0.6rem;
+	display: inline-block;
+	text-decoration: none;
+	color: var(--color-black);
+}
+
+.lgd-guide-nav__content.lgd-guide-nav__open:before {
+	content: '\f077';
+}
+
+@media screen and (max-width: 48rem) {
+	.lgd-guide-nav__list {
+		padding-right: 0;
+		padding-left: 0.6rem;
+	}
+}

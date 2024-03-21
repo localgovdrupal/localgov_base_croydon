@@ -83,3 +83,8 @@ a:focus {
 .path-preview-link .paragraph--unpublished {
   background-color:transparent;
 }
+
+.field--name-localgov-contact-heading {
+  color: var(--color-black) !important;
+  margin-top: 0 !important;
+}
