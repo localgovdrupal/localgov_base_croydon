@@ -10,8 +10,6 @@
         font-size: $font-size-ex-med;
       }
 
-      margin-bottom: 1rem;
-
       label {
         font-size: $h4-font-size;
         font-weight: $font-bold;
@@ -571,26 +569,39 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
 }
 
 .facet-filter-visibility {
-  font-size: 1.1875rem;
+  font-size: $font-size-med;
   font-weight: 900;
-  color: $carbon;
-  margin: 0.625rem 0.6235rem 0 0;
+  color: $blue;
+  margin: 0 0 0.625rem 0;
   display: inline-block;
   border-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
 
   &:before {
+    display: inline-block;
     font-family: $font-family-icons;
     content: "\f070";
-    width: 1.2rem;
     padding: 0 0.3rem 0 0;
   }
 }
 
 .facet-filter-visibility--hide-filter {
   &:before {
+    display: inline-block;
     font-family: $font-family-icons;
     content: "\f06e" !important;
-    width: 1.2rem;
     padding: 0 0.3rem 0 0;
   }
+}
+
+.facet-inactive.block-facet-blocklocalgov-directories-facets,
+.block-localgov-directories-channel-search-block { // tighten position of the show hide
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+
+.facets-widget--checkbox { // tighten position of the show hide
+  margin-top:2rem;
+  margin-bottom: 0.625rem !important;
 }
