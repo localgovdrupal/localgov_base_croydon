@@ -288,6 +288,13 @@
     }
   }
 
+  .field--label-above,
+  .field--label-hidden {
+    a {
+      margin-left: 0; // remove margin left for field label links
+    }
+  }
+
   .contact-urls {
     a {
       &:before {
