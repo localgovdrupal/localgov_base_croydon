@@ -286,6 +286,13 @@
     }
   }
 
+  .field--label-above,
+  .field--label-hidden {
+    a {
+      margin-left: 0; // remove margin left for field label links
+    }
+  }
+
   .contact-urls {
     a {
       &:before {
@@ -602,6 +609,6 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
 }
 
 .facets-widget--checkbox { // tighten position of the show hide
-  margin-top:2rem;
+  margin-top: 2rem;
   margin-bottom: 0.625rem !important;
 }
