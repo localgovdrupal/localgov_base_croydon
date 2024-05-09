@@ -176,13 +176,20 @@ function localgov_base_croydon_preprocess_webform_submission_data(array &$variab
  * Implements hook_preprocess_input().
  *
  * Changes:
- * Prevent the selection of multiple files when
- * using the file input dialog.
+ * Prevent the selection of multiple files for
+ * anonymous users when using the file input dialog.
+ *
  */
 function localgov_base_croydon_preprocess_input(&$variables) {
-  if ($variables["element"]["#type"] == "file" && $variables["element"]["#multiple"] > 1 ){
-    // Remove the attribute "multiple" from the
-    // input tag.
-    unset($variables["attributes"]["multiple"]);
+
+  if ( Drupal::currentUser()->isAnonymous()) {
+
+    if ($variables["element"]["#type"] == "file" && $variables["element"]["#multiple"] > 1 ){
+      // Remove the attribute "multiple" from the
+      // input tag.
+      unset($variables["attributes"]["multiple"]);
+    }
+    // Anonymous user...
   }
+
 }
