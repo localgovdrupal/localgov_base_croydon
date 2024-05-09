@@ -74,6 +74,7 @@ body {
   */
   --font-primary: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   --font-secondary: 'Fiendstar W01 Bold', 'Source Sans Pro', Arial, Helvetica, sans-serif;
+  --font-awesome:  'Font Awesome\ 5 Pro';
   /*
     Font sizes based on vertical rhythm of:
     - Font size: 16px;
