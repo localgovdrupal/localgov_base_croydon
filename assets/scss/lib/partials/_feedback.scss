@@ -20,6 +20,10 @@
     font-size: $font-size-base;
     padding-right: .5rem;
   }
+
+  .badge-secondary { // remove the 'new' badge
+    display: none;
+  }
 }
 
 // Remove the formio progress bar
