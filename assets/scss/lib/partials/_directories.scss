@@ -291,6 +291,14 @@
     a {
       margin-left: 0; // remove margin left for field label links
     }
+
+    .field__label {
+      font-size: $h4-font-size;
+    }
+
+    .field__item {
+      font-size: $font-size-lg;
+    }
   }
 
   .contact-urls {
