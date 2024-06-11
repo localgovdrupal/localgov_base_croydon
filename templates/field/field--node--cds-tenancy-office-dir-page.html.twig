@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Theme implementation for a Tenancy office field.
+ *
+ * The Tenancy office content type uses Definition/Description lists to list its
+ * field values.
+ *
+ * Multivalue fields are wrapped in multiple dd tags.
+ */
+#}
+{% if not label_hidden %}
+  <dt>{{ label }}</dt>
+{% endif %}
+{% for item in items %}
+  <dd>{{ item.content }}</dd>
+{% endfor %}
