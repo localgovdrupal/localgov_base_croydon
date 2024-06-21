@@ -612,3 +612,43 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
   margin-top: 2rem;
   margin-bottom: 0.625rem !important;
 }
+
+// Definition list tables
+
+.node--view-mode-cds-definition-list {
+  dl {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    @include rem(margin-bottom, 30);
+
+    .summary-list__row {
+      display: table-row;
+      border-bottom: 0.06rem solid $gray;
+    }
+
+    dt {
+      width: 30%;
+      display: table-cell;
+
+      @extend .h4;
+
+      @include rem(padding-top, 10);
+      @include rem(padding-right, 20);
+      @include rem(padding-bottom, 10);
+    }
+
+    dd {
+      width: 70%;
+      display: table-cell;
+
+      @extend p;
+
+      @include rem(padding-top, 10);
+      @include rem(padding-right, 20);
+      @include rem(padding-bottom, 10);
+    }
+  }
+}

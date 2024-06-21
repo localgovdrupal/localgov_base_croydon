@@ -9,9 +9,11 @@
  * Multivalue fields are wrapped in multiple dd tags.
  */
 #}
+<div class="">
 {% if not label_hidden %}
   <dt>{{ label }}</dt>
 {% endif %}
 {% for item in items %}
   <dd>{{ item.content }}</dd>
 {% endfor %}
+</div>
