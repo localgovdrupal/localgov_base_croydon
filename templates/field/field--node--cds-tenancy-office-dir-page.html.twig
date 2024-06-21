@@ -12,6 +12,8 @@
 <div class="definition-list--row">
 {% if not label_hidden %}
   <dt>{{ label }}</dt>
+  {% else %}
+  <dt><span class="hidden">Additional Information</span></dt>
 {% endif %}
 {% for item in items %}
   <dd>{{ item.content }}</dd>
