@@ -624,13 +624,13 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
 
     @include rem(margin-bottom, 30);
 
-    .summary-list__row {
+    .definition-list--row {
       display: table-row;
       border-bottom: 0.06rem solid $gray;
     }
 
     dt {
-      width: 30%;
+      width: 40%;
       display: table-cell;
 
       @extend .h4;
@@ -641,7 +641,7 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
     }
 
     dd {
-      width: 70%;
+      width: 60%;
       display: table-cell;
 
       @extend p;
