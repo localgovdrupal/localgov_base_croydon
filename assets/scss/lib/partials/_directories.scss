@@ -618,8 +618,8 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
 .node--view-mode-cds-definition-list {
   dl {
     display: table;
-    width: 100%;
     table-layout: fixed;
+    width: 100%;
     border-collapse: collapse;
 
     @include rem(margin-bottom, 30);
@@ -630,25 +630,37 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
     }
 
     dt {
-      width: 40%;
-      display: table-cell;
+      width: 100%;
+      font-weight: $font-bold;
 
-      @extend .h4;
+      @include rem(padding-top, 15);
 
-      @include rem(padding-top, 10);
-      @include rem(padding-right, 20);
-      @include rem(padding-bottom, 10);
+      @include media-breakpoint-up(sm) {
+        display: table-cell;
+        width: 40%;
+
+        @include rem(padding-top, 10);
+        @include rem(padding-right, 20);
+        @include rem(padding-bottom, 10);
+      }
+
+      @extend p;
     }
 
     dd {
-      width: 60%;
-      display: table-cell;
+      width: 100%;
+      padding-right: 0;
+
+      @include media-breakpoint-up(sm) {
+        width: 60%;
+        display: table-cell;
+
+        @include rem(padding-top, 10);
+        @include rem(padding-right, 20);
+        @include rem(padding-bottom, 10);
+      }
 
       @extend p;
-
-      @include rem(padding-top, 10);
-      @include rem(padding-right, 20);
-      @include rem(padding-bottom, 10);
     }
   }
 }
