@@ -30,51 +30,48 @@ img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
 
 .leaflet-recenter-map,
 .leaflet-map-visibility {
-    font-size: 1.1875rem;
-    font-weight: 900;
-    color: #121212;
+    font-size: var(--font-size-small);
+    font-weight: 700;
+    color: var(--color-blue);
     margin: 0 0.625rem 0.625rem 0;
     display: inline-block;
     border-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
-.leaflet-recenter-map,
-.leaflet-map-visibility--hide-map,
-.leaflet-map-visibility {
-    &:hover {
-        color: var(--color-link-focus);
-        background-color: var(--color-focus);
-        text-decoration: none;
-    }
+.leaflet-recenter-map:hover,
+.leaflet-map-visibility--hide-map:hover,
+.leaflet-map-visibility:hover {
+    color: var(--color-link-focus);
+    background-color: var(--color-focus);
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.leaflet-map-visibility {
-    &:before {
-        font-family: Font Awesome\ 5 Pro;
-        content: "\f070";
-        width: 1.2rem;
-        padding: 0rem 0.3rem 0rem 0rem;
-    }
+.leaflet-map-visibility:before,
+.leaflet-recenter-map:before,
+.leaflet-map-visibility--hide-map:before {
+    display: inline-block;
+    font-family: var(--font-awesome);
+    padding: 0 0.3rem 0 0;
+    color: var(--color-black);
 }
-
+.facet-filter-visibility:before {
+    color: var(--color-black);
+}
+.leaflet-map-visibility--hide-map:before {
+    content: "\f06e";
+}
 .leaflet-recenter-map:before {
-    font-family: Font Awesome\ 5 Pro;
     content: "\f78c";
-    padding: 0rem 0.3rem 0rem 0rem;
 }
-
-.leaflet-map-visibility--hide-map {
-    &:before {
-        font-family: Font Awesome\ 5 Pro;
-        content: "\f06e" !important;
-        width: 1.2rem;
-        padding: 0rem 0.3rem 0rem 0rem;
-    }
+.leaflet-map-visibility:before {
+    content: "\f070";
 }
-/* .facet-filter-visibility:before */
 
 .leaflet-div-icon {
-    border: 0px !important;
+    border: 0 !important;
     background-color: transparent !important;
     width: 21px;
     height: 32px;

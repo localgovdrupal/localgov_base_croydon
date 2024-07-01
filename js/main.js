@@ -95,6 +95,28 @@
         $('.leaflet-recenter-map').on('click', function(e){
           $("a.leaflet-bar-part.leaflet-bar-part-single")[0].click();
         });
+
+        // handle mobile overlength guide navs set to toggle
+        $(".lgd-guide-nav__content").on('click', function(e) {
+          $(this).toggleClass("lgd-guide-nav__open");
+          $(".lgd-guide-nav").toggleClass("hidden");
+
+          e.preventDefault();
+        });
+
+        $(window).on( "resize", function() {
+          var windowWidth = $(window).width();
+              listLength = $('.lgd-guide-nav__list li').length;
+
+          if (windowWidth <= 768 && listLength > 5) {
+            $(".lgd-guide-nav").addClass("hidden");
+            $(".lgd-guide-nav__content").css("display", "block");
+          } else {
+            $(".lgd-guide-nav").removeClass("hidden");
+            $(".lgd-guide-nav__content").css();
+          }
+        }).resize();
+
       })
     }
   }
