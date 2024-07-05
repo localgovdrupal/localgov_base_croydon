@@ -55,6 +55,10 @@ img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
     display: inline-block;
     font-family: var(--font-awesome);
     padding: 0 0.3rem 0 0;
+    color: var(--color-black);
+}
+.facet-filter-visibility:before {
+    color: var(--color-black);
 }
 .leaflet-map-visibility--hide-map:before {
     content: "\f06e";
