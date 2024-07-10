@@ -627,6 +627,11 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
     .definition-list--row {
       display: table-row;
       border-bottom: 0.06rem solid $gray;
+
+      &.field--type-datetime > dd { // format dates
+        display: inline-block;
+        padding: 0;
+      }
     }
 
     dt {
