@@ -28,20 +28,3 @@
 
   <dl>{{ content|without('localgov_directory_pseudo_title') }}</dl>
 </article>
-
-/** * Implements hook_preprocess_hook() for hook_preprocess_node__cds_tenancy_office_dir_page__cds_definition_list.
- *
- * Provides localgov_location twice.  This is for ease of styling the
- * location map.
- */
-function localgov_base_croydon_preprocess_node__cds_tenancy_office_dir_page__cds_definition_list(&$variables) {
-
-  if (isset($variables['content']['localgov_location'])) {
-    $variables['content']['localgov_location_copy'] = $variables['content']['localgov_location'];
-  }
-
-  if (isset($variables['content']['localgov_location']['#third_party_settings']['field_formatter_class'])) {
-    $variables['content']['localgov_location']['#third_party_settings']['field_formatter_class']['class'] .= ' localgov_location_original';
-    $variables['content']['localgov_location_copy']['#third_party_settings']['field_formatter_class']['class'] .= ' localgov_location_copy';
-  }
-}
