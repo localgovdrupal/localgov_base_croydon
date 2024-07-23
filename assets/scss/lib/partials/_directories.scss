@@ -614,58 +614,80 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
 }
 
 // Definition list tables
-
-.node--view-mode-cds-definition-list {
-  dl {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-
-    @include rem(margin-bottom, 30);
-
-    .definition-list--row {
-      display: table-row;
-      border-bottom: 0.06rem solid $gray;
-
-      &.field--type-datetime > dd { // format dates
-        display: inline-block;
-        padding: 0;
-      }
-    }
-
-    dt {
+main {
+  .node--view-mode-cds-definition-list {
+    dl {
+      display: table;
+      table-layout: fixed;
       width: 100%;
-      font-weight: $font-bold;
+      border-collapse: collapse;
 
-      @include rem(padding-top, 15);
+      @include rem(margin-bottom, 30);
 
-      @include media-breakpoint-up(sm) {
-        display: table-cell;
-        width: 40%;
+      .definition-list--row {
+        display: table-row;
+        border-bottom: 0.06rem solid $gray;
 
-        @include rem(padding-top, 10);
-        @include rem(padding-right, 20);
-        @include rem(padding-bottom, 10);
+        &.field--type-datetime > dd { // format dates
+          display: inline-block;
+          padding: 0;
+        }
       }
 
-      @extend p;
-    }
+      dt {
+        width: 100%;
+        font-weight: $font-bold;
 
-    dd {
-      width: 100%;
-      padding-right: 0;
+        @include rem(padding-top, 15);
 
-      @include media-breakpoint-up(sm) {
-        width: 60%;
-        display: table-cell;
+        @include media-breakpoint-up(sm) {
+          display: table-cell;
+          width: 40%;
 
-        @include rem(padding-top, 10);
-        @include rem(padding-right, 20);
-        @include rem(padding-bottom, 10);
+          @include rem(padding-top, 10);
+          @include rem(padding-right, 20);
+          @include rem(padding-bottom, 10);
+        }
+
+        @extend p;
       }
 
-      @extend p;
+      dd {
+        width: 100%;
+        padding-right: 0;
+
+        @include media-breakpoint-up(sm) {
+          width: 60%;
+          display: table-cell;
+
+          @include rem(padding-top, 10);
+          @include rem(padding-right, 20);
+          @include rem(padding-bottom, 10);
+        }
+
+        @extend p;
+      }
+
+      .localgov_location_original { // modify block to only show the map
+        display: table-caption;
+        caption-side: bottom;
+
+        .field__label,
+        .contact-address {
+          display: none;
+        }
+
+        .field__item {
+          display: block;
+          padding: 0;
+        }
+      }
+
+      .localgov_location_copy { // modify block to remove duplicate map
+        .field__item {
+          display: none;
+        }
+      }
     }
   }
 }
