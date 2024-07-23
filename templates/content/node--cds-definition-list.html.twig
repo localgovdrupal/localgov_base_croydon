@@ -26,8 +26,5 @@
     {{ content.localgov_directory_pseudo_title }}
   {% endif %}
 
-  <dl>
-    {{ content|without('localgov_directory_pseudo_title') }}
-    {{ content.localgov_location }}
-  </dl>
+  <dl>{{ content|without('localgov_directory_pseudo_title') }}</dl>
 </article>
