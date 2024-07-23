@@ -684,7 +684,7 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
     }
 
     .localgov_location_copy { // modify block to remove duplicate map
-      .field__item {
+      .field--name-location {
         display: none;
       }
     }
