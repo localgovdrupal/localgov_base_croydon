@@ -431,24 +431,17 @@
 
 .subsite-extra .navigation--subsites .menu > .menu-item a {
     background-color: transparent;
-    border-left: 0.0625rem solid var(--color-white);
-    color: var(--color-white);
-    font-weight: var(--heading-font-weight);
+    border-left: 0.0625rem solid $white;
+    color: $white;
+    font-weight: $font-bold;
     padding: 0.5rem 1rem;
 }
 
-.subsite-extra .navigation--subsites .menu > .menu-item a.is-active {
-    background-color: var(--color-grey-lighter);
-    color: var(--color-accent);
-}
-
-.subsite-extra .navigation--subsites .menu > .menu-item a:focus {
-    background-color: var(--color-focus);
-    color: var(--color-black);
-    outline: 3px solid transparent;
-}
-
+.subsite-extra .navigation--subsites .menu > .menu-item a.is-active,
+.subsite-extra .navigation--subsites .menu > .menu-item a:focus,
 .subsite-extra .navigation--subsites .menu > .menu-item a:hover {
+    background-color: $purple;
+    color: $white;
     text-decoration: underline;
 }
 
