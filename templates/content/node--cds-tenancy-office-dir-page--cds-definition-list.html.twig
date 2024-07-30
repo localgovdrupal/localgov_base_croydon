@@ -1,0 +1,30 @@
+{#
+/** 
+ * @file
+ * Theme override to display a node in the Definition list display mode.
+ *
+ * This display mode uses dl/dt/dd tags to list field values.
+ */
+#}
+
+{% set content_type = node.bundle %}
+
+{%
+  set classes = [
+    content_type|clean_class,
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{ attributes.addClass(classes).removeAttribute('role') }}>
+  {% if content.localgov_directory_pseudo_title %}
+    {{ content.localgov_directory_pseudo_title }}
+  {% endif %}
+
+  <dl>{{ content|without('localgov_directory_pseudo_title') }}</dl>
+</article>
