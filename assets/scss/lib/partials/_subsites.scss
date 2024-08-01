@@ -343,26 +343,22 @@
 
 /* subsite extra styling */
 .subsite-extra {
-  // .lgd-header {
-  //   background: $white;
+   .lgd-header {
+     background: $subsite-header;
 
-  //   .branding__item {
-  //     background-color: red;
-  //     display: inline-block;
+     .print__logo {
+      display: block;
+     }
 
-  //     @include rem(height, 60);
+     .branding__logo {
+      display: none;
+     }
 
-  //     img {
-  //       display: none;
-  //     }
-  //   }
-
-  //   &__toggles,
-  //   .menu--main,
-  //   .search-block-form {
-  //     display: none;
-  //   }
-  // }
+    .menu--main > .menu-item a,
+    .lgd-header__toggle span {
+      color: $black;
+    }
+  }
 
   .js-localgov-alert-banner { // hide alert banners on subsite extra
     display: none;
@@ -397,7 +393,6 @@
 
   .block-localgov-subsite-banner {
     .banner--primary {
-
     .field--name-localgov-image {
       max-width: var(--width-container);
       margin-right: auto;
@@ -426,6 +421,23 @@
             background: none;
           }
         }
+      }
+    }
+
+    .action-link {
+      padding-bottom: .5rem;
+      font-size: var(--font-size-large);
+
+      &:before {
+        display: inline-block;
+        margin-right: .5rem;
+        content: '';
+        width: 36px;
+        height: 36px;
+        vertical-align: middle;
+        -webkit-mask-image: url('../../img/arrow-action-link.svg');
+        mask-image: url('../../img/arrow-action-link.svg');
+        background-color: $green-alert;
       }
     }
   }
