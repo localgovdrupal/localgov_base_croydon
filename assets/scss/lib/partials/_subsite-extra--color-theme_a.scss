@@ -1,0 +1,28 @@
+.subsite-extra--color-theme {
+  &_a {
+    .lgd-region--banner .subsites-extra--submenu {
+      background-color: $subsite-purple;
+
+      h2 {
+        color: $white;
+      }
+    }
+    .block-localgov-subsite-banner {
+      .banner--primary {
+        .field--name-localgov-image img {
+          border-left: 0.625rem solid $subsite-purple;
+          border-bottom: 0.375rem solid $subsite-purple;
+        }
+
+        .banner__content {
+          color: $white;
+          background-color: $subsite-purple;
+
+          p {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
