@@ -1,28 +1,98 @@
 .subsite-extra--color-theme {
   &_b {
     .lgd-region--banner .subsites-extra--submenu {
-      background-color: $subsite-blue;
+      background-color: $subsite-accent-b;
 
       h2 {
         color: $white;
       }
     }
+
     .block-localgov-subsite-banner {
       .banner--primary {
         .field--name-localgov-image img {
-          border-left: 0.625rem solid $subsite-blue;
-          border-bottom: 0.375rem solid $subsite-blue;
+          border-left: 0.625rem solid $subsite-accent-b;
+          border-bottom: 0.375rem solid $subsite-accent-b;
         }
 
         .banner__content {
           color: $white;
-          background-color: $subsite-blue;
+          background-color: $subsite-accent-b;
 
           p {
             color: $white;
           }
         }
       }
+    }
+
+    .region-content {
+      p {
+        &.alert-info {
+          border-color: $subsite-accent-b !important; // override important set in alert css
+          color: $subsite-accent-b;
+        }
+
+        a {
+          color: $subsite-accent-b;
+
+          &::before,
+          &::after {
+            background-color: $subsite-accent-b;
+          }
+        }
+
+        &.cta-link {
+          color: $subsite-accent-b;
+
+          &::before,
+          &::after {
+            color: $subsite-accent-b;
+          }
+        }
+
+        &.contact-details {
+          border-left: .125rem solid $subsite-accent-b;
+        }
+      }
+
+      .download-list {
+        a {
+          color: $subsite-accent-b;
+        }
+      }
+
+      h2 {
+        a {
+          color: $subsite-accent-b;
+        }
+      }
+
+      h3 {
+        a {
+          color: $subsite-accent-b;
+        }
+      }
+
+      .btn.btn-start {
+        background-color: $subsite-accent-b;
+        color: $white;
+
+        &:hover,
+        &:focus {
+          background-color: darken($subsite-accent-b, 10%);
+        }
+      }
+
+      .pull-quote.bg-light,
+      .pull-quote.bg-purple-tint {
+        border-left: .3125rem solid $subsite-accent-b;
+        background: none !important; // override important used in bootstrap
+      }
+    }
+
+    .service-landing-page__service-icon svg {
+      fill: $subsite-accent-b;
     }
   }
 }
