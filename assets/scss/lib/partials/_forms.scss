@@ -886,3 +886,11 @@ main.col-sm-8 .webform-type-fieldset legend,
 .lgd-header .lgd-region--search input {
   border: .06rem solid $checkbox-outline !important;
 }
+
+// On LocalGov Webform UK address fieldsets,
+// hide the error message that appears beneath the fieldset title.
+// The user will always see the error message in the fieldset
+// and this it will cut down on the repetition.
+.localgov-webform-uk-address--wrapper .fieldset-wrapper > div.form-item--error-message:first-child {
+  display: none;
+}
