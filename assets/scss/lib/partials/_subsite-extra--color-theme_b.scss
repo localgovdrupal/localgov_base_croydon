@@ -8,7 +8,8 @@
       }
     }
 
-    .view-cds-subsites-extra-banner {
+    .view-cds-subsites-extra-banner,
+    .block-localgov-subsite-banner {
       .banner--primary {
         .field--name-localgov-image img {
           border-left: 0.625rem solid $subsite-accent-b;
