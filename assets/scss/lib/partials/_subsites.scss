@@ -421,7 +421,7 @@
       img {
         border-bottom-left-radius: 1.875rem;
         width: 100%;
-        min-height: 18.75rem;
+        min-height: 23.75rem;
         object-fit: cover;
       }
     }
@@ -429,7 +429,7 @@
     .banner__content {
           position: relative;
           max-width: 40rem;
-          margin: calc(var(5rem)* -1) auto var(5rem);
+          margin: -2.5rem auto 2.5rem;
           padding: 1.5rem;
           border-radius: 0.625rem;
 
@@ -462,7 +462,11 @@
       }
     }
 
-
+    .media-with-text--media-top {
+      img {
+        padding-right: 1.5rem !important;
+      }
+    }
   }
 
 .block-localgov-subsite-banner .banner--primary .banner__content .field--name-localgov-subsites-banner-text {
