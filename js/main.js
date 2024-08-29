@@ -52,6 +52,12 @@
           $('.block-localgov-subsite-navigation .menu-item').toggleClass('menu-item--show');
         });
 
+        /*subsites extra nav*/
+        $('.subsite-extra__header-toggle-button').click(function () {
+          $('#subsite-extra-menu').slideToggle();
+          $('.subsite-extra__header-toggle-button').toggleClass('subsite-extra-menu-arrow');
+        });
+
         // Directories Map Visibility
         $('.leaflet-map-visibility').on('click', function(e){
           $('.leaflet-map-visibility').toggleClass('leaflet-map-visibility--hide-map');

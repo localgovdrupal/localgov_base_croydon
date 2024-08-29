@@ -1,0 +1,99 @@
+.subsite-extra--color-theme {
+  &_e {
+    .lgd-region--banner .subsites-extra--submenu {
+      background-color: $subsite-accent-e;
+
+      h2 {
+        color: $white;
+      }
+    }
+
+    .view-cds-subsites-extra-banner,
+    .block-localgov-subsite-banner {
+      .banner--primary {
+        .field--name-localgov-image img {
+          border-left: 0.625rem solid $subsite-accent-e;
+          border-bottom: 0.375rem solid $subsite-accent-e;
+        }
+
+        .banner__content {
+          color: $white;
+          background-color: $subsite-accent-e;
+
+          p {
+            color: $white;
+          }
+        }
+      }
+    }
+
+    .region-content {
+      p {
+        &.alert-info {
+          border-color: $subsite-accent-e !important; // override important set in alert css
+          color: $subsite-accent-e;
+        }
+
+        a {
+          color: $subsite-accent-e;
+
+          &::before,
+          &::after {
+            background-color: $subsite-accent-e;
+          }
+        }
+
+        &.cta-link {
+          color: $subsite-accent-e;
+
+          &::before,
+          &::after {
+            color: $subsite-accent-e;
+          }
+        }
+
+        &.contact-details {
+          border-left: .125rem solid $subsite-accent-e;
+        }
+      }
+
+      .download-list {
+        a {
+          color: $subsite-accent-e;
+        }
+      }
+
+      h2 {
+        a {
+          color: $subsite-accent-e;
+        }
+      }
+
+      h3 {
+        a {
+          color: $subsite-accent-e;
+        }
+      }
+
+      .btn.btn-start {
+        background-color: $subsite-accent-e;
+        color: $white;
+
+        &:hover,
+        &:focus {
+          background-color: darken($subsite-accent-e, 10%);
+        }
+      }
+
+      .pull-quote.bg-light,
+      .pull-quote.bg-purple-tint {
+        border-left: .3125rem solid $subsite-accent-e;
+        background: none !important; // override important used in bootstrap
+      }
+    }
+
+    .service-landing-page__service-icon svg {
+      fill: $subsite-accent-e;
+    }
+  }
+}
