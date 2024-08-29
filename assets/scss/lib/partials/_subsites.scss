@@ -382,6 +382,57 @@
       text-decoration: none;
     }
 
+    .subsite-extra__header-toggle-button {
+      align-items: center;
+      background-color: transparent;
+      border: 0.0625rem solid $white;
+      color: $white;
+      display: flex;
+      font-weight: 700;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 0.375rem 1rem;
+
+      &:after {
+        font-family: $font-family-icons;
+        content: $fa-chevron-up;
+        display: block;
+      }
+
+      &.subsite-extra-menu-arrow:after {
+        font-family: $font-family-icons;
+        content: $fa-chevron-down;
+        display: block;
+      }
+
+      @media screen and (min-width: 48rem) {
+        display: none;
+      }
+    }
+
+    .padding-horizontal {
+      @media screen and (max-width: 48rem) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    .subsite-extra__title {
+      margin-bottom: 1rem;
+
+      a:focus {
+        color: $carbon;
+      }
+    }
+
+    .subsite-extra__header {
+      display: block;
+
+      @media screen and (max-width: 48rem) {
+        padding-bottom: 1rem;
+      }
+    }
+
     .menu {
       display: flex;
       flex-direction: row;
@@ -400,7 +451,39 @@
         line-height: 1.2;
 
         @media screen and (max-width: 48rem) {
-          @include rem(margin-bottom, 10); 
+          @include rem(margin-bottom, 10);
+        }
+
+        @media screen and (min-width: 48rem) {
+          &:last-of-type a {
+            border-right: 0.0625rem solid $white;
+          }
+        }
+
+        a {
+          background-color: transparent;
+          border-left: 0.0625rem solid $white;
+          color: $white;
+          font-weight: $font-bold;
+          padding: 0.5rem 1rem;
+          display: block;
+          font-size: $font-size-ex-lg;
+          position: relative;
+          height: 100%;
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+            text-decoration: underline;
+            box-shadow: none; // override default outline
+          }
+
+          &.is-active {
+            &:focus,
+            &:hover {
+              text-decoration: none;
+            }
+          }
         }
       }
     }
@@ -409,150 +492,68 @@
   .view-cds-subsites-extra-banner,
   .block-localgov-subsite-banner {
     .banner--primary {
-    .field--name-localgov-image {
-      max-width: var(--width-container);
-      margin-right: auto;
-      margin-left: auto;
-      border-bottom-left-radius: 1rem;
-      border-bottom-right-radius: 1rem;
-      position: static;
-      overflow: hidden;
+      .field--name-localgov-image {
+        max-width: var(--width-container);
+        margin-right: auto;
+        margin-left: auto;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        position: static;
+        overflow: hidden;
 
-      img {
-        border-bottom-left-radius: 1.875rem;
-        width: 100%;
-        min-height: 23.75rem;
-        object-fit: cover;
+        img {
+          border-bottom-left-radius: 1.875rem;
+          width: 100%;
+          min-height: 23.75rem;
+          object-fit: cover;
+        }
       }
-    }
 
-    .banner__content {
-          position: relative;
-          max-width: 40rem;
-          margin: -2.5rem auto 2.5rem;
-          padding: 1.5rem;
-          border-radius: 0.625rem;
+      .banner__content {
+        position: relative;
+        max-width: 40rem;
+        margin: -2.5rem auto 2.5rem;
+        padding: 1.5rem;
+        border-radius: 0.625rem;
 
-          .field--name-localgov-title {
-            background: none;
-            padding: 0;
-          }
+        .field--name-localgov-title {
+          background: none;
+          padding: 0;
+        }
 
-          .field--name-localgov-subsites-banner-text {
-            padding: 0;
-          }
+        .field--name-localgov-subsites-banner-text {
+          padding: 0;
         }
       }
     }
+  }
 
-    .action-link {
-      padding-bottom: .5rem;
-      font-size: var(--font-size-large);
+  .action-link {
+    padding-bottom: .5rem;
+    font-size: var(--font-size-large);
 
-      &:before {
-        display: inline-block;
-        margin-right: .5rem;
-        content: '';
-        width: 36px;
-        height: 36px;
-        vertical-align: middle;
-        -webkit-mask-image: url('../../img/arrow-action-link.svg');
-        mask-image: url('../../img/arrow-action-link.svg');
-        background-color: $green-alert;
-      }
-    }
+    &:before {
+      display: inline-block;
+      margin-right: .5rem;
+      content: '';
+      vertical-align: middle;
+      -webkit-mask-image: url('../../img/arrow-action-link.svg');
+      mask-image: url('../../img/arrow-action-link.svg');
+      background-color: $green-alert;
 
-    .media-with-text--media-top {
-      img {
-        padding-right: 1.5rem !important;
-      }
+      @include rem(width, 36);
+      @include rem(height, 36);
     }
   }
 
+  .media-with-text--media-top {
+    img {
+      padding-right: 1.5rem !important;
+    }
+  }
+}
+
+// specificity overrides
 .block-localgov-subsite-banner .banner--primary .banner__content .field--name-localgov-subsites-banner-text {
   background: none !important; //override of background set in banner css
-}
-
-.subsite-extra .navigation--subsites .menu > .menu-item a {
-  background-color: transparent;
-  border-left: 0.0625rem solid $white;
-  color: $white;
-  font-weight: $font-bold;
-  padding: 0.5rem 1rem;
-  display: block;
-  font-size: $font-size-ex-lg;
-  position: relative;
-  height: 100%;
-  text-decoration: none;
-}
-
-.subsite-extra .navigation--subsites .menu > .menu-item a.is-active {
-  &:focus,
-  &:hover {
-    text-decoration: none;
-  }
-}
-.subsite-extra .navigation--subsites .menu > .menu-item a:focus,
-.subsite-extra .navigation--subsites .menu > .menu-item a:hover {
-  text-decoration: underline;
-  box-shadow: none; // override default outline
-}
-
-@media screen and (min-width: 48rem) {
-  .subsite-extra .navigation--subsites .menu > .menu-item:last-of-type a {
-    border-right: 0.0625rem solid $white;
-  }
-}
-
-.subsite-extra .navigation--subsites .subsite-extra__header {
-  display: block;
-}
-
-@media screen and (max-width: 48rem) {
-  .subsite-extra .navigation--subsites .subsite-extra__header {
-    padding-bottom: 1rem;
-  }
-}
-
-@media screen and (max-width: 48rem) {
-  .subsite-extra .navigation--subsites .padding-horizontal {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-.subsite-extra .navigation--subsites .subsite-extra__title {
-  margin-bottom: 1rem;
-}
-
-.subsite-extra .navigation--subsites .subsite-extra__title a:focus {
-  color: $carbon;
-}
-
-.subsite-extra .navigation--subsites .subsite-extra__header-toggle-button {
-  align-items: center;
-  background-color: transparent;
-  border: 0.0625rem solid $white;
-  color: $white;
-  display: flex;
-  font-weight: 700;
-  gap: 0.5rem;
-  justify-content: center;
-  padding: 0.375rem 1rem;
-
-  &:after {
-    font-family: $font-family-icons;
-    content: $fa-chevron-up;
-    display: block;
-  }
-
-  &.subsite-extra-menu-arrow:after {
-    font-family: $font-family-icons;
-    content: $fa-chevron-down;
-    display: block;
-  }
-
-  @media screen and (min-width: 48rem) {
-    display: none;
-  }
 }
