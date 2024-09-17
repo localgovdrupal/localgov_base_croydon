@@ -2,7 +2,6 @@
   "ignoreFiles": [
     "assets/scss/lib/partials/_google-search.scss",
     "assets/scss/lib/partials/_design-system.scss",
-    "assets/scss/lib/partials/_formio.scss",
     "assets/scss/lib/_functions.scss",
     "assets/scss/lib/_variables-croydon.scss",
     "assets/scss/lib/vendor/*"
