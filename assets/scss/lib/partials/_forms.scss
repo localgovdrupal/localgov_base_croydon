@@ -886,3 +886,8 @@ main.col-sm-8 .webform-type-fieldset legend,
 .lgd-header .lgd-region--search input {
   border: .06rem solid $checkbox-outline !important;
 }
+
+// DropZone file upload exceeds the maximum permitted file size
+.dropzone .dz-preview.dz-error .dz-error-mark {
+  filter: invert(33%) sepia(100%) saturate(6230%) hue-rotate(331deg) brightness(101%) contrast(101%);
+}
