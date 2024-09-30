@@ -18,10 +18,14 @@ libraries:
   - localgov_base_croydon/secondary-menu
   - localgov_base_croydon/wysiwyg-styles
   - localgov_base_croydon/leaflet
+  - localgov_base_croydon/dropzonejs-error-message
 libraries-override:
   localgov_base/header-js:
     js:
       js/header.js: js/header.js
+  dropzonejs/integration:
+    js:
+      js/dropzone.integration.js: js/dropzone.integration.js
 regions:
   tabs: "Tabs"
   header: "Header"

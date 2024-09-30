@@ -75,3 +75,11 @@ leaflet:
   css:
     theme:
       css/components/leaflet.css: {}
+
+dropzonejs-error-message:
+  js:
+    assets/js/dropzonejs-error-message.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/jquery
