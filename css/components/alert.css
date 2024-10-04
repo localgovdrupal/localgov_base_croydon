@@ -28,6 +28,19 @@
   font-size: var(--font-size-small);
   position: relative;
 }
+.localgov-alert-banner__content {
+  position: relative;
+}
+.localgov-alert-banner .localgov-alert-banner__content:before {
+  position: absolute;
+  left: 0;
+  font-size: var(--font-size-h2);
+  font-family: 'Font Awesome 5 Pro';
+  content: '\f06a';
+  margin: 0;
+  padding: 0;
+  top: -10px;
+}
 
 .localgov-alert-banner .localgov-alert-banner--content-link {
   display: none; /*not used*/
@@ -47,15 +60,4 @@
   display: inline;
   margin-top: 4px;
   margin-bottom: 4px;
-}
-
-.localgov-alert-banner .localgov-alert-banner__title:before {
-  position: absolute;
-  left: -40px;
-  font-size: var(--font-size-h2);
-  font-family: 'Font Awesome 5 Pro';
-  content: '\f06a';
-  margin: 0;
-  padding: 0;
-  top: 1px;
 }
