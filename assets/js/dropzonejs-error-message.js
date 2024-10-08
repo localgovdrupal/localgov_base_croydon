@@ -13,6 +13,13 @@
       // Options for the observer (which mutations to observe)
       const config = { attributes: false, childList: true, subtree: true };
 
+      // DIV within the dropsonetemplate that will contain the the error message
+      const pageTemplateDivId = document.getElementById("dz-static-error");
+
+      var error_messages = [];
+
+
+
       // Callback function to execute when mutations are observed
       const callback = (mutationList, observer) => {
         for (const mutation of mutationList) {
@@ -24,26 +31,64 @@
                 // Detect the dynmically created DIV that contains the error messsage
                 let file_has_error = node.childNodes[7].innerText;
 
-                var error_messages = [file_has_error];
+                error_messages.push(file_has_error);
 
-                // DIV within the dropsonetemplate that will contain the the error message
-                var pageTemplateDivId = document.getElementById("dz-static-error");
 
-                // Adds the error message to the top of the dropzone
-                pageTemplateDivId.innerHTML += file_has_error + "</br>";
+                // Adds the last error message to the top of the dropzone
+                pageTemplateDivId.innerHTML = error_messages.slice(-1) + "</br>";
+
+                // Add error styling to paarent DIV form-item
+                $('#edit-documents').parent('div').addClass("form-item--error");
+
+                // Disable the Next
+                $('input.form-submit[type="submit"]').prop('disabled', true);
+
+                console.log(error_messages);
+
+
+                // // Dropzone edit document Div
+                // $('#edit-documents').addClass('error');
 
                 // Prevent moving forward or submitting the
-                // form if there is a file upload error
-                $('.form-submit').prop('disabled', true);
-
-
-                //console.log(error_messages);
+                // form if there are file upload errors;
               }
             }
           } else if (mutation.type === "attributes") {
             console.log( `The ${mutation.attributeName} attribute was modified.`);
           }
+
+          if ($('#edit-documents').has('div.dz-success.dz-complete').length != 0 &&
+            (!$('#edit-documents').has('div.dz-error.dz-complete').length != 0)) {
+            console.log("No Upload Errors");
+            // Remove error styling
+            $('#dz-static-error').html("");
+
+            $('.form-item--error-message').html("");
+
+            $('#edit-documents').removeClass("error");
+
+            $('#edit-documents').parent('div').removeClass("form-item--error");
+
+            $('input.form-submit[type="submit"]').prop('disabled', false);
+          }
+
+          if($('#edit-documents').has('div.dz-error.dz-complete').length != 0) {
+            console.log("There are Upload Errors");
+
+            // Disable the next page or submit button
+            // $('form-submit').prop('disabled', true);
+
+
+          }
+
+          if(!$('#edit-documents').has('div.dz-preview').length != 0) {
+            console.log("No Files Uploaded yet");
+            $('#dz-static-error').html("");
+          }
+
         }
+
+
       };
 
       // Create an observer instance linked to the callback function
