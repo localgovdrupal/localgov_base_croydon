@@ -16,9 +16,10 @@
       // DIV within the dropsonetemplate that will contain the the error message
       const pageTemplateDivId = document.getElementById("dz-static-error");
 
+      // Maximun number of file uploads
+      const maxFileUploads = settings.dropzonejs.instances["edit-documents"].maxFiles;
+
       var error_messages = [];
-
-
 
       // Callback function to execute when mutations are observed
       const callback = (mutationList, observer) => {
@@ -26,64 +27,90 @@
           if (mutation.type === "childList") {
             for (const node of mutation.addedNodes) {
               // Check if the file added to DropZone triggers an error message.
-              if (node.nodeName === "DIV" && node.childNodes.hasOwnProperty(7) &&node.childNodes[7].childNodes[0].innerHTML !== "") {
+              if (node.nodeName === "DIV" && node.childNodes.hasOwnProperty(7) && node.childNodes[7].childNodes[0].innerHTML !== "") {
 
-                // Detect the dynmically created DIV that contains the error messsage
+                // Detect the dynmically created file preview divs
+                // that contain the error messsages
                 let file_has_error = node.childNodes[7].innerText;
 
                 error_messages.push(file_has_error);
 
+               // console.log(error_messages);
 
-                // Adds the last error message to the top of the dropzone
-                pageTemplateDivId.innerHTML = error_messages.slice(-1) + "</br>";
-
-                // Add error styling to paarent DIV form-item
-                $('#edit-documents').parent('div').addClass("form-item--error");
-
-                // Disable the Next
-                $('input.form-submit[type="submit"]').prop('disabled', true);
-
-                console.log(error_messages);
-
-
-                // // Dropzone edit document Div
-                // $('#edit-documents').addClass('error');
-
-                // Prevent moving forward or submitting the
-                // form if there are file upload errors;
               }
+
             }
           } else if (mutation.type === "attributes") {
             console.log( `The ${mutation.attributeName} attribute was modified.`);
           }
-
+          // If there are no file upload errors we clear down
+          // any previous error messages and error styling
+          // from the dropszone
           if ($('#edit-documents').has('div.dz-success.dz-complete').length != 0 &&
             (!$('#edit-documents').has('div.dz-error.dz-complete').length != 0)) {
-            console.log("No Upload Errors");
-            // Remove error styling
+
+            // No Upload Errors
+            // Remove the form-item--error styling which presents as
+            // the vertical red msrgin arround the field
+            $('#edit-documents').parent('div').removeClass("form-item--error");
+
+            // Remove error wording from
+            // dz-static-error div
             $('#dz-static-error').html("");
 
+            // Remove error wording from
             $('.form-item--error-message').html("");
 
             $('#edit-documents').removeClass("error");
 
-            $('#edit-documents').parent('div').removeClass("form-item--error");
-
+            // Disable the next nd submit button
             $('input.form-submit[type="submit"]').prop('disabled', false);
           }
 
+          //
           if($('#edit-documents').has('div.dz-error.dz-complete').length != 0) {
-            console.log("There are Upload Errors");
+            // There are Upload Errors
+            // Add the last error message to the dz-static-error div top of the  dropzone
+            pageTemplateDivId.innerHTML = error_messages.slice(-1) + "</br>";
 
-            // Disable the next page or submit button
-            // $('form-submit').prop('disabled', true);
+            // Add error styling to paarent DIV form-item
+            $('#edit-documents').parent('div').addClass("form-item--error");
 
+            // Because there are file upload errors,
+            // disable the next and submit button so the files cannot be uploaded
+            $('input.form-submit[type="submit"]').prop('disabled', true);
 
           }
 
+          // Reset the dz-static-error div
+          // because the dropzone is empty
           if(!$('#edit-documents').has('div.dz-preview').length != 0) {
-            console.log("No Files Uploaded yet");
+          // No Files Uploaded yet
             $('#dz-static-error').html("");
+          }
+
+          // If we have reached the maximum number of file uploads allowed
+          // we need to place that error message in the
+          // dz-static-error div and add some errror styling
+          if ($('#edit-documents').hasClass('dz-max-files-reached')) {
+          // File Upload limit reached
+
+            // Clear down the previous error message
+            $('.form-item--error-message').html("");
+
+            // Add error styling to paarent DIV form-item
+            $('#edit-documents').parent('div').addClass("form-item--error");
+
+            pageTemplateDivId.innerHTML = error_messages.slice(-1) + "</br>";
+
+          }
+
+          if ($('#edit-documents').hasClass('dz-max-files-reached') &&  $('#edit-documents').parent('div').has("form-item--error")) {
+          // Max file upload reached
+
+            $('#dz-static-error').html("");
+            pageTemplateDivId.innerHTML = "You have reached the maximum file upload limit" + "</br>";
+
           }
 
         }
