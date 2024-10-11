@@ -29,7 +29,9 @@
           dictDefaultMessage: Drupal.t('Drop files here to upload'),
           dictFallbackMessage: Drupal.t('Your browser does not support drag\'n\'drop file uploads.'),
           dictFallbackText: Drupal.t('Please use the fallback form below to upload your files like in the olden days.'),
-          dictFileTooBig: Drupal.t('File is too big ({{filesize}}MB). Max filesize: {{maxFilesize}}MB. Please REMOVE the file.'),
+          // Modified max file size message
+          // dictFileTooBig: Drupal.t('File is too big ({{filesize}}MB). Max filesize: {{maxFilesize}}MB. Please REMOVE the file.'),
+          dictFileTooBig: Drupal.t('Files marked with a cross are too large. Remove them before continuing.'),
           dictInvalidFileType: Drupal.t('You can\'t upload files of this type.'),
           dictResponseError: Drupal.t('Server responded with {{statusCode}} code.'),
           dictCancelUpload: Drupal.t('Cancel upload'),
