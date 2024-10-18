@@ -124,9 +124,9 @@
 
 @include media-breakpoint-up(lg) {
   .banner-full {
-    height: 35vh;
+    height: 20vh;
 
-    @include rem(min-height, 300);
+    @include rem(min-height, 195);
 
     .btn {
       font-size: 1.5rem;
