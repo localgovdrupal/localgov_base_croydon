@@ -44,8 +44,8 @@
 
         @include media-breakpoint-up(sm) {
           position: relative;
-          width: calc(25% - 0.46875rem);
-          max-width: calc(25% - 0.46875rem);
+          width: calc(33.3% - 0.46875rem);
+          max-width: calc(33.3% - 0.46875rem);
           flex: 0 0 auto;
 
           @include rem(margin-bottom, 20);
@@ -53,8 +53,8 @@
 
         @include media-breakpoint-up(md) {
           position: relative;
-          width: calc(25% - 0.9375rem);
-          max-width: calc(25% - 0.9375rem);
+          width: calc(33.3% - 0.9375rem);
+          max-width: calc(33.3% - 0.9375rem);
           flex: 0 0 auto;
 
           @include rem(margin-bottom, 20);

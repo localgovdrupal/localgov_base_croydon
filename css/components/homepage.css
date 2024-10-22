@@ -43,6 +43,14 @@
   margin-bottom: 0
 }
 
+.path-frontpage .homepage-header {
+  margin: 0;
+}
+
+.path-frontpage .lgd-page-section--no-bg-colour .layout--onecol .layout__region {
+  padding-bottom: 0;
+}
+
 .path-frontpage .layout--onecol .row {
   margin: 0;
   padding-bottom: 0
@@ -140,8 +148,8 @@
 @media (min-width:576px) {
   .path-frontpage .news-list div>a {
     width: 30%;
-    float: right;
-    margin-left: 1rem
+    float: left;
+    margin-right: 1rem
   }
 }
 
@@ -176,7 +184,8 @@
 }
 
 .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--second {
-  padding-left: .9375rem
+  padding-left: .9375rem;
+  background-color: var(--color-grey-light);
 }
 .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--bottom {
   padding: 0;
@@ -228,14 +237,22 @@
   font-size: 2rem
 }
 
-.path-frontpage .featured-subsite__title a {
+.path-frontpage .featured-subsite {
+  background-color: var(--color-accent);
+}
+.path-frontpage .featured-subsite__title a,
+.path-frontpage .featured-subsite__title a:visited {
   word-break: break-word;
   line-height: 2rem;
-  color: var(--color-black);
+  color: var(--color-white);
 }
 
 .path-frontpage .featured-subsite__summary {
-  font-size: 1.125rem
+  font-size: 1.125rem;
+}
+
+.path-frontpage .featured-subsite__summary .field__item {
+  color: var(--color-white);
 }
 
 @media (min-width:576px) {
@@ -309,6 +326,8 @@
 .path-frontpage .social-media-subscription-panel__links a:after {
   display: none
 }
+
+
 
 .node--localgov_subsites_overview .jumbotron.home-1 {
   background-color: #808
