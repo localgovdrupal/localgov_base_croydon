@@ -172,3 +172,51 @@
     }
   }
 }
+
+// special outlined links styled as buttons for the homepage
+
+.path-frontpage .media-with-text--media-top .media-with-text__link {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  font-size: $font-size-ex-med;
+  font-weight: $font-bold;
+  text-decoration: none;
+  background-color: $link-button;
+  outline: 0.0625rem solid $white;
+  color: $white;
+  justify-content: left;
+
+  @include rem(padding, 15);
+  @include rem(line-height, 22);
+
+  @extend .col-8;
+
+  &:after {
+    display: flex;
+    align-items: center;
+    font-family: $font-family-icons;
+    content: $fa-chevron-right;
+    font-weight: $fa-font-weight;
+    font-size: $font-size-ex-lg;
+    position: absolute;
+    right: 1rem;
+
+    @include rem(margin-top, 2);
+  }
+
+  &:hover {
+    color: $link-button-text-focus;
+    text-decoration: none;
+    background: $highlight !important;
+  }
+
+  &:focus {
+    @include outline(.1875rem, -.1875rem, $focus);
+
+    span,
+    &:after {
+      color: $link-button-text-focus;
+    }
+  }
+}

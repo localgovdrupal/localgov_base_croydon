@@ -183,10 +183,6 @@
   padding-right: .9375rem
 }
 
-.path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--second {
-  padding-left: .9375rem;
-  background-color: var(--color-grey-light);
-}
 .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--bottom {
   padding: 0;
 }
@@ -209,6 +205,22 @@
 .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--bottom .box-link a span:before {
   top: .3rem;
   font-size: 1.05rem
+}
+
+.path-frontpage .media-with-text--media-top {
+  background-color: var(--color-accent);
+}
+
+.path-frontpage .media-with-text--media-top .media-with-text__body {
+  padding: 20px;
+}
+
+.path-frontpage .media-with-text--media-top h2 {
+  color: var(--color-white);
+}
+
+.path-frontpage .media-with-text--media-left {
+  padding-bottom: 0;
 }
 
 .path-frontpage .paragraph--type--localgov-subscribe-panel {
@@ -235,16 +247,6 @@
   width: inherit;
   height: inherit;
   font-size: 2rem
-}
-
-.path-frontpage .featured-subsite {
-  background-color: var(--color-accent);
-}
-.path-frontpage .featured-subsite__title a,
-.path-frontpage .featured-subsite__title a:visited {
-  word-break: break-word;
-  line-height: 2rem;
-  color: var(--color-white);
 }
 
 .path-frontpage .featured-subsite__summary {
