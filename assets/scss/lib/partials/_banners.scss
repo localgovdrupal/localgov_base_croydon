@@ -137,11 +137,3 @@
     }
   }
 }
-
-@media (min-width: 120rem) { // custom breakpoint
-  .banner-full {
-    height: 40vh;
-
-    @include rem(min-height, 400);
-  }
-}
