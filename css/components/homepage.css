@@ -149,22 +149,6 @@
   margin-bottom: 1rem
 }
 
-@media (min-width:576px) {
-  .path-frontpage .news-list div>a {
-    width: 30%;
-    float: left;
-    margin-right: 1rem
-  }
-}
-
-.path-frontpage .news-list div>a img {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-width: 90px;
-  min-width: 5.625rem
-}
-
 .path-frontpage .news-list time {
   font-size: .9375rem;
   margin-bottom: 0
