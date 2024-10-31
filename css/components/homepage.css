@@ -127,6 +127,10 @@
   padding-bottom: 1.25rem
 }
 
+.path-frontpage .news-list:last-child {
+  border-bottom: 0;
+}
+
 .path-frontpage .news-list h3,
 .path-frontpage .news-list p {
   width: auto;
@@ -226,7 +230,7 @@
 }
 
 .path-frontpage .media-with-text--media-top .media-with-text__body {
-  padding: 20px 20px 26px 20px;
+  padding: 20px;
 }
 
 .path-frontpage .media-with-text--media-top h2 {
