@@ -10,6 +10,10 @@
 .box-links-listing {
   margin-bottom: 0 !important;
 
+  &__list-item {
+    margin-bottom: 0.625rem !important;
+  }
+
   &--boxes {
     width: 100%;
     margin: 0;
@@ -72,7 +76,7 @@
             color: $purple;
             align-items: center;
             background: $gray-tint;
-            border-bottom: 0.3rem solid $purple;
+            border-bottom: 0.25rem solid $purple;
             width: auto;
             text-decoration: none;
             box-shadow: none;
@@ -93,13 +97,13 @@
             @include media-breakpoint-up(md) {
               font-size: $font-size-ex-ex-lg;
 
-              @include rem(padding, 16);
+              @include rem(padding, 11);
             }
 
             &:hover,
             &:focus {
               background: $primary;
-              border-bottom: 0.3rem solid $focus;
+              border-bottom: 0.25rem solid $focus;
               color: $white;
             }
 

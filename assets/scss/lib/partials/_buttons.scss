@@ -186,6 +186,11 @@
   outline: 0.0625rem solid $white;
   color: $white;
   justify-content: left;
+  max-width: 100%;
+
+  @include media-breakpoint-up(sm) {
+    max-width: 60%;
+  }
 
   @include rem(padding, 15);
   @include rem(line-height, 22);

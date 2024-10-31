@@ -65,6 +65,7 @@
 
   h1 {
     color: $white;
+    padding-right: 0;
   }
 
   .btn {
@@ -124,7 +125,7 @@
 
 @include media-breakpoint-up(lg) {
   .banner-full {
-    height: 20vh;
+    height: 19.6vh;
 
     @include rem(min-height, 195);
 
