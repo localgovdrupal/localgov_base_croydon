@@ -352,7 +352,10 @@
 .path-frontpage .social-media-subscription-panel__links a:after {
   display: none
 }
-
+/* specifically alter the default margins on the do it online buttons to close gap before header */
+.path-frontpage .field--name-localgov-subsites-content > .field__item:nth-child(2) .lgd-container {
+  margin-top: 0.5rem;
+}
 
 
 .node--localgov_subsites_overview .jumbotron.home-1 {
