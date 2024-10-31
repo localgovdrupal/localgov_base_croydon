@@ -113,3 +113,11 @@ main a[href^="mailto:"],
 .node--type-localgov-subsites-page .layout--onecol__flexible .layout__region--content.row {
   margin-left: 0;
 }
+
+// flip the font awesome phone icon back the right way after font awesome changed its orientation iin the codebase
+
+.fa-phone {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
