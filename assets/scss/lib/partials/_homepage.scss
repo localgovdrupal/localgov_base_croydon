@@ -139,12 +139,31 @@
 
   .paragraph--type--page-section {
     .layout--twocol {
-      .layout__region--first {
-        @include rem(padding-right, 15);
-      }
+      .media-with-text--featured {
+        border: 0;
+        background-color: none;
 
-      .layout__region--second {
-        @include rem(padding-left, 15);
+        h2 {
+          display: none;
+        }
+
+        a {
+          display: block;
+          outline: none;
+          max-width: 100%;
+          text-decoration: underline;
+
+          @extend .h2;
+
+          &:after {
+            display: none;
+          }
+
+          &:hover,
+          &:focus {
+            text-decoration: none;
+          }
+        }
       }
 
       .layout__region--bottom {
@@ -280,10 +299,22 @@
     }
   }
 
-  &.page-node-type-localgov-subsites-overview .layout--twocol {
-    h2 {
-      &.w-auto {
-        margin-top: 3rem !important; // force global margin to return as it has inherited a subsites setting
+  .media-with-text {
+    &--featured {
+      padding-bottom: 0;
+    }
+
+    &--media-left {
+      .media-with-text__body {
+        align-self: center;
+      }
+    }
+
+    &--media-top {
+      padding-bottom: 0;
+
+      .media-with-text__media {
+        margin-bottom: 0;
       }
     }
   }

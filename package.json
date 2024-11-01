@@ -17,10 +17,6 @@
     "sass": "^1.36.0"
   },
   "devDependencies": {
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.18.0",
     "browser-sync": "^2.26.13",
     "cssnano": "^4.1.10",
     "del": "^4.1.1",
@@ -44,7 +40,11 @@
     "postcss-reporter": "^6.0.1",
     "postcss-scss": "^2.1.1",
     "ruby": "^0.6.1",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0"
   },
   "engines": {
     "node": ">=10.0.0"

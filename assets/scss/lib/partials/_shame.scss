@@ -113,3 +113,8 @@ main a[href^="mailto:"],
 .node--type-localgov-subsites-page .layout--onecol__flexible .layout__region--content.row {
   margin-left: 0;
 }
+
+// flip the font awesome phone icon back the right way after font awesome changed its orientation in the codebase
+.fa-phone {
+  transform: scaleX(-1);
+}

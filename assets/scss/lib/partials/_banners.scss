@@ -65,6 +65,7 @@
 
   h1 {
     color: $white;
+    padding-right: 0;
   }
 
   .btn {
@@ -124,9 +125,9 @@
 
 @include media-breakpoint-up(lg) {
   .banner-full {
-    height: 35vh;
+    height: 19.6vh;
 
-    @include rem(min-height, 300);
+    @include rem(min-height, 195);
 
     .btn {
       font-size: 1.5rem;
@@ -135,13 +136,5 @@
     .form-control {
       font-size: 1.5rem;
     }
-  }
-}
-
-@media (min-width: 120rem) { // custom breakpoint
-  .banner-full {
-    height: 40vh;
-
-    @include rem(min-height, 400);
   }
 }
