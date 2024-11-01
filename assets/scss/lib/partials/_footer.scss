@@ -144,10 +144,10 @@
 
         i {
           display: block;
+          padding-top: 0;
 
           @include rem(font-size, 35);
-          @include rem(line-height, 26);
-          @include rem(padding-top, 3);
+          @include rem(line-height, 30);
         }
 
         &:hover,
@@ -155,7 +155,8 @@
           background: transparent;
           color: $white !important;
           box-shadow: 0 0 0 0.2rem $yellow;
-          border-radius: 0.1875rem;
+
+          @include rem(border-radius, 4);
         }
       }
     }

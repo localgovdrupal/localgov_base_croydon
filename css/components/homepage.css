@@ -43,6 +43,14 @@
   margin-bottom: 0
 }
 
+.path-frontpage .homepage-header {
+  margin: 0;
+}
+
+.path-frontpage .lgd-page-section--no-bg-colour .layout--onecol .layout__region {
+  padding-bottom: 0;
+}
+
 .path-frontpage .layout--onecol .row {
   margin: 0;
   padding-bottom: 0
@@ -119,6 +127,10 @@
   padding-bottom: 1.25rem
 }
 
+.path-frontpage .news-list:last-child {
+  border-bottom: 0;
+}
+
 .path-frontpage .news-list h3,
 .path-frontpage .news-list p {
   width: auto;
@@ -135,22 +147,6 @@
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 1rem
-}
-
-@media (min-width:576px) {
-  .path-frontpage .news-list div>a {
-    width: 30%;
-    float: right;
-    margin-left: 1rem
-  }
-}
-
-.path-frontpage .news-list div>a img {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-width: 90px;
-  min-width: 5.625rem
 }
 
 .path-frontpage .news-list time {
@@ -171,15 +167,26 @@
   color: var(--color-black)
 }
 
+.path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--bottom {
+  padding: 0;
+}
+
 .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--first {
-  padding-right: .9375rem
+  padding-right: 0;
 }
 
 .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--second {
-  padding-left: .9375rem
+  padding-left: 0;
 }
-.path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--bottom {
-  padding: 0;
+
+@media screen and (min-width: 48rem) {
+  .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--first {
+    padding-right: 15px;
+  }
+
+  .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--second {
+    padding-left: 15px;
+  }
 }
 
 .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--bottom .box-link a {
@@ -200,6 +207,32 @@
 .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--bottom .box-link a span:before {
   top: .3rem;
   font-size: 1.05rem
+}
+
+.path-frontpage .media-with-text--media-top {
+  background-color: var(--color-accent);
+}
+
+.path-frontpage .media-with-text--media-top .media-with-text__body {
+  padding: 20px;
+}
+
+.path-frontpage .media-with-text--media-top h2 {
+  color: var(--color-white);
+}
+
+.path-frontpage .media-with-text--media-left {
+  padding-bottom: 0;
+}
+
+.path-frontpage .media-with-text--media-left img {
+  padding-right: 0;
+}
+
+@media screen and (min-width: 48rem) { 
+  .path-frontpage .media-with-text--media-left img {
+    padding-right: 1.5rem;
+  }
 }
 
 .path-frontpage .paragraph--type--localgov-subscribe-panel {
@@ -228,14 +261,12 @@
   font-size: 2rem
 }
 
-.path-frontpage .featured-subsite__title a {
-  word-break: break-word;
-  line-height: 2rem;
-  color: var(--color-black);
+.path-frontpage .featured-subsite__summary {
+  font-size: 1.125rem;
 }
 
-.path-frontpage .featured-subsite__summary {
-  font-size: 1.125rem
+.path-frontpage .featured-subsite__summary .field__item {
+  color: var(--color-white);
 }
 
 @media (min-width:576px) {
@@ -309,6 +340,11 @@
 .path-frontpage .social-media-subscription-panel__links a:after {
   display: none
 }
+/* specifically alter the default margins on the do it online buttons to close gap before header */
+.path-frontpage .field--name-localgov-subsites-content > .field__item:nth-child(2) .lgd-container {
+  margin-top: 0.5rem;
+}
+
 
 .node--localgov_subsites_overview .jumbotron.home-1 {
   background-color: #808
