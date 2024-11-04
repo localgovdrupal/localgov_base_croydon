@@ -30,7 +30,7 @@
   position: absolute;
   left: 0;
   top: .125rem;
-  font-family: Font Awesome\ 5 Pro;
+  font-family: Font Awesome\ 6 Pro;
   font-weight: 900;
   color: var(--color-green);
   font-size: .8125rem;
@@ -97,7 +97,7 @@
   position: absolute;
   left: 0;
   top: .125rem;
-  font-family: Font Awesome\ 5 Pro;
+  font-family: Font Awesome\ 6 Pro;
   font-weight: 900;
   color: #7b5;
   font-size: .8125rem;
@@ -948,7 +948,7 @@ iframe.video {
 
 .fa,
 .fas {
-  font-family: Font Awesome\ 5 Pro!important;
+  font-family: Font Awesome\ 6 Pro!important;
   font-weight: 900!important
 }
 
