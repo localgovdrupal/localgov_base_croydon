@@ -48,38 +48,23 @@
   }
 }
 
-.block-facets { // facet styling
+.block-facets-form { // facet styling
+  padding: 0 !important; // remove default padding
+
   .facets-widget {
-    &--checkbox {
+    &--facets-form-checkbox {
       background-color: $pink-tint;
-      padding-bottom: var(--spacing);
+      padding: var(--spacing) 0;
 
       .facet-group__title {
-        padding: var(--spacing) 0 0 var(--spacing);
+        padding: 0 0 0 var(--spacing);
       }
 
-      ul {
+      .facet-filter-checkboxes {
+        background: $white;
         width: auto;
-        background-color: $white;
-        margin: var(--spacing);
-        padding: var(--spacing);
-
-        li {
-          margin-top: 0;
-          border-bottom: 0.06rem solid $gray;
-
-          @include rem(padding-bottom, 10);
-
-          &:last-child {
-            border: 0;
-            padding-bottom: 0;
-            margin-bottom: 0;
-          }
-        }
-      }
-
-      .facet-item input[type="checkbox"] + label::after { // fix globally when forms prject is merged
-        color: $green;
+        padding: var(--spacing) 0 0 var(--spacing);
+        margin: var(--spacing) var(--spacing) 0 var(--spacing);
       }
     }
 
