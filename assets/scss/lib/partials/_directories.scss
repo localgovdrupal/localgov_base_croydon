@@ -59,6 +59,7 @@
     a {
       &.button {
         position: absolute;
+        height: auto;
         right: 0;
         font-size: $font-size-med;
         font-weight: 900;
@@ -68,6 +69,13 @@
         border-color: transparent;
         text-decoration: underline;
         cursor: pointer;
+        padding: 0 !important;
+
+        &:hover,
+        &:focus {
+          color: $carbon;
+          text-decoration: none;
+        }
 
         &:before {
           content: $fa-undo;
@@ -94,6 +102,7 @@
       &:hover,
       &:focus {
         background-color: var(--color-black);
+        text-decoration: none;
       }
     }
 
