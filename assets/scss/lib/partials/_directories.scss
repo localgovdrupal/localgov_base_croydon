@@ -52,13 +52,8 @@
   padding: 0 !important; // remove default padding
 
   .facets-form {
-
     @include media-breakpoint-down(sm) {
       display: none;
-    }
-
-    .form-submit {
-      font-size: $h5-font-size;
     }
 
     a {
@@ -92,33 +87,34 @@
       }
     }
 
-  .form-submit {
-    background-color: var(--success);
+    .form-submit {
+      background-color: var(--success);
+      font-size: $h5-font-size;
 
-    &:hover,
-    &:focus {
-      background-color: var(--color-black);
-    }
-  }
-
-  .facets-widget {
-    &--facets-form-checkbox {
-      background-color: $pink-tint;
-      padding: var(--spacing) 0;
-
-      .facet-group__title {
-        padding: 0 0 0 var(--spacing);
-      }
-
-      .facet-filter-checkboxes {
-        background: $white;
-        width: auto;
-        padding: var(--spacing) 0 0 var(--spacing);
-        margin: var(--spacing) var(--spacing) 0 var(--spacing);
+      &:hover,
+      &:focus {
+        background-color: var(--color-black);
       }
     }
+
+    .facets-widget {
+      &--facets-form-checkbox {
+        background-color: $pink-tint;
+        padding: var(--spacing) 0;
+
+        .facet-group__title {
+          padding: 0 0 0 var(--spacing);
+        }
+
+        .facet-filter-checkboxes {
+          background: $white;
+          width: auto;
+          padding: var(--spacing) 0 0 var(--spacing);
+          margin: var(--spacing) var(--spacing) 0 var(--spacing);
+        }
+      }
+    }
   }
-}
 }
 
 .view-localgov-directory-channel {
