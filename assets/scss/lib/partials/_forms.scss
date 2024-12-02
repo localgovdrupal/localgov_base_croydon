@@ -950,5 +950,16 @@ main.col-sm-8 .webform-type-fieldset legend,
   // background-image: url(../icons/remove.svg);
   background-size: cover;
   top: -1.5rem !important;
-  right: 0.01rem !important;
+  right: 0.001rem !important;
+}
+
+// File description iformation
+.dropzone .dz-preview.dz-file-preview .dz-details {
+  opacity: 1;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.dropzone .dz-preview .dz-details .dz-filename {
+  margin-bottom: 1rem;
 }
