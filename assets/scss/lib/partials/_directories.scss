@@ -120,6 +120,10 @@
           width: auto;
           padding: var(--spacing) 0 0 var(--spacing);
           margin: var(--spacing) var(--spacing) 0 var(--spacing);
+
+          .form-item {
+            margin-bottom: 0;
+          }
         }
       }
     }
