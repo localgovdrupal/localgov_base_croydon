@@ -48,43 +48,84 @@
   }
 }
 
-.block-facets { // facet styling
-  .facets-widget {
-    &--checkbox {
-      background-color: $pink-tint;
-      padding-bottom: var(--spacing);
+.block-facets-form { // facet styling
+  padding: 0 !important; // remove default padding
 
-      .facet-group__title {
-        padding: var(--spacing) 0 0 var(--spacing);
+  .facets-form {
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+
+    a {
+      &.button {
+        position: absolute;
+        height: auto;
+        right: 0;
+        font-size: $font-size-med;
+        font-weight: 900;
+        color: $blue;
+        margin: 0 0 0.625rem 0;
+        display: inline-block;
+        border-color: transparent;
+        text-decoration: underline;
+        cursor: pointer;
+        padding: 0 !important;
+
+        &:hover,
+        &:focus {
+          color: $carbon;
+          text-decoration: none;
+        }
+
+        &:before {
+          content: $fa-undo;
+          color: $carbon;
+          display: inline-block;
+          font-family: $font-family-icons;
+          font-weight: $fa-font-weight; // some font awesome icons require a specific font weight
+          -webkit-font-smoothing: antialiased;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          line-height: 1.3;
+          text-align: center;
+
+          @include rem(margin-right, 5);
+        }
       }
+    }
 
-      ul {
-        width: auto;
-        background-color: $white;
-        margin: var(--spacing);
-        padding: var(--spacing);
+    .form-submit {
+      background-color: var(--success);
+      font-size: $h5-font-size;
 
-        li {
-          margin-top: 0;
-          border-bottom: 0.06rem solid $gray;
+      &:hover,
+      &:focus {
+        background-color: var(--color-black);
+        text-decoration: none;
+      }
+    }
 
-          @include rem(padding-bottom, 10);
+    .facets-widget {
+      &--facets-form-checkbox {
+        background-color: $pink-tint;
+        padding: var(--spacing) 0;
 
-          &:last-child {
-            border: 0;
-            padding-bottom: 0;
+        .facet-group__title {
+          padding: 0 0 0 var(--spacing);
+        }
+
+        .facet-filter-checkboxes {
+          background: $white;
+          width: auto;
+          padding: var(--spacing) 0 0 var(--spacing);
+          margin: var(--spacing) var(--spacing) 0 var(--spacing);
+
+          .form-item {
             margin-bottom: 0;
           }
         }
       }
-
-      .facet-item input[type="checkbox"] + label::after { // fix globally when forms prject is merged
-        color: $green;
-      }
-    }
-
-    @include media-breakpoint-down(sm) {
-      display: none;
     }
   }
 }
@@ -502,21 +543,6 @@ span.facet-item__count {
   font-weight: bold;
 }
 
-.block-facets .facets-widget.facets-widget--checkbox ul.facet-show-reset:nth-child(2) {
-  position: relative;
-  top: -3.125rem;
-  width: 100%;
-  padding: 0;
-  height: 3.125rem;
-  left: -1rem;
-  margin-bottom: -3.75rem;
-}
-
-.block-facets .facets-widget.facets-widget--checkbox ul.facet-show-reset:nth-child(2) li:empty {
-  left: -1rem;
-  display: none;
-}
-
 li.facet-item.facets-reset label div.facet-result-item span.facet-item__count {
   display: none;
 }
@@ -603,14 +629,9 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
 }
 
 .facet-inactive.block-facet-blocklocalgov-directories-facets,
-.block-localgov-directories-channel-search-block { // tighten position of the show hide
+.block-localgov-directories-channel-search-block { // tighten position of the show hide when facets are not shown
   margin-top: 0 !important;
   padding: 0 !important;
-}
-
-.facets-widget--checkbox { // tighten position of the show hide
-  margin-top: 2rem;
-  margin-bottom: 0.625rem !important;
 }
 
 // Definition list tables
