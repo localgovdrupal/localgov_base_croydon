@@ -886,3 +886,23 @@ main.col-sm-8 .webform-type-fieldset legend,
 .lgd-header .lgd-region--search input {
   border: .06rem solid $checkbox-outline !important;
 }
+
+// LocalGov Form header styling
+.form-item-form-header {
+  .webform-title h1 {
+    font-size: calc(var(--font-size) * 2.875);
+  }
+
+  .webform-description {
+    font-size: 1.375rem;
+    margin-bottom: 1rem;
+  }
+
+  .webform-page-title h2 {
+    font-size: calc(var(--font-size) * 2.125);
+  }
+
+  hr {
+    margin-top: 0 !important;
+  }
+}
