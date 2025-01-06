@@ -24,6 +24,8 @@
 
         // Initiate dropzonejs.
         var config = {
+          // Disable thumbnail creation.
+          createImageThumbnails: false,
           url: input.attr('data-upload-path'),
           addRemoveLinks: true,
           dictDefaultMessage: Drupal.t('Drop files here to upload'),

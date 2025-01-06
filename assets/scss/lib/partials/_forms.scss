@@ -906,8 +906,9 @@ main.col-sm-8 .webform-type-fieldset legend,
 // .dropzone .dz-preview.dz-error .dz-error-mark {
 //   display: none;
 // }
-
+.dropzone .dz-preview.dz-error.dz-complete.dz-image-preview .dz-image,
 .dropzone .dz-preview.dz-file-preview.dz-error.dz-complete .dz-image {
+  border-radius: 0;
   outline: 0.313rem solid  $red;
   outline-offset: 0.313rem;
 }
@@ -953,7 +954,8 @@ main.col-sm-8 .webform-type-fieldset legend,
   right: 0.001rem !important;
 }
 
-// File description iformation
+// File description information
+.dropzone .dz-preview.dz-image-preview .dz-details,
 .dropzone .dz-preview.dz-file-preview .dz-details {
   opacity: 1;
   display: flex;
@@ -962,4 +964,20 @@ main.col-sm-8 .webform-type-fieldset legend,
 
 .dropzone .dz-preview .dz-details .dz-filename {
   margin-bottom: 1rem;
+}
+
+.dropzone .dz-preview.dz-image-preview {
+  background: unset;
+}
+
+.dropzone .dz-preview.dz-error.dz-complete.dz-image-preview .dz-image {
+  border-radius: 0;
+  outline: .313rem solid  $red;
+  outline-offset: .313rem;
+  background: linear-gradient(to bottom, $indigo-tint, $gray-bs);
+}
+
+.dropzone .dz-preview.dz-image-preview .dz-image {
+  border-radius: 0;
+  background: linear-gradient(to bottom, $indigo-tint, $gray-bs);
 }
