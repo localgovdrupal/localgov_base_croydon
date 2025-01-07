@@ -33,7 +33,7 @@
           dictFallbackText: Drupal.t('Please use the fallback form below to upload your files like in the olden days.'),
           // Modified max file size message
           // dictFileTooBig: Drupal.t('File is too big ({{filesize}}MB). Max filesize: {{maxFilesize}}MB. Please REMOVE the file.'),
-          dictFileTooBig: Drupal.t('Files outlined in red exceed the maixumum file size of {{maxFilesize}}MB.'),
+          dictFileTooBig: Drupal.t('Files outlined in red exceed the maximum file size of {{maxFilesize}}MB.'),
           dictInvalidFileType: Drupal.t('You can\'t upload files of this type.'),
           dictResponseError: Drupal.t('Server responded with {{statusCode}} code.'),
           dictCancelUpload: Drupal.t('Cancel upload'),
