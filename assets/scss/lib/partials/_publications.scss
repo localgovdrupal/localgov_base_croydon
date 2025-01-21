@@ -1,18 +1,68 @@
-.page-node-type-localgov-publication-cover-page {
+.page-node-type-localgov-publication-cover-page,
+.page-node-type-localgov-publication-page {
   .block-page-title-block {
     margin-bottom: var(--vertical-rhythm-spacing);
     border-bottom: var(--page-title-border);
   }
 
-  .field--name-localgov-publication,
-  .field--name-field-media-document {
-    a {
-      color: $carbon;
-      font-weight: 700;
+  .field--name {
+    &-localgov-published-date {
+      margin-bottom: var(--vertical-rhythm-spacing);
+    }
+
+    &-localgov-publication,
+    &-field-media-document {
+      a {
+        color: $carbon;
+        font-size: var(--font-size-larger);
+        font-weight: 700;
+      }
+    }
+
+    &-field-information-box {
+      .field__label {
+        display: none;
+      }
+
+      .field__item {
+        float: left;
+      }
     }
   }
 
   .publication-document {
     border-bottom: 0.0625rem solid $carbon;
+  }
+
+  .localgov-publication-cover-page__content {
+    width: calc((100% / 3* 2) - var(--grid-column-spacing));
+  }
+
+  .lgd-row__two-thirds {
+    border-left: var(--page-title-border);
+  }
+
+  .block-localgov-publications-toc-block {
+    ul {
+      list-style: none; /* Remove default bullet points */
+      padding: 0;
+
+      li {
+        position: relative;
+        margin-bottom: 10px; /* Optional: Add spacing between items */
+
+        &::before {
+          content: "-"; /* Add the dash */
+          position: absolute;
+          left: 0; /* Align dash to the left */
+        }
+
+        a {
+          font-size: var(--font-size-larger);
+          margin-left: 10px;
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }
