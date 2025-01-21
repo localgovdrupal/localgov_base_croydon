@@ -1,0 +1,18 @@
+.page-node-type-localgov-publication-cover-page {
+  .block-page-title-block {
+    margin-bottom: var(--vertical-rhythm-spacing);
+    border-bottom: var(--page-title-border);
+  }
+
+  .field--name-localgov-publication,
+  .field--name-field-media-document {
+    a {
+      color: $carbon;
+      font-weight: 700;
+    }
+  }
+
+  .publication-document {
+    border-bottom: 0.0625rem solid $carbon;
+  }
+}
