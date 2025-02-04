@@ -981,3 +981,9 @@ main.col-sm-8 .webform-type-fieldset legend,
   border-radius: 0;
   background: linear-gradient(to bottom, $indigo-tint, $gray-bs);
 }
+
+.dropzone a.button {
+  border: 2px solid $black !important;
+  background: $white;
+  padding: .5rem 1rem !important;
+}
