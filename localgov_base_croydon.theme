@@ -188,3 +188,18 @@ function localgov_base_croydon_preprocess_node__cds_tenancy_office_dir_page__cds
     $variables['content']['localgov_location_copy']['#third_party_settings']['field_formatter_class']['class'] .= ' localgov_location_copy';
   }
 }
+
+/**
+* Implements hook_preprocess_block().
+*
+* Empties TOC block in Publication outline pages.
+*/
+function localgov_base_croydon_preprocess_block__localgov_publications_toc_block(array &$variables) {
+
+  $node = Drupal::service('current_route_match')->getParameter('node');
+  if ($node instanceof Drupal\node\NodeInterface && !empty($node->book['has_children'])) {
+    $variables['label']   = '';
+    $variables['content'] = '';
+  }
+}
+
