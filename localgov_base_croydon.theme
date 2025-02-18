@@ -194,7 +194,6 @@ function localgov_base_croydon_preprocess_node__cds_tenancy_office_dir_page__cds
 *
 * Empties TOC block in Publication outline pages & child pages.
 */
-
 function localgov_base_croydon_preprocess_block__localgov_publications_toc_block(array &$variables) {
   $node = Drupal::service('current_route_match')->getParameter('node');
 
@@ -203,7 +202,7 @@ function localgov_base_croydon_preprocess_block__localgov_publications_toc_block
     $book_node = \Drupal\node\Entity\Node::load($book_id);
 
     if ($book_node && $book_node->book['has_children']) {
-      $variables['#theme'] = 'toc_content';
+      $variables['#theme'] = 'toc_content'; 
       $variables['content'] = [];
       $variables['attributes']['class'][] = 'hidden';
     }
@@ -217,7 +216,7 @@ function localgov_base_croydon_theme() {
   return [
     'toc_content' => [
       'variables' => [],
-      'template' => 'toc--empty',
+      'template' => 'misc/toc--empty', 
     ],
   ];
 }
