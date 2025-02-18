@@ -78,31 +78,6 @@
   }
 }
 
-// prev and next // mostly set in base but there are some extras and modifiers required for croydon
-
-.lgd-prev-next__link {
-  @extend .btn;
-
-  font-family: $font-family-secondary;
-  font-weight: bold;
-  border: 0 !important; // base override
-
-  &.lgd-prev-next__link--prev {
-    background-color: $carbon;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: $indigo !important; // base override
-  }
-
-  .lgd-prev-next__icon {
-    svg {
-      @include rem(height, 20);
-    }
-  }
-}
-
 // Links styled to look like buttons
 
 .link-button {

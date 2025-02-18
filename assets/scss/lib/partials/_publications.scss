@@ -42,25 +42,32 @@
     border-left: var(--page-title-border);
   }
 
-  .block-localgov-publications-toc-block {
+  .block-localgov-publications-toc-block,
+  .block-publication-navigation {
+    border-bottom: 0.1875rem solid $purple;
+
     ul {
-      list-style: none; /* Remove default bullet points */
+      list-style: none;
       padding: 0;
 
       li {
         position: relative;
-        margin-bottom: 10px; /* Optional: Add spacing between items */
+        margin-bottom: 0.625rem;
 
         &::before {
-          content: "-"; /* Add the dash */
+          content: "-";
           position: absolute;
-          left: 0; /* Align dash to the left */
+          left: 0;
         }
 
         a {
           font-size: var(--font-size-larger);
-          margin-left: 10px;
+          margin-left: 0.625rem;
           text-decoration: underline;
+        }
+
+        ul {
+          padding-left: 1.5rem;
         }
       }
     }
