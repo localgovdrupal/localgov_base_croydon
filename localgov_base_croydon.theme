@@ -188,3 +188,18 @@ function localgov_base_croydon_preprocess_node__cds_tenancy_office_dir_page__cds
     $variables['content']['localgov_location_copy']['#third_party_settings']['field_formatter_class']['class'] .= ' localgov_location_copy';
   }
 }
+
+/**
+ * Implements hook_preprocess_field().
+ *
+ * Change the label of the Tennacy Officer field
+ *
+ */
+function localgov_base_croydon_preprocess_field(array &$vars){
+  $name = $vars['element']['#field_name'];
+  // Change the label for the Tenancy officer Field to Housing officer
+  if ($name === 'field_tenancy_officer') {
+    $vars['label'] = t('Housing officer');
+  }
+
+}
