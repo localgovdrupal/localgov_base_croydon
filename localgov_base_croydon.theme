@@ -190,34 +190,24 @@ function localgov_base_croydon_preprocess_node__cds_tenancy_office_dir_page__cds
 }
 
 /**
-* Implements hook_preprocess_block().
-*
-* Empties TOC block in Publication outline pages & child pages.
-*/
-function localgov_base_croydon_preprocess_block__localgov_publications_toc_block(array &$variables) {
-  $node = Drupal::service('current_route_match')->getParameter('node');
+ * Implements hook_preprocess_block().
+ *
+ * Hides the Table of Contents (TOC) block on specific Publication outline pages.
+ * 
+ * This function checks if the current page belongs to a Book hierarchy and 
+ * removes the block if the node is either a parent (that has child pages) or a child
+ */
+function localgov_base_croydon_preprocess_block(array &$variables) {
+  if ($variables['plugin_id'] === 'localgov_publications_toc_block') {
+    $route_match = \Drupal::service('current_route_match');
+    $node = $route_match->getParameter('node');
 
-  if ($node instanceof Drupal\node\NodeInterface && $node->book && $node->book['bid']) {
-    $book_id = $node->book['bid'];
-    $book_node = \Drupal\node\Entity\Node::load($book_id);
-
-    if ($book_node && $book_node->book['has_children']) {
-      $variables['#theme'] = 'toc_content'; 
-      $variables['content'] = [];
-      $variables['attributes']['class'][] = 'hidden';
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      // Hide block if it's a book parent or child
+      if (!empty($node->book['has_children']) || !empty($node->book['pid'])) {
+        $variables['hide_block'] = TRUE;
+      }
     }
   }
-}
-
-/**
- * Implements hook_theme().
- */
-function localgov_base_croydon_theme() {
-  return [
-    'toc_content' => [
-      'variables' => [],
-      'template' => 'misc/toc--empty', 
-    ],
-  ];
 }
 
