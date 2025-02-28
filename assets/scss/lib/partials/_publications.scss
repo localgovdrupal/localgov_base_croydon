@@ -34,10 +34,6 @@
     border-bottom: 0.0625rem solid $carbon;
   }
 
-  .localgov-publication-cover-page__content {
-    width: calc((100% / 3* 2) - var(--grid-column-spacing));
-  }
-
   .lgd-row__two-thirds {
     border-left: var(--page-title-border);
   }

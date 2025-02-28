@@ -210,4 +210,3 @@ function localgov_base_croydon_preprocess_block(array &$variables) {
     }
   }
 }
-
