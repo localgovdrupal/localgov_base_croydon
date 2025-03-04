@@ -1,0 +1,28 @@
+{#
+  Template for rendering the Table of Contents (TOC) block on Publication pages.
+  
+  This template is responsible for rendering the Table of Contents block only when
+  the `hide_block` variable is not set to TRUE. If the block is meant to be hidden
+  (based on conditions such as being on a parent or child page of a Book), the block 
+  will not be rendered at all.
+
+  The block includes the following structure:
+  - A wrapper `<div>` with CSS classes for styling.
+  - The block's title (if provided).
+  - The block content.
+
+  @see localgov_base_croydon_preprocess_block()
+#}
+
+{% if not hide_block %}
+  <div{{ attributes.addClass('block', 'block-localgov-publications-toc-block') }}>
+    {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+    <div{{ content_attributes }}>
+      {{ content }}
+    </div>
+  </div>
+{% endif %}
