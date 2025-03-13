@@ -9,7 +9,7 @@ const gulp = require('gulp'), // This taskrunner,
       { resolve } = require("path");
 
 // CSS requirements
-const sass = require('gulp-sass'), // Sass plugin for gulp See https://yarnpkg.com/package/gulp-sass
+const sass = require('gulp-sass')(require('sass')), // Sass plugin for gulp See https://yarnpkg.com/package/gulp-sass
       sassGlob = require('gulp-sass-glob'), // Allows the import of patterns through '/**/*.scss' See https://yarnpkg.com/package/gulp-sass-glob
       postcss = require('gulp-postcss'), // PostCSS processor https://github.com/postcss/postcss
       reporter = require('postcss-reporter'),

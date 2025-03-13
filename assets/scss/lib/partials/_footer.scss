@@ -1,7 +1,9 @@
 // FOOTER
 .lgd-footer {
   margin-top: 0 !important; // base override
-
+* {
+  outline: 1px solid red;
+}
   a {
     color: $white;
   }

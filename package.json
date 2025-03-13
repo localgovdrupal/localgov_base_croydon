@@ -1,52 +1,52 @@
 {
   "name": "localgov_base_croydon",
-  "version": "1.0.0",
-  "description": "NPM scripts for the localgov_base theme.",
+  "version": "1.0.01",
+  "description": "NPM scripts for the localgov_base_croydon theme.",
   "main": "index.js",
   "scripts": {
     "start": "stylelint \"**/*.css\" --fix",
     "build": "NODE_ENV=production gulp dev",
     "dev": "NODE_ENV=development gulp dev"
   },
-  "author": "Mark Conroy",
+  "author": "Croydon Council",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "4.3.1",
-    "jquery": "^3.5.1",
-    "popper.js": "^1.16.0",
-    "sass": "^1.36.0"
+    "bootstrap": "4.6.2",
+    "jquery": "^3.7.1",
+    "popper.js": "^1.16.1",
+    "sass": "^1.70.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.13",
-    "cssnano": "^4.1.10",
-    "del": "^4.1.1",
+    "browser-sync": "^2.29.3",
+    "cssnano": "^6.0.3",
+    "del": "^7.1.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-changed": "^3.2.0",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-changed": "^4.0.3",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-notify": "^3.2.0",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sass-glob": "^1.1.0",
-    "gulp-sourcemaps": "^2.6.5",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-version-append": "^0.2.0",
     "npm-install-all": "^1.1.21",
-    "postcss-reporter": "^6.0.1",
-    "postcss-scss": "^2.1.1",
-    "ruby": "^0.6.1",
-    "sass-loader": "^8.0.2",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.18.0"
+    "postcss-reporter": "^7.0.5",
+    "postcss-scss": "^4.0.9",
+    "sass-loader": "^13.3.2",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-scss": "^5.3.0"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=18.18.0"
   }
 }
+
