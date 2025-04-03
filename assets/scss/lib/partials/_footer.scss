@@ -1,16 +1,18 @@
 // FOOTER
+* {
+  outline: 1px solid rebeccapurple;
+}
+
 .lgd-footer {
   margin-top: 0 !important; // base override
-* {
-  outline: 1px solid red;
-}
+
   a {
     color: $white;
   }
 
   h2 {
     font-size: $h3-font-size;
-    color: $white;
+    color: black; // Changed to black for better visibility
 
     @include rem(margin-bottom, 16);
   }
