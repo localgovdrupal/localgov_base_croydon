@@ -1,0 +1,14 @@
+@use "sass:math";
+
+@function custom-abs($number) {
+  @if type-of($number) == "number" {
+    @if math.is-unitless($number) {
+      @return math.abs($number);
+    } @else {
+      $unit: unit($number);
+      $abs: math.abs($number);
+      @return $abs;
+    }
+  }
+  @return $number;
+}

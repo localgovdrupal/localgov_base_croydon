@@ -1,3 +1,10 @@
 {
-  "math": "math.abs"
+  "style": "expanded",
+  "functions": {
+    "abs($number)": "custom-abs($number)"
+  },
+  "includePaths": [
+    "node_modules",
+    "assets/scss"
+  ]
 }

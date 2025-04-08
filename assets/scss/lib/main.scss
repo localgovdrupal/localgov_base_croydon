@@ -1,6 +1,10 @@
 // Main.scss - This file imports all sass components
 
-// Import all Bootstrap core files first
+// Import our custom math functions first
+@use "sass:math";
+@import 'math-functions';
+
+// Import all Bootstrap core files
 @import '../../../node_modules/bootstrap/scss/functions';
 @import '../../../node_modules/bootstrap/scss/variables';
 @import '../../../node_modules/bootstrap/scss/mixins';
@@ -9,6 +13,9 @@
 @import 'functions';
 @import 'variables-croydon';
 @import 'mixins';
+
+// Override Bootstrap's abs function with our custom one
+$abs: get-function('custom-abs');
 
 // Optional
 
