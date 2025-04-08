@@ -22,11 +22,6 @@ $custom-gray: #DBDFE3;
 
 // Use Bootstrap's gray scale but keep our custom gray for specific uses
 $gray-600: $custom-gray !default; // This integrates with Bootstrap's gray scale
-$gray: $gray-600;
-
-//custom
-$gray-light: $gray-300;
-$gray-dark: $gray-800;
 $carbon: #121212;
 $graphite: #282828;
 $stonewash: #A0A0A0;

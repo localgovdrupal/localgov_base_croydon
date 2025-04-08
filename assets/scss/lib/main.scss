@@ -1,21 +1,29 @@
 // Main.scss - This file imports all sass components
 
-// Import Sass math module
+// Import Sass modules
 @use "sass:math";
+@use "sass:color";
+@use "sass:map";
 
-// Import Bootstrap functions first
-@import '../../../node_modules/bootstrap/scss/functions';
+// Forward Bootstrap modules
+@forward '../../../node_modules/bootstrap/scss/functions';
+@forward '../../../node_modules/bootstrap/scss/variables';
+@forward '../../../node_modules/bootstrap/scss/mixins';
 
-// Import our variables before Bootstrap's
-@import 'variables-croydon';
+// Use Bootstrap modules
+@use '../../../node_modules/bootstrap/scss/functions' as bootstrap-functions;
+@use '../../../node_modules/bootstrap/scss/variables' as bootstrap-vars;
+@use '../../../node_modules/bootstrap/scss/mixins' as bootstrap-mixins;
 
-// Import remaining Bootstrap core files
-@import '../../../node_modules/bootstrap/scss/variables';
-@import '../../../node_modules/bootstrap/scss/mixins';
+// Import our variables
+@use 'variables-croydon';
+
+// Import Bootstrap-dependent variables
+@use 'bootstrap-variables';
 
 // Import our custom files
-@import 'functions';
-@import 'mixins';
+@use 'functions';
+@use 'mixins';
 
 // Optional
 
