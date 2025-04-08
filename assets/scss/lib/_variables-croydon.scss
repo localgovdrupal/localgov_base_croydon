@@ -19,7 +19,10 @@ $violet: #F0E6ec;
 $pink: #AD52AD;
 // Our custom gray
 $custom-gray: #DBDFE3;
-$gray: $custom-gray;
+
+// Use Bootstrap's gray scale but keep our custom gray for specific uses
+$gray-600: $custom-gray !default; // This integrates with Bootstrap's gray scale
+$gray: $gray-600;
 
 //custom
 $gray-light: $gray-300;

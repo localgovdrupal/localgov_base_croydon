@@ -9,6 +9,8 @@
       $abs: math.abs($number);
       @return $abs;
     }
+  } @else if type-of($number) == "color" {
+    @return "#{$number}";
   }
   @return $number;
 }
