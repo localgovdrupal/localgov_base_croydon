@@ -82,7 +82,13 @@ function generateStyle() {
       .pipe(sourcemaps.init())
       .pipe(postcss(postcssPluginsPreSass, {syntax: scss})) // Run postCSS before SASS
       .pipe(sassGlob())
-      .pipe(sass())
+      .pipe(sass({
+        functions: {
+          'abs($number)': function(number) {
+            return new sass.types.Number(Math.abs(number.getValue()));
+          }
+        }
+      }))
       .on('error', sass.logError)
       .pipe(postcss(postcssPluginsPostSass, {syntax: scss})) // Run postCSS after SASS
       .pipe(sourcemaps.mapSources(function(sourcePath, file) {

@@ -17,7 +17,9 @@ $teal: #006263;
 $indigo: #540055;
 $violet: #F0E6ec;
 $pink: #AD52AD;
-$gray: #DBDFE3;
+// Our custom gray
+$custom-gray: #DBDFE3;
+$gray: $custom-gray;
 
 //custom
 $gray-light: $gray-300;

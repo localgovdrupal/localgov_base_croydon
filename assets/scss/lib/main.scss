@@ -1,18 +1,14 @@
 // Main.scss - This file imports all sass components
 
-// Functions
-@import 'functions';
-
-// Mixins
-@import 'mixins';
-
-// Import Bootstrap css
-// Required
+// Import all Bootstrap core files first
 @import '../../../node_modules/bootstrap/scss/functions';
-@import '../../../node_modules/bootstrap/scss/mixins';
 @import '../../../node_modules/bootstrap/scss/variables';
-// Import council theme settings
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+// Import our custom files
+@import 'functions';
 @import 'variables-croydon';
+@import 'mixins';
 
 // Optional
 

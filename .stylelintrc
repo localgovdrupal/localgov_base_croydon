@@ -30,6 +30,15 @@
     } ],
     "unit-allowed-list": ["em", "rem", "%", "s", "deg", "ms", "vh"],
     "selector-class-pattern": null,
-    "media-feature-range-notation": null
+    "media-feature-range-notation": null,
+    "alpha-value-notation": null,
+    "color-function-notation": null,
+    "import-notation": null,
+    "selector-not-notation": null,
+    "function-no-unknown": null,
+    "property-no-vendor-prefix": null,
+    "value-no-vendor-prefix": null,
+    "selector-no-vendor-prefix": null,
+    "selector-id-pattern": null
   }
 }

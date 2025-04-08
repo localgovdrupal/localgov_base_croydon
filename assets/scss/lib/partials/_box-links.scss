@@ -20,11 +20,8 @@
 
     .box-links-listing__list {
       display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: auto;
-      align-content: space-around;
+      flex-flow: row wrap;
+      place-content: space-around space-between;
       padding: 0;
       margin: 0 !important;
 
@@ -48,8 +45,8 @@
 
         @include media-breakpoint-up(sm) {
           position: relative;
-          width: calc(33.3% - 0.46875rem);
-          max-width: calc(33.3% - 0.46875rem);
+          width: calc(33.3% - 0.4688rem);
+          max-width: calc(33.3% - 0.4688rem);
           flex: 0 0 auto;
 
           @include rem(margin-bottom, 20);

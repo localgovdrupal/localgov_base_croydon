@@ -145,14 +145,14 @@
       margin-bottom: 2.75rem;
     }
 
-    [id*=after--description] {
+    [id*="after--description"] {
       padding-top: 0;
     }
   }
 
   .description {
     border: 0;
-    padding: 0 0 1rem 0;
+    padding: 0 0 1rem;
     background: none;
     font-size: $font-size-base;
     font-weight: $font-bold;
@@ -318,7 +318,7 @@ label {
 // Text field validation success icon
 .was-validated .form-control:valid,
 .form-control.is-valid {
-  background: url(../../img/svg/check-success.svg);
+  background: url("../../img/svg/check-success.svg");
   background-repeat: no-repeat;
   background-position: 98%;
   background-size: calc(2.875rem / 2) calc(2.875rem / 2);
@@ -327,7 +327,7 @@ label {
 // Text field validation warning icon
 .was-validated .form-control:invalid,
 .form-control.is-invalid {
-  background: url(../../img/svg/warning-danger.svg);
+  background: url("../../img/svg/warning-danger.svg");
   background-repeat: no-repeat;
   background-position: 98%;
   background-size: calc(2.875rem / 2) calc(2.875rem / 2);
@@ -646,8 +646,8 @@ span.facet-item__count {
 
 .path-webform .webform-submission-form {
   @include media-breakpoint-up(md) {
-    flex: 0 0 66.66667%;
-    max-width: 66.66667%;
+    flex: 0 0 66.6667%;
+    max-width: 66.6667%;
   }
 }
 
@@ -830,11 +830,8 @@ span.facet-item__count {
 
 .form-item-lgd-date-of-birth .container-inline div[class*="-day"],
 .form-item-lgd-date-of-birth-desc-after .container-inline div[class*="-day"] {
-  margin-left: 0;
   flex: 1;
-  margin-top: 0.5em;
-  margin-right: 0.5em;
-  margin-bottom: 0;
+  margin: 0.5em 0.5em 0 0;
 
   @include media-breakpoint-up(md) {
     max-width: 6%;
