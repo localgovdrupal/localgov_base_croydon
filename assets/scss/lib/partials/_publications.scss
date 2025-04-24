@@ -1,5 +1,46 @@
 .page-node-type-localgov-publication-cover-page,
 .page-node-type-localgov-publication-page {
+  .lgd-page-title-block {
+    &__publication-title {
+      color: var(--color-teal);
+      padding-bottom: .5rem;
+    }
+
+    &__publication-subtitle {
+      font-size: $font-size-ex-med;
+    }
+
+    .lgd-page-title-block {
+      &__print {
+        a {
+          color: $primary;
+
+          &:hover,
+          &:focus {
+            color: $secondary;
+          }
+        }
+
+        i {
+          color: inherit;
+          font-size: $font-size-base;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    @include rem(margin-bottom, 48);
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0;
+    }
+
+    .lgd-region__inner > * {
+      padding: 0 0 1rem 0;
+    }
+  }
+
   .block-page-title-block {
     margin-bottom: var(--vertical-rhythm-spacing);
     border-bottom: var(--page-title-border);
