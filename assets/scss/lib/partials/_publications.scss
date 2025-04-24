@@ -1,6 +1,8 @@
 .page-node-type-localgov-publication-cover-page,
 .page-node-type-localgov-publication-page {
   .lgd-page-title-block {
+    border-bottom: 0.0625rem solid $gray-light;
+
     &__publication-title {
       color: var(--color-teal);
       padding-bottom: .5rem;

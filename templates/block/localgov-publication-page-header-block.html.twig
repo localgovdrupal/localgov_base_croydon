@@ -27,10 +27,10 @@
     {% endif %}
      
   </h1>
-  <div class="lgd-page-title-block__publication-subtitle container p-0 mb-2">
+  <div class="lgd-page-title-block__publication-subtitle container pl-0 pb-2 pb-md-0">
       <div class="d-flex flex-column flex-md-row">
           {% if published_date %}
-              <div class="lgd-page-title-block__published mb-3 mr-md-3">
+              <div class="lgd-page-title-block__published mb-md-3 mr-md-3">
                   {% trans %}
                       <span>Published:</span> {{ published_date }}
                   {% endtrans %}
@@ -38,7 +38,7 @@
           {% endif %}
 
           {% if last_updated_date %}
-              <div class="lgd-page-title-block__updated mb-3 mr-md-3">
+              <div class="lgd-page-title-block__updated mb-md-3 mr-md-3">
                   {% trans %}
                       <span>Last updated:</span> {{ last_updated_date }}
                   {% endtrans %}
