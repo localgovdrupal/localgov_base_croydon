@@ -212,18 +212,17 @@ function localgov_base_croydon_preprocess_block(array &$variables) {
 }
 
 /**
- * Implements hook_preprocess_field() to handle file link customisation on 
- * publication overview pages.
+ * Implements hook_preprocess_field() to customize file links on
+ * localgov_publication_cover_page nodes for the field_media_document.
  */
-function localgov_base_croydon_preprocess_field(&$variables, $hook) {
+function localgov_base_croydon_preprocess_field(array &$variables, string $hook): void {
   if ($variables['element']['#field_name'] === 'field_media_document' &&
       $variables['element']['#entity_type'] === 'media' &&
       $variables['element']['#bundle'] === 'document') {
     $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node && $node->getType() === 'localgov_publication_cover_page') {
+    if ($node instanceof \Drupal\node\NodeInterface && $node->getType() === 'localgov_publication_cover_page') {
       foreach ($variables['items'] as &$item) {
         if (isset($item['content']['#theme']) && $item['content']['#theme'] === 'file_link') {
-          $item['content']['#attached']['library'][] = 'your_theme_name/publication-file-link'; // Optional: Attach a library for specific CSS/JS
           $item['content']['#theme'] = 'file_link__node__localgov_publication_cover_page';
         }
       }
