@@ -49,7 +49,7 @@
     <div class="view-header">
       {{ header }}
         {% if search_string and display_id == 'node_embed' %}
-          <span class="directory-search-string">{{ search_string|capitalize }}</span>
+          <span class="directory-search-string">{{ search_string|upper }}</span>
         {% endif %}
     </div>
   {% endif %}
