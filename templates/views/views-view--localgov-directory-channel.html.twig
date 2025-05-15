@@ -49,7 +49,15 @@
     <div class="view-header">
       {{ header }}
         {% if search_string and display_id == 'node_embed' %}
-          <span class="directory-search-string">{{ search_string|upper }}</span>
+          {# If the search string starts with two letters and then a digit,
+           then we assume its a uk postcode and we want to display it in
+           uppercase. Otherwise we want to display it in title case. #}
+          {% if search_string matches '/^[A-Za-z]{2}[0-9]/' %}
+            <span class="directory-search-string">{{ search_string|upper }}</span>
+          {% else %}
+          {# We assume its a name, display the name in title case #}
+            <span class="directory-search-string">{{ search_string|title }}</span>
+          {% endif %}
         {% endif %}
     </div>
   {% endif %}
