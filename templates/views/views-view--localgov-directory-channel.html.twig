@@ -39,6 +39,12 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
+
+{# UK postcode regex  https://github.com/stemount/gov-uk-official-postcode-regex-helper #}
+{% set post_code_regex =
+  '/^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A- Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z])))) [0-9][A-Za-z]{2})$/'
+
+%}
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if title %}
@@ -52,7 +58,7 @@
           {# If the search string starts with two letters and then a digit,
            then we assume its a uk postcode and we want to display it in
            uppercase. Otherwise we want to display it in title case. #}
-          {% if search_string matches '/^[A-Za-z]{2}[0-9]/' %}
+          {% if search_string matches post_code_regex %}
             <span class="directory-search-string">{{ search_string|upper }}</span>
           {% else %}
           {# We assume its a name, display the name in title case #}
