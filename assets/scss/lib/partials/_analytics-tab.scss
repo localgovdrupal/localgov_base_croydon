@@ -1,0 +1,53 @@
+.analytics-tab {
+  padding-inline: var(--spacing-padding-horizontal);
+
+  .fieldset-wrapper > div {
+    display: flex;
+  }
+
+  .view-content {
+    padding: 0 16% 0 0;
+    margin: 2rem 0;
+  }
+
+  .view-header {
+    background: $gray-senary;
+    margin: 3rem 0 5rem;
+  }
+
+  fieldset {
+    border: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    legend {
+      display: inline-block;
+
+      @include rem(padding, 20, 0, 0);
+    }
+
+    label {
+      font-size: $font-size-lg;
+      display: inline-block;
+
+      @include rem(margin-right, 10);
+    }
+
+    input {
+      display: inline-block;
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-top: 0;
+
+      @include rem(width, 16);
+      @include rem(height, 16);
+      @include rem(margin-right, 10);
+    }
+  }
+
+  input[type="submit"] {
+    margin-top: 0;
+
+    @include rem(margin-left, 16);
+  }
+}
