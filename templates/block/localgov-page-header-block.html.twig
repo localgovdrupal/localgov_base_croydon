@@ -26,6 +26,10 @@
       <h1 class="lgd-page-title-block__title">{{ title }}</h1>
     {% endif %}
 
+    {% if subtitle %}
+      <p class="lgd-page-title-block__subtitle">{{ subtitle }}</h1>
+    {% endif %}
+
     {% set is_lede_a_render_array = lede is iterable %}
     {% set is_lede_not_a_render_array = not is_lede_a_render_array %}
     {% if is_lede_a_render_array and ('#value' in lede|keys) and lede['#value'] %}
