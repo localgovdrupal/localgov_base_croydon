@@ -275,6 +275,12 @@
       }
     }
   }
+
+  .localgov-subsites-summary {
+    border-bottom: 0.0625rem solid $gray-light;
+
+    @include rem(margin-bottom, 20);
+  }
 }
 
 @include media-breakpoint-up(md) {
