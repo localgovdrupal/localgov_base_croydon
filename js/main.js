@@ -119,9 +119,32 @@
             $(".lgd-guide-nav__content").css("display", "block");
           } else {
             $(".lgd-guide-nav").removeClass("hidden");
-            $(".lgd-guide-nav__content").css();
+            $(".lgd-guide-nav__content").css("display", "block");
           }
         }).resize();
+
+        function replaceAlertText() {
+          var $alertDiv = $('div[role="alert"]');
+
+          // Remove all direct text nodes containing non-whitespace (the error message)
+          $alertDiv.contents().filter(function() {
+            return this.nodeType === 3 && $.trim(this.nodeValue).length;
+          }).remove();
+
+          // Insert the new message after the h2, or at the start if no h2
+          var $h2 = $alertDiv.find('h2.visually-hidden').first();
+          var $newMsg = $('<p>There was a problem</p>');
+          if ($h2.length) {
+            $newMsg.insertAfter($h2);
+          } else {
+            $alertDiv.prepend($newMsg);
+          }
+        }
+
+        // Call the function after the page has fully loaded
+        $(window).on('load', function() {
+          replaceAlertText();
+        });
 
       })
     }
