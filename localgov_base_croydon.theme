@@ -229,27 +229,3 @@ function localgov_base_croydon_preprocess_field(array &$variables, string $hook)
     }
   }
 }
-
-/**
- * Implements hook_preprocess_node() for 'localgov_subsites_page' content type.
- *
- * Prepares the 'localgov_subsites_summary' field for rendering by explicitly
- * adding its plain text value to the $variables['content'] array, as it's not
- * automatically included in the default render array. This allows the Twig
- * template to conditionally display the summary.
- */
-function localgov_base_croydon_preprocess_node(&$variables) {
-  $node = $variables['node'];
-
-  if ($node->bundle() == 'localgov_subsites_page' && $variables['view_mode'] == 'full') {
-    if ($node->hasField('localgov_subsites_summary') && !$node->get('localgov_subsites_summary')->isEmpty()) {
-      $summary_value = $node->get('localgov_subsites_summary')->value;
-      $variables['content']['localgov_subsites_summary'] = [
-        '#plain_text' => $summary_value,
-        '#weight' => 0,
-      ];
-    } else {
-      $variables['content']['localgov_subsites_summary'] = [];
-    }
-  }
-}
