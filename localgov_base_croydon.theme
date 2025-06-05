@@ -229,3 +229,66 @@ function localgov_base_croydon_preprocess_field(array &$variables, string $hook)
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for node templates.
+ *
+ * This function targets 'localgov_subsites_page' nodes in 'full' view mode
+ * to determine if banner content exists (since the banner itself always exists) and pass this
+ * information to the Twig template.
+ */
+function localgov_base_croydon_preprocess_node__localgov_subsites_page__full(&$variables) {
+  $node = $variables['node'];
+  $has_banner_meaningful_content = FALSE;
+  
+  if ($node->hasField('localgov_subsites_banner') && !$node->get('localgov_subsites_banner')->isEmpty()) {
+    $first_item = $node->get('localgov_subsites_banner')->first();
+    
+    if ($first_item) {
+      // Try to load the paragraph entity
+      $banner_paragraph = $first_item->entity;
+      if (!$banner_paragraph && $first_item->target_id) {
+        $banner_paragraph = \Drupal\paragraphs\Entity\Paragraph::load($first_item->target_id);
+      }
+      
+      if ($banner_paragraph && $banner_paragraph instanceof \Drupal\paragraphs\ParagraphInterface) {
+        $banner_image_has_content = FALSE;
+        $banner_title_has_content = FALSE;
+        $banner_text_has_content = FALSE;
+        
+        // Image check
+        if ($banner_paragraph->hasField('localgov_image') && !$banner_paragraph->get('localgov_image')->isEmpty() && $banner_paragraph->get('localgov_image')->target_id) {
+          $file = \Drupal\file\Entity\File::load($banner_paragraph->get('localgov_image')->target_id);
+          if ($file) {
+            $banner_image_has_content = TRUE;
+          }
+        }
+        
+        // Title check
+        if ($banner_paragraph->hasField('localgov_title') && !$banner_paragraph->get('localgov_title')->isEmpty()) {
+          $title_value = $banner_paragraph->get('localgov_title')->value;
+          $clean_title = trim(strip_tags(html_entity_decode($title_value)));
+          if ($clean_title !== '') {
+            $banner_title_has_content = TRUE;
+          }
+        }
+        
+        // Text check
+        if ($banner_paragraph->hasField('localgov_subsites_banner_text') && !$banner_paragraph->get('localgov_subsites_banner_text')->isEmpty()) {
+          $text_value = $banner_paragraph->get('localgov_subsites_banner_text')->value;
+          if (is_array($text_value) && isset($text_value['value'])) {
+            $text_value = $text_value['value'];
+          }
+          $clean_text = trim(strip_tags(html_entity_decode($text_value)));
+          if ($clean_text !== '') {
+            $banner_text_has_content = TRUE;
+          }
+        }
+        
+        $has_banner_meaningful_content = $banner_image_has_content || $banner_title_has_content || $banner_text_has_content;
+      }
+    }
+  }
+  
+  $variables['has_banner_meaningful_content'] = $has_banner_meaningful_content;
+}

@@ -5,13 +5,13 @@
  *
  * This template controls the display of individual subsite pages. It specifically
  * manages the conditional rendering of the page title and summary based on
- * the presence of banner content.
+ * the presence of banner content, which is now determined in a preprocess function.
  *
  * - The banner content (image, title, text) is expected from nested fields
  * within the 'localgov_subsites_banner' Paragraphs field.
  * - The main page title and 'localgov_subsites_summary' are displayed only
- * if no banner content is found. 
- * Note: the summary field render array is dealt with by a pre-process 
+ * if no banner content is found.
+ * Note: the summary field render array is dealt with by a pre-process
  * function in the .theme file.
  */
 #}
@@ -28,48 +28,15 @@
 
 <div class="container-fluid">
   <article class="contextual-region node node--type-localgov-subsites-page node--view-mode-full">
-
-    {# This checks if the banner content fields (defined on the current node) have been populated. #}
-
-    {% set banner_image_has_content = false %}
-    {% set banner_title_has_content = false %}
-    {% set banner_text_has_content = false %}
-    {% set has_banner_meaningful_content = false %}
-
-    {% if not node.localgov_subsites_banner.isEmpty() %}
-      {% set banner_paragraph = node.localgov_subsites_banner.0.entity %}
-
-      {% if banner_paragraph %}
-
-        {% if not banner_paragraph.localgov_image.isEmpty() and banner_paragraph.localgov_image.target_id %}
-          {% set banner_image_has_content = true %}
-        {% endif %}
-
-        {% if not banner_paragraph.localgov_title.isEmpty() and banner_paragraph.localgov_title.value|trim is not empty %}
-          {% set banner_title_has_content = true %}
-        {% endif %}
-
-        {% if not banner_paragraph.localgov_subsites_banner_text.isEmpty() and banner_paragraph.localgov_subsites_banner_text.value|trim is not empty %}
-          {% set banner_text_has_content = true %}
-        {% endif %}
-
-        {% set has_banner_meaningful_content = banner_image_has_content or banner_title_has_content or banner_text_has_content %}
-      {% endif %}
-    {% endif %}
-    
-    {# Only show title and summary if no banner content is present #}
+    {# has_banner_meaningful_content is set in localgov_base_croydon_preprocess_node__localgov_subsites_page__full() #}
     {% if not has_banner_meaningful_content %}
       <h1>{{ node.label }}</h1>
-
-      {# Check if content.localgov_subsites_summary exists and has content from preprocess function #}
-      {% if content.localgov_subsites_summary is not empty %}
+      {% if content.localgov_subsites_summary %}
         <div class="localgov-subsites-summary">
           <p>{{ content.localgov_subsites_summary }}</p>
         </div>
       {% endif %}
     {% endif %}
-
     {{ content.localgov_subsites_content }}
-
   </article>
 </div>
