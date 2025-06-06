@@ -150,4 +150,31 @@
       }
     }
   }
+
+  &__group {
+    border-color: $gray-light;
+
+    .field--name-localgov-contact {
+      &-office-hours {
+        > .field__label {
+          display: none;
+        }
+
+        .office-hours {
+          font-size: $font-size-lg;
+
+          @include media-breakpoint-up(sm) {
+            &__item {
+              display: flex;
+
+              &-label,
+              &-slots {
+                width: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
