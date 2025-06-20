@@ -30,7 +30,7 @@
   <article class="contextual-region node node--type-localgov-subsites-page node--view-mode-full">
     {# has_banner_meaningful_content is set in localgov_base_croydon_preprocess_node__localgov_subsites_page__full() #}
     {% if not has_banner_meaningful_content %}
-      <h1>{{ content.label }}</h1>
+      <h1>{{ label }}</h1>
       {% if content.localgov_subsites_summary.value %}
         <div class="localgov-subsites-summary">
           <p>{{ content.localgov_subsites_summary.value }}</p>
