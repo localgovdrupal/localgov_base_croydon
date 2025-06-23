@@ -1,0 +1,47 @@
+{#
+/**
+* @file
+* Default theme implementation for the prev_next type blocks.
+*/
+#}
+
+{%
+  set classes = [
+  'lgd-prev-next',
+  prev_next_type ? 'lgd-prev-next--' ~ prev_next_type,
+]
+%}
+
+<nav{{attributes.addClass(classes)}} role="navigation" aria-label="Pagination">
+    {% if previous_url %}
+    <div class="lgd-prev-next__prev">
+      <a class="lgd-prev-next__link" href="{{ previous_url }}" rel="prev">
+        <svg class="lgd-prev-next__icon lgd-prev-next__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+          <path d="M6.5938-0.0078125L-0.1328 6.7188l6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2H3.3965l4.2931-4.293-1.414-1.414z"></path>
+        </svg>
+        <span class="lgd-prev-next__link-title">
+        {{ 'Previous'|t }}<span class="lgd-visually-hidden"> page</span>
+        </span>
+        {% if show_title == 1 %}
+          <span class="lgd-prev-next__link-label">{{ previous_title }}</span>
+        {% endif %}
+      </a>
+    </div>
+    {% endif %}
+    {% if next_url %}
+
+    <div class="lgd-prev-next__next">
+      <a class="lgd-prev-next__link" href="{{ next_url }}" rel="next">
+        <svg class="lgd-prev-next__icon lgd-prev-next__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+          <path d="M8.107-0.0078125L6.6934 1.4062l4.2926 4.293H-2v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+        </svg>
+        <span class="lgd-prev-next__link-title">
+        {{ 'Next'|t }}<span class="lgd-visually-hidden"> page</span>
+        </span>
+        {% if show_title == 1 %}
+        <span class="lgd-prev-next__link-label">{{ next_title }}</span>
+        {% endif %}
+      </a>
+    </div>
+    {% endif %}
+</nav>

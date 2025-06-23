@@ -41,6 +41,11 @@ homepage:
     theme:
       css/components/homepage.css: { weight: 200 }
 
+prev-next:
+  css:
+    theme:
+      css/components/prev-next.css: { weight: 200 }
+
 service-cta-block:
   css:
     theme:

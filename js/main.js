@@ -70,12 +70,12 @@
         // devices. This is done using a media query.
 
         // Hide the facet filter block and set the button link to text.
-        if ($('.facets-widget.facets-widget--checkbox').css('display') == 'none') {
+        if ($('.facets-form').css('display') == 'none') {
           $('.facet-filter-visibility').toggleClass('facet-filter-visibility--hide-filter');
           $('.facet-filter-visibility.facet-filter-visibility--hide-filter').text("Show filters");
         }
         // Show the facet filter block and set the button link to text.
-        if ($('.facets-widget.facets-widget--checkbox').css('display') == 'block') {
+        if ($('.facets-form').css('display') == 'block') {
           $('.facet-filter-visibility.facet-filter-visibility--hide-filter').removeClass();
           $('.facet-filter-visibility').text("Hide filters");
         }
@@ -84,7 +84,7 @@
         // when the window has loaded.
         $( window ).on( "load", function() {
           if ($('.facets-widget input[type=checkbox]').is(":checked")) {
-            $('.facets-widget.facets-widget--checkbox').css('display','block');
+            $('.facets-form').css('display','block');
             $('.facet-filter-visibility.facet-filter-visibility--hide-filter').removeClass('facet-filter-visibility--hide-filter');
             $('.facet-filter-visibility').text("Hide filters");
           }
@@ -93,7 +93,7 @@
         // Facet filter show or hide button links.
         $('.facet-filter-visibility').on('click', function(e){
           $('.facet-filter-visibility').toggleClass('facet-filter-visibility--hide-filter');
-          $('.facets-widget.facets-widget--checkbox').toggle();
+          $('.facets-form').toggle();
           ($(this).text() === "Show filters") ? $(this).text("Hide filters") : $(this).text("Show filters");
         });
 
@@ -119,10 +119,20 @@
             $(".lgd-guide-nav__content").css("display", "block");
           } else {
             $(".lgd-guide-nav").removeClass("hidden");
-            $(".lgd-guide-nav__content").css();
+            $(".lgd-guide-nav__content").css("display", "block");
           }
         }).resize();
 
+        // Highlight the "Latest version" menu item in the secondary menu.
+        // This will set the background color of the link to red.
+        $('.tabs li').each(function() {
+          var link = $(this).find('a');
+          if (link.length && link.text().trim() === 'Latest version') {
+            // This list item contains the link with the text "Latest version"
+            // Set the anchor tag's background to red
+            link.css('background-color', 'red');
+          }
+        });
       })
     }
   }

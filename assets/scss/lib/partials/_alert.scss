@@ -55,6 +55,11 @@
       content: $alert-fail;
     }
   }
+
+  a {
+    color: $blue;
+    font-weight: $font-bold;
+  }
 }
 
 .alert-success,

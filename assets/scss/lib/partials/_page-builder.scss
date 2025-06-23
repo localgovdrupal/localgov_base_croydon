@@ -62,51 +62,44 @@
 }
 
 .fact-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
   width: 100%;
   background-color: $indigo !important;
   border-bottom: 0.1875rem solid $tan !important;
   border-left: none !important; // overrule base.css border setting
   border-right: none !important; // overrule base.css border setting
   border-top: none !important; // overrule base.css border setting
-  display: flex;
+  color: $white;
+  font-weight: $font-bold;
+  height: 100%;
 
-  @include rem(margin-bottom, 15);
   @include rem(padding, 50, 15);
 
-  .field--name-localgov-fact {
-    padding-right: 0; // override of 'main' para styling
-    color: $white;
-    font-weight: $font-bold;
-
-    @include rem(margin-bottom, 10);
-
-    &.fact-opening,
-    &.fact-closing {
-      font-weight: $font-bold;
-      text-align: center;
-
-      @include rem(font-size, 55);
-      @include rem(line-height, 55);
-    }
-
-    &.fact {
-      font-weight: $font-bold;
-      text-align: center;
-
-      @include rem(font-size, 22);
-    }
+  &--has-bg {
+    background-image: none !important; // override the two unused fade background options available in the editor
+    padding: 3.125rem .9375rem !important; // match padding to default setting
   }
 
-  &.fact-box-fact-box-light {
-    background-color: $gray-tint;
-    border-bottom: 0.1875rem solid $purple;
+  &__opening,
+  &__closing {
+    font-weight: $font-bold;
+
+    @include rem(font-size, 55);
+    @include rem(line-height, 55);
+  }
+
+  &__fact {
+    width: 100%;
 
     p {
-      color: $purple;
+      font-weight: $font-bold;
+      padding: 0;
 
-      &.fact {
-        color: $black;
-      }
+      @include rem(font-size, 22);
     }
   }
 }

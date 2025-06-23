@@ -43,6 +43,7 @@ body {
   --color-pink: #AD52AD;
   --color-gray: #DBDFE3;
   --color-accent-tint: rgba(var(--color-accent-rgb), 0.8);
+  --color-purple-tint: rgba(var(--color-accent-rgb), 0.1); /*very light pink used for bgs*/
 
   /*
     Grey Scale
