@@ -119,10 +119,20 @@
             $(".lgd-guide-nav__content").css("display", "block");
           } else {
             $(".lgd-guide-nav").removeClass("hidden");
-            $(".lgd-guide-nav__content").css();
+            $(".lgd-guide-nav__content").css("display", "block");
           }
         }).resize();
 
+        // Highlight the "Latest version" menu item in the secondary menu.
+        // This will set the background color of the link to red.
+        $('.tabs li').each(function() {
+          var link = $(this).find('a');
+          if (link.length && link.text().trim() === 'Latest version') {
+            // This list item contains the link with the text "Latest version"
+            // Set the anchor tag's background to red
+            link.css('background-color', 'red');
+          }
+        });
       })
     }
   }
