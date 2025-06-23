@@ -125,7 +125,7 @@
 
         // Highlight the "Latest version" menu item in the secondary menu.
         // This will set the background color of the link to red.
-        $('li').each(function() {
+        $('.tabs li').each(function() {
           var link = $(this).find('a');
           if (link.length && link.text().trim() === 'Latest version') {
             // This list item contains the link with the text "Latest version"
