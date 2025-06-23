@@ -732,6 +732,16 @@ span.facet-item__count {
             &:after {
               display: none;
             }
+
+            a {
+              color: $danger;
+              font-weight: $font-bold;
+            }
+
+            a:hover {
+              color: $black;
+              text-decoration: underline;
+            }
           }
         }
       }
