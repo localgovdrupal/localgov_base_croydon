@@ -20,6 +20,7 @@ base:
       css/components/form-items.css: {}
       css/components/box-links.css: { weight: 200 }
       css/components/menu-main.css: { weight: 200 }
+      css/components/contact.css: { weight: 200 }
 
 header:
   css:
