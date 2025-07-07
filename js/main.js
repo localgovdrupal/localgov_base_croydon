@@ -119,7 +119,7 @@
             $(".lgd-guide-nav__content").css("display", "block");
           } else {
             $(".lgd-guide-nav").removeClass("hidden");
-            $(".lgd-guide-nav__content").css("display", "block");
+            $(".lgd-guide-nav__content").css("display", "none");
           }
         }).resize();
 
