@@ -1,127 +1,99 @@
-.paragraph--type--localgov-contact {
-  background: $gray;
-  border-left: 0.3125rem solid $primary;
+.lgd-contact {
+  background: $gray-tint;
+  border-left: 0.25rem solid $primary;
 
   @include rem(margin-top, 20);
   @include rem(padding, 20);
 
-  h3 {
-    color: $primary;
-  }
-
-  .field--name-localgov-contact-heading {
-    @extend .h3;
-  }
-
-  .contact-opentimes {
-    #field--localgov_contact_office_hours {
-      > div {
-        &:first-child {
-          font-size: $h6-font-size;
-          font-weight: $font-bold;
-        }
-      }
-    }
-
-    .office-hours {
-      @include rem(margin-top, 10);
-
-      &__item {
-        @include rem(margin-bottom, 10);
-
-        span {
-          display: block;
-          width: 100%;
-        }
-
-        br {
-          display: none;
-        }
-      }
+  &__headings {
+    [class*="subheading"] {
+      color: $secondary;
+      font-size: $font-size-ex-ex-lg;
     }
   }
 
-  .contact-phone {
+  &__content {
     a {
-      color: $blue;
-      font-weight: $font-bold;
-    }
+      font-size: $font-size-lg;
 
-    > div {
       &:before {
         font-family: $font-family-icons;
-        font-weight: $fa-font-weight;
-        font-size: $font-size-med;
+        font-weight: 400;
+        font-size: $font-size-lg;
+        color: $secondary;
         display: inline-block;
-        text-align: left;
-
-        @include rem(min-width, 28);
-      }
-    }
-
-    #field--localgov_contact_email {
-      &:before {
-        content: $fa-envelope;
-      }
-    }
-
-    #field--localgov_contact_phone {
-      &:before {
-        content: $fa-phone;
-      }
-    }
-
-    #field--localgov_contact_mobile {
-      &:before {
-        content: $fa-mobile;
-      }
-    }
-
-    #field--localgov_contact_out_of_hours {
-      &:before {
-        content: $fa-moon;
-      }
-    }
-
-    #field--localgov_contact_minicom {
-      &:before {
-        content: $fa-keyboard;
-      }
-    }
-  }
-
-  .contact-social {
-    > div {
-      display: inline-block;
-      width: 100%;
-
-      @include media-breakpoint-up(md) {
-        width: auto;
-      }
-
-      a {
-        color: $blue;
+        width: 1.25rem;
+        text-align: center;
+        vertical-align: middle;
 
         @include rem(margin-right, 10);
+      }
+    }
 
-        &:before {
-          color: $carbon;
-          font-weight: $fa-font-weight;
-          font-size: $font-size-med;
-          display: inline-block;
-          text-align: left;
+    &.external-link {
+      &:after {
+        display: none; // remove generic external link icon
+      }
+    }
 
-          @include rem(margin-right, 10);
-        }
-
-        &.external-link {
-          &:after {
-            display: none; // remove generic external link icon
+    .field--name-localgov-contact {
+      &-url {
+        a {
+          &:before {
+            content: $fa-link;
           }
         }
       }
 
-      &.contact-facebook {
+      &-other-url {
+        a {
+          &:before {
+            content: $fa-link;
+          }
+        }
+      }
+
+      &-email {
+        a {
+          &:before {
+            content: $fa-envelope;
+          }
+        }
+      }
+
+      &-phone {
+        a {
+          &:before {
+            content: $fa-phone;
+          }
+        }
+      }
+
+      &-mobile {
+        a {
+          &:before {
+            content: $fa-mobile;
+          }
+        }
+      }
+
+      &-out-of-hours {
+        a {
+          &:before {
+            content: $fa-moon;
+          }
+        }
+      }
+
+      &-minicom {
+        a {
+          &:before {
+            content: $fa-keyboard;
+          }
+        }
+      }
+
+      &-facebook {
         a {
           &:before {
             font-family: $font-family-brands;
@@ -130,16 +102,16 @@
         }
       }
 
-      &.contact-twitter {
+      &-twitter {
         a {
           &:before {
             font-family: $font-family-brands;
-            content: $fa-twitter;
+            content: $fa-x-twitter;
           }
         }
       }
 
-      &.contact-instagram {
+      &-instagram {
         a {
           &:before {
             font-family: $font-family-brands;
@@ -148,81 +120,60 @@
         }
       }
 
-      &.contact-othersocial {
+      &-other-social {
         a {
           &:before {
-            font-family: $font-family-icons;
             content: $fa-share;
+          }
+        }
+      }
+
+      &-address {
+        margin-top: 0 !important; // bs override
+        p {
+          display: flex;
+
+          &:before {
+            font-family: $font-family-icons;
+            content: $fa-map-marker;
+            font-weight: $fa-font-weight;
+            font-size: $font-size-lg;
+            color: $secondary;
+            display: inline-block;
+            width: 1.25rem;
+            text-align: center;
+            vertical-align: middle;
+
+            @include rem(margin-right, 10);
           }
         }
       }
     }
   }
 
-  .contact-urls {
-    border-bottom: 0.0625rem solid $gray-mid;
+  &__group {
+    border-color: $gray-light;
 
-    @include rem(padding-bottom, 20);
-    @include rem(margin-bottom, 20);
-
-    > div {
-      display: inline-block;
-    }
-
-    a {
-      color: $blue;
-      font-weight: $font-bold !important;
-
-      &:before {
-        font-family: $font-family-icons;
-        font-weight: $fa-font-weight;
-        font-size: $font-size-ex-ex-sm;
-        content: $fa-chevron-right;
-        color: $primary;
-        display: inline-block; // inline-block prevents icon from wrapping to newline and removes erroneous underline
-
-        @include rem(padding-right, 5);
-      }
-
-      &.external-link {
-        &:after {
-          display: none; // remove generic external link icon
+    .field--name-localgov-contact {
+      &-office-hours {
+        > .field__label {
+          display: none;
         }
-      }
-    }
 
-    #field--localgov_contact_other_url {
-      @include rem(margin-left, 20);
-    }
-  }
+        .office-hours {
+          font-size: $font-size-lg;
 
-  .geolocation-map-wrapper {
-    width: 100%;
+          @include media-breakpoint-up(sm) {
+            &__item {
+              display: flex;
 
-    @include rem(margin-top, 20);
-  }
-
-  .contact-address {
-    width: 100%;
-    background: $white;
-
-    @include rem(padding, 20);
-
-    p {
-      position: relative;
-      padding-right: 0;
-      margin-bottom: 0;
-
-      @include rem(padding-left, 25);
-
-      &:before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        font-family: $font-family-icons;
-        content: $fa-map-marker;
-        font-weight: $fa-font-weight;
-        font-size: $font-size-ex-lg;
+              &-label,
+              &-slots {
+                width: 50%;
+              }
+            }
+          }
+        }
       }
     }
   }

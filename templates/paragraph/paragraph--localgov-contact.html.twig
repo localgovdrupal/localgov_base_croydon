@@ -1,0 +1,136 @@
+{#
+/**
+ * @file
+ * Theme override of base contact template to allow for custom placement of contact info.
+ */
+#}
+{%
+  set classes = [
+    'lgd-contact',
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% if not localgov_base_remove_css %}
+	{{ attach_library('localgov_base/contact') }}
+{% endif %}
+
+
+{% set email_website_fields = [
+  'localgov_contact_url',
+  'localgov_contact_email',
+  'localgov_contact_other_url',
+] %}
+
+{% set phone_fields = [
+  'localgov_contact_minicom',
+  'localgov_contact_mobile',
+  'localgov_contact_out_of_hours',
+  'localgov_contact_phone',
+] %}
+
+{% set social_media_field = [
+  'localgov_contact_facebook',
+  'localgov_contact_instagram',
+  'localgov_contact_other_social',
+  'localgov_contact_twitter',
+] %}
+
+{% set has_email_website_fields = false %}
+{% set has_phone_fields = false %}
+{% set has_social_media_fields = false %}
+
+
+{% for item in email_website_fields %}
+	{% if content[item].0 is not empty %}
+		{% set has_email_website_fields = true %}
+	{% endif %}
+{% endfor %}
+
+{% for item in phone_fields %}
+	{% if content[item].0 is not empty %}
+		{% set has_phone_fields = true %}
+	{% endif %}
+{% endfor %}
+
+{% for item in social_media_field %}
+	{% if content[item].0 is not empty %}
+		{% set has_social_media_fields = true %}
+	{% endif %}
+{% endfor %}
+
+<div{{attributes.addClass(classes)}}>
+
+	{% if paragraph.localgov_contact_heading.value or paragraph.localgov_contact_subheading.value %}
+		<div class="lgd-contact__headings">
+			{% if paragraph.localgov_contact_heading.value %}
+				<h2>{{ content.localgov_contact_heading }}</h2>
+			{% endif %}
+			{% if paragraph.localgov_contact_subheading.value %}
+				{{ content.localgov_contact_subheading }}
+			{% endif %}
+		</div>
+	{% endif %}
+
+	<div class="lgd-contact__content">
+		{% if has_email_website_fields %}
+			<div class="lgd-contact__group">
+				<h3>{{ 'Email & Website'|t }}</h3>
+				{% for item in email_website_fields %}
+					{% if content[item].0 is not empty %}
+						{{ content[item] }}
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if has_phone_fields %}
+			<div class="lgd-contact__group">
+				<h3>{{ 'Phone'|t }}</h3>
+				{% for item in phone_fields %}
+					{% if content[item].0 is not empty %}
+						{{ content[item] }}
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if has_social_media_fields %}
+			<div class="lgd-contact__group">
+				<h3>{{ 'Social Media'|t }}</h3>
+				{% for item in social_media_field %}
+					{% if content[item].0 is not empty %}
+						{{ content[item] }}
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if paragraph.localgov_contact_address.value %}
+			<div class="lgd-contact__group">
+				<h3>{{ 'Address'|t }}</h3>
+				{{ content.localgov_contact_address}}
+			</div>
+		{% endif %}
+  </div>
+
+	{% if paragraph.localgov_contact_office_hours.value %}
+		<div class="lgd-contact__group">
+			<h3>{{ 'Office Hours'|t }}</h3>
+			{{ content.localgov_contact_office_hours}}
+		</div>
+	{% endif %}
+
+  {% if paragraph.localgov_contact_location.value %}
+    <div class="lgd-contact__location">
+      <h3>{{ 'Location'|t }}</h3>
+      {{ content.localgov_contact_location}}
+    </div>
+  {% endif %}
+
+	{{ content|without('localgov_contact_heading', 'localgov_contact_subheading', 'localgov_contact_url', 'localgov_contact_email', 'localgov_contact_other_url', 'localgov_contact_minicom', 'localgov_contact_mobile', 'localgov_contact_out_of_hours', 'localgov_contact_phone', 'localgov_contact_facebook', 'localgov_contact_instagram', 'localgov_contact_other_social', 'localgov_contact_twitter', 'localgov_contact_address', 'localgov_contact_office_hours', 'localgov_contact_location') }}
+
+</div>

@@ -31,9 +31,9 @@
     {# has_banner_meaningful_content is set in localgov_base_croydon_preprocess_node__localgov_subsites_page__full() #}
     {% if not has_banner_meaningful_content %}
       <h1>{{ label }}</h1>
-      {% if content.localgov_subsites_summary.value %}
+      {% if content.localgov_subsites_summary is not empty %}
         <div class="localgov-subsites-summary">
-          <p>{{ content.localgov_subsites_summary.value }}</p>
+          {{ content.localgov_subsites_summary }}
         </div>
       {% endif %}
     {% endif %}
