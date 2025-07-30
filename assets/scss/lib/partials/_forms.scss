@@ -83,6 +83,7 @@
 
 .form-item {
   &-localgov-forms-date { // date specific styling
+    gap: 1.125rem;
 
     .container-inline {
       @extend .row;
@@ -895,4 +896,11 @@ main.col-sm-8 .webform-type-fieldset legend,
 // reset search input border in masthead
 .lgd-header .lgd-region--search input {
   border: .06rem solid $checkbox-outline !important;
+}
+
+// Adds a gap between the date fields in the localgov-forms-date class
+.localgov-forms-date {
+  // display: flex;
+  // flex-wrap: wrap;
+  gap: 1.125rem;
 }
