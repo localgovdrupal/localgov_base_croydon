@@ -193,8 +193,8 @@ function localgov_base_croydon_preprocess_node__cds_tenancy_office_dir_page__cds
  * Implements hook_preprocess_block().
  *
  * Hides the Table of Contents (TOC) block on specific Publication outline pages.
- * 
- * This function checks if the current page belongs to a Book hierarchy and 
+ *
+ * This function checks if the current page belongs to a Book hierarchy and
  * removes the block if the node is either a parent (that has child pages) or a child
  */
 function localgov_base_croydon_preprocess_block(array &$variables) {
@@ -240,22 +240,22 @@ function localgov_base_croydon_preprocess_field(array &$variables, string $hook)
 function localgov_base_croydon_preprocess_node__localgov_subsites_page__full(&$variables) {
   $node = $variables['node'];
   $has_banner_meaningful_content = FALSE;
-  
+
   if ($node->hasField('localgov_subsites_banner') && !$node->get('localgov_subsites_banner')->isEmpty()) {
     $first_item = $node->get('localgov_subsites_banner')->first();
-    
+
     if ($first_item) {
       // Try to load the paragraph entity
       $banner_paragraph = $first_item->entity;
       if (!$banner_paragraph && $first_item->target_id) {
         $banner_paragraph = \Drupal\paragraphs\Entity\Paragraph::load($first_item->target_id);
       }
-      
+
       if ($banner_paragraph && $banner_paragraph instanceof \Drupal\paragraphs\ParagraphInterface) {
         $banner_image_has_content = FALSE;
         $banner_title_has_content = FALSE;
         $banner_text_has_content = FALSE;
-        
+
         // Image check
         if ($banner_paragraph->hasField('localgov_image') && !$banner_paragraph->get('localgov_image')->isEmpty() && $banner_paragraph->get('localgov_image')->target_id) {
           $file = \Drupal\file\Entity\File::load($banner_paragraph->get('localgov_image')->target_id);
@@ -263,7 +263,7 @@ function localgov_base_croydon_preprocess_node__localgov_subsites_page__full(&$v
             $banner_image_has_content = TRUE;
           }
         }
-        
+
         // Title check
         if ($banner_paragraph->hasField('localgov_title') && !$banner_paragraph->get('localgov_title')->isEmpty()) {
           $title_value = $banner_paragraph->get('localgov_title')->value;
@@ -272,7 +272,7 @@ function localgov_base_croydon_preprocess_node__localgov_subsites_page__full(&$v
             $banner_title_has_content = TRUE;
           }
         }
-        
+
         // Text check
         if ($banner_paragraph->hasField('localgov_subsites_banner_text') && !$banner_paragraph->get('localgov_subsites_banner_text')->isEmpty()) {
           $text_value = $banner_paragraph->get('localgov_subsites_banner_text')->value;
@@ -284,11 +284,33 @@ function localgov_base_croydon_preprocess_node__localgov_subsites_page__full(&$v
             $banner_text_has_content = TRUE;
           }
         }
-        
+
         $has_banner_meaningful_content = $banner_image_has_content || $banner_title_has_content || $banner_text_has_content;
       }
     }
   }
-  
+
   $variables['has_banner_meaningful_content'] = $has_banner_meaningful_content;
+}
+
+/**
+ * Implements hook_preprocess_form_element_label() for localgov date fields.
+ * This function rewrites the label for date fields in LocalGov forms.
+ */
+function localgov_base_croydon_preprocess_form_element_label(&$variables) {
+  // Only proceed if the 'for' attribute exists.
+  if (!empty($variables['attributes']['for'])) {
+    $for = $variables['attributes']['for'];
+    $suffix_map = [
+      '-day' => t('Day'),
+      '-month' => t('Month'),
+      '-year' => t('Year'),
+    ];
+    foreach ($suffix_map as $suffix => $label) {
+      if (str_contains($for, $suffix)) {
+        $variables['title']['#markup'] = $label;
+        break;
+      }
+    }
+  }
 }
