@@ -133,6 +133,12 @@
             link.css('background-color', 'red');
           }
         });
+
+        // Add a visually hidden class to the label of localgov forms
+        // date fields to hide the label visually but keep it accessible
+        // for screen readers.
+        $('.localgov-forms-date label').addClass('visually-hidden');
+
       })
     }
   }
