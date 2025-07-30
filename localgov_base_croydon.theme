@@ -295,7 +295,8 @@ function localgov_base_croydon_preprocess_node__localgov_subsites_page__full(&$v
 
 /**
  * Implements hook_preprocess_form_element_label() for localgov date fields.
- * This function rewrites the label for date fields in LocalGov forms.
+ * This function rewrites the label for date fields in LocalGov forms
+ * date field parts.
  */
 function localgov_base_croydon_preprocess_form_element_label(&$variables) {
   // Only proceed if the 'for' attribute exists.
