@@ -83,7 +83,6 @@
 
 .form-item {
   &-localgov-forms-date { // date specific styling
-    gap: 1.125rem;
 
     .container-inline {
       @extend .row;
@@ -900,7 +899,5 @@ main.col-sm-8 .webform-type-fieldset legend,
 
 // Adds a gap between the date fields in the localgov-forms-date class
 .localgov-forms-date {
-  // display: flex;
-  // flex-wrap: wrap;
   gap: 1.125rem;
 }
