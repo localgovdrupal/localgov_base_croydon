@@ -896,3 +896,8 @@ main.col-sm-8 .webform-type-fieldset legend,
 .lgd-header .lgd-region--search input {
   border: .06rem solid $checkbox-outline !important;
 }
+
+// Adds a gap between the date fields in the localgov-forms-date class
+.localgov-forms-date {
+  gap: 1.125rem;
+}
