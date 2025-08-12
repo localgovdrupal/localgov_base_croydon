@@ -85,9 +85,13 @@
             @include rem(padding, 12, 24);
 
             &:hover {
+              border-left: 0.1875rem solid $primary;
+            }
+
+            &:hover,
+            &:focus {
               color: $carbon;
               text-decoration: none;
-              border-left: 0.1875rem solid $primary;
             }
           }
 
@@ -100,6 +104,12 @@
 
           span {
             display: block;
+          }
+
+          &:last-child {
+            a {
+              margin-bottom: 2rem;
+            }
           }
         }
       }
