@@ -304,8 +304,18 @@ function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
   // Set default values
   $variables['section_title'] = t('In this section');
   $variables['show_menu'] = FALSE;
+  $variables['items'] = [];
+  
+  // Debug: What type of page are we on?
+  $current_route = \Drupal::routeMatch()->getRouteName();
+  \Drupal::logger('subsite_nav')->info('Current route: @route', ['@route' => $current_route]);
   
   if ($current_node instanceof \Drupal\node\NodeInterface) {
+    \Drupal::logger('subsite_nav')->info('Processing node: @nid (@title)', [
+      '@nid' => $current_node->id(),
+      '@title' => $current_node->getTitle(),
+    ]);
+    
     $menu_tree_service = \Drupal::service('menu.link_tree');
     $menu_name = 'subsites';
     
@@ -313,39 +323,104 @@ function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
     $parameters = $menu_tree_service->getCurrentRouteMenuTreeParameters($menu_name);
     $tree = $menu_tree_service->load($menu_name, $parameters);
     
+    // Debug: Let's see what's in the tree
+    \Drupal::logger('subsite_nav')->info('Menu tree loaded with @count top-level items', [
+      '@count' => count($tree),
+    ]);
+    
     // Find the current page in the menu and determine context
-    $result = _localgov_base_croydon_analyze_current_page($tree, $current_node);
+    $result = localgov_base_croydon_analyze_current_page($tree, $current_node);
+    
+    \Drupal::logger('subsite_nav')->info('Analyze result: @result', [
+      '@result' => $result ? 'FOUND' : 'NOT FOUND',
+    ]);
     
     if ($result) {
+      \Drupal::logger('subsite_nav')->info('Analysis details - Title: @title, Has children: @children, Is child: @is_child, Parent title: @parent', [
+        '@title' => $result['current_title'],
+        '@children' => $result['has_children'] ? 'YES' : 'NO',
+        '@is_child' => $result['is_child'] ? 'YES' : 'NO',
+        '@parent' => $result['parent_title'],
+      ]);
+      
       // Case 1: Current page has children - show them
       if ($result['has_children']) {
         $variables['section_title'] = $result['current_title'];
-        $variables['items'] = $menu_tree_service->build($result['current_element']->subtree)['#items'];
+        $built_menu = $menu_tree_service->build($result['current_element']->subtree);
+        $variables['items'] = $built_menu['#items'] ?? [];
         $variables['show_menu'] = TRUE;
+        
+        \Drupal::logger('subsite_nav')->info('CASE 1: Showing children menu with @count items', [
+          '@count' => count($variables['items']),
+        ]);
       }
-      // Case 2: Current page is a child - show siblings
+      // Case 2: Current page is a child - show siblings (but only if there are meaningful siblings)
       elseif ($result['is_child'] && $result['parent_element']) {
-        $variables['section_title'] = $result['parent_title'];
-        $variables['items'] = $menu_tree_service->build($result['parent_element']->subtree)['#items'];
-        $variables['show_menu'] = TRUE;
+        $built_menu = $menu_tree_service->build($result['parent_element']->subtree);
+        $sibling_items = $built_menu['#items'] ?? [];
+        
+        // Check if there are multiple siblings (more than just the current page)
+        // and that we're not just showing main menu items
+        if (count($sibling_items) > 1) {
+          // Additional check: make sure the parent isn't a top-level main menu item
+          // by checking if the parent has a parent (i.e., we're at least 2 levels deep)
+          $parent_has_parent = $result['parent_has_parent'] ?? false;
+          
+          if ($parent_has_parent) {
+            $variables['section_title'] = $result['parent_title'];
+            $variables['items'] = $sibling_items;
+            $variables['show_menu'] = TRUE;
+            
+            \Drupal::logger('subsite_nav')->info('CASE 2: Showing sibling menu with @count items (deep child)', [
+              '@count' => count($variables['items']),
+            ]);
+          } else {
+            // This is a direct child of main menu - don't show siblings
+            $variables['show_menu'] = FALSE;
+            $variables['items'] = [];
+            
+            \Drupal::logger('subsite_nav')->info('CASE 2: Hiding menu - direct child of main menu item');
+          }
+        } else {
+          // Only one sibling (itself) - hide menu
+          $variables['show_menu'] = FALSE;
+          $variables['items'] = [];
+          
+          \Drupal::logger('subsite_nav')->info('CASE 2: Hiding menu - no meaningful siblings');
+        }
       }
       // Case 3: No children and not a child - hide menu
       else {
         $variables['show_menu'] = FALSE;
         $variables['items'] = [];
+        
+        \Drupal::logger('subsite_nav')->info('CASE 3: Hiding menu - no children and not a child');
       }
     } else {
       // Current page not found in menu - hide menu
       $variables['show_menu'] = FALSE;
       $variables['items'] = [];
+      
+      \Drupal::logger('subsite_nav')->info('CASE 4: Hiding menu - page not found in menu');
     }
+  } else {
+    \Drupal::logger('subsite_nav')->info('No current node found - hiding menu');
+    $variables['show_menu'] = FALSE;
+    $variables['items'] = [];
   }
+  
+  // Final debug log
+  \Drupal::logger('subsite_nav')->info('FINAL RESULT - Show menu: @show, Items: @count, Section title: @title', [
+    '@show' => $variables['show_menu'] ? 'TRUE' : 'FALSE',
+    '@count' => count($variables['items']),
+    '@title' => $variables['section_title'],
+  ]);
 }
 
 /**
  * Helper function to analyze the current page's position in the menu.
  */
-function _localgov_base_croydon_analyze_current_page($tree, $current_node) {
+function localgov_base_croydon_analyze_current_page($tree, $current_node) {
   $result = [
     'current_element' => NULL,
     'current_title' => '',
@@ -353,31 +428,62 @@ function _localgov_base_croydon_analyze_current_page($tree, $current_node) {
     'is_child' => FALSE,
     'parent_element' => NULL,
     'parent_title' => '',
+    'parent_has_parent' => FALSE, // New field to track depth
   ];
+  
+  \Drupal::logger('subsite_nav')->info('Starting analysis for node @nid', [
+    '@nid' => $current_node->id(),
+  ]);
   
   // Recursively search for the current page
   if (_localgov_base_croydon_find_current_page($tree, $current_node, $result)) {
+    \Drupal::logger('subsite_nav')->info('Found current page in menu tree');
     return $result;
   }
   
+  \Drupal::logger('subsite_nav')->info('Current page NOT found in menu tree');
   return FALSE;
 }
 
 /**
  * Recursive function to find current page and its context in menu tree.
  */
-function _localgov_base_croydon_find_current_page($tree, $current_node, &$result, $parent_element = NULL) {
+function _localgov_base_croydon_find_current_page($tree, $current_node, &$result, $parent_element = NULL, $grandparent_element = NULL) {
   foreach ($tree as $element) {
+    // Debug each menu item we're checking
+    $menu_link = $element->link;
+    $url = $menu_link->getUrlObject();
+    
+    \Drupal::logger('subsite_nav')->info('Checking menu item: @title (URL: @url)', [
+      '@title' => $menu_link->getTitle(),
+      '@url' => $url->toString(),
+    ]);
+    
     // Check if this element matches the current node
     if (_localgov_base_croydon_is_current_node($element, $current_node)) {
+      \Drupal::logger('subsite_nav')->info('MATCH FOUND! Menu item matches current node');
+      
       $result['current_element'] = $element;
       $result['current_title'] = $element->link->getTitle();
       $result['has_children'] = !empty($element->subtree);
+      
+      \Drupal::logger('subsite_nav')->info('Match details - Title: @title, Has subtree: @subtree', [
+        '@title' => $result['current_title'],
+        '@subtree' => !empty($element->subtree) ? 'YES' : 'NO',
+      ]);
       
       if ($parent_element) {
         $result['is_child'] = TRUE;
         $result['parent_element'] = $parent_element;
         $result['parent_title'] = $parent_element->link->getTitle();
+        $result['parent_has_parent'] = ($grandparent_element !== NULL);
+        
+        \Drupal::logger('subsite_nav')->info('This is a child item - Parent: @parent, Parent has parent: @grandparent', [
+          '@parent' => $result['parent_title'],
+          '@grandparent' => $result['parent_has_parent'] ? 'YES' : 'NO',
+        ]);
+      } else {
+        \Drupal::logger('subsite_nav')->info('This is a top-level item');
       }
       
       return TRUE;
@@ -385,7 +491,11 @@ function _localgov_base_croydon_find_current_page($tree, $current_node, &$result
     
     // Search in subtree
     if (!empty($element->subtree)) {
-      if (_localgov_base_croydon_find_current_page($element->subtree, $current_node, $result, $element)) {
+      \Drupal::logger('subsite_nav')->info('Searching subtree of: @title', [
+        '@title' => $menu_link->getTitle(),
+      ]);
+      
+      if (_localgov_base_croydon_find_current_page($element->subtree, $current_node, $result, $element, $parent_element)) {
         return TRUE;
       }
     }
@@ -395,43 +505,30 @@ function _localgov_base_croydon_find_current_page($tree, $current_node, &$result
 }
 
 /**
- * Check if a menu element corresponds to the current node.
+ * Helper function to check if a menu element matches the current node.
  */
 function _localgov_base_croydon_is_current_node($element, $current_node) {
-  try {
-    $url = $element->link->getUrlObject();
-    if ($url->isRouted() && $url->getRouteName() === 'entity.node.canonical') {
-      $route_params = $url->getRouteParameters();
-      return isset($route_params['node']) && $route_params['node'] == $current_node->id();
+  $menu_link = $element->link;
+  
+  // Get the URL object
+  $url = $menu_link->getUrlObject();
+  
+  // Debug the URL checking
+  \Drupal::logger('subsite_nav')->info('Checking URL match - Route: @route, Params: @params', [
+    '@route' => $url->getRouteName(),
+    '@params' => json_encode($url->getRouteParameters()),
+  ]);
+  
+  // Check if it's a node route and matches our current node
+  if ($url->getRouteName() === 'entity.node.canonical') {
+    $route_params = $url->getRouteParameters();
+    if (isset($route_params['node']) && $route_params['node'] == $current_node->id()) {
+      \Drupal::logger('subsite_nav')->info('URL MATCH! Node ID @nid matches', [
+        '@nid' => $current_node->id(),
+      ]);
+      return TRUE;
     }
-  } catch (Exception $e) {
-    // Handle any URL-related exceptions
-    return FALSE;
   }
   
   return FALSE;
 }
-
-/**
- * Implements hook_preprocess_form_element_label() for localgov date fields.
- * This function rewrites the label for date fields in LocalGov forms
- * date field parts.
- */
-function localgov_base_croydon_preprocess_form_element_label(&$variables) {
-  // Only proceed if the 'for' attribute exists.
-  if (!empty($variables['attributes']['for'])) {
-    $for = $variables['attributes']['for'];
-    $suffix_map = [
-      '-day' => t('Day'),
-      '-month' => t('Month'),
-      '-year' => t('Year'),
-    ];
-    foreach ($suffix_map as $suffix => $label) {
-      if (str_contains($for, $suffix)) {
-        $variables['title']['#markup'] = $label;
-        break;
-      }
-    }
-  }
-}
-
