@@ -294,23 +294,31 @@ function localgov_base_croydon_preprocess_node__localgov_subsites_page__full(&$v
 }
 
 /**
- * Implements hook_preprocess_form_element_label() for localgov date fields.
- * This function rewrites the label for date fields in LocalGov forms
- * date field parts.
+ * Implements hook_preprocess_form_element().
+ *
+ * Adjusts the label for LocalGov form date elements so that they
+ * display a label of "Day", "Month", or "Year" based on the
+ * element's class suffix.
  */
-function localgov_base_croydon_preprocess_form_element_label(&$variables) {
-  // Only proceed if the 'for' attribute exists.
-  if (!empty($variables['attributes']['for'])) {
-    $for = $variables['attributes']['for'];
+function localgov_base_croydon_preprocess_form_element(&$variables) {
+  if (!empty($variables['element']['#attributes']['class'])) {
     $suffix_map = [
-      '-day' => t('Day'),
-      '-month' => t('Month'),
-      '-year' => t('Year'),
+      '_day' => \Drupal::translation()->translate('Day'),
+      '_month' => \Drupal::translation()->translate('Month'),
+      '_year' => \Drupal::translation()->translate('Year'),
     ];
-    foreach ($suffix_map as $suffix => $label) {
-      if (str_contains($for, $suffix)) {
-        $variables['title']['#markup'] = $label;
-        break;
+    foreach ($variables['element']['#attributes']['class'] as $class) {
+      // Check if the class is a LocalGov forms date class.
+      // If it is, check for the suffix and update the label accordingly.
+      if (strpos($class, 'localgov_forms_date_') !== FALSE) {
+        foreach ($suffix_map as $suffix => $label) {
+          if (str_contains($class, $suffix)) {
+            if (isset($variables['label']['#title'])) {
+              $variables['label']['#title'] = $label;
+            }
+            break 2;
+          }
+        }
       }
     }
   }
