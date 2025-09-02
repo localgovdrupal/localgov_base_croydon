@@ -81,10 +81,23 @@
   }
 }
 
+.js-form-type-localgov-forms-dob .container-inline,
 .form-item {
   &-localgov-forms-date { // date specific styling
+    display: flex;
+    flex-wrap: nowrap;
 
     .container-inline {
+      display: flex;
+      flex-wrap: nowrap;
+      margin-right: -0.938rem;
+      margin-left: -0.938rem;
+
+      @include media-breakpoint-up(md) {
+        max-width: 33.333%; // Shortens the length of date input parts
+      }
+
+
       @extend .row;
 
       .form-item {
@@ -831,7 +844,6 @@ span.facet-item__count {
 }
 
 /* Custom Date of Birth Styling */
-
 .form-item-lgd-date-of-birth .container-inline,
 .form-item-lgd-date-of-birth-desc-after .container-inline {
   display: flex;
@@ -897,7 +909,34 @@ main.col-sm-8 .webform-type-fieldset legend,
   border: .06rem solid $checkbox-outline !important;
 }
 
-// Adds a gap between the date fields in the localgov-forms-date class
-.localgov-forms-date {
+
+/* Custom Localgov Forms Date Styling */
+
+@media screen and (min-width: 64rem) {
+  .localgov-forms-date div[class*="-day"],
+  .localgov-forms-date div[class*="-month"] {
+    max-width: 6%;
+    margin-right: 1.5rem;
+  }
+}
+
+.localgov-forms-date.form-item-localgov-forms-date-day,
+.localgov-forms-date.form-item-localgov-forms-date-month,
+.localgov-forms-date.form-item-localgov-forms-date-year,
+.form-item-localgov-forms-date-day,
+.form-item-localgov-forms-date-month,
+.form-item-localgov-forms-date-year {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Custom Localgov Forms Date of Birth Styling */
+.js-form-type-localgov-forms-dob .container-inline {
+  display: flex;
+  flex-wrap: nowrap;
   gap: 1.125rem;
+
+  @include media-breakpoint-up(md) {
+    max-width: 33.333%; // Shortens the length of date input parts
+  }
 }
