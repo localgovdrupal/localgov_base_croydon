@@ -93,6 +93,7 @@
       flex-wrap: nowrap;
       margin-right: -0.938rem;
       margin-left: -0.938rem;
+      width: 100%;
 
       @include media-breakpoint-up(md) {
         max-width: 33.333%; // Shortens the length of date input parts
