@@ -86,6 +86,7 @@
   &-localgov-forms-date { // date specific styling
     display: flex;
     flex-wrap: nowrap;
+    flex-direction: column;
 
     .container-inline {
       display: flex;
