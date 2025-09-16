@@ -1,0 +1,26 @@
+/**
+ * @file
+ * Overrides for base contact css.
+ */
+
+.lgd-contact__headings,
+.lgd-contact__content {
+  border: none;
+}
+
+.lgd-contact__headings {
+  background-color: transparent;
+}
+
+.lgd-contact__group {
+    border-color: var(--color-gray);
+}
+
+.lgd-contact > .lgd-contact__group,
+.lgd-contact > .lgd-contact__location {
+  padding: var(--contact-spacing);
+}
+
+.lgd-contact h3 {
+  margin-top: 20px;
+}

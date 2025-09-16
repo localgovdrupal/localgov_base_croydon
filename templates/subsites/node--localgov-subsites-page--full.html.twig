@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Default node template for 'localgov_subsites_page'.
+ *
+ * This template controls the display of individual subsite pages. It specifically
+ * manages the conditional rendering of the page title and summary based on
+ * the presence of banner content, which is now determined in a preprocess function.
+ *
+ * - The banner content (image, title, text) is expected from nested fields
+ * within the 'localgov_subsites_banner' Paragraphs field.
+ * - The main page title and 'localgov_subsites_summary' are displayed only
+ * if no banner content is found.
+ * Note: the summary field render array is dealt with by a pre-process
+ * function in the .theme file.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<div class="container-fluid">
+  <article class="contextual-region node node--type-localgov-subsites-page node--view-mode-full">
+    {# has_banner_meaningful_content is set in localgov_base_croydon_preprocess_node__localgov_subsites_page__full() #}
+    {% if not has_banner_meaningful_content %}
+      <h1>{{ label }}</h1>
+      {% if content.localgov_subsites_summary is not empty %}
+        <div class="localgov-subsites-summary">
+          {{ content.localgov_subsites_summary }}
+        </div>
+      {% endif %}
+    {% endif %}
+    {{ content.localgov_subsites_content }}
+  </article>
+</div>
