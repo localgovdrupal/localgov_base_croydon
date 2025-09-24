@@ -27,20 +27,21 @@
 }
 
 a.unpublished-guide-link  {
-  background-color: #FFCC33;
-  color: white;
+  background-color:  var(--color-yellow);
+  color: var(--color-white);
   padding: 4px;
   margin: 2px;
   display: inline-block;
   text-decoration: none;
 }
+
 a.unpublished-guide-link:after {
     content: 'Unpublished';
     display: inline-block;
     margin: .25em;
     padding-left: .25em;
     padding-right: .25em;
-    color: white;
-    background-color: black;
+    color:  var(--color-white);
+    background-color:  var(--color-black);
     font-weight: bold;
 }
