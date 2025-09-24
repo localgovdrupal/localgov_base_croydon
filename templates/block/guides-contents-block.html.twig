@@ -23,9 +23,9 @@
     <{{ list_type }} class="lgd-guide-nav__list">
       {% for link in links %}
         {% if link.url.options.attributes.class == 'active' %}
-          <li class="lgd-guide-nav__list-item lgd-guide-nav__list-item--active" aria-current="page">{{ link.text }}</li>
+          <li class="lgd-guide-nav__list-item lgd-guide-nav__list-item--active" {{ link.url.options.attributes.('data-drupal-is-unpublished') is not empty ? 'data-drupal-is-unpublished' : '' }} aria-current="page">{{ link.text }}</li>
           {% else %}
-            <li class="lgd-guide-nav__list-item">{{ link }}</li>
+          <li class="lgd-guide-nav__list-item" {{ link.url.options.attributes.('data-drupal-is-unpublished') is not empty ? 'data-drupal-is-unpublished' : '' }}>{{ link }}</li>
         {% endif %}
       {% endfor %}
     </{{ list_type }}>
