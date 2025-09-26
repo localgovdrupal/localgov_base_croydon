@@ -25,6 +25,8 @@
 		padding-left: 0.6rem;
 	}
 }
+
+[data-drupal-is-unpublished],
 a[data-drupal-is-unpublished] {
   background-color:  var(--color-yellow);
   color: var(--color-white);
@@ -34,6 +36,7 @@ a[data-drupal-is-unpublished] {
   text-decoration: none;
 }
 
+[data-drupal-is-unpublished][aria-current="page"]:after,
 a[data-drupal-is-unpublished]:after {
     content: 'Unpublished';
     display: inline-block;
