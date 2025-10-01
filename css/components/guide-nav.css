@@ -36,10 +36,12 @@ a[data-drupal-is-unpublished] {
 
 [data-drupal-is-unpublished][aria-current="page"]:after,
 a[data-drupal-is-unpublished]:after {
-    content: 'Unpublished';
-    margin: .25em;
-    padding-left: .25em;
-    padding-right: .25em;
-    background-color:  var(--color-black);
-    font-weight: bold;
+  content: 'Unpublished';
+  margin: .25em;
+  padding-left: .25em;
+  padding-right: .25em;
+  background-color:  var(--color-black);
+  font-weight: bold;
+  color: var(--color-white);
+  display: inline-block;
 }
