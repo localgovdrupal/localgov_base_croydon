@@ -26,7 +26,8 @@
 	}
 }
 
-a.unpublished-guide-link  {
+[data-drupal-is-unpublished],
+a[data-drupal-is-unpublished] {
   background-color:  var(--color-yellow);
   color: var(--color-white);
   padding: 4px;
@@ -35,7 +36,8 @@ a.unpublished-guide-link  {
   text-decoration: none;
 }
 
-a.unpublished-guide-link:after {
+[data-drupal-is-unpublished][aria-current="page"]:after,
+a[data-drupal-is-unpublished]:after {
     content: 'Unpublished';
     display: inline-block;
     margin: .25em;
