@@ -169,8 +169,6 @@
   @include rem(padding, 15);
   @include rem(line-height, 22);
 
-  @extend .col-8;
-
   &:after {
     display: flex;
     align-items: center;

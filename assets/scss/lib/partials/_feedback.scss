@@ -98,5 +98,7 @@
 .lgd-region--content-bottom {
   .feedback-trigger-page {
     background-color: $primary;
+
+    @include rem(padding, 0, 15);
   }
 }

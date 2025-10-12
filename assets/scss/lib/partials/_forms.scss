@@ -99,12 +99,7 @@
         max-width: 33.333%; // Shortens the length of date input parts
       }
 
-
       @extend .row;
-
-      .form-item {
-        @extend .col-4;
-      }
     }
   }
 

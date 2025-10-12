@@ -49,8 +49,6 @@
 }
 
 .block-facets-form { // facet styling
-  padding: 0 !important; // remove default padding
-
   .facets-form {
     @include media-breakpoint-down(sm) {
       display: none;
@@ -626,12 +624,6 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
     content: "\f06e" !important;
     padding: 0 0.3rem 0 0;
   }
-}
-
-.facet-inactive.block-facet-blocklocalgov-directories-facets,
-.block-localgov-directories-channel-search-block { // tighten position of the show hide when facets are not shown
-  margin-top: 0 !important;
-  padding: 0 !important;
 }
 
 // Definition list tables

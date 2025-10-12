@@ -1,0 +1,136 @@
+// =================================================================
+// Custom CSS Grid System (Bootstrap-like)
+// Replaces Bootstrap 4 Flexbox Grid structure
+// =================================================================
+
+// -----------------------------------------------------------------
+// 1. Variable Definitions (Adjust these to match your theme)
+// -----------------------------------------------------------------
+
+// Define your breakpoints (matching Bootstrap 4/5 defaults)
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+// Define the number of columns
+$grid-columns: 12;
+
+// Gutter variable (match your theme's primary gutter size)
+$grid-gutter-x: 1.5rem;
+$grid-gutter-y: 0; // Often 0 for vertical spacing
+
+// -----------------------------------------------------------------
+// 2. Container and Row Setup
+// -----------------------------------------------------------------
+
+// The Container is a wrapper with max-width and padding
+.container {
+  width: 100%;
+  padding-right: $grid-gutter-x;
+  padding-left: $grid-gutter-x;
+  margin-right: auto;
+  margin-left: auto;
+
+  // Add max-width definitions for breakpoints if needed
+  // @include media-breakpoint-up(sm) { max-width: 540px; }
+  // ...
+}
+
+// The Row defines the CSS Grid context
+.row {
+  display: grid;
+  // Fallback: 12 equal-width columns
+  grid-template-columns: repeat($grid-columns, 1fr);
+  // Apply gutters as grid 'gap'
+  gap: $grid-gutter-y $grid-gutter-x;
+}
+
+// -----------------------------------------------------------------
+// 3. Column (Span) Classes
+// -----------------------------------------------------------------
+
+// A. Base Column Classes (Mobile First: .col-N)
+
+// Loop for .col-1 to .col-12
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    // Span the item across '$i' columns
+    grid-column: span #{$i} / auto;
+  }
+}
+
+// .col (Auto-width/Full-width equivalent)
+.col {
+    grid-column: span 12 / auto; // Default to full width on mobile
+}
+
+// B. Responsive Breakpoint Column Classes (.col-md-N, .col-lg-N, etc.)
+
+// Loop through all breakpoints
+@each $key, $value in $grid-breakpoints {
+  // Skip the smallest breakpoint (xs) as it's handled by the base classes
+  @if $key != xs {
+    @media (min-width: $value) {
+
+      // Loop for .col-sm-1 to .col-sm-12, .col-md-1 to .col-md-12, etc.
+      @for $i from 1 through $grid-columns {
+        .col-#{$key}-#{$i} {
+          // Span the item across '$i' columns at this breakpoint and up
+          grid-column: span #{$i} / auto;
+        }
+      }
+
+      // .col-md (Auto-width at this breakpoint)
+      .col-#{$key} {
+          // This will make it act like flex: 1 for this size
+          grid-column: span 1 / auto; 
+      }
+      
+      // .col-md-auto (Content-width at this breakpoint)
+      .col-#{$key}-auto {
+        // Allow the column to size based on its content width
+        grid-column: auto / auto;
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------
+// 4. Offset Classes
+// -----------------------------------------------------------------
+
+// A. Base Offset Classes (Mobile First: .offset-N)
+
+// Loop for .offset-1 to .offset-11 (12 is the max column count)
+@for $i from 1 through $grid-columns - 1 {
+  .offset-#{$i} {
+    // Start the item at column line $i + 1
+    // offset-1 starts at grid line 2 (skipping 1 column)
+    grid-column-start: #{$i + 1};
+  }
+}
+
+// B. Responsive Breakpoint Offset Classes (.offset-md-N, etc.)
+
+@each $key, $value in $grid-breakpoints {
+  @if $key != xs {
+    @media (min-width: $value) {
+      
+      // Loop for .offset-sm-1 to .offset-sm-11, etc.
+      @for $i from 1 through $grid-columns - 1 {
+        .offset-#{$key}-#{$i} {
+          grid-column-start: #{$i + 1};
+        }
+      }
+
+      // .offset-md-0 (Resets offset at this breakpoint)
+      .offset-#{$key}-0 {
+          grid-column-start: auto;
+      }
+    }
+  }
+}

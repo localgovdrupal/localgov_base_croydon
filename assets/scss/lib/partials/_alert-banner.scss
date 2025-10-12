@@ -82,8 +82,11 @@
       }
 
       .localgov-alert-banner-full--content {
-        @extend .row;
+        display: flex;
+        flex-wrap: wrap;
 
+        @include rem(margin-right, -15);
+        @include rem(margin-left, -15);
         @include rem(padding, 15);
 
         .localgov-alert-banner-full--text {
