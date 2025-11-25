@@ -1,7 +1,7 @@
 .lgd-prev-next {
   display: block;
   padding: 20px 0;
-  margin-bottom: 30px;
+  margin: 0 15px 30px 15px;
 }
 
 .lgd-prev-next__prev,
@@ -52,7 +52,8 @@
 
 .lgd-prev-next__icon {
   margin-top: .326em;
-  margin-left: -30px;
+  margin-left: -20px;
+  margin-right: 15px;
   float: left;
   fill: var(--color-black);
   width: .9375rem;
