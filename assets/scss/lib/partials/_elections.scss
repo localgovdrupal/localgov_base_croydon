@@ -1,0 +1,111 @@
+// Electoral map container sizing.
+#leaflet-map-view-localgov-election-electoral-map-page-map {
+  min-height: 25rem;
+}
+
+// Election menu layout and link states.
+#election-menu {
+  padding-inline: 0;
+}
+
+.election-menu__list-item a {
+  display: block;
+  padding: 0.75rem;
+  text-decoration: none;
+  color: var(--color-black);
+  background-color: var(--color-purple-tint);
+}
+
+.election-menu__list-item a:hover {
+  text-decoration: none;
+  border: 0;
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+.election-menu__list-item.active a {
+  background-color: var(--color-focus);
+  box-shadow: inset 0 -0.1875rem 0 var(--color-black);
+}
+
+.election-menu__list-item.active a:hover {
+  color: var(--color-black);
+}
+
+// Keep the JS-injected menu button styled even if breakpoints drift.
+.election-menu-block__button-container button {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  font-size: 1.1875rem;
+  font-weight: bold;
+}
+
+.election-menu-block__button-container button svg {
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.5em;
+  fill: var(--button-text-color, var(--color-white));
+  transition: transform 0.2s ease;
+}
+
+.election-menu-block__button-container button[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.election-menu-block__button-container button:focus svg,
+.election-menu-block__button-container button:hover svg {
+  fill: var(--button-text-color-hover, var(--color-black));
+}
+
+// Election page title styling.
+.lgd-page-title-block__election-name {
+  font-size: 1.375rem;
+  margin-block-end: 0.5rem;
+  color: $gray-bs;
+}
+
+// Linked election areas table.
+.table-election-areas a {
+  font-weight: bold;
+  color: var(--color-blue);
+}
+
+// Leaflet popup alignment and chrome reset.
+.leaflet-popup-content-wrapper {
+  padding: 0.3125rem 1.25rem 0.0625rem 0.0625rem !important;
+  text-align: left;
+  border-radius: 0 !important;
+}
+
+// Election notices and results list formatting.
+// Reset notice list indentation regardless of list element type.
+.election-notices,
+ol.election-notices,
+ul.election-notices {
+  margin-left: 0;
+  padding-left: 0;
+  padding-inline-start: 0;
+}
+
+.results-analysis__item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-block: 0.5rem;
+  border-bottom: 0.0625rem solid var(--color-black);
+}
+
+// Responsive typography for election headings.
+@media (max-width: 47.9988rem) {
+  .lgd-page-title-block__election-name {
+    font-size: 1.125rem;
+  }
+}
+
+// Responsive spacing for the mobile election menu button container.
+@media screen and (max-width: 48rem) {
+  .election-menu-block__button-container {
+    padding: 0;
+    margin-block-end: 1rem;
+  }
+}
