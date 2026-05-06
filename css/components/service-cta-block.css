@@ -26,3 +26,16 @@
 .service-cta-block__link--cta-action:focus .service-cta-block__link-icon svg path {
   fill: var(--ctalink-action-svg-focus);
 }
+
+/* "How to contact us" page only (node 7907). */
+body.page-how-contact-us .service-cta-block .service-cta-block__link {
+  background: #005ea5;
+  color: #fff;
+  border-color: #005ea5;
+}
+
+body.page-how-contact-us .service-cta-block .service-cta-block__link:hover,
+body.page-how-contact-us .service-cta-block .service-cta-block__link:focus {
+  background: #003f7a;
+  border-color: #003f7a;
+}
