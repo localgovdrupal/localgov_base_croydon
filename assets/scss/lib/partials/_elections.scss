@@ -1,6 +1,6 @@
 // Electoral map container sizing.
 #leaflet-map-view-localgov-election-electoral-map-page-map {
-  min-height: 25rem;
+  min-height: 37.5rem;
 }
 
 // Election menu layout and link states.
@@ -66,6 +66,11 @@
 }
 
 // Linked election areas table.
+.table-election-areas {
+  border-bottom: none;
+  font-size: var(--font-size-large, 1.125rem);
+}
+
 .table-election-areas a {
   font-weight: bold;
   color: var(--color-blue);
@@ -95,6 +100,34 @@ ul.election-notices {
   border-bottom: 0.0625rem solid var(--color-black);
 }
 
+.area-result > * + * {
+  margin-top: 3rem;
+  padding-top: 0;
+  border-top: var(--table-border);
+}
+
+h3.election-timeline__area-name {
+  margin-top: 0;
+}
+
+.election-notice {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #444;
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.election-notice__link:focus .election-notice__date,
+.election-notice__link:focus .election-notice__arrow {
+  color: var(--color-black);
+}
+
 // Responsive typography for election headings.
 @media (max-width: 47.9988rem) {
   .lgd-page-title-block__election-name {
@@ -104,6 +137,10 @@ ul.election-notices {
 
 // Responsive spacing for the mobile election menu button container.
 @media screen and (max-width: 48rem) {
+  #leaflet-map-view-localgov-election-electoral-map-page-map {
+    min-height: 25rem;
+  }
+
   .election-menu-block__button-container {
     padding: 0;
     margin-block-end: 1rem;
