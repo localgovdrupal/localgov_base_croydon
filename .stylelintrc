@@ -34,6 +34,6 @@
       "except": ["first-nested"],
       "ignore": ["after-comment"]
     } ],
-    "unit-allowed-list": ["em", "rem", "%", "s", "deg", "ms", "vh"]
+    "unit-allowed-list": ["em", "rem", "fr", "%", "s", "deg", "ms", "vh"]
   }
 }
