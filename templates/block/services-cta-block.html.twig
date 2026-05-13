@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Theme override for the Services CTA block (extends localgov_base).
+ *
+ * Adds optional per-link teaser for Task buttons whose type is Contact.
+ */
+#}
+
+{% if not localgov_base_remove_css %}
+  {{ attach_library('localgov_base/service-cta-block') }}
+{% endif %}
+
+{% set classes = [
+    'service-cta-block',
+  ]
+%}
+
+{% set cta_link_icon = 'chevron-right' %}
+
+<nav{{ attributes.addClass(classes).setAttribute('aria-label', 'Section Navigation'|t) }}>
+  <ul class="lgd-row service-cta-block__list">
+    {% for button in buttons %}
+      <li class="lgd-row__one-third service-cta-block__list-item service-cta-block__list-item--{{ loop.index}}">
+        <a href="{{ button.url }}" class="service-cta-block__link service-cta-block__link--{{ button.type }}">
+          <span class="service-cta-block__link-title">{{ button.title }}</span>
+          {% if button.teaser is defined and button.teaser|trim != '' %}
+            <span class="service-cta-block__link-teaser">
+              {% for line in button.teaser|split('\n') %}
+                {% if loop.index > 1 %}<br>{% endif %}{{ line }}
+              {% endfor %}
+            </span>
+          {% endif %}
+          {% include "@localgov_base/includes/icons/icon.html.twig" with {
+              icon_name: cta_link_icon,
+              icon_wrapper_element: 'span',
+              icon_classes: 'service-cta-block__link-icon'
+            }
+          %}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
