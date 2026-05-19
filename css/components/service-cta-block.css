@@ -1,11 +1,15 @@
+/* ==========================================================================
+   Service CTA block — base (all task types)
+   ========================================================================== */
+
 .service-cta-block__link {
-	font-size:var(--ctalink-font-size);
-	font-weight: 700;
+  font-size: var(--ctalink-font-size);
+  font-weight: 700;
 }
 
 .service-cta-block__link .service-cta-block__link-icon svg {
-	width: 0.65em;
-	height: auto;
+  width: 0.65em;
+  height: auto;
 }
 
 .service-cta-block__link--cta-action {
@@ -28,8 +32,10 @@
   fill: var(--ctalink-action-svg-focus);
 }
 
-/* Task type "Contact" — aligned to supplied Figma specs. */
-/* Full-bleed gradient: breakout from content grid to viewport edges (same idea as site header). */
+/* ==========================================================================
+   Contact task type — layout
+   ========================================================================== */
+
 .block:has(.service-cta-block__link--cta-contact) {
   overflow: visible;
 }
@@ -49,20 +55,23 @@
 }
 
 /*
- * .lgd-row uses flex-wrap: wrap; contact cards use max 360px + 30px gaps (~1140px).
- * nowrap above mobile keeps three on one row; items flex down to fit narrower columns.
+ * Flex row + align-items: stretch — cards match tallest in the row;
+ * short teasers keep whitespace below. List item is flex column; link fills it.
  */
 .service-cta-block__list.lgd-row:has(.service-cta-block__link--cta-contact) {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  gap: 30px;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1.875rem;
 }
 
 .service-cta-block__list.lgd-row > .service-cta-block__list-item.lgd-row__one-third:has(.service-cta-block__link--cta-contact) {
   display: flex;
-  padding-right: 0;
+  flex-direction: column;
+  align-self: stretch;
   margin-inline: 0;
+  padding-right: 0;
 }
 
 @media (min-width: 48.0625rem) {
@@ -72,66 +81,78 @@
 
   .service-cta-block__list.lgd-row > .service-cta-block__list-item.lgd-row__one-third:has(.service-cta-block__link--cta-contact) {
     flex: 1 1 0;
-    min-width: 0;
-    max-width: 360px;
     width: auto;
+    min-width: 0;
+    max-width: 22.5rem;
   }
 }
+
+/* ==========================================================================
+   Contact task type — card link
+   ========================================================================== */
 
 .service-cta-block__link.service-cta-block__link--cta-contact {
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
+  grid-template-rows: auto auto 1fr;
+  align-items: start;
+  align-content: start;
+  align-self: stretch;
+  box-sizing: border-box;
+  flex: 1 1 auto;
   width: 100%;
-  max-width: 360px;
-  height: 438px;
-  padding: 0;
+  max-width: 100%;
+  height: 100%;
+  min-height: 27.375rem;
   margin: 0;
+  padding: 0;
   background-color: #fff;
   color: #0b0c0c;
   text-decoration: none;
 }
 
-/* Hover: no yellow ring (override global a:hover from main.css). */
 .block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:hover,
 .service-cta-block__link.service-cta-block__link--cta-contact:hover {
   color: #0b0c0c;
   background-color: #fff;
-  text-decoration: none;
+  border-color: transparent;
   outline: none;
   box-shadow: none;
-  border-color: transparent;
+  text-decoration: none;
 }
 
-/* Focus: match site-wide accessible link treatment (_links.scss). */
 .block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:focus,
 .block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:focus-visible,
 .service-cta-block__link.service-cta-block__link--cta-contact:focus,
 .service-cta-block__link.service-cta-block__link--cta-contact:focus-visible {
   color: var(--color-link-focus, #0b0c0c);
   background-color: #fff;
-  text-decoration: none;
+  border-color: transparent;
   outline: none;
   box-shadow: 0 0 0 0.125rem var(--color-focus);
-  border-color: transparent;
+  text-decoration: none;
 }
 
+/* ==========================================================================
+   Contact task type — icon band
+   ========================================================================== */
+
 .service-cta-block__link--cta-contact .service-cta-block__link-icon {
+  display: flex;
   grid-row: 1;
   grid-column: 1;
   position: relative;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 10px;
+  align-self: stretch;
+  justify-content: center;
+  gap: 0.625rem;
   box-sizing: border-box;
   width: 100%;
-  max-width: 360px;
-  height: 230px;
-  padding: 0;
+  max-width: 22.5rem;
+  height: 14.375rem;
   margin: 0;
-  align-self: stretch;
+  padding: 0;
   background: #f8eef8;
 }
 
@@ -139,31 +160,34 @@
   display: none;
 }
 
-.service-cta-block__link--cta-contact .service-cta-block__link-icon::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 120px;
-  height: 120px;
-  border-radius: 90px;
-  background: var(--service-cta-icon-disc, #880088);
-  transform: translate(-50%, -50%);
-}
-
+.service-cta-block__link--cta-contact .service-cta-block__link-icon::before,
 .service-cta-block__link--cta-contact .service-cta-block__link-icon::after {
   content: "";
   position: absolute;
-  left: 50%;
   top: 50%;
-  width: 120px;
-  height: 120px;
+  left: 50%;
+  width: 7.5rem;
+  height: 7.5rem;
   transform: translate(-50%, -50%);
+}
+
+.service-cta-block__link--cta-contact .service-cta-block__link-icon::before {
+  border-radius: 5.625rem;
+  background: var(--service-cta-icon-disc, #880088);
+}
+
+.service-cta-block__link--cta-contact .service-cta-block__link-icon::after {
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   pointer-events: none;
+}
+
+.service-cta-block__list-item--1:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::before,
+.service-cta-block__list-item--2:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::before,
+.service-cta-block__list-item--3:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::before {
+  display: none;
 }
 
 .service-cta-block__list-item--1:has(.service-cta-block__link--cta-contact) {
@@ -172,10 +196,6 @@
 
 .service-cta-block__list-item--1:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon {
   background: #f8eef8;
-}
-
-.service-cta-block__list-item--1:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::before {
-  display: none;
 }
 
 .service-cta-block__list-item--1:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
@@ -192,10 +212,6 @@
   background: #dbeaeb;
 }
 
-.service-cta-block__list-item--2:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::before {
-  display: none;
-}
-
 .service-cta-block__list-item--2:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
   background-image: url("/themes/contrib/localgov_base_croydon/assets/img/contact-money.svg");
   mask-image: none;
@@ -210,28 +226,28 @@
   background: #e0effc;
 }
 
-.service-cta-block__list-item--3:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::before {
-  display: none;
-}
-
 .service-cta-block__list-item--3:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
   background-image: url("/themes/contrib/localgov_base_croydon/assets/img/contact-phone.svg");
   mask-image: none;
   -webkit-mask-image: none;
 }
 
+/* ==========================================================================
+   Contact task type — title & teaser (desktop)
+   ========================================================================== */
+
 .service-cta-block__link--cta-contact .service-cta-block__link-title {
+  display: block;
   grid-row: 2;
   grid-column: 1;
-  display: block;
   width: auto;
-  margin: 0 24px;
+  margin: 1.5rem 1.5rem 0;
   padding: 0;
   font-family: var(--font-secondary);
   font-style: normal;
   font-weight: 700;
-  font-size: 28px;
-  line-height: 30px;
+  font-size: 1.75rem;
+  line-height: 1.875rem;
   text-decoration: underline;
   color: #0b0c0c;
   background: #fff;
@@ -251,18 +267,18 @@
 }
 
 .service-cta-block__link--cta-contact .service-cta-block__link-teaser {
+  display: block;
   grid-row: 3;
   grid-column: 1;
-  display: flex;
-  align-items: center;
+  align-self: start;
   width: 100%;
   margin: 0;
-  padding: 1rem 24px 24px;
+  padding: 1rem 1.5rem 1.5rem;
   font-family: "Source Sans 3", var(--font-primary);
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 29px;
+  font-size: 1.25rem;
+  line-height: 1.8125rem;
   color: #0b0c0c;
   background: #fff;
 }
@@ -274,36 +290,49 @@
   background-color: #fff;
 }
 
-/* Mobile spec supplied from Figma for contact teasers. */
+/* ==========================================================================
+   Contact task type — mobile (max-width: 48rem)
+   ========================================================================== */
+
 @media (max-width: 48rem) {
   .service-cta-block:has(.service-cta-block__link--cta-contact) {
-    background: linear-gradient(179.94deg, #FFFFFF -1.03%, #EAEAEA 73.48%);
+    background: linear-gradient(179.94deg, #fff -1.03%, #eaeaea 73.48%);
   }
 
   .service-cta-block__list.lgd-row:has(.service-cta-block__link--cta-contact) {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%;
+    max-width: none;
+    gap: 1rem;
   }
 
   .service-cta-block__list.lgd-row > .service-cta-block__list-item.lgd-row__one-third:has(.service-cta-block__link--cta-contact) {
-    flex: 0 0 auto;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-self: stretch;
     width: 100%;
-    max-width: 340px;
+    max-width: none;
   }
 
   /*
-   * Mobile: row card = 86px icon column + 254px content column (DOM is title → teaser → icon).
-   * Grid places icon in column 1 spanning both rows; title and teaser stack in column 2.
+   * Row card: fixed icon column + fluid content (DOM order: title → teaser → icon).
+   * Icon spans both content rows; title and teaser stack in column 2.
    */
   .service-cta-block__link.service-cta-block__link--cta-contact {
     display: grid;
-    grid-template-columns: 86px 254px;
-    grid-template-rows: auto auto;
-    align-items: stretch;
-    width: 340px;
-    max-width: 340px;
-    height: 174px;
+    grid-template-columns: 5.375rem minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    align-content: start;
+    align-self: stretch;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    min-height: 0;
     padding: 0;
     background-color: #fff;
   }
@@ -311,8 +340,8 @@
   .block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:hover,
   .service-cta-block__link.service-cta-block__link--cta-contact:hover {
     background-color: #fff;
-    box-shadow: none;
     outline: none;
+    box-shadow: none;
   }
 
   .block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:focus,
@@ -320,82 +349,64 @@
   .service-cta-block__link.service-cta-block__link--cta-contact:focus,
   .service-cta-block__link.service-cta-block__link--cta-contact:focus-visible {
     background-color: #fff;
-    box-shadow: 0 0 0 0.125rem var(--color-focus);
     outline: none;
-  }
-
-  .service-cta-block__list-item--2:has(.service-cta-block__link--cta-contact) .service-cta-block__link {
-    height: 200px;
-    background-color: #fff;
-  }
-
-  .service-cta-block__list-item--3:has(.service-cta-block__link--cta-contact) .service-cta-block__link {
-    height: 152px;
-    background-color: #fff;
+    box-shadow: 0 0 0 0.125rem var(--color-focus);
   }
 
   .service-cta-block__link--cta-contact .service-cta-block__link-icon {
+    display: flex;
     grid-column: 1;
     grid-row: 1 / -1;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 86px;
-    max-width: 86px;
+    align-self: stretch;
+    justify-content: center;
+    width: 5.375rem;
+    max-width: 5.375rem;
     height: auto;
     min-height: 100%;
     margin: 0;
     padding: 0;
-    align-self: stretch;
   }
 
-  .service-cta-block__link--cta-contact .service-cta-block__link-icon::before {
-    width: 62px;
-    height: 62px;
+  .service-cta-block__link--cta-contact .service-cta-block__link-icon::before,
+  .service-cta-block__link--cta-contact .service-cta-block__link-icon::after {
+    width: 3.875rem;
+    height: 3.875rem;
   }
 
   .service-cta-block__link--cta-contact .service-cta-block__link-icon::after {
-    width: 62px;
-    height: 62px;
-    background-size: 62px 62px;
+    background-size: 3.875rem 3.875rem;
   }
 
   .service-cta-block__link--cta-contact .service-cta-block__link-title {
     grid-column: 2;
     grid-row: 1;
     align-self: start;
-    width: auto;
+    width: 100%;
+    min-width: 0;
     max-width: none;
     margin: 0;
-    padding: 16px 24px 0;
-    font-family: var(--font-secondary);
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 30px;
-    text-decoration: underline;
-    color: #0b0c0c;
-    background: #fff;
+    padding: 1rem 1.5rem 0;
+    font-size: 1.375rem;
+    line-height: 1.875rem;
   }
 
   .service-cta-block__link--cta-contact .service-cta-block__link-title:not(:has(+ .service-cta-block__link-teaser)) {
-    padding-bottom: 16px;
+    padding-bottom: 1rem;
   }
 
   .service-cta-block__link--cta-contact .service-cta-block__link-teaser {
     grid-column: 2;
     grid-row: 2;
     align-self: start;
-    width: auto;
+    width: 100%;
+    min-width: 0;
     max-width: none;
     margin: 0;
-    padding: 8px 24px 16px;
-    font-family: "Source Sans 3", var(--font-primary);
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 26px;
-    color: #0b0c0c;
-    background: #fff;
+    padding: 0.5rem 1.5rem 1rem;
+    font-size: 1.0625rem;
+    line-height: 1.625rem;
   }
 
   .service-cta-block__link--cta-contact:focus .service-cta-block__link-title,
