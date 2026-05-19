@@ -29,6 +29,25 @@
 }
 
 /* Task type "Contact" — aligned to supplied Figma specs. */
+/* Full-bleed gradient: breakout from content grid to viewport edges (same idea as site header). */
+.block:has(.service-cta-block__link--cta-contact) {
+  overflow: visible;
+}
+
+.service-cta-block:has(.service-cta-block__link--cta-contact) {
+  position: relative;
+  box-sizing: border-box;
+  width: auto;
+  max-width: none;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: calc(50vw - 50%);
+  background: linear-gradient(180deg, #fff 36.14%, #eaeaea 100%);
+}
+
+.service-cta-block:has(.service-cta-block__link--cta-contact) .service-cta-block__list {
+  border-block-end: none;
+}
+
 /*
  * .lgd-row uses flex-wrap: wrap; contact cards use max 360px + 30px gaps (~1140px).
  * nowrap above mobile keeps three on one row; items flex down to fit narrower columns.
@@ -68,17 +87,33 @@
   height: 438px;
   padding: 0;
   margin: 0;
-  background: #f8eef8;
+  background-color: #fff;
   color: #0b0c0c;
   text-decoration: none;
 }
 
-.service-cta-block__link.service-cta-block__link--cta-contact:hover,
-.service-cta-block__link.service-cta-block__link--cta-contact:focus {
+/* Hover: no yellow ring (override global a:hover from main.css). */
+.block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:hover,
+.service-cta-block__link.service-cta-block__link--cta-contact:hover {
   color: #0b0c0c;
-  background: #f8eef8;
-  outline: 3px solid #fd0;
-  outline-offset: 0;
+  background-color: #fff;
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* Focus: match site-wide accessible link treatment (_links.scss). */
+.block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:focus,
+.block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:focus-visible,
+.service-cta-block__link.service-cta-block__link--cta-contact:focus,
+.service-cta-block__link.service-cta-block__link--cta-contact:focus-visible {
+  color: var(--color-link-focus, #0b0c0c);
+  background-color: #fff;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 0 0 0.125rem var(--color-focus);
+  border-color: transparent;
 }
 
 .service-cta-block__link--cta-contact .service-cta-block__link-icon {
@@ -121,10 +156,10 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 65px;
-  height: 65px;
+  width: 120px;
+  height: 120px;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -144,10 +179,7 @@
 }
 
 .service-cta-block__list-item--1:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
-  width: 120px;
-  height: 120px;
-  background-color: transparent;
-  background-image: url("contact-chatbot.svg");
+  background-image: url("/themes/contrib/localgov_base_croydon/assets/img/contact-chatbot.svg");
   mask-image: none;
   -webkit-mask-image: none;
 }
@@ -165,10 +197,7 @@
 }
 
 .service-cta-block__list-item--2:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
-  width: 120px;
-  height: 120px;
-  background-color: transparent;
-  background-image: url("contact-money.svg");
+  background-image: url("/themes/contrib/localgov_base_croydon/assets/img/contact-money.svg");
   mask-image: none;
   -webkit-mask-image: none;
 }
@@ -186,10 +215,7 @@
 }
 
 .service-cta-block__list-item--3:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
-  width: 120px;
-  height: 120px;
-  background-color: transparent;
-  background-image: url("contact-phone.svg");
+  background-image: url("/themes/contrib/localgov_base_croydon/assets/img/contact-phone.svg");
   mask-image: none;
   -webkit-mask-image: none;
 }
@@ -198,17 +224,30 @@
   grid-row: 2;
   grid-column: 1;
   display: block;
-  width: 100%;
-  margin: 0;
-  padding: 24px 24px 0;
-  font-family: "Fiendstar";
+  width: auto;
+  margin: 0 24px;
+  padding: 0;
+  font-family: var(--font-secondary);
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
   line-height: 30px;
-  text-decoration-line: underline;
+  text-decoration: underline;
   color: #0b0c0c;
   background: #fff;
+}
+
+.service-cta-block__link--cta-contact:hover .service-cta-block__link-title {
+  color: var(--color-indigo);
+  background-color: #fff;
+  text-decoration: underline;
+}
+
+.service-cta-block__link--cta-contact:focus .service-cta-block__link-title,
+.service-cta-block__link--cta-contact:focus-visible .service-cta-block__link-title {
+  color: var(--color-link-focus, #0b0c0c);
+  background-color: var(--color-focus);
+  text-decoration: none;
 }
 
 .service-cta-block__link--cta-contact .service-cta-block__link-teaser {
@@ -218,8 +257,8 @@
   align-items: center;
   width: 100%;
   margin: 0;
-  padding: 16px 24px 24px;
-  font-family: "Source Sans 3";
+  padding: 1rem 24px 24px;
+  font-family: "Source Sans 3", var(--font-primary);
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -228,8 +267,19 @@
   background: #fff;
 }
 
+.service-cta-block__link--cta-contact:hover .service-cta-block__link-teaser,
+.service-cta-block__link--cta-contact:focus .service-cta-block__link-teaser,
+.service-cta-block__link--cta-contact:focus-visible .service-cta-block__link-teaser {
+  color: #0b0c0c;
+  background-color: #fff;
+}
+
 /* Mobile spec supplied from Figma for contact teasers. */
 @media (max-width: 48rem) {
+  .service-cta-block:has(.service-cta-block__link--cta-contact) {
+    background: linear-gradient(179.94deg, #FFFFFF -1.03%, #EAEAEA 73.48%);
+  }
+
   .service-cta-block__list.lgd-row:has(.service-cta-block__link--cta-contact) {
     flex-direction: column;
     align-items: flex-start;
@@ -237,48 +287,67 @@
   }
 
   .service-cta-block__list.lgd-row > .service-cta-block__list-item.lgd-row__one-third:has(.service-cta-block__link--cta-contact) {
-    width: 340px;
+    flex: 0 0 auto;
+    width: 100%;
     max-width: 340px;
-    flex: 0 0 340px;
   }
 
+  /*
+   * Mobile: row card = 86px icon column + 254px content column (DOM is title → teaser → icon).
+   * Grid places icon in column 1 spanning both rows; title and teaser stack in column 2.
+   */
   .service-cta-block__link.service-cta-block__link--cta-contact {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 86px 254px;
+    grid-template-rows: auto auto;
+    align-items: stretch;
     width: 340px;
     max-width: 340px;
     height: 174px;
+    padding: 0;
+    background-color: #fff;
+  }
+
+  .block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:hover,
+  .service-cta-block__link.service-cta-block__link--cta-contact:hover {
+    background-color: #fff;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:focus,
+  .block-localgov-service-cta-block .service-cta-block__link.service-cta-block__link--cta-contact:focus-visible,
+  .service-cta-block__link.service-cta-block__link--cta-contact:focus,
+  .service-cta-block__link.service-cta-block__link--cta-contact:focus-visible {
+    background-color: #fff;
+    box-shadow: 0 0 0 0.125rem var(--color-focus);
+    outline: none;
   }
 
   .service-cta-block__list-item--2:has(.service-cta-block__link--cta-contact) .service-cta-block__link {
     height: 200px;
+    background-color: #fff;
   }
 
   .service-cta-block__list-item--3:has(.service-cta-block__link--cta-contact) .service-cta-block__link {
     height: 152px;
+    background-color: #fff;
   }
 
   .service-cta-block__link--cta-contact .service-cta-block__link-icon {
-    order: 0;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 86px;
-    height: 174px;
-    padding: 25px 0 0;
-    justify-content: flex-start;
+    max-width: 86px;
+    height: auto;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
     align-self: stretch;
-  }
-
-  .service-cta-block__list-item--2:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon {
-    height: 200px;
-    padding: 0;
-    justify-content: center;
-  }
-
-  .service-cta-block__list-item--3:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon {
-    height: 152px;
-    padding: 0;
-    justify-content: center;
   }
 
   .service-cta-block__link--cta-contact .service-cta-block__link-icon::before {
@@ -287,32 +356,54 @@
   }
 
   .service-cta-block__link--cta-contact .service-cta-block__link-icon::after {
-    width: 35px;
-    height: 35px;
-  }
-
-  .service-cta-block__list-item--1:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
     width: 62px;
     height: 62px;
-  }
-
-  .service-cta-block__list-item--2:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after,
-  .service-cta-block__list-item--3:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
-    width: 62px;
-    height: 62px;
+    background-size: 62px 62px;
   }
 
   .service-cta-block__link--cta-contact .service-cta-block__link-title {
-    width: 254px;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    width: auto;
+    max-width: none;
+    margin: 0;
     padding: 16px 24px 0;
+    font-family: var(--font-secondary);
+    font-weight: 700;
     font-size: 22px;
     line-height: 30px;
+    text-decoration: underline;
+    color: #0b0c0c;
+    background: #fff;
+  }
+
+  .service-cta-block__link--cta-contact .service-cta-block__link-title:not(:has(+ .service-cta-block__link-teaser)) {
+    padding-bottom: 16px;
   }
 
   .service-cta-block__link--cta-contact .service-cta-block__link-teaser {
-    width: 254px;
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    width: auto;
+    max-width: none;
+    margin: 0;
     padding: 8px 24px 16px;
+    font-family: "Source Sans 3", var(--font-primary);
+    font-weight: 400;
     font-size: 17px;
     line-height: 26px;
+    color: #0b0c0c;
+    background: #fff;
+  }
+
+  .service-cta-block__link--cta-contact:focus .service-cta-block__link-title,
+  .service-cta-block__link--cta-contact:focus-visible .service-cta-block__link-title {
+    background-color: var(--color-focus);
+  }
+
+  .service-cta-block__link--cta-contact:hover .service-cta-block__link-title {
+    background-color: #fff;
   }
 }
