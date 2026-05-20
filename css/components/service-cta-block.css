@@ -200,8 +200,6 @@
 
 .service-cta-block__list-item--1:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
   background-image: url("/themes/contrib/localgov_base_croydon/assets/img/contact-chatbot.svg");
-  mask-image: none;
-  -webkit-mask-image: none;
 }
 
 .service-cta-block__list-item--2:has(.service-cta-block__link--cta-contact) {
@@ -214,8 +212,6 @@
 
 .service-cta-block__list-item--2:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
   background-image: url("/themes/contrib/localgov_base_croydon/assets/img/contact-money.svg");
-  mask-image: none;
-  -webkit-mask-image: none;
 }
 
 .service-cta-block__list-item--3:has(.service-cta-block__link--cta-contact) {
@@ -228,8 +224,6 @@
 
 .service-cta-block__list-item--3:has(.service-cta-block__link--cta-contact) .service-cta-block__link-icon::after {
   background-image: url("/themes/contrib/localgov_base_croydon/assets/img/contact-phone.svg");
-  mask-image: none;
-  -webkit-mask-image: none;
 }
 
 /* ==========================================================================
