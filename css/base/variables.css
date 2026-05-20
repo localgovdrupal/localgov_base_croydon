@@ -47,7 +47,7 @@ body {
 
   /*
     Grey Scale
-    In this section, we define our greys; let's not have 50 shades
+    In this section, we define our grey values.
   */
   --color-white: #ffffff;
   --color-grey-pale: #eaeaea;
