@@ -6,6 +6,19 @@
  */
 
 /**
+ * Implements hook_preprocess_html().
+ *
+ * Adds a unique body class for the "How to contact us" page.
+ */
+function localgov_base_croydon_preprocess_html(array &$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($node instanceof \Drupal\node\NodeInterface && (int) $node->id() === 7907) {
+    $variables['attributes']['class'][] = 'page-how-contact-us';
+  }
+}
+
+/**
  * Implements hook_preprocess_block() for hook_preprocess_block__localgov_base_croydon_subsitebanner_homepage().
  *
  * Makes the render array for the *banner image path* available to the block
