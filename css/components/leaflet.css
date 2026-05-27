@@ -1,84 +1,91 @@
 .leaflet-popup-content-wrapper {
-    padding: 1px;
-    text-align: left;
-    border-radius: 0px !important;
+  padding: 1px;
+  text-align: left;
+  border-radius: 0 !important;
 }
+
 .leaflet-popup-content {
-    height: max-content;
+  height: max-content;
 }
 
 .leaflet-container a.leaflet-popup-close-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    font: 28px/28px Tahoma, Verdana, sans-serif;
-    font-weight: 800;
-    color: #757575;
-    text-decoration: none;
-    background: transparent;
-    margin-top: .625rem;
-    margin-right: .625rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font: 28px/28px Tahoma, Verdana, sans-serif;
+  font-weight: 800;
+  color: #757575;
+  text-decoration: none;
+  background: transparent;
+  margin-top: .625rem;
+  margin-right: .625rem;
 }
+
 img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
-    -webkit-filter: saturate(0%) grayscale(100%) brightness(69%) contrast(1000%);
-    filter: saturate(0%) grayscale(100%) brightness(69%) contrast(1000%);
+  -webkit-filter: saturate(0%) grayscale(100%) brightness(69%) contrast(1000%);
+  filter: saturate(0%) grayscale(100%) brightness(69%) contrast(1000%);
 }
 
 .leaflet-recenter-map,
 .leaflet-map-visibility {
-    font-size: var(--font-size-small);
-    font-weight: 700;
-    color: var(--color-blue);
-    margin: 0 0.625rem 0.625rem 0;
-    display: inline-block;
-    border-color: transparent;
-    text-decoration: underline;
-    cursor: pointer;
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  color: var(--color-blue);
+  margin: 0 0.625rem 0.625rem 0;
+  display: inline-block;
+  border-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .leaflet-recenter-map:hover,
 .leaflet-map-visibility--hide-map:hover,
 .leaflet-map-visibility:hover {
-    color: var(--color-link-focus);
-    background-color: var(--color-focus);
-    text-decoration: none;
-    cursor: pointer;
+  color: var(--color-link-focus);
+  background-color: var(--color-focus);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .leaflet-map-visibility:before,
 .leaflet-recenter-map:before,
 .leaflet-map-visibility--hide-map:before {
-    display: inline-block;
-    font-family: var(--font-awesome);
-    padding: 0 0.3rem 0 0;
-    color: var(--color-black);
+  display: inline-block;
+  font-family: var(--font-awesome);
+  padding: 0 0.3rem 0 0;
+  color: var(--color-black);
 }
+
 .facet-filter-visibility:before {
-    color: var(--color-black);
+  color: var(--color-black);
 }
+
 .leaflet-map-visibility--hide-map:before {
-    content: "\f06e";
+  content: "\f06e";
 }
+
 .leaflet-recenter-map:before {
-    content: "\f78c";
+  content: "\f78c";
 }
+
 .leaflet-map-visibility:before {
-    content: "\f070";
+  content: "\f070";
 }
 
 .leaflet-div-icon {
-    border: 0 !important;
-    background-color: transparent !important;
-    width: 21px;
-    height: 32px;
-    background-image: url('/themes/contrib/localgov_base_croydon/assets/img/map-marker.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
+  border: 0 !important;
+  background-color: transparent !important;
+  width: 21px;
+  height: 32px;
+  background-image: url('/themes/contrib/localgov_base_croydon/assets/img/map-marker.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
 .leaflet-div-icon-active {
   background-position: top right;
 }

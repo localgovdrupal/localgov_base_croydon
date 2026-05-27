@@ -4,12 +4,14 @@
 .lgd-header__toggles .lgd-header__toggle--secondary.lgd-header__toggle--active,
 .lgd-header__toggles .lgd-header__toggle--secondary.lgd-header__toggle--active:hover,
 .lgd-header__toggles .lgd-header__toggle--secondary.lgd-header__toggle--active:focus {
- outline:  none !important; /* override */
+  outline: none !important; /* override */
 }
+
 /* -- logo area -- */
 .lgd-header .lgd-region--header {
   margin-left: var(--spacing);
 }
+
 /* -- Search -- */
 
 .lgd-header .lgd-region--search input {
@@ -19,6 +21,7 @@
 .lgd-header .lgd-region__inner--primary-menu {
   width: 100%;
 }
+
 /* -- Menu -- */
 
 .lgd-header .lgd-region--primary-menu {
@@ -27,14 +30,15 @@
 }
 
 .lgd-header .navigation--main .menu--main .menu-item {
- font-family: var(--font-secondary);
- font-size: var(--font-size-large);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-large);
 }
 
 .lgd-header .navigation--main .menu--main .menu-item:last-child {
   margin-left: auto;
   margin-right: 0;
 }
+
 /* -- Sub menu -- */
 
 .lgd-header .navigation--sub-menu h2 {
@@ -66,20 +70,21 @@
   flex-direction: unset;
 }
 
-/*fix breakpoint issues caused by non variable breakpoints used in base file*/
+/* fix breakpoint issues caused by non variable breakpoints used in base file */
 
 .lgd-header .lgd-region--header {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .branding__item--logo a {
   transition: none;
   display: contents;
 }
+
 /* set logo to reduced width to stop wrapping of nav items right before the mobile view kicks in */
 @media screen and (min-width: 62rem) and (max-width: 63rem) {
   .branding__item--logo img {
-    max-width:  85%;
+    max-width: 85%;
   }
 }
 
@@ -96,7 +101,7 @@
     width: 100%;
   }
 
- .lgd-region--primary-menu .menu--main {
+  .lgd-region--primary-menu .menu--main {
     display: unset;
   }
 
@@ -110,7 +115,6 @@
 }
 
 @media screen and (min-width: 62rem) {
-
   .lgd-header .lgd-header__toggles {
     margin-left: 0;
     margin-right: 0;
@@ -130,7 +134,7 @@
   }
 
   .lgd-header__toggle {
-    margin-left:  0;
+    margin-left: 0;
   }
 
   .lgd-header__toggle--primary {
@@ -139,13 +143,13 @@
 
   .lgd-header__toggle--secondary {
     display: flex;
-    padding-top:  21px;
-    padding-bottom:  21px;
+    padding-top: 21px;
+    padding-bottom: 21px;
   }
 
   .lgd-header__toggle--secondary:hover,
   .lgd-header__toggle--secondary:focus {
-      box-shadow: 0 0 0 0.125rem var(--color-yellow);
+    box-shadow: 0 0 0 0.125rem var(--color-yellow);
   }
 
   .lgd-region--search {

@@ -1,10 +1,10 @@
 .service-cta-block__link {
-	font-size:var(--ctalink-font-size);
-	font-weight: 700;
+  font-size: var(--ctalink-font-size);
+  font-weight: 700;
 }
 
 .service-cta-block__link .service-cta-block__link-icon svg {
-	width:;
+  width: ;
 }
 
 .service-cta-block__link--cta-action {

@@ -7,28 +7,28 @@
 }
 
 .lgd-guide-nav__content:before {
-	font-family: 'Font Awesome 6 Pro';
-	content: '\f078';
-	padding: 0 0.6rem;
-	display: inline-block;
-	text-decoration: none;
-	color: var(--color-black);
+  font-family: 'Font Awesome 6 Pro';
+  content: '\f078';
+  padding: 0 0.6rem;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-black);
 }
 
 .lgd-guide-nav__content.lgd-guide-nav__open:before {
-	content: '\f077';
+  content: '\f077';
 }
 
 @media screen and (max-width: 48rem) {
-	.lgd-guide-nav__list {
-		padding-right: 0;
-		padding-left: 0.6rem;
-	}
+  .lgd-guide-nav__list {
+    padding-right: 0;
+    padding-left: 0.6rem;
+  }
 }
 
 [data-drupal-is-unpublished],
 a[data-drupal-is-unpublished] {
-  background-color:  var(--color-yellow);
+  background-color: var(--color-yellow);
   padding: 4px;
   margin: 2px;
   text-decoration: none;
@@ -40,7 +40,7 @@ a[data-drupal-is-unpublished]:after {
   margin: .25em;
   padding-left: .25em;
   padding-right: .25em;
-  background-color:  var(--color-black);
+  background-color: var(--color-black);
   font-weight: bold;
   color: var(--color-white);
   display: inline-block;
