@@ -31,7 +31,7 @@
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sass-glob": "^1.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
@@ -39,14 +39,12 @@
     "npm-install-all": "^1.1.21",
     "postcss-reporter": "^6.0.1",
     "postcss-scss": "^2.1.1",
-    "ruby": "^0.6.1",
-    "sass-loader": "^8.0.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.18.0"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=18.0.0"
   }
 }
