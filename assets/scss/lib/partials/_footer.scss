@@ -82,7 +82,8 @@
     @media screen and (min-width: 48rem) and (max-width: 62rem) {
       .lgd-row__one-quarter,
       .lgd-row__one-half {
-        width: 100%;
+        grid-column: span 12;
+        width: auto;
       }
 
       .lgd-footer__copyright {

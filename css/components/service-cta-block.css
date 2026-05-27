@@ -4,7 +4,8 @@
 }
 
 .service-cta-block__link .service-cta-block__link-icon svg {
-  width: ;
+  width: 0.65em;
+  height: auto;
 }
 
 .service-cta-block__link--cta-action {
