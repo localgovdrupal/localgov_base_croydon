@@ -50,6 +50,10 @@ npm start
 
 Styles are compiled with [Dart Sass](https://sass-lang.com/dart-sass/) via `gulp-sass` 5. Sass deprecation warnings from Bootstrap 4 are expected and do not indicate a failed build.
 
+## Scripts
+
+Theme maintenance scripts (including the template override audit) are documented in [scripts/README.md](scripts/README.md).
+
 ## Maintainers
 
 This project is maintained by:
