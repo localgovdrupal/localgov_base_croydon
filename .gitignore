@@ -1,3 +1,4 @@
 # Ignore node modules files
 /node_modules
+/vendor/
 **/*.map
