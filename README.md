@@ -40,6 +40,8 @@ Watch SCSS and recompile on change, with BrowserSync proxying the local site:
 npm run dev
 ```
 
+Use `npm run dev` or `npx gulp dev` rather than a globally installed `gulp` command. Gulp 5 requires gulp-cli 3+, which the project provides locally.
+
 Lint and fix CSS:
 
 ```bash

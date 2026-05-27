@@ -4,9 +4,9 @@
   "description": "NPM scripts for the localgov_base theme.",
   "main": "index.js",
   "scripts": {
-    "start": "stylelint \"**/*.css\" --fix",
-    "build": "NODE_ENV=production gulp dev",
-    "dev": "NODE_ENV=development gulp dev"
+    "start": "stylelint \"assets/css/**/*.css\" \"css/**/*.css\" --fix",
+    "build": "NODE_ENV=production npx gulp dev",
+    "dev": "NODE_ENV=development npx gulp dev"
   },
   "author": "Mark Conroy",
   "license": "ISC",
@@ -20,7 +20,7 @@
     "browser-sync": "^2.26.13",
     "cssnano": "^4.1.10",
     "del": "^4.1.1",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.1",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-changed": "^3.2.0",
     "gulp-clean": "^0.4.0",

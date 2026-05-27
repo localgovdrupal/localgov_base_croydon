@@ -35,6 +35,19 @@ const sass = require('gulp-sass')(require('sass')), // Dart Sass via gulp-sass 5
 // Resolve our source sass folder dynamically
 const sourceSassFolder = resolve('./assets/scss/');
 
+// Bootstrap 4 and gulp-sass still rely on deprecated Sass APIs/features.
+// Suppress known dependency noise until Bootstrap is upgraded.
+const sassOptions = {
+  quietDeps: true,
+  silenceDeprecations: [
+    'legacy-js-api',
+    'import',
+    'global-builtin',
+    'slash-div',
+    'color-functions',
+    'mixed-decls',
+  ],
+};
 
 /**
  * PostCSS plugins and configuration mapped to gulpconfig.js
@@ -82,7 +95,7 @@ function generateStyle() {
       .pipe(sourcemaps.init())
       .pipe(postcss(postcssPluginsPreSass, {syntax: scss})) // Run postCSS before SASS
       .pipe(sassGlob())
-      .pipe(sass())
+      .pipe(sass(sassOptions))
       .on('error', sass.logError)
       .pipe(postcss(postcssPluginsPostSass, {syntax: scss})) // Run postCSS after SASS
       .pipe(sourcemaps.mapSources(function(sourcePath, file) {
