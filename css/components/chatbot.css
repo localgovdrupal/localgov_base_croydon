@@ -1,0 +1,19 @@
+/*
+ * Chatbot open button — reset global heading/body rules that break the label
+ * inside the fixed-width trigger (markup and base styles live in block content).
+ */
+
+.chatbot__open-button {
+  overflow-wrap: normal;
+}
+
+.chatbot__open-button h3 {
+  align-self: stretch;
+  width: 100%;
+  max-width: 100%;
+  margin-block-end: 0;
+  padding-right: 0;
+  padding-left: 0;
+  overflow-wrap: normal;
+  word-break: normal;
+}
