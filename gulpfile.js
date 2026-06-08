@@ -12,15 +12,15 @@ const gulp = require('gulp'), // This taskrunner,
 const sass = require('gulp-sass')(require('sass')), // Dart Sass via gulp-sass 5+
       sassGlob = require('gulp-sass-glob'), // Allows the import of patterns through '/**/*.scss' See https://yarnpkg.com/package/gulp-sass-glob
       postcss = require('gulp-postcss'), // PostCSS processor https://github.com/postcss/postcss
-      reporter = require('postcss-reporter'),
       scss = require("postcss-scss"),
-      plumber = require('gulp-plumber'),
-      notify = require('gulp-notify'),
       browserSync = require('browser-sync').create(), // Create BrowserSync instance See https://www.browsersync.io/docs/gulp
       autoprefixer = require('autoprefixer'), // Automatically add vendor rules https://github.com/postcss/autoprefixer
       cssnano = require('cssnano'), // Minify CSS stylsheets https://cssnano.co/
-      sourcemaps = require('gulp-sourcemaps'), // Enables sourcemap generation https://yarnpkg.com/package/gulp-sourcemaps
-      stylelint = require('stylelint'); // SASS and CSS style linting https://stylelint.io/
+      sourcemaps = require('gulp-sourcemaps'); // Enables sourcemap generation https://yarnpkg.com/package/gulp-sourcemaps
+
+// Stylelint is run as a separate CLI step (see the "lint" npm script) rather
+// than as a PostCSS plugin, because stylelint 15+ is ESM-only and no longer
+// ships a PostCSS plugin interface.
 
 // JS requirements
 // to be added...
@@ -52,11 +52,6 @@ const sassOptions = {
 /**
  * PostCSS plugins and configuration mapped to gulpconfig.js
  */
-const postcssPluginsPreSass = [
-  stylelint({ /* options see .stylelintrc */ }),
-  reporter({ clearReportedMessages: true, clearMessages: true }),
-];
-
 const postcssPluginsPostSass = [
   autoprefixer(),
   cssnano({ // CSS Nano should always run last
@@ -93,7 +88,6 @@ function generateStyle() {
     gulp
       .src('./assets/scss/**/*.scss', { base: './assets/scss' })
       .pipe(sourcemaps.init())
-      .pipe(postcss(postcssPluginsPreSass, {syntax: scss})) // Run postCSS before SASS
       .pipe(sassGlob())
       .pipe(sass(sassOptions))
       .on('error', sass.logError)
