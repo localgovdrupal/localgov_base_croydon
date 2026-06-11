@@ -51,7 +51,6 @@ iframe {
 
 // Remove animations from collapsing events
 .collapsing {
-  -webkit-transition: none;
   transition: none;
   display: none;
 }
@@ -81,8 +80,8 @@ main a[href^="mailto:"],
 }
 
 // need to add these into buttons.scss in localgov theme
-.btn-primary:not(:disabled):not(.disabled).active:focus,
-.btn-primary:not(:disabled):not(.disabled):active:focus {
+.btn-primary:not(:disabled, .disabled).active:focus,
+.btn-primary:not(:disabled, .disabled):active:focus {
   box-shadow: none; // bs override
 }
 

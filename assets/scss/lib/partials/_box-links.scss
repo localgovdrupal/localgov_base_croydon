@@ -20,11 +20,9 @@
 
     .box-links-listing__list {
       display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-flow: row wrap;
+      place-content: space-around space-between;
       align-items: auto;
-      align-content: space-around;
       padding: 0;
       margin: 0 !important;
 

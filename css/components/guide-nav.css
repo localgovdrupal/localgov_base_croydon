@@ -19,7 +19,7 @@
   content: '\f077';
 }
 
-@media screen and (max-width: 48rem) {
+@media screen and (width <= 48rem) {
   .lgd-guide-nav__list {
     padding-right: 0;
     padding-left: 0.6rem;

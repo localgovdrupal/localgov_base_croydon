@@ -60,8 +60,7 @@
  */
 .service-cta-block__list.lgd-row:has(.service-cta-block__link--cta-contact) {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   align-items: stretch;
   gap: 1.875rem;
 }
@@ -74,7 +73,7 @@
   padding-right: 0;
 }
 
-@media (min-width: 48.0625rem) {
+@media (width >= 48.0625rem) {
   .service-cta-block__list.lgd-row:has(.service-cta-block__link--cta-contact) {
     flex-wrap: nowrap;
   }
@@ -288,14 +287,13 @@
    Contact task type — mobile (max-width: 48rem)
    ========================================================================== */
 
-@media (max-width: 48rem) {
+@media (width <= 48rem) {
   .service-cta-block:has(.service-cta-block__link--cta-contact) {
     background: linear-gradient(179.94deg, var(--color-white) -1.03%, var(--color-grey-pale) 73.48%);
   }
 
   .service-cta-block__list.lgd-row:has(.service-cta-block__link--cta-contact) {
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-flow: column nowrap;
     align-items: stretch;
     width: 100%;
     max-width: none;

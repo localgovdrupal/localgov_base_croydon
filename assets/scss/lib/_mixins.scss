@@ -1,9 +1,7 @@
 @mixin width($widthVarOne, $widthVarTwo, $widthVarThree) {
-  width: -moz-calc(#{$widthVarOne} - #{$widthVarTwo});
-  width: -webkit-calc(#{$widthVarOne} - #{$widthVarTwo});
   width: calc(#{$widthVarOne} - #{$widthVarTwo});
-  width: -moz-calc(#{$widthVarOne} - #{$widthVarThree});
-  width: -webkit-calc(#{$widthVarOne} - #{$widthVarThree});
+  width: calc(#{$widthVarOne} - #{$widthVarThree});
+  width: calc(#{$widthVarOne} - #{$widthVarThree});
   width: calc(#{$widthVarOne} - #{$widthVarThree});
 }
 

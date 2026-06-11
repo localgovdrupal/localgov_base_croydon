@@ -7,8 +7,10 @@ body {
 body {
   text-size-adjust: none;
   widows: 2;
+
   // prevent pull to refresh function on mobiles - stops accidental refresh of forms.
   overscroll-behavior: contain;
+
   // this is specifically added to set the body flex and the div thats wrapped around <main>
   // to allow it to always fill the area between the header and footer.
   display: flex;
@@ -58,7 +60,7 @@ main form {
   margin-bottom: ($spacer * 1);
 }
 
-//Add some extra right padding for content elements to create some whitespace
+// Add some extra right padding for content elements to create some whitespace
 h1,
 h2,
 h3,

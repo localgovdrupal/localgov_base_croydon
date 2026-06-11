@@ -29,7 +29,7 @@ a:focus {
   text-decoration: none; /* default text decoration not required */
 }
 
-@media screen and (min-width: 62rem) {
+@media screen and (width >= 62rem) {
   h1 {
     font-size: calc(var(--font-size) * 2.875);
   }

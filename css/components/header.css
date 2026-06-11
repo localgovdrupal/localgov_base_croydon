@@ -82,19 +82,19 @@
 }
 
 /* set logo to reduced width to stop wrapping of nav items right before the mobile view kicks in */
-@media screen and (min-width: 62rem) and (max-width: 63rem) {
+@media screen and (width >= 62rem) and (width <= 63rem) {
   .branding__item--logo img {
     max-width: 85%;
   }
 }
 
-@media screen and (min-width: 63rem) {
+@media screen and (width >= 63rem) {
   .lgd-header .lgd-region--header {
     margin-right: 1.875rem;
   }
 }
 
-@media screen and (min-width: 48rem) { /* base sets the menu to show at 48rem, because we have changed it we now need to reset */
+@media screen and (width >= 48rem) { /* base sets the menu to show at 48rem, because we have changed it we now need to reset */
   .lgd-header__nav--primary,
   .lgd-region--search {
     display: none;
@@ -114,7 +114,7 @@
   }
 }
 
-@media screen and (min-width: 62rem) {
+@media screen and (width >= 62rem) {
   .lgd-header .lgd-header__toggles {
     margin-left: 0;
     margin-right: 0;

@@ -42,14 +42,14 @@ body {
   --color-violet: #f0e6ec;
   --color-pink: #ad52ad;
   --color-gray: #dbdfe3;
-  --color-accent-tint: rgba(var(--color-accent-rgb), 0.8);
-  --color-purple-tint: rgba(var(--color-accent-rgb), 0.1); /* very light pink used for bgs */
+  --color-accent-tint: rgb(var(--color-accent-rgb), 0.8);
+  --color-purple-tint: rgb(var(--color-accent-rgb), 0.1); /* very light pink used for bgs */
 
   /*
     Grey Scale
     In this section, we define our grey values.
   */
-  --color-white: #ffffff;
+  --color-white: #fff;
   --color-grey-pale: #eaeaea;
   --color-grey-light: #ededed;
   --color-grey-medium: #b1b4b6;

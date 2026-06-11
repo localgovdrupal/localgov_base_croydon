@@ -64,7 +64,7 @@
         font-size: $font-size-med;
         font-weight: 900;
         color: $blue;
-        margin: 0 0 0.625rem 0;
+        margin: 0 0 0.625rem;
         display: inline-block;
         border-color: transparent;
         text-decoration: underline;
@@ -198,7 +198,7 @@
     position: relative;
   }
 
-  input[type=checkbox] {
+  input[type="checkbox"] {
     position: absolute;
     opacity: 0;
     top: 0;
@@ -482,7 +482,6 @@
 .field--name-localgov-directory-opening-times { // opening times require independent styling
   .field__label {
     @extend .h3;
-
     @include rem(margin-bottom, 24);
   }
 }
@@ -554,7 +553,7 @@ li.facet-item.facets-reset label div.facet-result-item span.facet-item__value {
   font-weight: 900;
 }
 
-.facet-item.facets-reset input[type=checkbox] + label {
+.facet-item.facets-reset input[type="checkbox"] + label {
   width: 43% !important;
   position: relative;
   float: right;
@@ -565,15 +564,12 @@ li.facet-item.facets-reset label div.facet-result-item span.facet-item__value {
   }
 }
 
-li.facet-item.facets-reset input[type=checkbox] + label:before {
+li.facet-item.facets-reset input[type="checkbox"] + label:before {
   font-size: 1.1875rem;
   font-weight: 900;
   font-family: $font-family-icons;
   content: "\f2f9";
-  padding-top: 0.313rem;
-  padding-right: 0.625rem;
-  padding-bottom: 0.625rem;
-  padding-left: 0.825rem;
+  padding: 0.313rem 0.625rem 0.625rem 0.825rem;
   color: $carbon;
   margin: 0 0.625rem 0 0;
   display: inline-block;
@@ -581,14 +577,11 @@ li.facet-item.facets-reset input[type=checkbox] + label:before {
   border-color: transparent;
 
   @include media-breakpoint-up(lg) {
-    padding-top: 0.313rem;
-    padding-right: 0.625rem;
-    padding-bottom: 0.625rem;
-    padding-left: 0.825rem;
+    padding: 0.313rem 0.625rem 0.625rem 0.825rem;
   }
 }
 
-li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
+li.facet-item.facets-reset input[type="checkbox"]:checked + label:before {
   content: "";
 }
 
@@ -605,7 +598,7 @@ li.facet-item.facets-reset input[type=checkbox]:checked + label:before {
   font-size: $font-size-med;
   font-weight: 900;
   color: $blue;
-  margin: 0 0 0.625rem 0;
+  margin: 0 0 0.625rem;
   display: inline-block;
   border-color: transparent;
   text-decoration: underline;

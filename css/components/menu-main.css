@@ -2,7 +2,7 @@
   display: inline-block;
 }
 
-@media screen and (min-width: 48rem) { /* reset the base 48rem setting */
+@media screen and (width >= 48rem) { /* reset the base 48rem setting */
   .menu--main > .menu-item {
     margin-left: 0;
     margin-right: 0;
@@ -10,13 +10,13 @@
 }
 
 /* change the padding on the nav items so they dont wrap in this custom breakpoint range */
-@media screen and (min-width: 62rem) and (max-width: 66rem) {
+@media screen and (width >= 62rem) and (width <= 66rem) {
   .menu--main > .menu-item a {
     padding: var(--spacing) 0.4rem;
   }
 }
 
-@media screen and (min-width: 62rem) { /* breakpoint changed from base setting of 48rem */
+@media screen and (width >= 62rem) { /* breakpoint changed from base setting of 48rem */
   .lgd-region--primary-menu {
     background-color: transparent;
   }

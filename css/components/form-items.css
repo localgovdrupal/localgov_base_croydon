@@ -57,11 +57,11 @@
   left: 10px;
   width: 0;
   height: 0;
-  border: 10px solid currentColor;
+  border: 10px solid currentcolor;
   border-radius: 50%;
   content: "";
   opacity: 0;
-  background: currentColor;
+  background: currentcolor;
 }
 
 .webform-type-radios .form-item [type="radio"]:focus + label::before {
