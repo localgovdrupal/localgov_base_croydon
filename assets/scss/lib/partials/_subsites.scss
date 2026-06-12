@@ -9,11 +9,11 @@
         }
 
         > *:nth-child(2) {
-          order: 1;
+          order: unset;
         }
 
         > *:nth-child(3) {
-          order: 1;
+          order: unset;
         }
 
         @include media-breakpoint-up(md) {
