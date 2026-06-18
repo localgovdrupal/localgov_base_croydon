@@ -51,9 +51,11 @@
       font-size: 1rem;
       text-decoration: none;
       margin-top: 0;
-      top: 0.6875rem;
       position: absolute;
-      right: 0;
+
+      @include rem(top, 15);
+      @include rem(right, 10);
+
       background-color: $carbon;
     }
 
@@ -168,7 +170,6 @@
 
   @include rem(padding, 15);
   @include rem(line-height, 22);
-
   @extend .col-8;
 
   &:after {

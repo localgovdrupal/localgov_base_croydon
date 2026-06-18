@@ -83,7 +83,6 @@
 
       .localgov-alert-banner-full--content {
         @extend .row;
-
         @include rem(padding, 15);
 
         .localgov-alert-banner-full--text {
@@ -116,7 +115,6 @@
           button {
             @extend .link-button;
             @extend .btn-primary;
-
             @include rem(margin, 15, 0);
 
             &:hover,

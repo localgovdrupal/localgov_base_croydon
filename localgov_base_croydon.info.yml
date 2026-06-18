@@ -23,6 +23,10 @@ libraries-override:
   localgov_base/header-js:
     js:
       js/header.js: js/header.js
+  localgov_base/grid:
+    css:
+      layout:
+        css/layout/grid.css: css/layout/grid.css
 regions:
   tabs: "Tabs"
   header: "Header"

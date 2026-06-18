@@ -11,6 +11,7 @@
 @import '../../../node_modules/bootstrap/scss/functions';
 @import '../../../node_modules/bootstrap/scss/mixins';
 @import '../../../node_modules/bootstrap/scss/variables';
+
 // Import council theme settings
 @import 'variables-croydon';
 
@@ -63,6 +64,7 @@
 @import 'partials/forms';
 @import 'partials/footer';
 @import 'partials/google-search';
+@import 'partials/grid';
 @import 'partials/header';
 @import 'partials/homepage';
 @import 'partials/iconlist';

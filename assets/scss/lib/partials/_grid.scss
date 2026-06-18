@@ -1,0 +1,9 @@
+// Compatibility overrides for localgov_base CSS Grid migration.
+// Class names are unchanged; only layout mechanics differ from the old flexbox grid.
+
+// Prevent flexbox width hacks from overriding grid column sizing.
+.lgd-row {
+  > [class*='lgd-row__'] {
+    max-width: none;
+  }
+}

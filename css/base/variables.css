@@ -30,38 +30,39 @@ body {
     We should not refer to these directly in our CSS however. Instead,
     we use the names at our "Colours Applied" section.
   */
-  --color-accent: #880088;
-  --color-accent-rgb: 136, 0, 136; /*rgb value needed for accent colours*/
-  --color-green: #77bb55;
+  --color-accent: #808;
+  --color-accent-rgb: 136, 0, 136; /* rgb value needed for accent colours */
+  --color-green: #7b5;
   --color-red: #ae1100;
-  --color-orange: #ff5500;
-  --color-yellow: #ffbb00;
+  --color-orange: #f50;
+  --color-yellow: #fb0;
   --color-blue: #0059a4;
   --color-teal: #006263;
   --color-indigo: #540055;
-  --color-violet: #F0E6ec;
-  --color-pink: #AD52AD;
-  --color-gray: #DBDFE3;
-  --color-accent-tint: rgba(var(--color-accent-rgb), 0.8);
-  --color-purple-tint: rgba(var(--color-accent-rgb), 0.1); /*very light pink used for bgs*/
+  --color-violet: #f0e6ec;
+  --color-pink: #ad52ad;
+  --color-gray: #dbdfe3;
+  --color-accent-tint: rgb(var(--color-accent-rgb), 0.8);
+  --color-purple-tint: rgb(var(--color-accent-rgb), 0.1); /* very light pink used for bgs */
 
   /*
     Grey Scale
     In this section, we define our grey values.
   */
-  --color-white: #ffffff;
+  --color-white: #fff;
   --color-grey-pale: #eaeaea;
   --color-grey-light: #ededed;
   --color-grey-medium: #b1b4b6;
-  --color-grey-strong: #444444;
+  --color-grey-strong: #444;
   --color-grey-dark: #121212;
   --color-black: #121212;
+
   /*
     Colours Applied
     In this section, we "apply" our colours.
   */
   --color-info: var(--color-black);
-  --color-success: #338800;
+  --color-success: #380;
   --color-danger: var(--color-red);
   --color-warning: var(--color-orange);
   --color-link: var(--color-accent);
@@ -75,9 +76,10 @@ body {
     We choose basic fonts that most people have in browser cache from visiting other websites.
     This will help with page speed, rather than calling fonts from Google Fonts or somewhere.
   */
-  --font-primary: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-  --font-secondary: 'Fiendstar W01 Bold', 'Source Sans Pro', Arial, Helvetica, sans-serif;
-  --font-awesome:  'Font Awesome\ 6 Pro';
+  --font-primary: 'Source Sans Pro', arial, helvetica, sans-serif;
+  --font-secondary: 'Fiendstar W01 Bold', 'Source Sans Pro', arial, helvetica, sans-serif;
+  --font-awesome: 'Font Awesome\ 6 Pro';
+
   /*
     Font sizes based on vertical rhythm of:
     - Font size: 16px;
@@ -93,7 +95,6 @@ body {
   --font-size-large: calc(var(--font-size) * 1.1875); /* ~19px ~1.1875rem */
   --font-size-larger: calc(var(--font-size) * 1.25); /* ~20px ~1.25rem */
   --font-size-largest: calc(var(--font-size) * 1.375); /* ~22px ~1.375rem */
-
   --font-size-h1: calc(var(--font-size) * 2.375); /* ~38px ~2.375 */
   --font-size-h2: calc(var(--font-size) * 2); /* 32px ~2rem */
   --font-size-h3: calc(var(--font-size) * 1.625); /* ~26px ~1.625rem */
@@ -127,8 +128,8 @@ body {
 body {
 
   /* Grid amends */
-  --grid-column-spacing: 0rem;
-  
+  --grid-column-spacing: 0;
+
   /* Breadcrumbs */
   --breadcrumbs-background-color: var(--color-white);
   --breadcrumbs-border: var(--border);
@@ -138,7 +139,7 @@ body {
   --breadcrumbs-padding-horizontal: 0;
   --breadcrumbs-link-color: var(--color-accent);
   --breadcrumbs-spacing-bottom: 0;
-  
+
   /* Header Items */
   --section-spacing-vertical-header: var(--spacing);
   --color-section-header-bg: var(--color-accent);
@@ -318,7 +319,7 @@ body {
   /* News */
   --newsroom-featured-bottom-space: var(--spacing-largest);
   --news-category-spacing: var(--spacing);
-  
+
   /* Search Results */
   --search-results-item-spacing: var(--spacing-largest);
   --search-results-list-item-border: var(--border);
@@ -332,14 +333,14 @@ body {
   --btn-start-padding-horizontal: var(--spacing);
   --btn-start-padding-vertical: var(--spacing-smaller);
   --btn-start-border: var(--border);
-  --btn-start-border-color:  var(--btn-start-bg-color);
+  --btn-start-border-color: var(--btn-start-bg-color);
   --btn-start-border-color-hover: var(--btn-start-bg-color-hover);
   --btn-start-icon: "\f054";
   --btn-start-icon-size: var(--font-size-largest);
   --btn-start-icon-top: 0;
   --external-link-icon-color: var(--color-accent);
 
-    /* Alert Banner */
+  /* Alert Banner */
   --alert-banner-bg-color: var(--color-teal);
   --alert-banner-bg-color-minor: var(--color-yellow);
   --alert-banner-bg-color-major: var(--color-danger);
@@ -367,7 +368,7 @@ body {
   --cta-contact-icon-2-bg: #dbeaeb;
   --cta-contact-icon-3-bg: #e0effc;
 
-    /* CTA Link */
+  /* CTA Link */
   --ctalink-font-size: var(--font-size-medium);
   --ctalink-action-color: var(--color-black);
   --ctalink-action-bgcolor: var(--color-green);
@@ -376,7 +377,7 @@ body {
   --ctalink-action-svg: var(--color-black);
   --ctalink-action-svg-focus: var(--color-white);
 
-  /*Forms*/
+  /* Forms */
   --checkbox-select-focus-color: var(--color-yellow);
-  --checkbox-select-outline-color: #A0A0A0;
+  --checkbox-select-outline-color: #a0a0a0;
 }

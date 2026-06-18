@@ -28,7 +28,7 @@
   color: var(--color-black);
   outline: 3px solid transparent;
   background-color: var(--color-focus);
-  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   box-decoration-break: clone;
   box-shadow: 0 -2px var(--color-focus), 0 4px var(--color-black);
 }
@@ -61,7 +61,7 @@
 }
 
 .lgd-prev-next__icon--prev {
-  margin-right:  15px;
+  margin-right: 15px;
 }
 
 .lgd-prev-next__link-title {

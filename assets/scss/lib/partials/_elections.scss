@@ -129,14 +129,14 @@ h3.election-timeline__area-name {
 }
 
 // Responsive typography for election headings.
-@media (max-width: 47.9988rem) {
+@media (width <= 47.9988rem) {
   .lgd-page-title-block__election-name {
     font-size: 1.125rem;
   }
 }
 
 // Responsive spacing for the mobile election menu button container.
-@media screen and (max-width: 48rem) {
+@media screen and (width <= 48rem) {
   #leaflet-map-view-localgov-election-electoral-map-page-map {
     min-height: 25rem;
   }

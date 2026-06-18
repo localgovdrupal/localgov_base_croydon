@@ -6,6 +6,133 @@
  */
 
 /**
+ * Implements hook_theme_registry_alter().
+ *
+ * Ensures Croydon template overrides take precedence over copies shipped in
+ * vendor/localgovdrupal/localgov_base (which Drupal would otherwise prefer).
+ */
+function localgov_base_croydon_theme_registry_alter(array &$theme_registry): void {
+  $custom_templates = localgov_base_croydon_get_custom_template_paths();
+  $vendor_prefix = localgov_base_croydon_get_vendor_template_prefix();
+
+  foreach ($theme_registry as &$info) {
+    if (!isset($info['template'], $info['path'])) {
+      continue;
+    }
+    if (!str_starts_with($info['path'], $vendor_prefix)) {
+      continue;
+    }
+
+    $filename = $info['template'] . '.html.twig';
+    if (isset($custom_templates[$filename])) {
+      $info['path'] = $custom_templates[$filename];
+    }
+  }
+}
+
+/**
+ * Returns custom Twig template directories keyed by filename.
+ *
+ * @return array<string, string>
+ *   Template filenames mapped to theme-relative directory paths.
+ */
+function localgov_base_croydon_get_custom_template_paths(): array {
+  static $custom_templates;
+
+  if ($custom_templates !== NULL) {
+    return $custom_templates;
+  }
+
+  $custom_templates = [];
+  $theme_path = \Drupal::service('extension.list.theme')->getPath('localgov_base_croydon');
+  $templates_dir = DRUPAL_ROOT . '/' . $theme_path . '/templates';
+
+  if (!is_dir($templates_dir)) {
+    return $custom_templates;
+  }
+
+  $finder = new \Symfony\Component\Finder\Finder();
+  $finder->files()->in($templates_dir)->name('*.html.twig');
+
+  foreach ($finder as $file) {
+    $custom_templates[$file->getFilename()] = $theme_path . '/templates/' . $file->getRelativePath();
+  }
+
+  return $custom_templates;
+}
+
+/**
+ * Theme-relative path prefix for vendor-provided localgov_base templates.
+ */
+function localgov_base_croydon_get_vendor_template_prefix(): string {
+  $theme_path = \Drupal::service('extension.list.theme')->getPath('localgov_base_croydon');
+
+  return $theme_path . '/vendor/';
+}
+
+/**
+ * Audits custom template overrides against vendor copies.
+ *
+ * @return array<int, array<string, mixed>>
+ *   Conflict rows for templates that exist in both locations.
+ */
+function localgov_base_croydon_audit_template_overrides(): array {
+  $theme_path = \Drupal::service('extension.list.theme')->getPath('localgov_base_croydon');
+  $custom_base = DRUPAL_ROOT . '/' . $theme_path . '/templates';
+  $vendor_base = DRUPAL_ROOT . '/' . $theme_path . '/vendor/localgovdrupal/localgov_base/templates';
+  $custom_templates = localgov_base_croydon_get_custom_template_paths();
+  $registry = \Drupal::service('theme.registry')->get();
+  $vendor_prefix = localgov_base_croydon_get_vendor_template_prefix();
+  $rows = [];
+
+  if (!is_dir($vendor_base)) {
+    return $rows;
+  }
+
+  $vendor_files = [];
+  $finder = new \Symfony\Component\Finder\Finder();
+  $finder->files()->in($vendor_base)->name('*.html.twig');
+  foreach ($finder as $file) {
+    $vendor_files[$file->getFilename()] = $file->getRelativePathname();
+  }
+
+  foreach ($custom_templates as $filename => $custom_path) {
+    if (!isset($vendor_files[$filename])) {
+      continue;
+    }
+
+    $custom_rel = '';
+    $custom_finder = new \Symfony\Component\Finder\Finder();
+    $custom_finder->files()->in($custom_base)->name($filename);
+    foreach ($custom_finder as $file) {
+      $custom_rel = $file->getRelativePathname();
+    }
+
+    $active_path = NULL;
+    $active_hook = NULL;
+    $template = pathinfo($filename, PATHINFO_FILENAME);
+    foreach ($registry as $hook => $info) {
+      if (($info['template'] ?? '') === $template && str_starts_with($info['path'] ?? '', $theme_path)) {
+        $active_path = $info['path'];
+        $active_hook = $hook;
+      }
+    }
+
+    $rows[] = [
+      'filename' => $filename,
+      'custom' => 'templates/' . $custom_rel,
+      'vendor' => 'vendor/localgovdrupal/localgov_base/templates/' . $vendor_files[$filename],
+      'identical' => md5_file($custom_base . '/' . $custom_rel) === md5_file($vendor_base . '/' . $vendor_files[$filename]),
+      'hook' => $active_hook,
+      'active_path' => $active_path,
+      'vendor_wins' => $active_path && str_starts_with($active_path, $vendor_prefix),
+    ];
+  }
+
+  return $rows;
+}
+
+/**
  * Implements hook_preprocess_html().
  *
  * Adds a unique body class for the "How to contact us" page.

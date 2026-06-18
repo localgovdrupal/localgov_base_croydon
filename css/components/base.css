@@ -29,7 +29,7 @@ a:focus {
   text-decoration: none; /* default text decoration not required */
 }
 
-@media screen and (min-width: 62rem) {
+@media screen and (width >= 62rem) {
   h1 {
     font-size: calc(var(--font-size) * 2.875);
   }
@@ -63,20 +63,22 @@ a:focus {
 
 .node--type-localgov-directory > .lgd-container {
   margin-top: 0;
-} 
+}
 
 /* override nested padding-horizontal and container classes */
 .lgd-container .padding-horizontal .padding-horizontal {
   padding-left: 0;
   padding-right: 0;
 }
+
 .lgd-container .lgd-container {
   margin-top: 0;
 }
+
 /* remove default background used to denote unpublished material for preview link items */
-.path-preview-link .node--unpublished, 
+.path-preview-link .node--unpublished,
 .path-preview-link .paragraph--unpublished {
-  background-color:transparent;
+  background-color: transparent;
 }
 
 .field--name-localgov-contact-heading {

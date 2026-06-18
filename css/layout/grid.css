@@ -1,0 +1,170 @@
+/*
+  Override for localgov_base grid.css — CSS Grid implementation from localgov_base 2.x.
+
+  Replaces the flexbox .lgd-row system via libraries-override in localgov_base_croydon.info.yml.
+  Class names are unchanged; only layout mechanics differ from the base theme 1.x flexbox grid.
+*/
+
+.lgd-row {
+  display: grid;
+  gap: var(--grid-column-spacing);
+  grid-template-columns: 1fr;
+}
+
+.lgd-row--centered {
+  justify-content: center;
+}
+
+.lgd-row--vertically-centered {
+  align-items: center;
+}
+
+/*
+  Direct children without a width class span the full row. In the base theme's
+  flexbox grid such children filled the row; in this CSS Grid implementation an
+  unclassed child would otherwise fall back to a single 1/12 track. The width
+  classes below override this where a specific span is requested.
+*/
+.lgd-row > * {
+  grid-column: 1 / -1;
+}
+
+.lgd-row__one-quarter,
+.lgd-row--quarters > *,
+.lgd-row__one-third,
+.lgd-row--thirds > *,
+.lgd-row__one-half,
+.lgd-row--halves > *,
+.lgd-row__two-thirds,
+.lgd-row__three-quarters,
+.lgd-row__full {
+  grid-column: span 1;
+  width: 100%;
+  margin-inline: 0;
+}
+
+@media screen and (width >= 48rem) {
+  .lgd-row {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .lgd-row__full {
+    grid-column: span 12;
+  }
+
+  .lgd-row__one-quarter,
+  .lgd-row--quarters > *,
+  .lgd-row__one-third,
+  .lgd-row--thirds > *,
+  .lgd-row__one-half,
+  .lgd-row--halves > *,
+  .lgd-row__two-thirds,
+  .lgd-row__three-quarters {
+    grid-column: span 6;
+  }
+}
+
+@media screen and (width >= 60rem) {
+  .lgd-row__one-quarter,
+  .lgd-row--quarters > * {
+    grid-column: span 3;
+  }
+
+  .lgd-row__one-third,
+  .lgd-row--thirds > * {
+    grid-column: span 4;
+  }
+
+  .lgd-row__two-thirds {
+    grid-column: span 8;
+  }
+
+  .lgd-row__three-quarters {
+    grid-column: span 9;
+  }
+}
+
+/*
+  Any view using the `view--grid` class will have:
+  - 1 column on mobile
+  - 2 columns on tablet and desktop
+  - 3, 4, 5 columns on desktop depending on what extra class you add to the view.
+  - a gap of var(--spacing) between each item, unless you add a gap class.
+
+  Available classes:
+  - view--grid-thirds
+  - view--grid-quarters
+  - view--grid-fifths
+
+  As well as that, can can specify the gap with with the following classes:
+  - view--grid-gap-none
+  - view--grid-gap-small
+  - view--grid-gap-smaller
+  - view--grid-gap-smallest
+  - view--grid-gap-medium - default, so no need to manually add to the view.
+  - view--grid-gap-large
+  - view--grid-gap-larger
+  - view--grid-gap-largest
+*/
+.view--grid {
+  --lgd-view-grid-columns: 1;
+  --lgd-view-grid-gap: var(--spacing);
+}
+
+.view--grid-gap-none {
+  --lgd-view-grid-gap: 0;
+}
+
+.view--grid-gap-small {
+  --lgd-view-grid-gap: var(--spacing-small);
+}
+
+.view--grid-gap-smaller {
+  --lgd-view-grid-gap: var(--spacing-smaller);
+}
+
+.view--grid-gap-smallest {
+  --lgd-view-grid-gap: var(--spacing-smallest);
+}
+
+.view--grid-gap-medium {
+  --lgd-view-grid-gap: var(--spacing);
+}
+
+.view--grid-gap-large {
+  --lgd-view-grid-gap: var(--spacing-large);
+}
+
+.view--grid-gap-larger {
+  --lgd-view-grid-gap: var(--spacing-larger);
+}
+
+.view--grid-gap-largest {
+  --lgd-view-grid-gap: var(--spacing-largest);
+}
+
+.view--grid .view-content {
+  display: grid;
+  grid-template-columns: repeat(var(--lgd-view-grid-columns), 1fr);
+  gap: var(--lgd-view-grid-gap);
+}
+
+@media screen and (width >= 48rem) {
+  .view--grid .view-content {
+    --lgd-view-grid-columns: 2;
+  }
+}
+
+@media screen and (width >= 60rem) {
+  .view--grid-thirds .view-content {
+    --lgd-view-grid-columns: 3;
+  }
+
+  .view--grid-quarters .view-content {
+    --lgd-view-grid-columns: 4;
+  }
+
+  .view--grid-fifths .view-content {
+    --lgd-view-grid-columns: 5;
+  }
+}

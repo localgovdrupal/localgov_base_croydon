@@ -8,7 +8,7 @@
 }
 
 /* adding table element to row after breakpoint */
-@media (min-width: 62rem) {
+@media (width >= 62rem) {
   .cds-summary-list__row {
     display: table-row;
   }
@@ -20,14 +20,14 @@
 }
 
 /* add some space under the rows for smaller screens */
-@media (max-width: 62rem) {
+@media (width <= 62rem) {
   .cds-summary-list__row {
     margin-bottom: 0.938rem;
   }
 }
 
 /*  width of key column if larger than brakepoint */
-@media (min-width: 62rem) {
+@media (width >= 62rem) {
   .cds-summary-list__key {
     width: 30%;
   }
@@ -36,12 +36,11 @@
 /*  prevents overflow in columns  */
 .cds-summary-list__key,
 .cds-summary-list__value {
-  word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 /*  width of actions column if larger than brakepoint */
-@media (min-width: 62rem) {
+@media (width >= 62rem) {
   .cds-summary-list__actions {
     width: 20%;
     padding-right: 0;
@@ -54,7 +53,7 @@
 }
 
 /* set the cells of the table if larger than brakepoint */
-@media (min-width: 62rem) {
+@media (width >= 62rem) {
   .cds-summary-list__key,
   .cds-summary-list__value,
   .cds-summary-list__actions {
@@ -80,7 +79,6 @@
   padding: 0 !important;
   overflow: hidden !important;
   clip: rect(0 0 0 0) !important;
-  -webkit-clip-path: inset(50%) !important;
   clip-path: inset(50%) !important;
   border: 0 !important;
   white-space: nowrap !important;

@@ -3,10 +3,23 @@
   main {
     .lgd-container {
       > .lgd-row {
-        flex-direction: column-reverse; // put the nav at the top for mobile
+        // Replicate flexbox column-reverse on mobile (nav before content).
+        > *:nth-child(1) {
+          order: 3;
+        }
+
+        > *:nth-child(2) {
+          order: unset;
+        }
+
+        > *:nth-child(3) {
+          order: unset;
+        }
 
         @include media-breakpoint-up(md) {
-          flex-direction: inherit;
+          > * {
+            order: unset;
+          }
         }
       }
     }
@@ -54,7 +67,7 @@
             font-size: 1.6rem;
 
             @include media-breakpoint-up(md) {
-              display: none; //hide for desktop
+              display: none; // hide for desktop
             }
           }
 
@@ -282,7 +295,6 @@
 
       @include rem(margin-bottom, 20);
       @include rem(padding-bottom, 16);
-
       @extend p;
     }
   }
@@ -416,13 +428,13 @@
         display: block;
       }
 
-      @media screen and (min-width: 48rem) {
+      @media screen and (width >= 48rem) {
         display: none;
       }
     }
 
     .padding-horizontal {
-      @media screen and (max-width: 48rem) {
+      @media screen and (width <= 48rem) {
         padding-left: 0;
         padding-right: 0;
       }
@@ -439,21 +451,20 @@
     .subsite-extra__header {
       display: block;
 
-      @media screen and (max-width: 48rem) {
+      @media screen and (width <= 48rem) {
         padding-bottom: 1rem;
       }
     }
 
     .menu {
       display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
+      flex-flow: row nowrap;
       gap: 0;
       list-style: none;
       margin: 0;
       padding: 0;
 
-      @media screen and (max-width: 48rem) {
+      @media screen and (width <= 48rem) {
         flex-direction: column;
         padding-bottom: 1rem;
       }
@@ -461,11 +472,11 @@
       > .menu-item {
         line-height: 1.2;
 
-        @media screen and (max-width: 48rem) {
+        @media screen and (width <= 48rem) {
           @include rem(margin-bottom, 10);
         }
 
-        @media screen and (min-width: 48rem) {
+        @media screen and (width >= 48rem) {
           &:last-of-type a {
             border-right: 0.0625rem solid $white;
           }
@@ -549,7 +560,6 @@
       margin-right: .5rem;
       content: '';
       vertical-align: middle;
-      -webkit-mask-image: url('../../img/arrow-action-link.svg');
       mask-image: url('../../img/arrow-action-link.svg');
       background-color: $green-alert;
 
@@ -567,5 +577,5 @@
 
 // specificity overrides
 .block-localgov-subsite-banner .banner--primary .banner__content .field--name-localgov-subsites-banner-text {
-  background: none !important; //override of background set in banner css
+  background: none !important; // override of background set in banner css
 }
