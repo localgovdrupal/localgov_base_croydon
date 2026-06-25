@@ -143,6 +143,11 @@ function localgov_base_croydon_preprocess_html(array &$variables) {
   if ($node instanceof \Drupal\node\NodeInterface && (int) $node->id() === 7907) {
     $variables['attributes']['class'][] = 'page-how-contact-us';
   }
+
+  if ($node instanceof \Drupal\node\NodeInterface && (int) $node->id() === 7297) {
+    $variables['attributes']['class'][] = 'subsite-extra ';
+    $variables['attributes']['class'][] = 'subsite-extra--color-theme_a';
+  }
 }
 
 /**
