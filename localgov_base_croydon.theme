@@ -136,6 +136,7 @@ function localgov_base_croydon_audit_template_overrides(): array {
  * Implements hook_preprocess_html().
  *
  * Adds a unique body class for the "How to contact us" page.
+ * Adds a unique body class for the "Subsite extra" page.
  */
 function localgov_base_croydon_preprocess_html(array &$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
@@ -143,9 +144,9 @@ function localgov_base_croydon_preprocess_html(array &$variables) {
   if ($node instanceof \Drupal\node\NodeInterface && (int) $node->id() === 7907) {
     $variables['attributes']['class'][] = 'page-how-contact-us';
   }
-
+  // Add a unique body class for the "Subsite extra" page.
   if ($node instanceof \Drupal\node\NodeInterface && (int) $node->id() === 7297) {
-    $variables['attributes']['class'][] = 'subsite-extra ';
+    $variables['attributes']['class'][] = 'subsite-extra';
     $variables['attributes']['class'][] = 'subsite-extra--color-theme_a';
   }
 }
