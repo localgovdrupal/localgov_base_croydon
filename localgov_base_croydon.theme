@@ -440,6 +440,120 @@ function localgov_base_croydon_preprocess_node__localgov_subsites_page__full(&$v
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for subsite_navigation.
+ *
+ * Scopes the subsite sidebar navigation to the currently active section.
+ *
+ * The navigation tree passed to the template starts at the subsite overview
+ * (items[0]); its children are the top level "sections" shown in the main
+ * subsite menu. We work out which of those sections the current page belongs to
+ * (matching on node id, as the tree's built-in in_active_trail flag is only ever
+ * set for the overview root) so the template can:
+ * - use the section name as the heading,
+ * - list only the pages within that section,
+ * - and, when viewing a page below the section, link the heading back to the
+ *   section landing page.
+ */
+function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
+  $items = $variables['items'] ?? [];
+  $current = $variables['current_entity'] ?? NULL;
+
+  $overview_item = $items[0] ?? NULL;
+  if ($overview_item === NULL) {
+    return;
+  }
+
+  $current_id = ($current instanceof \Drupal\node\NodeInterface) ? (string) $current->id() : NULL;
+
+  // Find the section (direct child of the overview) whose subtree contains the
+  // current page. Fall back to the overview itself (e.g. on the overview page,
+  // or when the current page cannot be located).
+  $section = $overview_item;
+  if ($current_id !== NULL) {
+    foreach ($overview_item['below'] ?? [] as $candidate) {
+      if (
+        localgov_base_croydon_subsite_nav_item_node_id($candidate) === $current_id ||
+        localgov_base_croydon_subsite_nav_subtree_has_node($candidate, $current_id)
+      ) {
+        $section = $candidate;
+        break;
+      }
+    }
+  }
+
+  // Flag the current page within the section so the template can render it as
+  // plain text rather than a link to the page the user is already on.
+  if ($current_id !== NULL && !empty($section['below'])) {
+    localgov_base_croydon_subsite_nav_mark_current($section['below'], $current_id);
+  }
+
+  // We are on the section landing page when the current page is the section
+  // itself; otherwise the heading should link back to the section landing page.
+  $variables['section'] = $section;
+  $variables['on_section_landing'] = $current_id === NULL
+    || localgov_base_croydon_subsite_nav_item_node_id($section) === $current_id;
+}
+
+/**
+ * Flags the navigation item matching the current page.
+ *
+ * @param array $items
+ *   A list of subsite navigation menu items, passed by reference.
+ * @param string|int $current_id
+ *   The node id of the current page.
+ */
+function localgov_base_croydon_subsite_nav_mark_current(array &$items, $current_id): void {
+  foreach ($items as &$item) {
+    $item['is_current'] = localgov_base_croydon_subsite_nav_item_node_id($item) === $current_id;
+    if (!empty($item['below'])) {
+      localgov_base_croydon_subsite_nav_mark_current($item['below'], $current_id);
+    }
+  }
+}
+
+/**
+ * Returns the node id referenced by a subsite navigation item, if any.
+ *
+ * @param array $item
+ *   A subsite navigation menu item.
+ *
+ * @return string|int|null
+ *   The referenced node id, or NULL if the item has no node route.
+ */
+function localgov_base_croydon_subsite_nav_item_node_id(array $item) {
+  if (isset($item['url']) && $item['url'] instanceof \Drupal\Core\Url && $item['url']->isRouted()) {
+    $node_id = $item['url']->getRouteParameters()['node'] ?? NULL;
+    return $node_id === NULL ? NULL : (string) $node_id;
+  }
+
+  return NULL;
+}
+
+/**
+ * Determines whether a node id appears anywhere below a navigation item.
+ *
+ * @param array $item
+ *   A subsite navigation menu item.
+ * @param string|int $node_id
+ *   The node id to search for.
+ *
+ * @return bool
+ *   TRUE if the node id is found in the item's descendants.
+ */
+function localgov_base_croydon_subsite_nav_subtree_has_node(array $item, $node_id): bool {
+  foreach ($item['below'] ?? [] as $child) {
+    if (localgov_base_croydon_subsite_nav_item_node_id($child) === $node_id) {
+      return TRUE;
+    }
+    if (localgov_base_croydon_subsite_nav_subtree_has_node($child, $node_id)) {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
+}
+
+/**
  * Implements hook_preprocess_form_element().
  *
  * Adjusts the label for LocalGov form date elements so that they

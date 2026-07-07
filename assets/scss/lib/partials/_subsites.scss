@@ -56,6 +56,20 @@
 
           @include rem(padding, 20, 24);
 
+          // When viewing a page below the section, the heading is a link back
+          // to the section landing page. Keep it white to match the heading
+          // rather than inheriting the default (purple) link colour.
+          a {
+            color: $white;
+            text-decoration: underline;
+
+            &:hover,
+            &:focus {
+              color: $carbon;
+              text-decoration: none;
+            }
+          }
+
           &:after {
             font-family: $font-family-icons;
             font-weight: $fa-font-weight;
@@ -111,8 +125,13 @@
             text-decoration: none;
           }
 
+          // The current page is rendered as a plain <span> (no link) but must
+          // keep the same styling as the active link, so match its padding.
+          // Background, colour and border come from the .is-active rule above.
           span {
             display: block;
+
+            @include rem(padding, 12, 24);
           }
         }
       }
