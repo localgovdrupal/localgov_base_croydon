@@ -123,6 +123,7 @@
             color: $carbon;
             border-left: 0.1875rem solid $primary;
             text-decoration: none;
+            font-weight: $font-bold;
           }
 
           // The current page is rendered as a plain <span> (no link) but must
@@ -144,6 +145,46 @@
         &:focus {
           color: $carbon;
           text-decoration: none;
+        }
+      }
+
+      // Standard subsites (not subsite-extra) use this as their only navigation:
+      // all parent pages are listed and the active parent is expanded into a
+      // grey "drawer" grouping it with its children.
+      .subsite-nav--standard {
+        .menu-item--active-trail {
+          background-color: $gray-tint;
+
+          // The active parent itself: bold and dark to mark the active trail.
+          > a {
+            color: $carbon;
+            font-weight: $font-bold;
+            border-left-color: $primary;
+
+            &:hover,
+            &:focus {
+              color: $carbon;
+            }
+          }
+
+          // Children sit inside the grey drawer: transparent background so the
+          // drawer colour shows through, indented and prefixed with a dash.
+          .menu .menu-item {
+            background-color: transparent;
+
+            > a,
+            > span {
+              position: relative;
+
+              @include rem(padding-left, 44);
+
+              &::before {
+                content: '\2014';
+                position: absolute;
+                left: 1.5rem;
+              }
+            }
+          }
         }
       }
     }
@@ -519,9 +560,18 @@
             box-shadow: none; // override default outline
           }
 
+          // Active section renders as a "tab": white background with the
+          // subsite's accent colour for the text. The accent colour itself is
+          // set per colour theme in _subsite-extra--color-theme_*.scss so the
+          // tab always matches its banner.
           &.is-active {
+            background-color: $white;
+            border-left-color: $white;
+            color: $subsite-accent-a;
+
             &:focus,
             &:hover {
+              background-color: $white;
               text-decoration: none;
             }
           }

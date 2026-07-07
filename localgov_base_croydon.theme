@@ -136,18 +136,17 @@ function localgov_base_croydon_audit_template_overrides(): array {
  * Implements hook_preprocess_html().
  *
  * Adds a unique body class for the "How to contact us" page.
- * Adds a unique body class for the "Subsite extra" page.
+ *
+ * Note: the "subsite-extra" / "subsite-extra--color-*" body classes are added
+ * for every page within a subsite by localgov_subsites_extras_preprocess_html()
+ * (driven by the subsite_class / theme_class_prefix settings), so they must not
+ * be hardcoded here.
  */
 function localgov_base_croydon_preprocess_html(array &$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
 
   if ($node instanceof \Drupal\node\NodeInterface && (int) $node->id() === 7907) {
     $variables['attributes']['class'][] = 'page-how-contact-us';
-  }
-  // Add a unique body class for the "Subsite extra" page.
-  if ($node instanceof \Drupal\node\NodeInterface && (int) $node->id() === 7297) {
-    $variables['attributes']['class'][] = 'subsite-extra';
-    $variables['attributes']['class'][] = 'subsite-extra--color-theme_a';
   }
 }
 
@@ -465,11 +464,21 @@ function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
 
   $current_id = ($current instanceof \Drupal\node\NodeInterface) ? (string) $current->id() : NULL;
 
+  // The "section" scoping (heading = section, list = that section's children)
+  // only applies to subsite-extra style subsites, whose overview is one of the
+  // configured subsite_types (e.g. cds_subsite_homepage). Standard subsites use
+  // the overview root as the section on every page, so the sidebar always lists
+  // the whole subsite - matching the original behaviour.
+  $overview_entity = $variables['overview_entity'] ?? NULL;
+  $subsite_types = \Drupal::config('localgov_subsites_extras.settings')->get('subsite_types') ?: [];
+  $is_extra_subsite = $overview_entity instanceof \Drupal\node\NodeInterface
+    && in_array($overview_entity->bundle(), $subsite_types, TRUE);
+
   // Find the section (direct child of the overview) whose subtree contains the
   // current page. Fall back to the overview itself (e.g. on the overview page,
-  // or when the current page cannot be located).
+  // for standard subsites, or when the current page cannot be located).
   $section = $overview_item;
-  if ($current_id !== NULL) {
+  if ($is_extra_subsite && $current_id !== NULL) {
     foreach ($overview_item['below'] ?? [] as $candidate) {
       if (
         localgov_base_croydon_subsite_nav_item_node_id($candidate) === $current_id ||
@@ -481,34 +490,53 @@ function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
     }
   }
 
-  // Flag the current page within the section so the template can render it as
-  // plain text rather than a link to the page the user is already on.
+  // Flag the current page and its active trail within the section so the
+  // template can render the current page as plain text and, for standard
+  // subsites, expand only the pages in the active trail.
   if ($current_id !== NULL && !empty($section['below'])) {
-    localgov_base_croydon_subsite_nav_mark_current($section['below'], $current_id);
+    localgov_base_croydon_subsite_nav_mark_trail($section['below'], $current_id);
   }
 
   // We are on the section landing page when the current page is the section
   // itself; otherwise the heading should link back to the section landing page.
+  $variables['is_extra_subsite'] = $is_extra_subsite;
   $variables['section'] = $section;
   $variables['on_section_landing'] = $current_id === NULL
     || localgov_base_croydon_subsite_nav_item_node_id($section) === $current_id;
 }
 
 /**
- * Flags the navigation item matching the current page.
+ * Flags the current page and the active trail within a navigation subtree.
+ *
+ * Sets two flags on each item:
+ * - is_current: TRUE when the item is the page currently being viewed.
+ * - in_trail: TRUE when the item is the current page or an ancestor of it.
  *
  * @param array $items
  *   A list of subsite navigation menu items, passed by reference.
  * @param string|int $current_id
  *   The node id of the current page.
+ *
+ * @return bool
+ *   TRUE if the current page was found within this list or its descendants.
  */
-function localgov_base_croydon_subsite_nav_mark_current(array &$items, $current_id): void {
+function localgov_base_croydon_subsite_nav_mark_trail(array &$items, $current_id): bool {
+  $trail_present = FALSE;
+
   foreach ($items as &$item) {
-    $item['is_current'] = localgov_base_croydon_subsite_nav_item_node_id($item) === $current_id;
+    $is_current = localgov_base_croydon_subsite_nav_item_node_id($item) === $current_id;
+
+    $child_in_trail = FALSE;
     if (!empty($item['below'])) {
-      localgov_base_croydon_subsite_nav_mark_current($item['below'], $current_id);
+      $child_in_trail = localgov_base_croydon_subsite_nav_mark_trail($item['below'], $current_id);
     }
+
+    $item['is_current'] = $is_current;
+    $item['in_trail'] = $is_current || $child_in_trail;
+    $trail_present = $trail_present || $item['in_trail'];
   }
+
+  return $trail_present;
 }
 
 /**

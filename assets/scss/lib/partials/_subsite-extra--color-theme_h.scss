@@ -6,6 +6,10 @@
       h2 {
         color: $white;
       }
+
+      .navigation--subsites .menu > .menu-item a.is-active {
+        color: $subsite-accent-h;
+      }
     }
 
     .view-cds-subsites-extra-banner,

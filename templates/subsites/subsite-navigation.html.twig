@@ -3,64 +3,73 @@
  * @file
  * Theme subsites navigation menu - based on menu.html.twig.
  *
- * The sidebar navigation is scoped to the subsite section the current page
- * belongs to (the same section highlighted in the main subsite menu,
- * .subsite-extra-menu):
- * - The section name is used as the heading instead of a generic label.
- * - Only pages that belong to the active section are listed.
- * - When viewing a page below the section, the heading links back to the
- *   section landing page.
+ * Two behaviours, depending on the subsite type (see
+ * localgov_base_croydon_preprocess_subsite_navigation()):
  *
- * The active section (`section`) and whether we are on its landing page
- * (`on_section_landing`) are worked out in
- * localgov_base_croydon_preprocess_subsite_navigation().
+ * - Subsite-extra subsites (is_extra_subsite = TRUE): the navigation is scoped
+ *   to the active section. The section name is the heading (linking back to the
+ *   section landing page when viewing a page below it) and the section's pages
+ *   are listed.
+ * - Standard subsites (is_extra_subsite = FALSE): this is the only navigation,
+ *   so all parent level pages are shown under an "In this section" heading, and
+ *   only the pages in the active trail are expanded to reveal their children.
+ *
+ * In both cases the page currently being viewed is rendered as plain text
+ * rather than a link.
  *
  * Available variables:
  * - menu_name: The machine name of the menu.
  * - items: A nested list of menu items, starting from the subsite overview.
- * - section: The menu item for the active section (see preprocess). Contains:
+ * - section: The menu item the navigation is rooted at (the active section for
+ *   subsite-extra subsites, the overview for standard subsites). Each item has:
  *   - attributes: HTML attributes for the menu item.
- *   - below: The section's child items.
- *   - title: The section title.
- *   - url: The section landing page url, instance of \Drupal\Core\Url.
+ *   - below: The item's child items.
+ *   - title: The item title.
+ *   - url: The item url, instance of \Drupal\Core\Url.
+ *   - is_current: TRUE when the item is the page being viewed.
+ *   - in_trail: TRUE when the item is the current page or an ancestor of it.
  * - on_section_landing: TRUE when the current page is the section landing page.
+ * - is_extra_subsite: TRUE for subsite-extra subsites.
  * - current_entity: The node currently being viewed.
  * - overview_entity: The subsite overview (root) node.
  */
 #}
 {% import _self as subsite_navigation %}
 
-{# Only render the navigation when the section actually has child pages to
-   show; otherwise we'd be left with a lone heading and no links. #}
+{% set nav_classes = ['menu', is_extra_subsite ? 'subsite-nav--extra' : 'subsite-nav--standard'] %}
+
+{# Only render when there are pages to show, so we never leave a lone heading. #}
 {% if section and section.below is not empty %}
-  <ul{{ attributes.addClass('menu') }}>
+  <ul{{ attributes.addClass(nav_classes) }}>
     <li>
       <h3>
-        {% if on_section_landing or section.url is empty %}
+        {% if not is_extra_subsite %}
+          {{ 'In this section'|t }}
+        {% elseif on_section_landing or section.url is empty %}
           {{ section.title }}
         {% else %}
           {{ link(section.title, section.url) }}
         {% endif %}
       </h3>
     </li>
-    {{ subsite_navigation.menu_links(section.below) }}
+    {# Standard subsites collapse to the active trail; extra subsites show the
+       whole (already scoped) section. #}
+    {{ subsite_navigation.menu_links(section.below, not is_extra_subsite) }}
   </ul>
 {% endif %}
 
 {#
-  Render the section's descendants. Called for the children of the active
-  section; each item that itself has children opens a nested <ul>.
+  Render a list of menu items. When "collapse" is TRUE, an item's children are
+  only rendered if the item is in the active trail.
 #}
-{% macro menu_links(items) %}
+{% macro menu_links(items, collapse) %}
   {% import _self as subsite_navigation %}
   {% for item in items %}
     {% if item.url %}
       {%
         set classes = [
           'menu-item',
-          item.is_expanded ? 'menu-item--expanded',
-          item.is_collapsed ? 'menu-item--collapsed',
-          item.in_active_trail ? 'menu-item--active-trail',
+          item.in_trail ? 'menu-item--active-trail',
         ]
       %}
       <li{{ item.attributes.addClass(classes) }}>
@@ -71,9 +80,9 @@
         {% else %}
           {{ link(item.title, item.url) }}
         {% endif %}
-        {% if item.below %}
+        {% if item.below and (not collapse or item.in_trail) %}
           <ul class="menu">
-            {{ subsite_navigation.menu_links(item.below) }}
+            {{ subsite_navigation.menu_links(item.below, collapse) }}
           </ul>
         {% endif %}
       </li>
