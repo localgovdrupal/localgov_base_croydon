@@ -373,6 +373,19 @@ function localgov_base_croydon_preprocess_field(array &$variables, string $hook)
       }
     }
   }
+
+  // On standard subsites the banner text field just repeats the page title, so
+  // hide it entirely. Extra subsites use this field as a genuine banner
+  // subtitle, so it's left untouched there: getCurrentSubsiteTheme() returns a
+  // theme string for extra subsites and NULL for standard subsites.
+  if ($variables['element']['#field_name'] === 'localgov_subsites_banner_text') {
+    $theme = \Drupal::service('localgov_subsites_extras.service')->getCurrentSubsiteTheme();
+    if ($theme === NULL) {
+      $variables['items'] = [];
+    }
+    // Result depends on which subsite (and therefore theme) the page belongs to.
+    $variables['#cache']['contexts'][] = 'subsites.theme';
+  }
 }
 
 /**

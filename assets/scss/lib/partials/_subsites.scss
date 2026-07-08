@@ -559,21 +559,23 @@
             text-decoration: underline;
             box-shadow: none; // override default outline
           }
+        }
 
-          // Active section renders as a "tab": white background with the
-          // subsite's accent colour for the text. The accent colour itself is
-          // set per colour theme in _subsite-extra--color-theme_*.scss so the
-          // tab always matches its banner.
-          &.is-active {
+        // Active section renders as a "tab": white background with the
+        // subsite's accent colour for the text. Keyed off the active-trail
+        // parent (not the anchor's is-active class) so the section stays
+        // highlighted when the user is on one of its child pages too. The
+        // accent colour is set per colour theme in
+        // _subsite-extra--color-theme_*.scss so the tab always matches its banner.
+        &.menu-item--active-trail > a {
+          background-color: $white;
+          border-left-color: $white;
+          color: $subsite-accent-a;
+
+          &:focus,
+          &:hover {
             background-color: $white;
-            border-left-color: $white;
-            color: $subsite-accent-a;
-
-            &:focus,
-            &:hover {
-              background-color: $white;
-              text-decoration: none;
-            }
+            text-decoration: none;
           }
         }
       }

@@ -7,7 +7,7 @@
         color: $white;
       }
 
-      .navigation--subsites .menu > .menu-item a.is-active {
+      .navigation--subsites .menu > .menu-item.menu-item--active-trail > a {
         color: $subsite-accent-e;
       }
     }
