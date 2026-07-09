@@ -506,6 +506,17 @@
       a:focus {
         color: $carbon;
       }
+
+      // The global link style adds a yellow background on focus; that should be
+      // reserved for the focus state only. On hover, drop the background (and
+      // the focus box-shadow) and show a white underline instead.
+      a:hover {
+        background: transparent;
+        box-shadow: none;
+        color: $white;
+        text-decoration: underline;
+        text-decoration-color: $white;
+      }
     }
 
     .subsite-extra__header {
