@@ -443,6 +443,33 @@
     .lgd-header__toggle span {
       color: $black;
     }
+
+    // Mobile menu button: on the grey subsite-extra header the global white
+    // outline is wrong; use carbon instead. Icon lines turn white on
+    // hover/focus/active, including when open (X icon).
+    .lgd-header__toggles {
+      .lgd-header__toggle--primary {
+        outline-color: $carbon;
+
+        &:hover,
+        &:focus,
+        &:active {
+          outline-color: $carbon !important;
+
+          .lgd-header__toggle-icon,
+          .lgd-header__toggle-icon:after {
+            color: $white;
+          }
+        }
+
+        &.lgd-header__toggle--active {
+          .lgd-header__toggle-icon,
+          .lgd-header__toggle-icon:after {
+            color: $white;
+          }
+        }
+      }
+    }
   }
 
   .js-localgov-alert-banner { // hide alert banners on subsite extra
