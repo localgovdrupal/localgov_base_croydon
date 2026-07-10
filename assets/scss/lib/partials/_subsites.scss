@@ -3,22 +3,56 @@
   main {
     .lgd-container {
       > .lgd-row {
-        // Replicate flexbox column-reverse on mobile (nav before content).
-        > *:nth-child(1) {
-          order: 3;
+        // Subsite navigation is placed in sidebar_second (see block config).
+        // Swap grid placement so nav sits left and content right.
+        &:not(:has(.sidebar--first)):has(.sidebar--second .menu) {
+          @include media-breakpoint-up(md) {
+            > .sidebar--second {
+              order: 1;
+            }
+
+            > .lgd-row__two-thirds {
+              order: 2;
+            }
+          }
+
+          @media screen and (width >= 60rem) {
+            > .sidebar--second {
+              grid-column: 1 / span 4;
+            }
+
+            > .lgd-row__two-thirds {
+              grid-column: 5 / span 8;
+            }
+          }
         }
 
-        > *:nth-child(2) {
-          order: unset;
+        // Subsite-extra pages with no section nav: two-thirds content on the
+        // left, one-third gap on the right (empty sidebar_second aside).
+        &:not(:has(.sidebar--first)):has(.sidebar--second):not(:has(.sidebar--second .menu)) {
+          @media screen and (width >= 60rem) {
+            > .lgd-row__two-thirds {
+              grid-column: 1 / span 8;
+              order: 1;
+            }
+
+            > .sidebar--second {
+              grid-column: 9 / span 4;
+              order: 2;
+            }
+          }
         }
 
-        > *:nth-child(3) {
-          order: unset;
-        }
+        // Fallback if navigation is ever moved to sidebar_first.
+        &:has(.sidebar--first):not(:has(.sidebar--second)) {
+          @media screen and (width >= 60rem) {
+            > .sidebar--first {
+              grid-column: 1 / span 4;
+            }
 
-        @include media-breakpoint-up(md) {
-          > * {
-            order: unset;
+            > .lgd-row__two-thirds {
+              grid-column: 5 / span 8;
+            }
           }
         }
       }

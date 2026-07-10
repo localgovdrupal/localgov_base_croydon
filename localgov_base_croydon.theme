@@ -151,6 +151,29 @@ function localgov_base_croydon_preprocess_html(array &$variables) {
 }
 
 /**
+ * Implements hook_preprocess_page().
+ *
+ * When a subsite-extra page has no section navigation links, keep the main
+ * content in a two-thirds column with a one-third gap on the right.
+ */
+function localgov_base_croydon_preprocess_page(array &$variables): void {
+  $request = \Drupal::request();
+  if (!$request->attributes->get('localgov_base_croydon_subsite_nav_is_extra')) {
+    return;
+  }
+
+  if ($request->attributes->get('localgov_base_croydon_subsite_nav_has_section_links', TRUE)) {
+    return;
+  }
+
+  // Force the content-left layout even if sidebar_first still appears to have
+  // content (e.g. an empty navigation block wrapper with contextual links).
+  $variables['has_sidebars'] = TRUE;
+  $variables['has_sidebar_first'] = FALSE;
+  $variables['has_sidebar_second'] = TRUE;
+}
+
+/**
  * Implements hook_preprocess_block() for hook_preprocess_block__localgov_base_croydon_subsitebanner_homepage().
  *
  * Makes the render array for the *banner image path* available to the block
@@ -516,6 +539,10 @@ function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
   $variables['section'] = $section;
   $variables['on_section_landing'] = $current_id === NULL
     || localgov_base_croydon_subsite_nav_item_node_id($section) === $current_id;
+
+  $request = \Drupal::request();
+  $request->attributes->set('localgov_base_croydon_subsite_nav_is_extra', $is_extra_subsite);
+  $request->attributes->set('localgov_base_croydon_subsite_nav_has_section_links', !empty($section['below']));
 }
 
 /**
