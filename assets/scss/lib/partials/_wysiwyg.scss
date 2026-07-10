@@ -22,14 +22,7 @@
   border-left: 0.125rem solid $magenta;
 }
 
-// fix image padding on media with text blocks
-.media-with-text--media-bottom,
-.media-with-text--media-top {
-  img {
-    padding-right: 1.5rem;
-  }
-}
-
+// Horizontal spacing for side-by-side media with text layouts only.
 .media-with-text--media-left {
   img {
     padding-right: 1.5rem;

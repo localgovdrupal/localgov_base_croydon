@@ -174,8 +174,16 @@
 .paragraph--type--page-section {
   @include rem(margin-bottom, 15);
 
-  .layout--threecol-33-34-33 { // remove default padding set on page builder columns that causes 3 col to wrap
+  .layout--threecol-33-34-33 {
+    // Use grid gap for column spacing instead of image padding.
+    &.lgd-row {
+      gap: var(--spacing);
+    }
+
+    // Remove default padding set on page builder columns that causes 3 col to wrap.
     .layout__region {
+      display: flex;
+      flex-direction: column;
       padding-bottom: 0;
     }
 
@@ -190,6 +198,33 @@
 
     .layout__region--third {
       padding-left: 0;
+    }
+
+    .media-with-text {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .media-with-text__media {
+      picture,
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        padding-right: 0;
+      }
+    }
+
+    .media-with-text__body {
+      flex: 1;
+      padding-inline: 0;
+
+      h3 {
+        margin-top: 0;
+      }
     }
   }
 }

@@ -53,7 +53,13 @@
       </h3>
     </li>
     {# Standard subsites collapse to the active trail; extra subsites show the
-       whole (already scoped) section. #}
+       whole (already scoped) section. On a standard subsite overview landing
+       page, show the overview itself as the active item above its children. #}
+    {% if not is_extra_subsite and on_section_landing %}
+      <li class="menu-item menu-item--active-trail">
+        <span class="is-active">{{ section.title }}</span>
+      </li>
+    {% endif %}
     {{ subsite_navigation.menu_links(section.below, not is_extra_subsite) }}
   </ul>
 {% endif %}
