@@ -397,18 +397,47 @@ function localgov_base_croydon_preprocess_field(array &$variables, string $hook)
     }
   }
 
-  // On standard subsites the banner text field just repeats the page title, so
-  // hide it entirely. Extra subsites use this field as a genuine banner
-  // subtitle, so it's left untouched there: getCurrentSubsiteTheme() returns a
-  // theme string for extra subsites and NULL for standard subsites.
-  if ($variables['element']['#field_name'] === 'localgov_subsites_banner_text') {
-    $theme = \Drupal::service('localgov_subsites_extras.service')->getCurrentSubsiteTheme();
-    if ($theme === NULL) {
-      $variables['items'] = [];
-    }
-    // Result depends on which subsite (and therefore theme) the page belongs to.
-    $variables['#cache']['contexts'][] = 'subsites.theme';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for localgov_banner_primary paragraphs.
+ *
+ * On standard (non-extra) subsite child pages, expose a link back to the
+ * subsite overview so the banner can show: overview link, Banner title, Banner
+ * text — matching the standard subsite design.
+ */
+function localgov_base_croydon_preprocess_paragraph__localgov_banner_primary(array &$variables): void {
+  $variables['subsite_overview_url'] = NULL;
+  $variables['subsite_overview_title'] = NULL;
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof \Drupal\node\NodeInterface) {
+    return;
   }
+
+  // Child pages only — the overview landing page is already the destination.
+  if ($node->bundle() !== 'localgov_subsites_page') {
+    return;
+  }
+
+  // Extra subsites already surface the overview title in their header menu.
+  if (\Drupal::service('localgov_subsites_extras.service')->getCurrentSubsiteTheme() !== NULL) {
+    return;
+  }
+
+  $overview = \Drupal::classResolver(\Drupal\localgov_subsites\Subsite::class)->getSubsite($node);
+  if (!$overview instanceof \Drupal\node\NodeInterface || (int) $overview->id() === (int) $node->id()) {
+    return;
+  }
+
+  $variables['subsite_overview_url'] = $overview->toUrl()->toString();
+  $variables['subsite_overview_title'] = $overview->label();
+  $variables['#cache']['contexts'][] = 'route';
+  $variables['#cache']['contexts'][] = 'subsites.theme';
+  $variables['#cache']['tags'] = \Drupal\Core\Cache\Cache::mergeTags(
+    $variables['#cache']['tags'] ?? [],
+    $overview->getCacheTags()
+  );
 }
 
 /**

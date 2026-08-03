@@ -4,16 +4,15 @@
     .lgd-container {
       > .lgd-row {
         // Subsite navigation is placed in sidebar_second (see block config).
-        // Swap grid placement so nav sits left and content right.
+        // Put nav before content at every breakpoint (DOM order is content then
+        // sidebar), and pin columns on wide screens.
         &:not(:has(.sidebar--first)):has(.sidebar--second .menu) {
-          @include media-breakpoint-up(md) {
-            > .sidebar--second {
-              order: 1;
-            }
+          > .sidebar--second {
+            order: 1;
+          }
 
-            > .lgd-row__two-thirds {
-              order: 2;
-            }
+          > .lgd-row__two-thirds {
+            order: 2;
           }
 
           @media screen and (width >= 60rem) {
@@ -108,11 +107,12 @@
             font-family: $font-family-icons;
             font-weight: $fa-font-weight;
             color: $white;
-            content: $fa-plus;
+            // Closed by default on mobile — match Section Menu chevrons.
+            content: $fa-chevron-down;
             position: absolute;
             right: 1rem;
             margin: auto 0;
-            font-size: 1.6rem;
+            font-size: 1.25rem;
 
             @include media-breakpoint-up(md) {
               display: none; // hide for desktop
@@ -121,7 +121,7 @@
 
           &.menu-shown {
             &:after {
-              content: $fa-minus;
+              content: $fa-chevron-up;
             }
           }
         }
@@ -228,11 +228,10 @@
     margin-top: 0;
 
     @include rem(padding-right, 15);
-    @include rem(padding-left, 15);
-
-    @include media-breakpoint-up(md) {
-      padding-left: 0;
-    }
+    // Match breadcrumb / content horizontal inset. Previously padding-left was
+    // zeroed from md up, so when the viewport was below the content container
+    // width the purple nav sat flush to the screen edge.
+    padding-left: var(--spacing-padding-horizontal);
 
     nav {
       @include rem(margin-bottom, 30);
@@ -554,13 +553,6 @@
       }
     }
 
-    .padding-horizontal {
-      @media screen and (width <= 48rem) {
-        padding-left: 0;
-        padding-right: 0;
-      }
-    }
-
     .subsite-extra__title {
       margin-bottom: 1rem;
 
@@ -713,7 +705,3 @@
 
 }
 
-// specificity overrides
-.block-localgov-subsite-banner .banner--primary .banner__content .field--name-localgov-subsites-banner-text {
-  background: none !important; // override of background set in banner css
-}
