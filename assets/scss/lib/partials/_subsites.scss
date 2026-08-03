@@ -513,6 +513,17 @@
     position: relative;
   }
 
+  .subsites-extra--submenu {
+    // Below the content container width (1170px / --width-extra-large):
+    // inset title / Section Menu to match page content. At/above that width
+    // the centred container already provides the edge gap.
+    .lgd-container {
+      @media screen and (width < 73.125rem) {
+        padding-inline: var(--spacing-padding-horizontal);
+      }
+    }
+  }
+
   .navigation--subsites {
     padding-bottom: 0;
 
