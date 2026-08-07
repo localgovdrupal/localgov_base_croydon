@@ -527,14 +527,14 @@ function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
     return;
   }
 
-  $current_id = ($current instanceof \Drupal\node\NodeInterface) ? (string) $current->id() : NULL;
+  $current_id = ($current instanceof \Drupal\node\NodeInterface) ? (string) $current->id() : FALSE;
 
   // The "section" scoping (heading = section, list = that section's children)
   // only applies to subsite-extra style subsites, whose overview is one of the
   // configured subsite_types (e.g. cds_subsite_homepage). Standard subsites use
   // the overview root as the section on every page, so the sidebar always lists
   // the whole subsite - matching the original behaviour.
-  $overview_entity = $variables['overview_entity'] ?? NULL;
+  $overview_entity = $variables['overview_entity'] ?? FALSE;
   $subsite_types = \Drupal::config('localgov_subsites_extras.settings')->get('subsite_types') ?: [];
   $is_extra_subsite = $overview_entity instanceof \Drupal\node\NodeInterface
     && in_array($overview_entity->bundle(), $subsite_types, TRUE);
@@ -543,7 +543,7 @@ function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
   // current page. Fall back to the overview itself (e.g. on the overview page,
   // for standard subsites, or when the current page cannot be located).
   $section = $overview_item;
-  if ($is_extra_subsite && $current_id !== NULL) {
+  if ($is_extra_subsite && $current_id !== FALSE) {
     foreach ($overview_item['below'] ?? [] as $candidate) {
       if (
         localgov_base_croydon_subsite_nav_item_node_id($candidate) === $current_id ||
@@ -558,7 +558,7 @@ function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
   // Flag the current page and its active trail within the section so the
   // template can render the current page as plain text and, for standard
   // subsites, expand only the pages in the active trail.
-  if ($current_id !== NULL && !empty($section['below'])) {
+  if ($current_id !== FALSE && !empty($section['below'])) {
     localgov_base_croydon_subsite_nav_mark_trail($section['below'], $current_id);
   }
 
@@ -566,7 +566,7 @@ function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
   // itself; otherwise the heading should link back to the section landing page.
   $variables['is_extra_subsite'] = $is_extra_subsite;
   $variables['section'] = $section;
-  $variables['on_section_landing'] = $current_id === NULL
+  $variables['on_section_landing'] = $current_id === FALSE
     || localgov_base_croydon_subsite_nav_item_node_id($section) === $current_id;
 
   $request = \Drupal::request();
