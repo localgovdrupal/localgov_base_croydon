@@ -407,8 +407,8 @@ function localgov_base_croydon_preprocess_field(array &$variables, string $hook)
  * text — matching the standard subsite design.
  */
 function localgov_base_croydon_preprocess_paragraph__localgov_banner_primary(array &$variables): void {
-  $variables['subsite_overview_url'] = NULL;
-  $variables['subsite_overview_title'] = NULL;
+  $variables['subsite_overview_url'] = '';
+  $variables['subsite_overview_title'] = '';
 
   $node = \Drupal::routeMatch()->getParameter('node');
   if (!$node instanceof \Drupal\node\NodeInterface) {
@@ -520,10 +520,10 @@ function localgov_base_croydon_preprocess_node__localgov_subsites_page__full(&$v
  */
 function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
   $items = $variables['items'] ?? [];
-  $current = $variables['current_entity'] ?? NULL;
+  $current = $variables['current_entity'] ?? FALSE;
 
-  $overview_item = $items[0] ?? NULL;
-  if ($overview_item === NULL) {
+  $overview_item = $items[0] ?? FALSE;
+  if ($overview_item === FALSE) {
     return;
   }
 
