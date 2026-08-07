@@ -3,22 +3,55 @@
   main {
     .lgd-container {
       > .lgd-row {
-        // Replicate flexbox column-reverse on mobile (nav before content).
-        > *:nth-child(1) {
-          order: 3;
+        // Subsite navigation is placed in sidebar_second (see block config).
+        // Put nav before content at every breakpoint (DOM order is content then
+        // sidebar), and pin columns on wide screens.
+        &:not(:has(.sidebar--first)):has(.sidebar--second .menu) {
+          > .sidebar--second {
+            order: 1;
+          }
+
+          > .lgd-row__two-thirds {
+            order: 2;
+          }
+
+          @media screen and (width >= 60rem) {
+            > .sidebar--second {
+              grid-column: 1 / span 4;
+            }
+
+            > .lgd-row__two-thirds {
+              grid-column: 5 / span 8;
+            }
+          }
         }
 
-        > *:nth-child(2) {
-          order: unset;
+        // Subsite-extra pages with no section nav: two-thirds content on the
+        // left, one-third gap on the right (empty sidebar_second aside).
+        &:not(:has(.sidebar--first)):has(.sidebar--second):not(:has(.sidebar--second .menu)) {
+          @media screen and (width >= 60rem) {
+            > .lgd-row__two-thirds {
+              grid-column: 1 / span 8;
+              order: 1;
+            }
+
+            > .sidebar--second {
+              grid-column: 9 / span 4;
+              order: 2;
+            }
+          }
         }
 
-        > *:nth-child(3) {
-          order: unset;
-        }
+        // Fallback if navigation is ever moved to sidebar_first.
+        &:has(.sidebar--first):not(:has(.sidebar--second)) {
+          @media screen and (width >= 60rem) {
+            > .sidebar--first {
+              grid-column: 1 / span 4;
+            }
 
-        @include media-breakpoint-up(md) {
-          > * {
-            order: unset;
+            > .lgd-row__two-thirds {
+              grid-column: 5 / span 8;
+            }
           }
         }
       }
@@ -56,15 +89,30 @@
 
           @include rem(padding, 20, 24);
 
+          // When viewing a page below the section, the heading is a link back
+          // to the section landing page. Keep it white to match the heading
+          // rather than inheriting the default (purple) link colour.
+          a {
+            color: $white;
+            text-decoration: underline;
+
+            &:hover,
+            &:focus {
+              color: $carbon;
+              text-decoration: none;
+            }
+          }
+
           &:after {
             font-family: $font-family-icons;
             font-weight: $fa-font-weight;
             color: $white;
-            content: $fa-plus;
+            // Closed by default on mobile — match Section Menu chevrons.
+            content: $fa-chevron-down;
             position: absolute;
             right: 1rem;
             margin: auto 0;
-            font-size: 1.6rem;
+            font-size: 1.25rem;
 
             @include media-breakpoint-up(md) {
               display: none; // hide for desktop
@@ -73,7 +121,7 @@
 
           &.menu-shown {
             &:after {
-              content: $fa-minus;
+              content: $fa-chevron-up;
             }
           }
         }
@@ -109,10 +157,16 @@
             color: $carbon;
             border-left: 0.1875rem solid $primary;
             text-decoration: none;
+            font-weight: $font-bold;
           }
 
+          // The current page is rendered as a plain <span> (no link) but must
+          // keep the same styling as the active link, so match its padding.
+          // Background, colour and border come from the .is-active rule above.
           span {
             display: block;
+
+            @include rem(padding, 12, 24);
           }
         }
       }
@@ -127,6 +181,46 @@
           text-decoration: none;
         }
       }
+
+      // Standard subsites (not subsite-extra) use this as their only navigation:
+      // all parent pages are listed and the active parent is expanded into a
+      // grey "drawer" grouping it with its children.
+      .subsite-nav--standard {
+        .menu-item--active-trail {
+          background-color: $gray-tint;
+
+          // The active parent itself: bold and dark to mark the active trail.
+          > a {
+            color: $carbon;
+            font-weight: $font-bold;
+            border-left-color: $primary;
+
+            &:hover,
+            &:focus {
+              color: $carbon;
+            }
+          }
+
+          // Children sit inside the grey drawer: transparent background so the
+          // drawer colour shows through, indented and prefixed with a dash.
+          .menu .menu-item {
+            background-color: transparent;
+
+            > a,
+            > span {
+              position: relative;
+
+              @include rem(padding-left, 44);
+
+              &::before {
+                content: '\2014';
+                position: absolute;
+                left: 1.5rem;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -134,11 +228,10 @@
     margin-top: 0;
 
     @include rem(padding-right, 15);
-    @include rem(padding-left, 15);
-
-    @include media-breakpoint-up(md) {
-      padding-left: 0;
-    }
+    // Match breadcrumb / content horizontal inset. Previously padding-left was
+    // zeroed from md up, so when the viewport was below the content container
+    // width the purple nav sat flush to the screen edge.
+    padding-left: var(--spacing-padding-horizontal);
 
     nav {
       @include rem(margin-bottom, 30);
@@ -383,6 +476,33 @@
     .lgd-header__toggle span {
       color: $black;
     }
+
+    // Mobile menu button: on the grey subsite-extra header the global white
+    // outline is wrong; use carbon instead. Icon lines turn white on
+    // hover/focus/active, including when open (X icon).
+    .lgd-header__toggles {
+      .lgd-header__toggle--primary {
+        outline-color: $carbon;
+
+        &:hover,
+        &:focus,
+        &:active {
+          outline-color: $carbon !important;
+
+          .lgd-header__toggle-icon,
+          .lgd-header__toggle-icon:after {
+            color: $white;
+          }
+        }
+
+        &.lgd-header__toggle--active {
+          .lgd-header__toggle-icon,
+          .lgd-header__toggle-icon:after {
+            color: $white;
+          }
+        }
+      }
+    }
   }
 
   .js-localgov-alert-banner { // hide alert banners on subsite extra
@@ -391,6 +511,17 @@
 
   .lgd-region__inner--banner {
     position: relative;
+  }
+
+  .subsites-extra--submenu {
+    // Below the content container width (1170px / --width-extra-large):
+    // inset title / Section Menu to match page content. At/above that width
+    // the centred container already provides the edge gap.
+    .lgd-container {
+      @media screen and (width < 73.125rem) {
+        padding-inline: var(--spacing-padding-horizontal);
+      }
+    }
   }
 
   .navigation--subsites {
@@ -433,18 +564,22 @@
       }
     }
 
-    .padding-horizontal {
-      @media screen and (width <= 48rem) {
-        padding-left: 0;
-        padding-right: 0;
-      }
-    }
-
     .subsite-extra__title {
       margin-bottom: 1rem;
 
       a:focus {
         color: $carbon;
+      }
+
+      // The global link style adds a yellow background on focus; that should be
+      // reserved for the focus state only. On hover, drop the background (and
+      // the focus box-shadow) and show a white underline instead.
+      a:hover {
+        background: transparent;
+        box-shadow: none;
+        color: $white;
+        text-decoration: underline;
+        text-decoration-color: $white;
       }
     }
 
@@ -499,12 +634,23 @@
             text-decoration: underline;
             box-shadow: none; // override default outline
           }
+        }
 
-          &.is-active {
-            &:focus,
-            &:hover {
-              text-decoration: none;
-            }
+        // Active section renders as a "tab": white background with the
+        // subsite's accent colour for the text. Keyed off the active-trail
+        // parent (not the anchor's is-active class) so the section stays
+        // highlighted when the user is on one of its child pages too. The
+        // accent colour is set per colour theme in
+        // _subsite-extra--color-theme_*.scss so the tab always matches its banner.
+        &.menu-item--active-trail > a {
+          background-color: $white;
+          border-left-color: $white;
+          color: $subsite-accent-a;
+
+          &:focus,
+          &:hover {
+            background-color: $white;
+            text-decoration: none;
           }
         }
       }
@@ -568,14 +714,5 @@
     }
   }
 
-  .media-with-text--media-top {
-    img {
-      padding-right: 1.5rem !important;
-    }
-  }
 }
 
-// specificity overrides
-.block-localgov-subsite-banner .banner--primary .banner__content .field--name-localgov-subsites-banner-text {
-  background: none !important; // override of background set in banner css
-}

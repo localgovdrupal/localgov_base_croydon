@@ -62,13 +62,16 @@
   {% if paragraph.localgov_image.value %}
       {{ content.localgov_image }}
   {% endif %}
-  {% if banner_url %}
-    <a class="banner__link" href="{{ banner_url }}">
-  {% endif %}
-    <div class="banner__content">
+  <div class="banner__content">
+    {% if subsite_overview_url %}
+      <a class="banner__overview-link" href="{{ subsite_overview_url }}">{{ subsite_overview_title }}</a>
+    {% endif %}
+    {% if banner_url %}
+      <a class="banner__link" href="{{ banner_url }}">
+        {{ content|without('localgov_image', 'localgov_url') }}
+      </a>
+    {% else %}
       {{ content|without('localgov_image', 'localgov_url') }}
-    </div>
-  {% if banner_url %}
-    </a>
-  {% endif %}
+    {% endif %}
+  </div>
 </div>

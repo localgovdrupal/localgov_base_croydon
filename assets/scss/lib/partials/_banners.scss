@@ -27,27 +27,60 @@
     .banner__content {
       display: flex;
       flex-direction: column;
-      background: none; // base override
+      // One purple block holds both banner title and optional banner text.
+      background-color: $primary;
+      color: $white;
       max-width: var(--width-container);
       margin: calc(var(--banner-content-margin) * -1) auto 0;
-      padding: 0 var(--spacing-padding-horizontal);
+
+      @include rem(padding, 20, 40);
+
+      // Link back to the subsite overview (standard child pages only).
+      .banner__overview-link {
+        align-self: flex-start;
+        color: $white;
+        font-size: $font-size-lg;
+        font-weight: $font-normal;
+        text-decoration: underline;
+
+        @include rem(margin-bottom, 12);
+
+        &:hover,
+        &:focus {
+          background: transparent;
+          box-shadow: none;
+          color: $white;
+          text-decoration: underline;
+        }
+
+        &:focus-visible {
+          outline: 0.125rem solid $white;
+          outline-offset: 0.125rem;
+        }
+      }
 
       .field--name-localgov-title {
-        background-color: $primary;
+        background: none;
+        padding: 0;
 
-        @include rem(padding, 20, 40);
+        h1 {
+          color: $white !important;
+          margin-bottom: 0;
+        }
       }
 
       .field--name-localgov-subsites-banner-text {
-        background-color: $primary-tint;
+        background: none;
         font-size: $font-size-lg;
-        color: $carbon;
+        color: $white;
+        padding: 0;
 
-        @include rem(padding, 20, 40);
+        @include rem(margin-top, 12);
 
         p {
           margin-top: 0;
           margin-bottom: 0;
+          color: $white;
         }
       }
     }

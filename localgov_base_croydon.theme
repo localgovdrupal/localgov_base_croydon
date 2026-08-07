@@ -136,7 +136,11 @@ function localgov_base_croydon_audit_template_overrides(): array {
  * Implements hook_preprocess_html().
  *
  * Adds a unique body class for the "How to contact us" page.
- * Adds a unique body class for the "Subsite extra" page.
+ *
+ * Note: the "subsite-extra" / "subsite-extra--color-*" body classes are added
+ * for every page within a subsite by localgov_subsites_extras_preprocess_html()
+ * (driven by the subsite_class / theme_class_prefix settings), so they must not
+ * be hardcoded here.
  */
 function localgov_base_croydon_preprocess_html(array &$variables) {
   $node = \Drupal::routeMatch()->getParameter('node');
@@ -144,11 +148,29 @@ function localgov_base_croydon_preprocess_html(array &$variables) {
   if ($node instanceof \Drupal\node\NodeInterface && (int) $node->id() === 7907) {
     $variables['attributes']['class'][] = 'page-how-contact-us';
   }
-  // Add a unique body class for the "Subsite extra" page.
-  if ($node instanceof \Drupal\node\NodeInterface && (int) $node->id() === 7297) {
-    $variables['attributes']['class'][] = 'subsite-extra';
-    $variables['attributes']['class'][] = 'subsite-extra--color-theme_a';
+}
+
+/**
+ * Implements hook_preprocess_page().
+ *
+ * When a subsite-extra page has no section navigation links, keep the main
+ * content in a two-thirds column with a one-third gap on the right.
+ */
+function localgov_base_croydon_preprocess_page(array &$variables): void {
+  $request = \Drupal::request();
+  if (!$request->attributes->get('localgov_base_croydon_subsite_nav_is_extra')) {
+    return;
   }
+
+  if ($request->attributes->get('localgov_base_croydon_subsite_nav_has_section_links', TRUE)) {
+    return;
+  }
+
+  // Force the content-left layout even if sidebar_first still appears to have
+  // content (e.g. an empty navigation block wrapper with contextual links).
+  $variables['has_sidebars'] = TRUE;
+  $variables['has_sidebar_first'] = FALSE;
+  $variables['has_sidebar_second'] = TRUE;
 }
 
 /**
@@ -374,6 +396,48 @@ function localgov_base_croydon_preprocess_field(array &$variables, string $hook)
       }
     }
   }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for localgov_banner_primary paragraphs.
+ *
+ * On standard (non-extra) subsite child pages, expose a link back to the
+ * subsite overview so the banner can show: overview link, Banner title, Banner
+ * text — matching the standard subsite design.
+ */
+function localgov_base_croydon_preprocess_paragraph__localgov_banner_primary(array &$variables): void {
+  $variables['subsite_overview_url'] = '';
+  $variables['subsite_overview_title'] = '';
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof \Drupal\node\NodeInterface) {
+    return;
+  }
+
+  // Child pages only — the overview landing page is already the destination.
+  if ($node->bundle() !== 'localgov_subsites_page') {
+    return;
+  }
+
+  // Extra subsites already surface the overview title in their header menu.
+  if (\Drupal::service('localgov_subsites_extras.service')->getCurrentSubsiteTheme() !== NULL) {
+    return;
+  }
+
+  $overview = \Drupal::classResolver(\Drupal\localgov_subsites\Subsite::class)->getSubsite($node);
+  if (!$overview instanceof \Drupal\node\NodeInterface || (int) $overview->id() === (int) $node->id()) {
+    return;
+  }
+
+  $variables['subsite_overview_url'] = $overview->toUrl()->toString();
+  $variables['subsite_overview_title'] = $overview->label();
+  $variables['#cache']['contexts'][] = 'route';
+  $variables['#cache']['contexts'][] = 'subsites.theme';
+  $variables['#cache']['tags'] = \Drupal\Core\Cache\Cache::mergeTags(
+    $variables['#cache']['tags'] ?? [],
+    $overview->getCacheTags()
+  );
 }
 
 /**
@@ -437,6 +501,153 @@ function localgov_base_croydon_preprocess_node__localgov_subsites_page__full(&$v
   }
 
   $variables['has_banner_meaningful_content'] = $has_banner_meaningful_content;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for subsite_navigation.
+ *
+ * Scopes the subsite sidebar navigation to the currently active section.
+ *
+ * The navigation tree passed to the template starts at the subsite overview
+ * (items[0]); its children are the top level "sections" shown in the main
+ * subsite menu. We work out which of those sections the current page belongs to
+ * (matching on node id, as the tree's built-in in_active_trail flag is only ever
+ * set for the overview root) so the template can:
+ * - use the section name as the heading,
+ * - list only the pages within that section,
+ * - and, when viewing a page below the section, link the heading back to the
+ *   section landing page.
+ */
+function localgov_base_croydon_preprocess_subsite_navigation(&$variables) {
+  $items = $variables['items'] ?? [];
+  $current = $variables['current_entity'] ?? FALSE;
+
+  $overview_item = $items[0] ?? FALSE;
+  if ($overview_item === FALSE) {
+    return;
+  }
+
+  $current_id = ($current instanceof \Drupal\node\NodeInterface) ? (string) $current->id() : FALSE;
+
+  // The "section" scoping (heading = section, list = that section's children)
+  // only applies to subsite-extra style subsites, whose overview is one of the
+  // configured subsite_types (e.g. cds_subsite_homepage). Standard subsites use
+  // the overview root as the section on every page, so the sidebar always lists
+  // the whole subsite - matching the original behaviour.
+  $overview_entity = $variables['overview_entity'] ?? FALSE;
+  $subsite_types = \Drupal::config('localgov_subsites_extras.settings')->get('subsite_types') ?: [];
+  $is_extra_subsite = $overview_entity instanceof \Drupal\node\NodeInterface
+    && in_array($overview_entity->bundle(), $subsite_types, TRUE);
+
+  // Find the section (direct child of the overview) whose subtree contains the
+  // current page. Fall back to the overview itself (e.g. on the overview page,
+  // for standard subsites, or when the current page cannot be located).
+  $section = $overview_item;
+  if ($is_extra_subsite && $current_id !== FALSE) {
+    foreach ($overview_item['below'] ?? [] as $candidate) {
+      if (
+        localgov_base_croydon_subsite_nav_item_node_id($candidate) === $current_id ||
+        localgov_base_croydon_subsite_nav_subtree_has_node($candidate, $current_id)
+      ) {
+        $section = $candidate;
+        break;
+      }
+    }
+  }
+
+  // Flag the current page and its active trail within the section so the
+  // template can render the current page as plain text and, for standard
+  // subsites, expand only the pages in the active trail.
+  if ($current_id !== FALSE && !empty($section['below'])) {
+    localgov_base_croydon_subsite_nav_mark_trail($section['below'], $current_id);
+  }
+
+  // We are on the section landing page when the current page is the section
+  // itself; otherwise the heading should link back to the section landing page.
+  $variables['is_extra_subsite'] = $is_extra_subsite;
+  $variables['section'] = $section;
+  $variables['on_section_landing'] = $current_id === FALSE
+    || localgov_base_croydon_subsite_nav_item_node_id($section) === $current_id;
+
+  $request = \Drupal::request();
+  $request->attributes->set('localgov_base_croydon_subsite_nav_is_extra', $is_extra_subsite);
+  $request->attributes->set('localgov_base_croydon_subsite_nav_has_section_links', !empty($section['below']));
+}
+
+/**
+ * Flags the current page and the active trail within a navigation subtree.
+ *
+ * Sets two flags on each item:
+ * - is_current: TRUE when the item is the page currently being viewed.
+ * - in_trail: TRUE when the item is the current page or an ancestor of it.
+ *
+ * @param array $items
+ *   A list of subsite navigation menu items, passed by reference.
+ * @param string|int $current_id
+ *   The node id of the current page.
+ *
+ * @return bool
+ *   TRUE if the current page was found within this list or its descendants.
+ */
+function localgov_base_croydon_subsite_nav_mark_trail(array &$items, $current_id): bool {
+  $trail_present = FALSE;
+
+  foreach ($items as &$item) {
+    $is_current = localgov_base_croydon_subsite_nav_item_node_id($item) === $current_id;
+
+    $child_in_trail = FALSE;
+    if (!empty($item['below'])) {
+      $child_in_trail = localgov_base_croydon_subsite_nav_mark_trail($item['below'], $current_id);
+    }
+
+    $item['is_current'] = $is_current;
+    $item['in_trail'] = $is_current || $child_in_trail;
+    $trail_present = $trail_present || $item['in_trail'];
+  }
+
+  return $trail_present;
+}
+
+/**
+ * Returns the node id referenced by a subsite navigation item, if any.
+ *
+ * @param array $item
+ *   A subsite navigation menu item.
+ *
+ * @return string|int|null
+ *   The referenced node id, or NULL if the item has no node route.
+ */
+function localgov_base_croydon_subsite_nav_item_node_id(array $item) {
+  if (isset($item['url']) && $item['url'] instanceof \Drupal\Core\Url && $item['url']->isRouted()) {
+    $node_id = $item['url']->getRouteParameters()['node'] ?? NULL;
+    return $node_id === NULL ? NULL : (string) $node_id;
+  }
+
+  return NULL;
+}
+
+/**
+ * Determines whether a node id appears anywhere below a navigation item.
+ *
+ * @param array $item
+ *   A subsite navigation menu item.
+ * @param string|int $node_id
+ *   The node id to search for.
+ *
+ * @return bool
+ *   TRUE if the node id is found in the item's descendants.
+ */
+function localgov_base_croydon_subsite_nav_subtree_has_node(array $item, $node_id): bool {
+  foreach ($item['below'] ?? [] as $child) {
+    if (localgov_base_croydon_subsite_nav_item_node_id($child) === $node_id) {
+      return TRUE;
+    }
+    if (localgov_base_croydon_subsite_nav_subtree_has_node($child, $node_id)) {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
 }
 
 /**
