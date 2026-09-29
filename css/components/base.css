@@ -87,6 +87,7 @@ a:focus {
 }
 
 .table-responsive ul,
-.table-responsive ol {
+.table-responsive ol,
+.table-responsive p {
     font-size: inherit;
 }
