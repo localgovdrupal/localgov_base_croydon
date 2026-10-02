@@ -85,3 +85,9 @@ a:focus {
   color: var(--color-black) !important;
   margin-top: 0 !important;
 }
+
+.table-responsive ul,
+.table-responsive ol,
+.table-responsive p {
+    font-size: inherit;
+}
