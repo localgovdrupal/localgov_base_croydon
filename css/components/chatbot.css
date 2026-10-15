@@ -283,9 +283,17 @@ h2.chatbot__heading {
   color: var(--color-black, #000);
 }
 
-.chatbot__chat-content .webchat__send-box__text-box {
-  margin-bottom: 0;
-  padding: 0;
+/*
+  Web Chat injects e.g. `.webchat--css-…rinsq8.webchat__send-box-text-box {
+  padding: 10px; }` which shrinks the input. Prod zeroes that on the form.
+  !important needed — hashed rule loads after our stylesheet.
+ */
+.chatbot__chat-content .webchat__send-box__text-box,
+.chatbot__chat-content form.webchat__send-box-text-box,
+.webchat__send-box form.webchat__send-box-text-box,
+form.webchat__send-box-text-box {
+  margin-bottom: 0 !important;
+  padding: 0 !important;
 }
 
 .webchat__send-box__main {
