@@ -262,53 +262,38 @@ h2.chatbot__heading {
   margin-bottom: 0.5rem;
 }
 
+/*
+  Match known-good prod (index) overrides only.
+  Web Chat’s hashed CSS supplies display/flex/align-items and input height: 100%.
+  Do not force fixed heights here — that fights the stretch layout.
+ */
+.webchat__send-box-text-box .webchat__send-box-text-box__input {
+  /* Same as Web Chat’s …rinsq8 input rule, without the hashed class prefix. */
+  height: 100%;
+  outline: 0;
+  font-family: inherit;
+  font-size: inherit;
+  /* Croydon chrome (prod !important overrides of Web Chat border/padding: 0). */
+  padding-left: var(--spacing-small, 10px) !important;
+  padding-right: var(--spacing-small, 10px) !important;
+  border: 2px var(--border-style, solid) var(--border-color-dark, #333) !important;
+}
+
 .webchat__send-box-text-box ::placeholder {
   color: var(--color-black, #000);
 }
 
-.webchat__send-box__main {
-  display: flex !important;
-  align-items: stretch;
-  width: 100%;
-  background-color: initial !important;
-  min-height: 50px !important;
-}
-
-/* Grow to fill space beside Send — theme form/input width rules can otherwise
-   leave a gap between the field and the button (prod Web Chat flex: 10000). */
-.chatbot__chat-content .webchat__send-box__text-box,
-.chatbot__chat-content .webchat__send-box-text-box {
-  display: flex !important;
-  flex: 1 1 auto !important;
-  align-self: stretch;
-  width: auto !important;
-  min-width: 0 !important;
-  max-width: none !important;
+.chatbot__chat-content .webchat__send-box__text-box {
   margin-bottom: 0;
   padding: 0;
 }
 
-/*
-  Mirror Web Chat’s hashed input rule (e.g. .webchat--css-…rinsq8 …__input)
-  so height/fill don’t depend on a generated class name that changes per build.
-  Keep Croydon border + horizontal padding as intentional overrides.
- */
-.webchat__send-box-text-box .webchat__send-box-text-box__input,
+.webchat__send-box__main {
+  background-color: initial !important;
+  min-height: 50px !important;
+}
+
 .webchat__send-box-text-box__input {
-  flex: 1 1 auto !important;
-  width: 100% !important;
-  max-width: none !important;
-  height: 100% !important;
-  box-sizing: border-box;
-  margin: 0;
-  outline: 0;
-  font-family: inherit;
-  font-size: inherit;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  padding-left: var(--spacing-small, 10px) !important;
-  padding-right: var(--spacing-small, 10px) !important;
-  border: 2px var(--border-style, solid) var(--border-color-dark, #333) !important;
   background-color: var(--white) !important;
 }
 
@@ -397,7 +382,6 @@ a.webchat__render-markdown__pure-identifier {
 }
 
 .webchat__send-button {
-  flex: 0 0 auto !important;
   background-color: var(--green) !important;
   padding: 8px 16px !important;
   cursor: pointer;
