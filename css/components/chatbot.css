@@ -391,10 +391,11 @@ a.webchat__render-markdown__pure-identifier {
 
 /*
   Success green (#380) + white label — not --green (#7b5), which fails contrast.
-  Web Chat paints the visible fill on .webchat__icon-button__shade; override that
-  layer as well as the button background (!important beats hashed injected CSS).
+  Web Chat’s send control is .webchat__send-box__button (not .webchat__send-button).
+  Visible fill is on .webchat__icon-button__shade; default shade is #77bb55 from
+  injected CSS-in-JS — !important on the real class names is required.
  */
-.webchat__send-button {
+.webchat__send-box__button {
   background-color: var(--color-success, var(--success, #338800)) !important;
   color: var(--color-white, #fff) !important;
   padding: 8px 16px !important;
@@ -410,31 +411,31 @@ a.webchat__render-markdown__pure-identifier {
   outline: 0;
 }
 
-.webchat__send-button .webchat__icon-button__shade {
+.webchat__send-box__button .webchat__icon-button__shade {
   background-color: var(--color-success, var(--success, #338800)) !important;
   border-radius: 0 !important;
   inset: 0 !important;
 }
 
-.webchat__send-button:hover .webchat__icon-button__shade {
+.webchat__send-box__button:hover .webchat__icon-button__shade {
   background-color: var(--button-bg-color-hover) !important;
 }
 
-.webchat__send-button:focus .webchat__icon-button__shade,
-.webchat__send-button:active .webchat__icon-button__shade {
+.webchat__send-box__button:focus .webchat__icon-button__shade,
+.webchat__send-box__button:active .webchat__icon-button__shade {
   background-color: var(--color-focus, var(--yellow, #ffbb00)) !important;
 }
 
-.webchat__send-button:disabled .webchat__icon-button__shade,
-.webchat__send-button[aria-disabled="true"] .webchat__icon-button__shade {
+.webchat__send-box__button:disabled .webchat__icon-button__shade,
+.webchat__send-box__button[aria-disabled="true"] .webchat__icon-button__shade {
   background-color: #a0a0a0 !important;
 }
 
-.webchat__send-button svg {
+.webchat__send-box__button svg {
   display: none !important;
 }
 
-.webchat__send-button::before {
+.webchat__send-box__button::before {
   content: "Send" !important;
   color: var(--color-white, #fff) !important;
   font-size: 16px !important;
@@ -446,26 +447,26 @@ a.webchat__render-markdown__pure-identifier {
   z-index: 2;
 }
 
-.webchat__send-button:hover {
+.webchat__send-box__button:hover {
   background-color: var(--button-bg-color-hover) !important;
 }
 
-.webchat__send-button:hover::before {
+.webchat__send-box__button:hover::before {
   color: var(--color-white, #fff) !important;
 }
 
-.webchat__send-button:focus,
-.webchat__send-button:active {
+.webchat__send-box__button:focus,
+.webchat__send-box__button:active {
   background-color: var(--color-focus, var(--yellow, #ffbb00)) !important;
 }
 
-.webchat__send-button:focus::before,
-.webchat__send-button:active::before {
+.webchat__send-box__button:focus::before,
+.webchat__send-box__button:active::before {
   color: var(--carbon, #121212) !important;
 }
 
-.webchat__send-button:disabled,
-.webchat__send-button[aria-disabled="true"] {
+.webchat__send-box__button:disabled,
+.webchat__send-box__button[aria-disabled="true"] {
   background-color: #a0a0a0 !important;
 }
 
