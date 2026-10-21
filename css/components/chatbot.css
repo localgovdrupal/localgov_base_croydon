@@ -389,8 +389,10 @@ a.webchat__render-markdown__pure-identifier {
   padding-bottom: 5rem;
 }
 
+/* Success green (#380) + white label — not --green (#7b5), which fails contrast. */
 .webchat__send-button {
-  background-color: var(--green) !important;
+  background-color: var(--color-success, var(--success, #338800)) !important;
+  color: var(--color-white, #fff) !important;
   padding: 8px 16px !important;
   cursor: pointer;
   display: flex !important;
@@ -410,7 +412,7 @@ a.webchat__render-markdown__pure-identifier {
 
 .webchat__send-button::before {
   content: "Send" !important;
-  color: white !important;
+  color: var(--color-white, #fff) !important;
   font-size: 16px !important;
   font-weight: bold !important;
   line-height: 1;
@@ -420,16 +422,20 @@ a.webchat__render-markdown__pure-identifier {
   z-index: 2;
 }
 
-.webchat__send-button:focus {
-  background-color: var(--yellow) !important;
-}
-
-.webchat__send-button:focus::before {
-  color: var(--carbon) !important;
+.webchat__send-button:hover {
+  background-color: var(--color-success, var(--success, #338800)) !important;
 }
 
 .webchat__send-button:hover::before {
-  color: var(--white) !important;
+  color: var(--color-white, #fff) !important;
+}
+
+.webchat__send-button:focus {
+  background-color: var(--color-focus, var(--yellow, #ffbb00)) !important;
+}
+
+.webchat__send-button:focus::before {
+  color: var(--carbon, #121212) !important;
 }
 
 /* Android keyboard fix */
