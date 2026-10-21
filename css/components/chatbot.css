@@ -389,7 +389,11 @@ a.webchat__render-markdown__pure-identifier {
   padding-bottom: 5rem;
 }
 
-/* Success green (#380) + white label — not --green (#7b5), which fails contrast. */
+/*
+  Success green (#380) + white label — not --green (#7b5), which fails contrast.
+  Web Chat paints the visible fill on .webchat__icon-button__shade; override that
+  layer as well as the button background (!important beats hashed injected CSS).
+ */
 .webchat__send-button {
   background-color: var(--color-success, var(--success, #338800)) !important;
   color: var(--color-white, #fff) !important;
@@ -404,6 +408,26 @@ a.webchat__render-markdown__pure-identifier {
   min-width: 60px;
   margin-left: 10px;
   outline: 0;
+}
+
+.webchat__send-button .webchat__icon-button__shade {
+  background-color: var(--color-success, var(--success, #338800)) !important;
+  border-radius: 0 !important;
+  inset: 0 !important;
+}
+
+.webchat__send-button:hover .webchat__icon-button__shade {
+  background-color: var(--button-bg-color-hover) !important;
+}
+
+.webchat__send-button:focus .webchat__icon-button__shade,
+.webchat__send-button:active .webchat__icon-button__shade {
+  background-color: var(--color-focus, var(--yellow, #ffbb00)) !important;
+}
+
+.webchat__send-button:disabled .webchat__icon-button__shade,
+.webchat__send-button[aria-disabled="true"] .webchat__icon-button__shade {
+  background-color: #a0a0a0 !important;
 }
 
 .webchat__send-button svg {
@@ -423,19 +447,26 @@ a.webchat__render-markdown__pure-identifier {
 }
 
 .webchat__send-button:hover {
-  background-color: var(--color-success, var(--success, #338800)) !important;
+  background-color: var(--button-bg-color-hover) !important;
 }
 
 .webchat__send-button:hover::before {
   color: var(--color-white, #fff) !important;
 }
 
-.webchat__send-button:focus {
+.webchat__send-button:focus,
+.webchat__send-button:active {
   background-color: var(--color-focus, var(--yellow, #ffbb00)) !important;
 }
 
-.webchat__send-button:focus::before {
+.webchat__send-button:focus::before,
+.webchat__send-button:active::before {
   color: var(--carbon, #121212) !important;
+}
+
+.webchat__send-button:disabled,
+.webchat__send-button[aria-disabled="true"] {
+  background-color: #a0a0a0 !important;
 }
 
 /* Android keyboard fix */
