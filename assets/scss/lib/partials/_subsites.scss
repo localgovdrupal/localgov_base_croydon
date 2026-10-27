@@ -406,24 +406,13 @@
 .page-node-type-localgov-subsites-page {
   .paragraph--type--page-section {
     .layout--twocol {
-      .layout__region--first {
-        display: block;
-        padding-right: 0;
-        padding-left: 0;
-
-        @include media-breakpoint-up(md) {
-          @include rem(padding-right, 15); // ignore padding set in base
-        }
-      }
-
+      // Column spacing comes from the page-section grid gap. Keep region
+      // padding at 0 so it is not added on top of that gap.
+      .layout__region--first,
       .layout__region--second {
         display: block;
         padding-right: 0;
         padding-left: 0;
-
-        @include media-breakpoint-up(md) {
-          @include rem(padding-left, 15); // ignore padding set in base
-        }
       }
     }
   }
