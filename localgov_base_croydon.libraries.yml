@@ -16,12 +16,26 @@ base:
     theme:
       assets/css/font-face.css: {}
       css/components/base.css: { weight: 200 }
-      css/components/chatbot.css: { weight: 201 }
       assets/css/lib/main.css: {}
       css/components/form-items.css: {}
       css/components/box-links.css: { weight: 200 }
       css/components/menu-main.css: { weight: 200 }
       css/components/contact.css: { weight: 200 }
+
+chatbot:
+  css:
+    theme:
+      css/components/chatbot.css: { weight: 200 }
+  js:
+    https://cdn.botframework.com/botframework-webchat/latest/webchat.js:
+      type: external
+      minified: true
+      attributes:
+        crossorigin: anonymous
+    js/chatbot.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
 
 header:
   css:

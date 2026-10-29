@@ -1,5 +1,18 @@
 {% extends '@localgov_base/layout/page.html.twig' %}
 
+{#
+  Render the chatbot outside <footer class="lgd-footer"> so it does not inherit
+  footer link/heading colours (white-on-black pre-footer cascade).
+#}
+{% block footer_sections %}
+  {{ parent() }}
+  {% if page.chatbot %}
+    <div class="lgd-chatbot" role="complementary" aria-label="Ask Croydon Council chatbot">
+      {{ page.chatbot }}
+    </div>
+  {% endif %}
+{% endblock %}
+
 {% block post_footer %}
 <div class="lgd-footer__post-footer">
         <div class="lgd-container">
