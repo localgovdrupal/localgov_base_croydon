@@ -157,6 +157,8 @@ function localgov_base_croydon_preprocess_html(array &$variables) {
  * content in a two-thirds column with a one-third gap on the right.
  */
 function localgov_base_croydon_preprocess_page(array &$variables): void {
+  localgov_base_croydon_place_subsite_breadcrumb($variables);
+
   $request = \Drupal::request();
   if (!$request->attributes->get('localgov_base_croydon_subsite_nav_is_extra')) {
     return;
@@ -171,6 +173,67 @@ function localgov_base_croydon_preprocess_page(array &$variables): void {
   $variables['has_sidebars'] = TRUE;
   $variables['has_sidebar_first'] = FALSE;
   $variables['has_sidebar_second'] = TRUE;
+}
+
+/**
+ * Places the breadcrumb under the subsite header and above the banner.
+ *
+ * Subsite landing pages, subsite extra homepages, and standard subsite pages
+ * keep the trail in the banner region so it sits after the subsite header
+ * (weight -17) and before the banner blocks (weight -16 and below).
+ */
+function localgov_base_croydon_place_subsite_breadcrumb(array &$variables): void {
+  if (empty($variables['has_breadcrumb']) || empty($variables['page']['breadcrumb'])) {
+    return;
+  }
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof \Drupal\node\NodeInterface) {
+    return;
+  }
+
+  $subsite_bundles = [
+    'cds_subsite_homepage',
+    'localgov_subsites_overview',
+    'localgov_subsites_page',
+  ];
+  if (!in_array($node->bundle(), $subsite_bundles, TRUE)) {
+    return;
+  }
+
+  foreach (\Drupal\Core\Render\Element::children($variables['page']['breadcrumb']) as $key) {
+    // The breadcrumb block is a lazy builder, so the region markup has to
+    // wrap it rather than being set on the block itself.
+    $variables['page']['banner']['subsite_breadcrumb_' . $key] = [
+      '#type' => 'container',
+      '#weight' => -16.5,
+      '#attributes' => [
+        'class' => [
+          'lgd-region',
+          'lgd-region--breadcrumb',
+          'region',
+          'region-breadcrumb',
+        ],
+      ],
+      'inner' => [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => ['lgd-container', 'padding-horizontal'],
+        ],
+        'content' => [
+          '#type' => 'container',
+          '#attributes' => [
+            'class' => ['lgd-region__inner', 'lgd-region__inner--breadcrumb'],
+          ],
+          'breadcrumb' => $variables['page']['breadcrumb'][$key],
+        ],
+      ],
+    ];
+    unset($variables['page']['breadcrumb'][$key]);
+  }
+
+  unset($variables['page']['banner']['#sorted']);
+  $variables['has_breadcrumb'] = FALSE;
 }
 
 /**
