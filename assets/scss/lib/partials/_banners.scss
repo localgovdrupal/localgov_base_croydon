@@ -24,6 +24,15 @@
 
 .block-localgov-subsite-banner { // subsite banner
   .banner--primary {
+    // Taller photo above the tablet breakpoint so faces are not cropped.
+    @include media-breakpoint-up(md) {
+      img {
+        @include rem(height, 400);
+        @include rem(min-height, 400);
+        @include rem(max-height, 400);
+      }
+    }
+
     .banner__content {
       display: flex;
       flex-direction: column;
