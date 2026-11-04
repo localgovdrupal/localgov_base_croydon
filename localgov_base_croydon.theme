@@ -157,6 +157,11 @@ function localgov_base_croydon_preprocess_html(array &$variables) {
  * content in a two-thirds column with a one-third gap on the right.
  */
 function localgov_base_croydon_preprocess_page(array &$variables): void {
+  // Attach chatbot CSS/JS only when the dedicated chatbot region has content.
+  if (!empty($variables['page']['chatbot'])) {
+    $variables['#attached']['library'][] = 'localgov_base_croydon/chatbot';
+  }
+
   $request = \Drupal::request();
   if (!$request->attributes->get('localgov_base_croydon_subsite_nav_is_extra')) {
     return;
