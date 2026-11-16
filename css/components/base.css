@@ -50,6 +50,31 @@ a:focus {
   margin-left: auto;
 }
 
+/*
+  Prose pages keep a two-thirds content column and a blank third on the right.
+  Guide pages add lgd-row__two-thirds to the article itself. That class only
+  sizes a cell inside .lgd-row, so once the flexbox grid became CSS grid the
+  article stretched to the full container. Service pages (and the other
+  restricted-width types) cap the body with --width-medium, which is 62rem
+  here and leaves only a thin gap. From the same breakpoint the grid uses for
+  an 8-column span, both sit at two thirds of this region. A real sidebar row
+  already provides the split, so the restricted section fills that cell.
+*/
+@media screen and (width >= 60rem) {
+  .lgd-region--content article.lgd-row__two-thirds {
+    width: 66.6667%;
+    max-width: 66.6667%;
+  }
+
+  .lgd-region--content .node__restricted-width-section {
+    max-width: 66.6667%;
+  }
+
+  .lgd-row .node__restricted-width-section {
+    max-width: none;
+  }
+}
+
 .page-node-type-localgov-services-landing .lgd-region--content,
 .lgd-prev-next--guides,
 .eu-cookie-compliance-content {
