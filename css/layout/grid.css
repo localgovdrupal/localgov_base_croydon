@@ -64,6 +64,25 @@
   }
 }
 
+/*
+  Between 768px and 960px the rule above makes a one-third sidebar and a
+  two-thirds column the same width. Stack those pairs until 960px, where they
+  become 4 and 8 columns. Equal card rows (lgd-row--thirds, halves, quarters)
+  stay two-up.
+*/
+@media screen and (width >= 48rem) and (width < 60rem) {
+  .lgd-row:has(> .lgd-row__two-thirds):has(> .lgd-row__one-third, > .lgd-row__one-quarter, > .sidebar),
+  .lgd-row:has(> .lgd-row__three-quarters):has(> .lgd-row__one-quarter, > .sidebar) {
+    > .lgd-row__one-third,
+    > .lgd-row__two-thirds,
+    > .lgd-row__one-quarter,
+    > .lgd-row__three-quarters,
+    > .sidebar {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
 @media screen and (width >= 60rem) {
   .lgd-row__one-quarter,
   .lgd-row--quarters > * {
