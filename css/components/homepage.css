@@ -179,7 +179,30 @@
   padding-left: 0;
 }
 
-@media screen and (width >= 48rem) {
+/*
+  Homepage teaser pairs sit side by side from 640px. Below that they stack,
+  with a 30px gap between the boxes.
+*/
+@media screen and (width < 40rem) {
+  .path-frontpage .paragraph--type--page-section .layout--twocol:has(.media-with-text--media-top) > .layout__region--first {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (width >= 40rem) {
+  .path-frontpage .paragraph--type--page-section .layout--twocol:has(.media-with-text--media-top) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .path-frontpage .paragraph--type--page-section .layout--twocol:has(.media-with-text--media-top) > .lgd-row__one-half {
+    grid-column: span 6;
+    width: auto;
+  }
+
+  .path-frontpage .paragraph--type--page-section .layout--twocol:has(.media-with-text--media-top) > .lgd-row__full {
+    grid-column: span 12;
+  }
+
   .path-frontpage .paragraph--type--page-section .layout--twocol .layout__region--first {
     padding-right: 15px;
   }
