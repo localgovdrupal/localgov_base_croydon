@@ -704,3 +704,16 @@ li.facet-item.facets-reset input[type="checkbox"]:checked + label:before {
     }
   }
 }
+
+// Directory entry - "View all results" link back to the directory channel
+.localgov-directory-entry__all-results-wrapper {
+  margin-block: 1.5rem;
+}
+
+.localgov-directory-entry__all-results-icon::before { // left chevron before the link text
+  content: $fa-chevron-left;
+  font-family: $font-family-icons;
+  font-weight: $fa-font-weight;
+  display: inline-block;
+  margin-inline-end: 0.5em;
+}

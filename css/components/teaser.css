@@ -33,3 +33,8 @@
 .lgd-topic-list-builder__service-item .node-teaser h3 {
   margin-top: 0;
 }
+
+/* Services listing: space between each service (rows are not in .lgd-teaser-list) */
+.view-services .views-row + .views-row {
+  margin-top: var(--spacing-larger);
+}

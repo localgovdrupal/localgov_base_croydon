@@ -100,3 +100,25 @@
     background-color: $primary;
   }
 }
+
+// "Is this page helpful?" bar (webform iframe embed block, class set via block_class) - full page width, flush with the footer
+.lgd-region--content-bottom > .lgd-container:has(.feedback-bar) { // break out of the centred, padded container
+  max-width: none;
+  padding-inline: 0;
+}
+
+.feedback-bar {
+  &,
+  .field {
+    margin: 0;
+    padding: 0;
+  }
+
+  iframe {
+    display: block; // an inline iframe leaves a gap underneath it
+  }
+}
+
+main:has(.feedback-bar) + .lgd-footer { // no gap between the bar and the footer
+  margin-block-start: 0;
+}

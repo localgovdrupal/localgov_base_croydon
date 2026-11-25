@@ -80,6 +80,8 @@ main {
   input {
     @extend .radiomark;
 
+    accent-color: $black; // native radio dot - black, not the browser's blue
+
     &:checked {
       background-color: $green;
     }

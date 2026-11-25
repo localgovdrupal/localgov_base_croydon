@@ -14,12 +14,19 @@
 //Outer wrapper - Makes tabs full width
 #google-cse-results {
   width: 100%;
+
+  // Google caps its results wrapper at 700px - make the results column two-thirds of the content width
+  @include media-breakpoint-up(md) {
+    .gsc-wrapper {
+      max-width: 66.6667%;
+    }
+  }
 }
 
-//Results content / promotion content 70% width and margin bottom
+//Results content / promotion content fill the results column, with margin bottom
 .gsc-expansionArea,
 .gsc-promotion {
-  width: 70%;
+  width: 100%;
   margin-bottom: 2rem !important;
 }
 
@@ -225,16 +232,6 @@ span.gs-fileFormatType {
 .gcsc-find-more-on-google-branding,
 .gcsc-more-maybe-branding-root {
   display: none !important;
-}
-
-//BELOW 768
-
-@media (max-width: 768px) {
-  //Make results content / promotion content 100% width on mobile
-  .gsc-expansionArea,
-  .gsc-promotion {
-    width: 100%;
-  }
 }
 
 // remove 

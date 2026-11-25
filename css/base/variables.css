@@ -105,7 +105,7 @@ body {
   /* Borders */
   --border-width: 1px;
   --border-width-large: 5px;
-  --border-color: var(--color-grey-light);
+  --border-color: var(--color-grey-medium);
   --border-color-dark: var(--color-grey-dark);
   --border-color-alert: var(--color-black);
   --border-style: solid;

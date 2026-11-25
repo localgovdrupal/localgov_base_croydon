@@ -907,6 +907,20 @@ main.col-sm-8 .webform-type-fieldset legend,
   border: .06rem solid $checkbox-outline !important;
 }
 
+// in-content search forms (e.g. 404 page) - keep the input and button on one line at every width
+.search-block-form .form-inline {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
+
+  .form-control {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
 
 /* Custom Localgov Forms Date Styling */
 

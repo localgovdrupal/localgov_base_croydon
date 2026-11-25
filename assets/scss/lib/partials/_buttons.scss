@@ -4,8 +4,10 @@
   text-decoration: none;
   transition: none; // remove bs setting for this
 
-  &.icon-search { // search button
-    width: auto;
+  &.icon-search { // search button - square at every width
+    width: $input-height;
+    height: $input-height;
+    flex: 0 0 auto;
     background: $indigo;
     color: $white;
 

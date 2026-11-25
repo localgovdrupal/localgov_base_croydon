@@ -112,3 +112,14 @@
     }
   }
 }
+
+// Publication cover page - body two-thirds width from tablet up, no print control
+.localgov-publication-cover-page {
+  @include media-breakpoint-up(md) {
+    max-width: 66.6667%;
+  }
+}
+
+.page-node-type-localgov-publication-cover-page .lgd-page-title-block__print {
+  display: none;
+}

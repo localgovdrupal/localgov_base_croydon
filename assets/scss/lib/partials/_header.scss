@@ -212,6 +212,22 @@
     .form-actions {
       margin-top: 0;
     }
+
+    @include media-breakpoint-down(md) { // keep the search input and button on one line on mobile
+      form {
+        display: flex;
+        align-items: center;
+      }
+
+      .form-item {
+        flex: 1 1 auto;
+      }
+
+      .form-actions {
+        display: flex;
+        margin: 0;
+      }
+    }
   }
 
   .region-header { // set logo position for mobile and unset for desktop
