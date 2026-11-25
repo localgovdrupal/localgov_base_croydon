@@ -1,6 +1,6 @@
 .lgd-prev-next {
   display: block;
-  padding: 20px 0;
+  padding-block: 20px; /* leave the side padding set in base.css */
   margin-bottom: 30px;
 }
 
