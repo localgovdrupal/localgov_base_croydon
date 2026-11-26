@@ -3,6 +3,26 @@
  */
 
 (function ($, Drupal, once) {
+  // Bootstrap 5 only reads data-bs-* attributes. Copy the Bootstrap 4
+  // data-* attributes still used in templates and body content across so
+  // existing collapse and modal markup keeps working.
+  Drupal.behaviors.bootstrapDataAttributes = {
+    attach: function (context) {
+      once('bootstrapDataAttributes', '[data-toggle], [data-dismiss]', context).forEach(function (element) {
+        ['toggle', 'target', 'parent', 'dismiss'].forEach(function (name) {
+          if (element.hasAttribute('data-' + name) && !element.hasAttribute('data-bs-' + name)) {
+            element.setAttribute('data-bs-' + name, element.getAttribute('data-' + name));
+          }
+        });
+      });
+      once('bootstrapDataParent', '.collapse[data-parent]', context).forEach(function (element) {
+        if (!element.hasAttribute('data-bs-parent')) {
+          element.setAttribute('data-bs-parent', element.getAttribute('data-parent'));
+        }
+      });
+    }
+  };
+
   Drupal.behaviors.oneTimeLoad = {
     attach: function (context, settings) {
       once('oneTimeLoad', 'html', context).forEach( function (element) {
