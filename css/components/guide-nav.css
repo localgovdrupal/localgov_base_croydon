@@ -11,6 +11,7 @@
 }
 
 .lgd-guide-nav__title {
+  font-size: var(--font-size-h4); /* h4 size, but stays an h2 for the document outline */
   margin-block: 0 1rem;
   padding-right: 0;
 }
