@@ -12,7 +12,7 @@
 }
 
 .lgd-prev-next__next {
-  border-top: 1px solid var(--color-grey-light);
+  border-top: var(--border); /* key line colour comes from --border-color */
 }
 
 .lgd-prev-next__prev:hover,
