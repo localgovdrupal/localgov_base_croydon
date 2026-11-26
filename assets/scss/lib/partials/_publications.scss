@@ -75,6 +75,21 @@
 
   .publication-document {
     border-bottom: 0.0625rem solid $carbon;
+
+    .file { // hide the file type icon that localgov_base attaches to document media
+      padding-left: 0;
+      background-image: none;
+    }
+
+    h3 a { // document titles - h3 size, underlined like other links
+      font-size: inherit;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
   }
 
   .lgd-row__two-thirds {
